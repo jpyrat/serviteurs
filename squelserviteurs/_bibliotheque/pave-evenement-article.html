@@ -1,0 +1,71 @@
+<div class="row">
+[(#REM) on affiche les 9 derniers événements avec id_article ]
+<B_agenda>
+#ANCRE_PAGINATION
+<BOUCLE_agenda(EVENEMENTS){id_article}{age_fin<0}{par date}{statut=publie}{pagination 5}>
+    <div class="column">
+      <div class="row collapse" itemscope itemtype="http://schema.org/Event">
+        [(#REM) on passe la couleur de l'espace colorComm / colorForm / colorMari ]
+        <div class="dateEvenementCarre large-3 columns colorComm">
+          <p class="texte-filaire">
+            <time itemprop="startDate" title="#DATE_DEBUT" datetime="#DATE_DEBUT">
+            [(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
+            [<span class="dateJour">(#DATE_DEBUT|nom_jour)</span>]
+            [<span class="dateNombre">(#DATE_DEBUT|jour)</span>]
+            [<span class="dateMois">(#DATE_DEBUT|nom_mois)</span>]
+            ,
+            [<span class="dateJour">du (#DATE_DEBUT|nom_jour)</span>]
+            [<span class="dateNombre">(#DATE_DEBUT|jour)</span>]
+            [<span class="dateMois">(#DATE_DEBUT|nom_mois)</span>]
+
+            [<span class="dateJour">au (#DATE_FIN|nom_jour)</span>]
+            [<span class="dateNombre">(#DATE_FIN|jour)</span>]
+            [<span class="dateMois">(#DATE_FIN|nom_mois)</span>]
+            })]
+            </time>
+          </p>
+        </div>
+
+        <div class="dateEvenementTexte large-9 columns">
+          <B_Articles>
+          <BOUCLE_Articles(ARTICLES) {id_evenement}>
+          <h1><a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)]" itemprop="name">#_agenda:TITRE</a></h1>
+          </BOUCLE_Articles>
+          </B_Articles>
+          <h1>#_agenda:TITRE</h1>
+          <//B_Articles>
+          [(#DESCRIPTIF)]
+          [<p class="">
+            (#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
+            [(#HORAIRE|=={oui}|?{
+            [(#REM) memes heures ?]
+            [(#DATE_DEBUT|=={#DATE_FIN}|?{
+            [<span class="dateHeure">(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)</span>],''})
+            ]
+            [(#REM) pas memes heures ?]
+            [(#DATE_DEBUT|!={#DATE_FIN}|?{
+            [<span class="dateHeure">
+              (#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)] -
+              [(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})
+            </span>]
+            ,''})]
+            ,
+            [(#HORAIRE|=={oui}|?{
+            <span class="dateHeure">&agrave; partir de
+              [(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)],''})]
+              [(#HORAIRE|=={oui}|?{
+              <br />jusqu'&agrave;
+              [(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})
+            </span>]
+            })
+          </p>]
+          [<p itemprop="location"><span class="icon-location"></span>(#LIEU)</p>]
+          [(#ADRESSE|inserer_attribut{itemprop,location})]
+        </div>
+
+      </div>
+    </div>
+</BOUCLE_agenda>
+</div>
+#PAGINATION{suite_agenda}
+</B_agenda>

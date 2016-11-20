@@ -1,0 +1,51 @@
+<BOUCLE_(RUBRIQUES){id_rubrique}>
+<div class="contentEspace row" id="ancre_rubrique">
+  <div class="bandeau-espace text-center avec-margin-bottom">
+    [<img src="(#LOGO_RUBRIQUE|image_passe_partout{1200,320}|image_recadre{1200,320}|extraire_attribut{src})" alt="">]
+    <h1 class="colorComm">#TITRE</h1>
+  </div>
+  <div class="medium-8 columns avec-margin-top avec-margin-bottom avec-padding-bottom">
+    <BOUCLE_a(ARTICLES){id_rubrique}{par num titre}>
+    <article class="focus text-center avec-margin-bottom avec-padding-bottom">
+      <a href="#URL_ARTICLE" title="Voir cette article">
+        [<img src="(#LOGO_ARTICLE|image_passe_partout{400,290}|image_recadre{400,290}|extraire_attribut{src})" alt="">]
+      </a>
+      <h2>
+        <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+      </h2>
+      <div class="sous-titre">#SOUSTITRE</div>
+    </article>
+    </BOUCLE_a>
+  </div>
+
+  <aside class="medium-4 columns avec-margin-top">
+    <section class="text-center show-for-small-only">
+      <h1>Pour aller plus loin</h1>
+      <BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{0,4}>
+      <article class="triadeC avec-padding avec-margin-bottom05">
+        <h2>
+          <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+        </h2>
+        <div class="sous-titre">#SOUSTITRE</div>
+      </article>
+      </BOUCLE_ap>
+    </section>
+    <INCLURE{fond=_bibliotheque/pave-evenement-rubrique,env} />
+
+    <section class="text-center show-for-medium">
+      <h1>Pour aller plus loin</h1>
+      <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
+      <article class="triadeC avec-padding avec-margin-bottom05">
+        <h2>
+          <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+        </h2>
+        <div class="sous-titre">
+          #SOUSTITRE
+        </div>
+      </article>
+      </BOUCLE_apa>
+    </section>
+  </aside>
+
+</div>
+</BOUCLE_>

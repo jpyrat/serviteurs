@@ -1,0 +1,395 @@
+[(#REM) rubrique 15 pour le maquettage ]
+<BOUCLE_(RUBRIQUES){id_rubrique=15}>
+<div class="row column">
+  [(#REM) le breadcrumb ]
+  <nav class="show-for-medium" aria-label="Vous êtes ici :" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
+      <BOUCLE_Breadcrumbs(HIERARCHIE){id_rubrique}>
+      <li><a href="#URL_RUBRIQUE" title="Voir la rubrique #TITRE">#TITRE</a></li>
+      </BOUCLE_Breadcrumbs>
+      <li title="En cours: #TITRE">
+        <span class="show-for-sr">En cours: </span>#TITRE
+      </li>
+    </ul>
+  </nav>
+</div>
+
+[(#REM) 3 article en focus ]
+<div class="contentHomelie row column text-center" id="ancre_rubrique">
+  <h1 class="texte-triadeA">#TITRE</h1>
+  <BOUCLE_a(ARTICLES){id_rubrique}{par num titre}{0,3}>
+  #SET{couleur,colorJeun}
+  <article class="focus row text-center flexbox-stretch">
+    <div class="large-4 medium-6 columns">
+      <div class="logo-content #GET{couleur}">
+        <p class="font-size-130 texte-blanc avec-padding-leftright">27e dimanche du temps ordinaire</p>
+        <div class="transitionHomelies avec-padding-top">
+          <hr />
+          <span class="icon-chevron-thin-up icon-lg #GET{couleur}"></span>
+        </div>
+        <p class="h2 texte-blanc text-uppercase avec-padding">Année C</p>
+      </div>
+    </div>
+    <div class="large-8 medium-6 columns medium-text-left flexbox-wrap-space-between">
+      <header>
+        <h2>
+          <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+        </h2>
+        <p class="sans-padding"><BOUCLEaut(AUTEURS){id_article}>[(#NOM) - ]</BOUCLEaut>[(#DATE*|affdate)]</p>
+      </header>
+      <footer class="avec-padding-bottom">
+        <BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}>
+        #MODELE{emb,skin=ted,hauteur=85}
+        <a href="#" title="Télécharger le fichier audio"><small>Télécharger <BOUCLE_aa(ARTICLES){id_article}>#TITRE</BOUCLE_aa> - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
+        </BOUCLE_mp3>
+      </footer>
+      <a class="chevron show-for-medium" href="#URL_ARTICLE" title="Voir cette article"><span class="icon-chevron-thin-right texte-#GET{couleur}"></span></a>
+    </div>
+  </article>
+  [(#REM) pour l'exemple ]
+
+  #SET{couleur,colorComm}
+  <article class="focus row text-center flexbox-stretch">
+    <div class="large-4 medium-6 columns">
+      <div class="logo-content #GET{couleur}">
+        <p class="font-size-130 texte-blanc avec-padding-leftright">27e dimanche du temps ordinaire</p>
+        <div class="transitionHomelies avec-padding-top">
+          <hr />
+          <span class="icon-chevron-thin-up icon-lg #GET{couleur}"></span>
+        </div>
+        <p class="h2 texte-blanc text-uppercase avec-padding">Année C</p>
+      </div>
+    </div>
+    <div class="large-8 medium-6 columns medium-text-left flexbox-wrap-space-between">
+      <header>
+        <h2>
+          <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+        </h2>
+        <p class="sans-padding"><BOUCLEautz(AUTEURS){id_article}>[(#NOM) - ]</BOUCLEautz>[(#DATE*|affdate)]</p>
+      </header>
+      <footer class="avec-padding-bottom">
+        <BOUCLE_mp3z(DOCUMENTS){id_article}{extension==mp3}>
+        #MODELE{emb,skin=ted,hauteur=85}
+        <a href="#" title="Télécharger le fichier audio"><small>Télécharger <BOUCLE_az(ARTICLES){id_article}>#TITRE</BOUCLE_az> - Année C - <BOUCLEauttz(AUTEURS){id_article}>[(#NOM)]</BOUCLEauttz></small></a>
+        </BOUCLE_mp3z>
+      </footer>
+      <a class="chevron show-for-medium" href="#URL_ARTICLE" title="Voir cette article"><span class="icon-chevron-thin-right texte-#GET{couleur}"></span></a>
+    </div>
+  </article>
+
+  </BOUCLE_a>
+
+</div>
+
+<div id="ancre_recherche-homelies" class="contentHomelie">
+  <section class="row column text-center avec-padding-top">
+    <h1 class="texte-triadeA avec-padding-bottom">Rechercher une homélie</h1>
+    <div class="row">
+      <div class="medium-8 columns avec-margin-bottom">
+        [(#REM) le calendrier ]
+        <INCLURE{fond=_bibliotheque/agenda-homelies,env,ajax} />
+
+      </div>
+      <div class="listeRecherches medium-4 columns">
+        <article>
+          <h2>Rechercher une homélie par prédicateur</h2>
+          <div class="sans-padding">
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'un prédicateur">Sélectionner un prédicateur</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner Frère Jacques">Frère Jacques</a></li>
+                  <li><a href="#" title="Sélectionner Frère Augustin">Frère Augustin</a></li>
+                  <li><a href="#" title="Sélectionner Frère Pierre-Marie">Frère Pierre-Marie</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <h2>Rechercher une homélie par évangile</h2>
+          <div class="sans-padding">
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'une homélie par évangile">Sélectionner une homélie par évangile</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner Évangile selon Saint-Marc">Évangile selon Saint-Marc</a></li>
+                  <li><a href="#" title="Sélectionner Évangile selon Saint-Jean">Évangile selon Saint-Jean</a></li>
+                  <li><a href="#" title="Sélectionner Évangile selon Saint-Luc">Évangile selon Saint-Luc</a></li>
+                  <li><a href="#" title="Sélectionner Évangile selon Saint-Jean">Évangile selon Saint-Jean</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <h2>Rechercher une homélie par thème</h2>
+          <div class="sans-padding">
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'une homélie par thème">Sélectionner une homélie par thème</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner Thème 01">Thème 01</a></li>
+                  <li><a href="#" title="Sélectionner Thème 02">Thème 02</a></li>
+                  <li><a href="#" title="Sélectionner Thème 03">Thème 03</a></li>
+                  <li><a href="#" title="Sélectionner Thème 04">Thème 04</a></li>
+                  <li><a href="#" title="Sélectionner Thème 05">Thème 05</a></li>
+                  <li><a href="#" title="Sélectionner Thème 06">Thème 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <h2>Recherche libre</h2>
+            <section class="recherche-homelies">
+              <form action="?page=recherche-homelies" method="get" style="position: relative;">
+                <label for="champRecherche" style="display:none">Rechercher :</label>
+                <input class="champRechercheHomelies text"
+                       id="champRechercheHomelies"
+                       name="recherche"
+                       title="Saisir de 3 à 30 caractères"
+                       required="required"
+                       pattern="[\D\d\s]{3,30}"
+                       maxlength="30"
+                       placeholder="recherche"
+                       type="search"
+                       style="padding-left: 5em;">
+                <button name="button" title="Lancer la recherche" type="submit">
+                  <span class="icon-search texte-colorP" style="padding-top:.1em;"></span>
+                </button>
+              </form>
+            </section>
+        </article>
+      </div>
+    </div>
+  </section>
+
+[(#REM) temps-ordinaire ]
+  <div class="zone-arriere avec-padding">
+    <div class="row column content-temps-ordinaire text-center" id="ancre_temps-ordinaire">
+      <h1 class="trait-intertitre text-transform-none">Temps ordinaire</h1>
+      <div class="row medium-up-3 collapse avec-margin-top flexbox-center-top">
+        <div class="column avec-margin-bottom">
+          <div class="pave-content tempsAnnee avec-padding menulisteRecherches">
+            <h2 class="">Année A</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'une année par dimanche">Sélectionner un dimanche</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column avec-margin-bottom">
+          <div class="pave-content tempsAnnee avec-padding menulisteRecherches">
+            <h2 class="">Année B</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'une année par dimanche">Sélectionner un dimanche</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column avec-margin-bottom">
+          <div class="pave-content tempsAnnee avec-padding menulisteRecherches">
+            <h2 class="">Année C</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'une année par dimanche">Sélectionner un dimanche</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+[(#REM) temps-liturgiques ]
+  <div class="zone-arriere avec-padding">
+    <div class="content-temps-liturgiques text-center" id="ancre_temps-liturgiques">
+      <h1 class="trait-intertitre text-transform-none">Temps liturgiques</h1>
+      <div class="row large-up-3 medium-up-2 avec-margin-bottom avec-margin-top flexbox-center-top">
+        <div class="column avec-margin-bottom">
+          <div class="pave-content tempsAvent avec-padding menulisteRecherches">
+            <h2 class="texte-blanc text-transform-none">Temps de l'avent</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'un temps">Sélectionner</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column avec-margin-bottom">
+          <div class="pave-content tempsNoel avec-padding menulisteRecherches">
+            <h2 class="texte-blanc text-transform-none">Temps de Noël</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'un temps">Sélectionner</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column avec-margin-bottom">
+          <div class="pave-content tempsCareme avec-padding menulisteRecherches">
+            <h2 class="texte-blanc text-transform-none">Temps de carême</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'un temps">Sélectionner</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column avec-margin-bottom">
+          <div class="pave-content tempsPascal avec-padding menulisteRecherches">
+            <h2 class="texte-blanc text-transform-none">Temps Pascal</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection d'un temps">Sélectionner</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column avec-margin-bottom">
+          <div class="pave-content tempsSolennites avec-padding menulisteRecherches">
+            <h2 class="texte-blanc text-transform-none">Solennités hors dimanches</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection solennités">Sélectionner</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+[(#REM) événements de la vie ]
+  <div class="zone-arriere avec-padding">
+    <div class="row column content-evenements-vie text-center" id="ancre_evenements-vie">
+      <h1 class="trait-intertitre text-transform-none">Les événements de la vie</h1>
+      <div class="row medium-up-3 collapse avec-margin-top avec-padding-leftright">
+        <div class="column avec-margin-bottom">
+          <div class="pave-content evenementsVie avec-padding menulisteRecherches">
+            <h2 class="texte-colorComm text-transform-none">Mariage</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection">Sélectionner</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column avec-margin-bottom">
+          <div class="pave-content evenementsVie avec-padding menulisteRecherches">
+            <h2 class="texte-colorComm text-transform-none">Obsèques</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection">Sélectionner</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column avec-margin-bottom">
+          <div class="pave-content evenementsVie avec-padding menulisteRecherches">
+            <h2 class="texte-colorComm text-transform-none">Vœux & ordination des frères</h2>
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Menu de sélection">Sélectionner</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
+                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</BOUCLE_>

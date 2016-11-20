@@ -1,0 +1,25 @@
+#HTTP_HEADER{Content-type:text/javascript;}[(#REM)
+]#SET{Triade,#ARRAY{0,colorComm,1,colorForm,2,colorMari}}[(#REM)
+]#SET{CouleurTheme,#ARRAY}[(#REM)
+]<BOUCLE_CouleursAgenda(MOTS mots_liens){objet=evenement}{type==^#ENV{type,AgendaTheme}}{par id_groupe,titre}>[(#REM)
+][(#SET{TypeTriade,[(#GET{Triade}|table_valeur{[(#COMPTEUR_BOUCLE|moins{1}|modulo{3})]}) ]})][(#REM)
+][(#SET{PourcentageOpacity,[(#COMPTEUR_BOUCLE|moins{2}|div{3}|round{0}|mult{-20}|plus{100})]})][(#REM)
+][(#SET{CouleurTheme,#GET{CouleurTheme}|array_merge{#ARRAY{mot#ID_MOT,#GET{TypeTriade} opacity-#GET{PourcentageOpacity}}}})][(#REM)
+]</BOUCLE_CouleursAgenda>[(#REM)
+][<BOUCLE_evenements(EVENEMENTS){id_mot ?= #ENV{id_mot}}{', '}{par date_debut}
+{agendafull date_debut,date_fin, periode,
+	#VAL{Y}|date{#ENV{start}}, #VAL{m}|date{#ENV{start}}, #VAL{d}|date{#ENV{start}},
+	#VAL{Y}|date{#ENV{end}}, #VAL{m}|date{#ENV{end}}, #VAL{d}|date{#ENV{end}}}
+>[(#REM)
+]#SET{couleurThematique,'colorComm'}[(#REM)
+]<BOUCLE_e(MOTS){id_evenement}{id_mot ?= #ENV{id_mot}}{0,1}>[(#SET{couleurThematique,[(#GET{CouleurTheme}|table_valeur{mot#ID_MOT})]})]</BOUCLE_e>[(#REM)
+][(#ARRAY{id,#ID_EVENEMENT,
+title,[(#TITRE|supprimer_tags|html2unicode|unicode2charset)],
+allDay,[(#HORAIRE|=={non}|?{#EVAL{true},#EVAL{false}})],
+lieu,#LIEU,
+adresse,#ADRESSE,
+start,#DATE_DEBUT,
+end,#DATE_FIN,
+className,#GET{couleurThematique},
+url,[(#ID_RUBRIQUE|>{0}|?{#URL_ARTICLE#listeEvenements})],
+description,[(#DESCRIPTIF|supprimer_tags|couper{85}|html2unicode|unicode2charset)]}|json_encode)]</BOUCLE_evenements>]

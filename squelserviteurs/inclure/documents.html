@@ -1,0 +1,24 @@
+[(#REM) Portfolio : album d'images ]
+<B_documents_portfolio>
+<section class="avec-padding-top avec-padding-bottom">
+  <h1 class="texte-colorComm text-center avec-margin-bottom show-for-medium">Galerie photos</h1>
+  <div class="bloc clearfix" id="documents_portfolio">
+    <h2 class="hide"><:medias:info_portfolio:></h2>
+    <ul class="row small-up-2 medium-up-3 large-up-5">
+      <BOUCLE_documents_portfolio(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {!par num titre, date}{doublons}{vu=non}>[
+        <li class="column"><a href="(#URL_DOCUMENT)" type="#MIME_TYPE" rel="galerie" onclick="location.href = '[(#URL_ARTICLE
+                  | url_absolue
+                  | parametre_url{id_document, #ID_DOCUMENT}
+          | ancre_url{documents_portfolio}
+          )]';return false;"[ class="(#EXPOSER)"][ title="(#TITRE|attribut_html|couper{80})"]>[(#FICHIER
+            |image_passe_partout{230,230}
+            |image_recadre{230,230}
+            |inserer_attribut{class,spip_logos}
+            |inserer_attribut{class,thumbnail}
+            |inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]</a></li>
+        ]</BOUCLE_documents_portfolio>
+    </ul>
+  </div>
+</section>
+</B_documents_portfolio>
+

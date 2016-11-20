@@ -1,0 +1,41 @@
+  <div class="triadeA opacity-60 show-for-medium" id="navPage">
+    <nav role="navigation" style="width:100%;">
+      <div class="nomSiteSticky grisTresClair row column expanded text-center invisible">
+        <p><a href="#URL_SITE_SPIP" title="Retour à l'accueil">
+          #NOM_SITE_SPIP
+        </a></p>
+      </div>
+      <div class="row expanded">
+        <div class="small-12 columns sans-padding">
+          <div class="title-bar">
+            <div class="title-bar-left">
+              <div class="title-bar-title" data-toggle="menu-ext-gauche"><a title="menu plan du site" role="navigation"><span class="icon-bar"></span></a></div>
+            </div>
+            <div class="title-bar-right">
+              <div class="title-bar-title" data-toggle="menu-ext-droite"><a title="menu des autres services" role="navigation">Les services<span class="fa fa-list fa-fw"></span></a></div>
+            </div>
+            <div class="title-bar-center">
+              <ul class="dropdown menu" role="navigation">
+		<BOUCLE_rub(RUBRIQUES){racine}{!id_rubrique=15}>
+                <li><a href="#URL_RUBRIQUE" title="Voir #TITRE">#TITRE</a></li>
+		</BOUCLE_rub>
+              </ul>
+            </div>
+            [(#REM) barre de navigation/raccourcis en haut ou en bas sur petits écrans ]
+            <div class="title-bar-center triadeC" id="navPictosRaccourcisSommaire">
+              <nav role="navigation">
+                <ul class="menu">
+                  <li><a href="#URL_SITE_SPIP#ancre_contact" title="Nous contacter"><span class="icon-envelope icon-2x texte-triadeA"></span></a></li>
+                  <li><a href="#URL_SITE_SPIP#ancre_agenda" title="Agenda"><span class="icon-calendar-check-o icon-2x texte-triadeA"></span></a></li>
+                  <li><a href="#URL_SITE_SPIP#ancre_newsletter" title="Newsletter"><span class="icon-paper-plane icon-2x texte-triadeA"></span></a></li>
+                  <li><a href="#" title="Notre page Twitter"><span class="icon-twitter icon-2x texte-triadeA"></span></a></li>
+                  <li><a href="#" title="Notre page Facebook"><span class="icon-facebook icon-2x texte-triadeA"></span></a></li>
+                  <li class="show-for-small-only"><a href="#top" title="Revenir en haut de la page"><span class="icon-chevron-up"></span></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>

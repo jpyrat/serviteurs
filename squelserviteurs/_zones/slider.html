@@ -1,0 +1,62 @@
+<div class="zone-arriere avec-margin-bottom avec-padding-bottom">
+  <div class="zone-slider row expanded column sans-padding">
+    <h1 class="hide">SLIDER</h1>
+      <article class="slider-imgwide-titre-right">
+        [(#REM) affichage smartphones ]
+        <div class="show-for-small-only" role="region" aria-label="Diaporama d'accueil">
+          <a href="#" title="Lire l'article suivant">
+            <div class="slider-content desc-bas text-center">
+              <h2>Direction spirituelle</h2>
+            </div>
+          </a>
+        </div>
+        [(#REM) affichage pour les autres ]
+        <div class="slider-slick show-for-medium" role="region" aria-label="Diaporama d'accueil">
+          [(#REM) Diapo avec une seule image full ]
+          <div class="slider-diapo-imgfull">
+            <a href="#" title="Lire l'article suivant">
+              <img src="https://unsplash.it/1920/525?image=1043" alt="" />
+            </a>
+          </div>
+          [(#REM) Diapo avec 2 images + #TITRE ]
+          <div class="slider-diapo-imgx2">
+            <div class="row sans-padding collapse">
+              <div class="medium-4 columns">
+                <img src="https://unsplash.it/640/525?image=1040" alt="" />
+              </div>
+              <div class="medium-8 columns" style="outline: 1.5em solid white;">
+                <a href="#" title="Lire l'article suivant">
+                  <img src="https://unsplash.it/1280/525?image=984" alt="" />
+                  <div class="slider-content desc-centre text-center">
+                    <h2>Le mariage en plus</h2>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          [(#REM) Diapo avec 1 applat de couleur + #DESCRIPTIF et 1 image + #TITRE ]
+          #SET{colorDiapo,#39557A}
+          <div class="slider-diapo-couleur-img" style="background-color:#GET{colorDiapo}">
+            <div class="row sans-padding collapse flexbox--center">
+              <div class="medium-4 columns">
+                <div class="slider-content">
+                  <p>Nous vous accueillons pour des retraites, des haltes spirituelles, des préparations au mariage</>
+                </div>
+              </div>
+              <div class="medium-8 columns" style="outline: 1.5em solid white;">
+                <a href="#" title="Lire l'article suivant">
+                  <img src="https://unsplash.it/1280/525?image=1005" alt="" />
+                  <div class="slider-content desc-centre text-center">
+                    <h2>Direction spirituelle</h2>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        [(#REM) chargement du script Slick )]
+        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+      </article>
+  </div>
+
+</div>

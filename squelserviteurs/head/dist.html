@@ -1,0 +1,44 @@
+[(#REM)
+  Cette inclusion est celle utilisee par defaut lorsqu'un head/xxx demande
+	n'existe pas
+
+	Ces deux balises #NOM_SITE_SPIP et #DESCRIPTIF_SITE_SPIP
+	permettent de récupérer des informations de configuration de SPIP
+	que l'on renseigne dans l'espace privé.
+
+	Ces enregistrements sont stockés en base de donnée dans une
+	table appelée "spip_meta". Les champs de la table peuvent aussi
+	être récupérés en utilisant la balise #CONFIG{nom de la configuration}
+	ce qui donnerait ici : #CONFIG{nom_site_spip}
+
+	Les |mot suivants les #BALISE indique qu'on applique certains traitements
+	au texte retourné par la balise.
+
+	|textebrut supprime toute balise HTML, |couper{150} coupe le texte
+	retourné à 150 caractères. Ces "filtres" peuvent se chaîner
+	|filtreA|filtreB ...
+
+	Ces deux lignes permettent au bout du compte de renseigner le titre
+	de la page affiché tout en haut du navigateur ainsi que la description du site
+	(utile aux moteurs de recherche)
+]
+<title>[(#NOM_SITE_SPIP|textebrut)]</title>
+[(#REM) FaceBook Open Graph : https://developers.facebook.com/docs/opengraphprotocol/ & https://developers.facebook.com/tools/lint pour vérifier ]
+<BOUCLE_Article(ARTICLES){id_article}>
+[<meta name="description" content="(#INTRODUCTION{150}|supprimer_tags|attribut_html)" />]
+<meta property="og:title" content="[(#TITRE|sinon{#NOM_SITE_SPIP}|supprimer_tags|attribut_html)]" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="[(#URL_ARTICLE|url_absolue)]" />
+[<meta property="og:description" content="(#INTRODUCTION{150}|sinon{#DESCRIPTIF_SITE_SPIP}|supprimer_tags|attribut_html)" />]
+<meta property="og:locale" content="[(#LANG|strtolower)]_[(#LANG|strtoupper)]" />
+<BOUCLE_LogoArticle(ARTICLES){id_article}{logo}>[<meta property="og:image" content="(#LOGO_ARTICLE_NORMAL|extraire_attribut{src}|url_absolue)" />]</BOUCLE_LogoArticle><BOUCLE_LogoRubrique(RUBRIQUES){id_rubrique}{logo}>[<meta property="og:image" content="(#LOGO_RUBRIQUE_NORMAL|extraire_attribut{src}|url_absolue)" />]</BOUCLE_LogoRubrique>[<meta property="og:image" content="(#LOGO_SITE_SPIP_NORMAL|extraire_attribut{src}|url_absolue)" />]<//B_LogoRubrique><//B_LogoArticle>
+</BOUCLE_Article>
+[<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|supprimer_tags|attribut_html)" />]
+<meta property="og:title" content="[(#NOM_SITE_SPIP|supprimer_tags|attribut_html)]" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="[(#SELF|url_absolue)]" />
+[<meta property="og:description" content="(#DESCRIPTIF_SITE_SPIP|supprimer_tags|attribut_html)" />]
+<meta property="og:locale" content="[(#LANG|strtolower)]_[(#LANG|strtoupper)]" />
+[<meta property="og:image" content="(#LOGO_SITE_SPIP_NORMAL|extraire_attribut{src}|url_absolue)" />]
+<//B_Article>
+<meta property="og:site_name" content="[(#NOM_SITE_SPIP|textebrut)]" />

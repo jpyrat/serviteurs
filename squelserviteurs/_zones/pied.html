@@ -1,0 +1,168 @@
+<div class="zone-arriere triadeB" id="ancre_raccourcis">
+  <div class="raccourcis row column">
+    <section class="liens-raccourcis">
+      <h1 class="hide">Raccourcis</h1>
+      <div class="row large-up-4 medium-up-4 small-up-1 align-center flexbox-center-top">
+        <INCLURE{fond=_bibliotheque/pave-raccourci,picto=icon-bougie,titre='Déposer une intention de prière'} />
+
+        <INCLURE{fond=_bibliotheque/pave-raccourci,picto=icon-calice,titre='Faire dire une messe'} />
+
+        <INCLURE{fond=_bibliotheque/pave-raccourci,picto=icon-euro,titre='Faire un don à la communauté'} />
+
+        <INCLURE{fond=_bibliotheque/pave-raccourci,picto=icon-microphone,titre='Écouter / lire les homélies'} />
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="zone-arriere" id="ancre_coordonnees">
+  <div class="row">
+    <div class="coordonnees large-8 columns avec-padding-top avec-margin-top avec-margin-bottom">
+      <INCLURE{fond=_bibliotheque/pave-pastille-titre}
+            {titrepastille='Coordonnées'}
+            {pictopastille='icon-location'}
+            {couleurpastille='texte-triadeA'}
+      />
+      [(#REM) carte pour petits écrans ]
+      [<figure class="sans-margin avec-margin-bottom avec-padding05 avec-border show-for-small-only">
+        <a href="#" title="Voir la carte">
+          <img src="(#CHEMIN{css/img/carte.png})" alt="Carte de situation" />
+        </a>
+      </figure>]
+      [(#REM) Ourscamp ]
+      <div class="row avec-margin avec-border-bottom">
+        <div class="medium-7 columns">
+          <span class="icon-map icon-25x texte-colorOurs float-left avec-padding-right"></span>
+          <p>Abbaye d'Ourscamp<br />
+            1 place Saint-Éloi<br />
+          60 138 Chiry-Ourscamp</p>
+        </div>
+        <div class="medium-5 columns text-center medium-text-left">
+          <span class="icon-phone icon-25x texte-colorOurs float-left avec-padding-right05 show-for-medium"></span>
+          <p class="phone">03 44 75 72 00</p>
+        </div>
+      </div>
+      [(#REM) Ottmarsheim ]
+      <div class="row avec-margin avec-border-bottom">
+        <div class="medium-7 columns">
+          <span class="icon-map icon-25x texte-colorOttm float-left avec-padding-right"></span>
+          <p>Abbaye d'Ourscamp<br />
+            1 place Saint-Éloi<br />
+          60 138 Chiry-Ourscamp</p>
+        </div>
+        <div class="medium-5 columns text-center medium-text-left">
+          <span class="icon-phone icon-25x texte-colorOttm float-left avec-padding-right05 show-for-medium"></span>
+          <p class="phone">03 44 75 72 00</p>
+        </div>
+      </div>
+      [(#REM) Jeunesse ]
+      <div class="row avec-margin-left avec-margin-top avec-margin-right">
+        <div class="medium-7 columns">
+          <span class="icon-map icon-25x texte-colorJeun float-left avec-padding-right"></span>
+          <p>Abbaye d'Ourscamp<br />
+            1 place Saint-Éloi<br />
+          60 138 Chiry-Ourscamp</p>
+        </div>
+        <div class="medium-5 columns text-center medium-text-left">
+          <span class="icon-phone icon-25x texte-colorJeun float-left avec-padding-right05 show-for-medium"></span>
+          <p class="phone">03 44 75 72 00</p>
+        </div>
+      </div>
+      [(#REM) carte pour grands écrans ]
+      <div class="row column avec-padding show-for-medium">
+        [<figure class="sans-margin avec-padding05 avec-border">
+          <a href="#" title="Voir la carte">
+            <img src="(#CHEMIN{css/img/carte.png})" alt="Carte de situation" />
+          </a>
+        </figure>]
+      </div>
+    </div>
+
+    [(#REM) les contacts ]
+    <div class="contact large-4 columns avec-padding avec-margin-top avec-margin-bottom">
+      <INCLURE{fond=_bibliotheque/pave-pastille-titre}
+            {titrepastille='Contacts'}
+            {pictopastille='icon-envelope'}
+            {couleurpastille='texte-triadeA'}
+      />
+      [(#REM) Ourscamp ]
+      <div class="row text-center avec-margin-bottom05 avec-padding05 avec-border flexbox--center">
+        <div class="small-3 columns">
+          <span class="icon-bed icon-25x texte-colorOurs"></span>
+        </div>
+        <div class="bouton small-9 columns avec-border-left">
+          <a href="#" title="Information Hôtellerie de l'Abbaye d'Ourscamp">Hôtellerie de l'Abbaye d'Ourscamp</a>
+        </div>
+      </div>
+      [(#REM) Ottmarsheim ]
+      <div class="row text-center avec-margin-bottom05 avec-padding05 avec-border flexbox--center">
+        <div class="small-3 columns">
+          <span class="icon-bed icon-25x texte-colorOttm"></span>
+        </div>
+        <div class="bouton small-9 columns avec-border-left">
+          <a href="#" title="Information Hôtellerie du prieuré d'Ottmarsheim">Hôtellerie du prieuré d'Ottmarsheim</a>
+        </div>
+      </div>
+      [(#REM) Jeunesse ]
+      <div class="row text-center avec-margin-bottom05 avec-padding05 avec-border flexbox--center">
+        <div class="small-3 columns">
+          <span class="icon-user icon-25x texte-colorJeun"></span>
+        </div>
+        <div class="bouton small-9 columns avec-border-left">
+          <a href="#" title="Information Œuvre de Jeunesse de Mulhouse">Œuvre de Jeunesse de Mulhouse</a>
+        </div>
+      </div>
+      [(#REM) Contacter un frère ]
+      <div class="row text-center avec-margin-bottom avec-padding05 avec-border flexbox--center">
+        <div class="small-3 columns">
+          <span class="icon-moine icon-25x texte-colorP"></span>
+        </div>
+        <div class="bouton small-9 columns avec-border-left">
+          <ul class="dropdown menu" data-dropdown-menu role="navigation">
+            <li>
+              <a href="#" title="Pour Contacter un frère">Contacter un frère</a>
+              <ul class="menu vertical">
+                <li><a href="#" title="?">Frère Jean</a></li>
+                <li><a href="#" title="?">Frère Jacques</a></li>
+                <li><a href="#" title="?">Frère Julien</a></li>
+                <li><a href="#" title="?">Frère Jean</a></li>
+                <li><a href="#" title="?">Frère Jacques</a></li>
+                <li><a href="#" title="?">Frère Julien</a></li>
+                <li><a href="#" title="?">Frère Jean</a></li>
+                <li><a href="#" title="?">Frère Jacques</a></li>
+                <li><a href="#" title="?">Frère Julien</a></li>
+                <li><a href="#" title="?">Frère Jean</a></li>
+                <li><a href="#" title="?">Frère Jacques</a></li>
+                <li><a href="#" title="?">Frère Julien</a></li>
+                <li><a href="#" title="?">Frère Jean</a></li>
+                <li><a href="#" title="?">Frère Jacques</a></li>
+                <li><a href="#" title="?">Frère Julien</a></li>
+                <li><a href="#" title="?">Frère Jean</a></li>
+                <li><a href="#" title="?">Frère Jacques</a></li>
+                <li><a href="#" title="?">Frère Julien</a></li>
+                <li><a href="#" title="?">Frère Jean</a></li>
+                <li><a href="#" title="?">Frère Jacques</a></li>
+                <li><a href="#" title="?">Frère Julien</a></li>
+                <li><a href="#" title="?">Frère Jean</a></li>
+                <li><a href="#" title="?">Frère Jacques</a></li>
+                <li><a href="#" title="?">Frère Julien</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="zone-arriere triadeA" id="ancre_pied">
+  <div class="pied row column menu-centered">
+    <ul class="menu texte-blanc">
+      <li><a class="texte-blanc" href="#" title="Accueil Serviteurs de Jésus & de Marie">© 2016 Serviteurs de Jésus & de Marie</a></li>
+      <li>|</li>
+      <li><a class="texte-blanc" href="#" title="Lire Mentions légales">Mentions légales</a></li>
+    </ul>
+  </div>
+</div>
+
+[<script type="text/javascript" src="(#CHEMIN{js/squelserviteurs.js})"></script>]

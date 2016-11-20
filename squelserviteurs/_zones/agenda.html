@@ -1,0 +1,70 @@
+<div class="zone-arriere avec-padding" id="ancre_agenda"
+    style="background-image:url([(#CHEMIN{css/img/AdobeStock_74641866.jpg})])"
+    data-enllax-ratio="0.2"
+     >
+  <div class="agenda row column">
+    <INCLURE{fond=_bibliotheque/pave-pastille-titre}
+          {titrepastille='Agenda'}
+          {pictopastille='icon-calendar-check-o'}
+          {couleurpastille='texte-triadeA'}
+    />
+    <article class="agenda-calendrier avec-margin-bottom avec-padding-bottom">
+      <div class="agenda-calendrier-content row">
+        <div class="medium-8 columns medium-push-4" id="agenda-boutons-filtre">
+          <div class="row align-center">
+            <div class="medium-4 columns text-center">
+              <a class="colorComm" href="#" title="Afficher les événements de l'Abbaye d'Ourscamp">Abbaye d'Ourscamp</a>
+            </div>
+            <div class="medium-4 columns text-center">
+              <a class="colorOttm" href="#" title="Afficher les événements du Prieuré d'Ottmarsheim">Prieuré d'Ottmarsheim</a>
+            </div>
+            <div class="medium-4 columns text-center">
+              <a class="colorJeun" href="#" title="Afficher les événements de l'Œuvre de jeunesse">Œuvre de jeunesse</a>
+            </div>
+          </div>
+          <div class="sans-padding avec-margin-bottom-for-medium">
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Choisir le public concerné">Pour qui ?</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Pour Adultes">Adulte</a></li>
+                  <li><a href="#" title="Pour Jeunes">Jeunes</a></li>
+                  <li><a href="#" title="Pour 25 / 35 ans">25 / 35 ans</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          [(#REM) le calendrier ]
+          <INCLURE{fond=_bibliotheque/agenda,env,ajax} />
+          <div class="sans-padding avec-margin-bottom">
+            <ul class="dropdown menu" data-dropdown-menu role="navigation">
+              <li>
+                <a href="#" title="Choisir le public concerné">Participez à nos offices</a>
+                <ul class="menu vertical">
+                  <li><a href="#" title="Pour Ourscamp">Ourscamp</a></li>
+                  <li><a href="#" title="Pour Ottmarsheim">Ottmarsheim</a></li>
+                  <li><a href="#" title="Pour Œuvres de jeunesse">Œuvres de jeunesse</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <nav class="medium-4 columns medium-pull-8" role="navigation">
+          <div class="listeEvenementsAgenda">
+            <h3 class="hide">Événements</h3>
+            <INCLURE{fond=_bibliotheque/pave-evenement-rubrique,env} />
+          </div>
+        </nav>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+[<script type="text/javascript" src="(#CHEMIN{js/jquery.enllax.min.js})"></script>]
+<script type="text/javascript">
+  $(document).ready( function() {
+    // init parallax
+    $(window).enllax();
+  });
+</script>

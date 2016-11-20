@@ -1,0 +1,105 @@
+<div class="row column">
+  <link rel='stylesheet' type='text/css' href='#CHEMIN{lib/fullcalendar/fullcalendar.css}' />
+  <div id="agenda"></div>
+    <script type='text/javascript' src='#CHEMIN{lib/fullcalendar/fullcalendar.min.js}'></script>
+
+    <script type="text/javascript">
+    /*<![CDATA[*/
+	var agendaSource = "[(#URL_PAGE{agenda.json}
+            |parametre_url{id_mot,#ENV{id_mot}}
+            |parametre_url{motstheme,#ENV{motstheme}}
+            |parametre_url{motscible,#ENV{motscible}}
+            |parametre_url{motszone,#ENV{motszone}}
+            |parametre_url{recherche,#ENV{recherche}}
+            |replace{&amp;,&})]";
+    jQuery(document).ready(function() {
+        $('#agenda').fullCalendar({
+            editable: false,
+            eventSources: [agendaSource],
+			cache: true,
+            header: {
+                left: 'prevYear,prev,next,nextYear today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            firstDay: 1,
+            monthNames:['<:date_mois_1|attribut_html:>','<:date_mois_2|attribut_html:>','<:date_mois_3|attribut_html:>','<:date_mois_4|attribut_html:>','<:date_mois_5|attribut_html:>','<:date_mois_6|attribut_html:>','<:date_mois_7|attribut_html:>','<:date_mois_8|attribut_html:>','<:date_mois_9|attribut_html:>','<:date_mois_10|attribut_html:>','<:date_mois_11|attribut_html:>','<:date_mois_12|attribut_html:>'],
+            monthNamesShort:['<:date_mois_1_abbr|attribut_html:>','<:date_mois_2_abbr|attribut_html:>','<:date_mois_3_abbr|attribut_html:>','<:date_mois_4_abbr|attribut_html:>','<:date_mois_5_abbr|attribut_html:>','<:date_mois_6_abbr|attribut_html:>','<:date_mois_7_abbr|attribut_html:>','<:date_mois_8_abbr|attribut_html:>','<:date_mois_9_abbr|attribut_html:>','<:date_mois_10_abbr|attribut_html:>','<:date_mois_11_abbr|attribut_html:>','<:date_mois_12_abbr|attribut_html:>'],
+            dayNames:['<:date_jour_1|attribut_html:>','<:date_jour_2|attribut_html:>','<:date_jour_3|attribut_html:>','<:date_jour_4|attribut_html:>','<:date_jour_5|attribut_html:>','<:date_jour_6|attribut_html:>','<:date_jour_7|attribut_html:>'],
+            dayNamesShort:['<:date_jour_1_abbr|attribut_html:>','<:date_jour_2_abbr|attribut_html:>','<:date_jour_3_abbr|attribut_html:>','<:date_jour_4_abbr|attribut_html:>','<:date_jour_5_abbr|attribut_html:>','<:date_jour_6_abbr|attribut_html:>','<:date_jour_7_abbr|attribut_html:>'],
+            buttonText: {
+              today: '<:date_aujourdhui|attribut_html:>',
+              month: '<:organiseur:cal_par_mois|attribut_html:>',
+              day: '<:organiseur:cal_par_jour|attribut_html:>',
+              week: '<:organiseur:cal_par_semaine|attribut_html:>'
+            },
+            weekMode : 'liquid',
+            loading: function(bool) {
+              if (bool) $('#calendrier-loading').show();
+              else $('#calendrier-loading').hide();
+            },
+            timeFormat: {
+                agenda: "H'h'mm{ - H'h'mm}",
+                '': "H'h'(mm)"
+            },
+            minTime:"8",
+            axisFormat: "H'h'(mm)",
+            allDayText:'<:organiseur:cal_jour_entier|attribut_html:>',
+            columnFormat: {
+              month: 'ddd',
+              week: 'ddd d/M',
+              day: 'dddd d/M'
+            },
+            titleFormat: {
+              month: 'MMMM yyyy',
+              week: "d [ MMM] [ yyyy]{ '&#8212;' d MMM yyyy}",
+              day: 'dddd d MMM yyyy'
+            },
+            dayClick: function(date, allDay, jsEvent, view) {
+                if(view.name=='month'){
+                  $('.fc-button-agendaWeek').click();
+                  $('#calendrier').fullCalendar( 'gotoDate', date );
+                }
+                else
+                  if(view.name=='agendaWeek'){
+                    $('.fc-button-agendaDay').click();
+                    $('#calendrier').fullCalendar( 'gotoDate', date );
+                  }
+            },
+            isRTL : [(#LANG_DIR|=={rtl}|?{true,false})],
+            eventMouseover: function(event, element) {
+                              var tooltipcontent = event.lieu + event.adresse;
+                              if (tooltipcontent) {
+                                var tooltip =
+                                  '<div class="infoBulle" style="position:absolute;z-index:10001;">'
+                                  + tooltipcontent +
+                                  '</div>';
+                                }
+                $("body").append(tooltip);
+                $(this).mouseover(function(e) {
+                  $(this).css('z-index', 10000);
+                  $('.infoBulle').fadeIn('500');
+                  $('.infoBulle').fadeTo('10', 1.9);
+                }).mousemove(function(e) {
+                  $('.infoBulle').css('top', e.pageY + 17);
+                  $('.infoBulle').css('left', e.pageX - 30);
+                });
+            },
+            eventMouseout: function(event, element) {
+              $(this).css('z-index', 8);
+              $('.infoBulle').remove();
+            }
+        })
+
+    });
+	function majAgenda(source) {
+          $('#agenda').fullCalendar('removeEventSource', agendaSource);
+          $('#agenda').fullCalendar('refetchEvents');
+          agendaSource = source;
+          $('#agenda').fullCalendar('addEventSource', agendaSource);
+          $('#agenda').fullCalendar('refetchEvents');
+	}
+    /*]]>*/
+    </script>
+
+</div>
