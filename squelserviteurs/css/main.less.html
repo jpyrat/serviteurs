@@ -1756,10 +1756,36 @@ blockquote p {
   max-width: 100% !important;
   border-bottom: 1px solid rgba(255,255,255,.7);
 }
+header.transitionTemps {
+  position: relative;
+}
+.transitionTemps h1 {
+  display: inline-block;
+  position: relative;
+  background-color: @colorFondHomelies;
+  padding: 0 1em;
+  letter-spacing: 0;
+  font-weight: 300!important;
+  color: #777;
+}
+.transitionTemps hr {
+  position: absolute;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  top: 1.75em;
+  right: 0;
+  left: 0;
+  margin: 0;
+  border: none;
+  border-top: 1px solid #888;
+}
+
 .contenHomelie {}
 
+@colorFondHomelies:#f9f8f2;
 #ancre_recherche-homelies {
-  background-color: #f9f8f2;
+  background-color: @colorFondHomelies;
   border-top: 1px solid #eee;
 }
 #ancre_recherche-homelies #agenda {

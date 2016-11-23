@@ -25,7 +25,7 @@
       <div class="logo-content #GET{couleur}">
         <p class="font-size-130 texte-blanc avec-padding-leftright">27e dimanche du temps ordinaire</p>
         <div class="transitionHomelies avec-padding-top">
-          <hr />
+          <hr aria-hidden="true" />
           <span class="icon-chevron-thin-up icon-lg #GET{couleur}"></span>
         </div>
         <p class="h2 texte-blanc text-uppercase avec-padding">Année C</p>
@@ -55,7 +55,7 @@
       <div class="logo-content #GET{couleur}">
         <p class="font-size-130 texte-blanc avec-padding-leftright">27e dimanche du temps ordinaire</p>
         <div class="transitionHomelies avec-padding-top">
-          <hr />
+          <hr aria-hidden="true" />
           <span class="icon-chevron-thin-up icon-lg #GET{couleur}"></span>
         </div>
         <p class="h2 texte-blanc text-uppercase avec-padding">Année C</p>
@@ -169,7 +169,10 @@
 [(#REM) temps-ordinaire ]
   <div class="zone-arriere avec-padding">
     <div class="row column content-temps-ordinaire text-center" id="ancre_temps-ordinaire">
-      <h1 class="trait-intertitre text-transform-none">Temps ordinaire</h1>
+      <header class="transitionTemps avec-padding-leftright">
+        <hr aria-hidden="true" />
+        <h1 class="text-transform-none">Temps ordinaire</h1>
+      </header>
       <div class="row medium-up-3 collapse avec-margin-top flexbox-center-top">
         <div class="column avec-margin-bottom">
           <div class="pave-content tempsAnnee avec-padding menulisteRecherches">
@@ -231,8 +234,11 @@
 
 [(#REM) temps-liturgiques ]
   <div class="zone-arriere avec-padding">
-    <div class="content-temps-liturgiques text-center" id="ancre_temps-liturgiques">
-      <h1 class="trait-intertitre text-transform-none">Temps liturgiques</h1>
+    <div class="row column content-temps-liturgiques text-center" id="ancre_temps-liturgiques">
+      <header class="transitionTemps avec-padding-leftright">
+        <hr aria-hidden="true" />
+        <h1 class="text-transform-none">Temps liturgiques</h1>
+      </header>
       <div class="row large-up-3 medium-up-2 avec-margin-bottom avec-margin-top flexbox-center-top">
         <div class="column avec-margin-bottom">
           <div class="pave-content tempsAvent avec-padding menulisteRecherches">
@@ -330,8 +336,11 @@
 
 [(#REM) événements de la vie ]
   <div class="zone-arriere avec-padding">
-    <div class="row column content-evenements-vie text-center" id="ancre_evenements-vie">
-      <h1 class="trait-intertitre text-transform-none">Les événements de la vie</h1>
+    <div class="row column content-evenements-vie text-center avec-margin-bottom" id="ancre_evenements-vie">
+      <header class="transitionTemps avec-padding-leftright">
+        <hr aria-hidden="true" />
+        <h1 class="text-transform-none">Les événements de la vie</h1>
+      </header>
       <div class="row medium-up-3 collapse avec-margin-top avec-padding-leftright">
         <div class="column avec-margin-bottom">
           <div class="pave-content evenementsVie avec-padding menulisteRecherches">
