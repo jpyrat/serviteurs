@@ -1,0 +1,97 @@
+<BOUCLE_(ARTICLES){id_article}>
+<div class="row column">
+  [(#REM) le breadcrumb ]
+  <nav class="show-for-medium" aria-label="Vous êtes ici :" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
+      <BOUCLE_Breadcrumbs(HIERARCHIE){id_article}>
+      <li><a href="#URL_RUBRIQUE" title="Voir la rubrique #TITRE">#TITRE</a></li>
+      </BOUCLE_Breadcrumbs>
+      <li title="En cours: #TITRE">
+        <span class="show-for-sr">En cours: </span>#TITRE
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
+  <article>
+    <header class="avec-padding-bottom">
+      <h1 class="texte-colorComm">#TITRE</h1>
+      <BOUCLE_auteur(AUTEURS){id_article}>
+      <div class="auteur show-for-medium">
+        <p>
+          <span class="icon-user icon-lg texte-triadeB"></span>[(#NOM) - ][(#DATE*|affdate)]
+          <a class="texte-colorComm avec-padding-left" href="#" title="Envoyer un message à l'auteur">
+            <span class="icon-envelope icon-lg"></span>
+            Écrire à l'auteur
+          </a>
+        </p>
+      </div>
+      </BOUCLE_auteur>
+
+      <div class="row">
+        <div class="large-8 medium-9 columns">
+          <div class="#EDIT{chapo} chapo">
+            #CHAPO
+          </div>
+          <div class="player-mp3 avec-padding-bottom">
+            <BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}>
+            #MODELE{emb,skin=ted,hauteur=85}
+            <a href="#" title="Télécharger le fichier audio"><small>Télécharger <BOUCLE_aa(ARTICLES){id_article}>#TITRE</BOUCLE_aa> - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
+            </BOUCLE_mp3>
+          </div>
+        </div>
+        <div class="large-4 medium-3 columns">
+          <div class="fiche row collapse avec-border-top avec-border-bottom avec-padding-bottom">
+            [(#REM) portrait de 200px de large ]
+            [<figure class="large-6 columns sans-margin avec-margin-top avec-padding-right">
+              <img src="(#CHEMIN{_elements-maquette/portrait_de_pere_pierre-marie.jpg})" alt="" />
+            </figure>]
+            <div class="small-12 text-center large-6 text-left columns avec-margin-top">
+              <ul class="menu vertical">
+                <li><span class="icon-envelope icon-fw"></span>Écrire</li>
+                <li><span class="icon-phone icon-fw"></span>04 04 04 04</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container avec-padding-top avec-padding-bottom">
+      <div clas="row">
+        <div class="#EDIT{texte} texte large-8 large-centered columns">
+          #TEXTE
+          <div class="auteur show-for-small-only"><a class="texte-colorComm" href="#" title="Envoyer un message à l'auteur"><span class="icon-envelope icon-2x"></span>Écrire à l'auteur</a></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <aside class="row avec-margin-bottom">
+    <div class="large-4 columns avec-margin-top avec-padding-top15 sans-padding-for-small">
+      <hr class="show-for-medium" />
+      <div class="h2 texte-colorComm show-for-medium avec-margin-bottom05" id="social-tags">Partager cette page</div>
+    </div>
+    <div class="large-4 columns avec-margin-top sans-padding-for-small">
+      <INCLURE{fond=inclure/telecharger,env} />
+
+    </div>
+    <div class="large-4 columns avec-margin-top sans-padding-for-small">
+      <section class="text-center avec-padding-top">
+        <h1 class="text-center text-transform-none">Homélies du même dimanche</h1>
+        <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
+        <article class="avec-padding avec-border-bottom">
+          <h2>
+            <a href="#URL_A RTICLE" title="Lire #TITRE">#TITRE</a>
+          </h2>
+        </article>
+        </BOUCLE_apa>
+      </section>
+    </div>
+  </aside>
+
+  <INCLURE{fond=inclure/documents,env} />
+
+</div>
+</BOUCLE_>

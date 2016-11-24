@@ -1,5 +1,5 @@
-[(#REM) rubrique 15 pour le maquettage ]
-<BOUCLE_(RUBRIQUES){id_rubrique=15}>
+[(#REM) rubrique 10 pour le maquettage ]
+<BOUCLE_(RUBRIQUES){id_rubrique=10}>
 <div class="row column">
   [(#REM) le breadcrumb ]
   <nav class="show-for-medium" aria-label="Vous êtes ici :" role="navigation">
@@ -38,7 +38,7 @@
         </h2>
         <p class="sans-padding"><BOUCLEaut(AUTEURS){id_article}>[(#NOM) - ]</BOUCLEaut>[(#DATE*|affdate)]</p>
       </header>
-      <footer class="avec-padding-bottom">
+      <footer class="player-mp3 avec-padding-bottom">
         <BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}>
         #MODELE{emb,skin=ted,hauteur=85}
         <a href="#" title="Télécharger le fichier audio"><small>Télécharger <BOUCLE_aa(ARTICLES){id_article}>#TITRE</BOUCLE_aa> - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
@@ -68,7 +68,7 @@
         </h2>
         <p class="sans-padding"><BOUCLEautz(AUTEURS){id_article}>[(#NOM) - ]</BOUCLEautz>[(#DATE*|affdate)]</p>
       </header>
-      <footer class="avec-padding-bottom">
+      <footer class="player-mp3 avec-padding-bottom">
         <BOUCLE_mp3z(DOCUMENTS){id_article}{extension==mp3}>
         #MODELE{emb,skin=ted,hauteur=85}
         <a href="#" title="Télécharger le fichier audio"><small>Télécharger <BOUCLE_az(ARTICLES){id_article}>#TITRE</BOUCLE_az> - Année C - <BOUCLEauttz(AUTEURS){id_article}>[(#NOM)]</BOUCLEauttz></small></a>

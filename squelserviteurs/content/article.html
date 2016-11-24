@@ -14,15 +14,22 @@
   </nav>
 </div>
 
-<div class="contentArticle row column" id="ancre_article" role="main">
+<div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
   <article>
     <header class="avec-padding-bottom">
       <h1 class="texte-colorComm text-center">#TITRE</h1>
       <div class="#EDIT{chapo} chapo">
         #CHAPO
       </div>
-      <div class="auteur show-for-medium"><a class="texte-colorComm" href="#" title="Envoyer un message à l'auteur"><span class="icon-envelope icon-2x"></span>Écrire à l'auteur</a></div>
-      [<figure class="text-center sans-margin avec-margin-top avec-margin-bottom"><img src="(#LOGO_ARTICLE|image_reduire{800,600}|extraire_attribut{src})" alt=""></figure>]
+      <div class="auteur show-for-medium">
+        <a class="texte-colorComm" href="#" title="Envoyer un message à l'auteur">
+          <span class="icon-envelope icon-2x"></span>
+          Écrire à l'auteur
+        </a>
+      </div>
+      [<figure class="text-center sans-margin avec-margin-top avec-margin-bottom">
+        <img src="(#LOGO_ARTICLE|image_reduire{800,600}|extraire_attribut{src})" alt="" />
+      </figure>]
     </header>
     <div class="row container avec-padding-top avec-padding-bottom avec-border-top">
       <div class="#EDIT{texte} texte large-8 columns">
@@ -32,11 +39,10 @@
         <h3 class="show-for-medium avec-margin-bottom05" id="social-tags">Partager cette page</h3>
       </div>
       <aside class="large-4 columns avec-margin-top sans-padding-for-small">
-        <h1 class="text-center avec-margin-bottom">Agenda</h1>
         <INCLURE{fond=_bibliotheque/pave-evenement-article,env} />
 
         <section class="text-center">
-          <h1 class="text-center">Sur le même thème</h1>
+          <h1 class="text-center text-transform-none">Sur le même thème</h1>
           <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
           <article class="triadeC avec-padding avec-margin-bottom05">
             <h2>
@@ -53,11 +59,6 @@
 
       </aside>
   </article>
-
-  <div class="transitionArticles avec-margin-top avec-margin-bottom avec-padding-top">
-    <hr />
-    <span class="icon-chevron-thin-down icon-3x"></span>
-  </div>
 
   <INCLURE{fond=inclure/documents,env} />
 

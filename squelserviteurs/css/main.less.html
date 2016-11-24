@@ -354,6 +354,9 @@ h1,h2,h3,h4,h5,h6,
 .avec-padding-top {
   padding-top: 1em!important;
 }
+.avec-padding-top15 {
+  padding-top: 1.5em!important;
+}
 .avec-padding-right {
   padding-right: 1em!important;
 }
@@ -1479,10 +1482,10 @@ table tfoot {
 .icon-lg {
   font-size: 1.33333333em;
   line-height: 0.75em;
-  vertical-align: -15%;
 }
 .icon-2x {
   font-size: 2em;
+  vertical-align: middle!important;
 }
 .icon-25x {
   font-size: 2.5em;
@@ -1530,7 +1533,7 @@ table tfoot {
 }
 .contentArticle .auteur span {
   margin-right: .25em;
-  vertical-align: middle;
+  vertical-align: text-top;
 }
 .contentArticle h3 {
   color: @colorComm;
@@ -1665,58 +1668,63 @@ blockquote p {
 }
 
 // audio
-.contentHomelie .spip_document_audio {
+.player-mp3 .spip_document_audio {
   width: 80%!important;
   margin: 0;
 }
+.article_homelie .player-mp3 .spip_document_audio {
+  width: 100%!important;
+  margin-top: 2em;
+}
+
 @media screen and (max-width:40em) {
-  .contentHomelie .spip_document_audio {
+  .player-mp3 .spip_document_audio {
     width: 100%!important;
   }
 }
-.contentHomelie .audio-wrapper {
+.player-mp3 .audio-wrapper {
   width: 100%!important;
 }
-.contentHomelie .mejs-container {
+.player-mp3 .mejs-container {
 }
-.contentHomelie .mejs-controls {
+.player-mp3 .mejs-controls {
   background: #595959!important;
   height: 85px!important;
 }
-.contentHomelie .mejs-time-rail {
+.player-mp3 .mejs-time-rail {
   padding: 1em!important;
 }
-.contentHomelie .mejs-ted .mejs-button,
-.contentHomelie .mejs-ted .mejs-time {
+.player-mp3 .mejs-ted .mejs-button,
+.player-mp3 .mejs-ted .mejs-time {
   background: transparent!important;
 }
-.contentHomelie .mejs-horizontal-volume-slider {
+.player-mp3 .mejs-horizontal-volume-slider {
   margin-top: 4px!important;
 }
-.contentHomelie .mejs-playpause-button,
-.contentHomelie .mejs-volume-button,
-.contentHomelie .mejs-currenttime-container,
-.contentHomelie .mejs-duration-container {
+.player-mp3 .mejs-playpause-button,
+.player-mp3 .mejs-volume-button,
+.player-mp3 .mejs-currenttime-container,
+.player-mp3 .mejs-duration-container {
   top: auto!important;
   bottom: 16px!important;
 }
-.contentHomelie .mejs-playpause-button {
+.player-mp3 .mejs-playpause-button {
   left: 16px!important;
 }
-.contentHomelie .mejs-currenttime-container,
-.contentHomelie .mejs-duration-container {
+.player-mp3 .mejs-currenttime-container,
+.player-mp3 .mejs-duration-container {
   border: none!important;
 }
-.contentHomelie .mejs-time span {
+.player-mp3 .mejs-time span {
   color: white!important;
   font-size: 1rem!important;
 }
-.contentHomelie .mejs-duration-container {
+.player-mp3 .mejs-duration-container {
   right: 85px!important;
   border-left: 1px solid white!important;
   padding: .5em 0 0 1em!important;
 }
-.contentHomelie .mejs-currenttime-container {
+.player-mp3 .mejs-currenttime-container {
   right: 145px!important;
 }
 
