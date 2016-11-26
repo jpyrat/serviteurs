@@ -15,6 +15,7 @@
 
 @colorP: #222;
 @colorGris: #888;
+@colorGrisClair: #ccc;
 @colorGrisFonce: #666;
 
 // homélies temps
@@ -230,6 +231,12 @@ h1,h2,h3,h4,h5,h6,
 }
 .colorGrisFonce {
   background-color: @colorGrisFonce;
+}
+.colorGrisClair {
+  background-color: @colorGrisClair;
+}
+.texte-colorGrisClair {
+  color: @colorGrisClair!important;
 }
 .texte-colorGrisFonce {
   color: @colorGrisFonce!important;
@@ -2028,36 +2035,15 @@ aside a {
   right:0;
   transform: translateX(100%);
 }
-#menu-ext-gauche.menu-ext-gauche-blog {
-  background: #ddd;
-}
-#menu-ext-gauche .menu .niveauA {
-  background-color: @colorComm;
-}
-#menu-ext-gauche .menu .niveauA > a,
-#menu-ext-droite .menu .niveauA > a {
-  padding-top: 1.25em;
-  font-weight: 400!important;
-}
-
 #menu-ext-gauche ul,
 #menu-ext-droite ul {
+  background-color: white;
   margin: 0;
   list-style: none;
 }
-#menu-ext-gauche li li a,
-#menu-ext-droite li li a {
-  font-weight: 400!important;
-}
-#menu-ext-gauche li li li a,
-#menu-ext-droite li li li a {
-  font-weight: 300!important;
-}
-#menu-ext-gauche li li li a::before,
-#menu-ext-droite li li li a::before {
-    content: "•"!important;
-    padding-right: .5em;
-}
+
+
+
 #menu-ext-gauche .menu a,
 #menu-ext-droite .menu a {
   display: block;
@@ -2067,56 +2053,55 @@ aside a {
   color: white;
   font-weight: 300;
   line-height: initial;
-  border-bottom: 1px solid rgba(255,255,255,.3);
+  border-bottom: 1px solid fade(@colorGrisClair,60%);
+}
+#menu-ext-gauche li li a,
+#menu-ext-droite li li a {
+  font-weight: 400!important;
+  color: @colorComm!important;
+}
+#menu-ext-gauche li li li a,
+#menu-ext-droite li li li a {
+  font-weight: 300!important;
+  color: @colorP!important;
 }
 
-
+// niveauA
+#menu-ext-gauche .menu .niveauA > a,
+#menu-ext-droite .menu .niveauA > a {
+  background-color: @triadeA!important;
+  padding-top: 1.25em;
+  font-weight: 400!important;
+  font-size: 20px;
+  text-transform: uppercase;
+}
 #menu-ext-gauche .niveauA ul a,
 #menu-ext-droite .niveauA ul a {
-  background-color: @triadeA!important;
-  padding-left: 1.75em;
+  padding-left: 1rem;
 }
-#menu-ext-gauche .niveauA ul ul a,
-#menu-ext-droite .niveauA ul ul a {
-  background-color: @triadeB!important;
+#menu-ext-gauche .niveauA ul li li a,
+#menu-ext-droite .niveauA ul li li a {
+  padding-left: 2em;
+  font-size: 1rem;
 }
 
+// hover
 #menu-ext-gauche a:hover,
-#menu-ext-droite a:hover,
-#menu-ext-gauche .actif-OffCanvas li:not(.actif-OffCanvas) a:hover,
-#menu-ext-droite .actif-OffCanvas li:not(.actif-OffCanvas) a:hover,
-#menu-ext-gauche .actif-OffCanvas .actif-OffCanvas li:not(.actif-OffCanvas) a:hover,
-#menu-ext-droite .actif-OffCanvas .actif-OffCanvas li:not(.actif-OffCanvas) a:hover {
+#menu-ext-droite a:hover {
   background-color: @triadeA!important;
   color: white!important;
+  border-left: 10px solid @triadeB;
 }
-#menu-ext-gauche .menu .niveauA.actif-OffCanvas > a::before,
-#menu-ext-droite .menu .niveauA.actif-OffCanvas > a::before {
-  content: "\f005"!important;
-  padding-right: .5em;
-  font-size: .8em;
-  font-family: serviteurs-icones;
+#menu-ext-gauche .actif-OffCanvas > a,
+#menu-ext-droite .actif-OffCanvas > a {
+  border-left: 10px solid @triadeB;
 }
-#menu-ext-gauche .actif-OffCanvas .actif-OffCanvas a,
-#menu-ext-droite .actif-OffCanvas .actif-OffCanvas a {
-  background-color: @triadeA!important;
-}
-#menu-ext-gauche .actif-OffCanvas li:not(.actif-OffCanvas) a,
-#menu-ext-droite .actif-OffCanvas li:not(.actif-OffCanvas) a {
-  background-color: transparent!important;
-}
-#menu-ext-gauche .actif-OffCanvas .actif-OffCanvas .actif-OffCanvas a,
-#menu-ext-droite .actif-OffCanvas .actif-OffCanvas .actif-OffCanvas a {
-  background-color: @triadeA!important;
-}
-#menu-ext-gauche .actif-OffCanvas .actif-OffCanvas li:not(.actif-OffCanvas) a,
-#menu-ext-droite .actif-OffCanvas .actif-OffCanvas li:not(.actif-OffCanvas) a {
-  background-color: transparent!important;
-}
-#menu-ext-gauche .retourHome {
+
+#menu-ext-gauche a.retourHome {
+  background-color: @colorComm!important;
   font-weight: 400 !important;
 }
-#menu-ext-gauche .retourHome span {
+#menu-ext-gauche a.retourHome span {
   margin-right: .5em!important;
 }
 
