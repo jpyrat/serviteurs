@@ -496,7 +496,7 @@ h1,h2,h3,h4,h5,h6,
   letter-spacing: .05rem;
   margin: .25em .75em .15em;
 }
-.title-bar-center.menuPrincipal ul {
+.title-bar-center > ul {
   display: inline-flex!important;
 }
 .title-bar-center {
@@ -758,7 +758,7 @@ nav.tab-bar.title-bar h1 {
 .plan-sommaire p,
 .contentRubrique p {
   padding-top: 1em;
-  padding-right: 4.5em;
+  padding-right: 5.3em;
 }
 .contentHomelie .logo-content p {
   padding-top: 2.5em;
@@ -898,6 +898,7 @@ nav.tab-bar.title-bar h1 {
 }
 #agenda-boutons-filtre .menu a {
   color: @colorComm;
+  font-weight: 400;
 }
 .listeRecherches .menu a {
   padding: .75em 2em .75em .75em!important;
@@ -914,7 +915,7 @@ nav.tab-bar.title-bar h1 {
   }
 }
 #agenda-boutons-filtre .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
-  right: -1rem;
+  right: 2rem;
   border-color: @colorComm transparent transparent;
 }
 .listeRecherches .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
@@ -1117,6 +1118,7 @@ nav.tab-bar.title-bar h1 {
 }
 .contact .bouton .dropdown.menu li {
   display: inline-block;
+  font-weight: 400!important;
 }
 .contact .bouton .dropdown.menu li li {
   border-bottom: 1px dotted @triadeA;
@@ -1353,12 +1355,13 @@ table tfoot {
 }
 .fc-header h2 {
   margin: 0!important;
-  font-size: 1.8125em!important;
+  font-size: 1.4em!important;
   color: @colorComm!important;
+  font-family: Roboto;
 }
 @media only screen and (max-width: 40em) {
   .fc-header h2 {
-    font-size: 1.3em!important;
+    font-size: 1.2em!important;
   }
   .fc-header td {
     white-space: normal!important;
@@ -1435,10 +1438,11 @@ table tfoot {
   clear:both
 }
 .pagination li {
-  font-size:.875rem;
+  font-size: 1rem;
+  font-weight: 400;
   margin-right:.0625rem;
   border-radius:0;
-  display:none
+  display:none;
 }
 .pagination li:first-child,
 .pagination li:last-child {
@@ -1462,8 +1466,7 @@ table tfoot {
 }
 .pagination .current {
   padding:.1875rem .625rem;
-  background:@triadeC;
-  color: contrast(@triadeC,@contrastDark,@contrastLight);
+  background:@colorComm;
   cursor:default
 }
 .pagination .disabled {
@@ -1554,7 +1557,7 @@ table tfoot {
 }
 .fiche {
   background-color: #eee;
-  padding-bottom: 1.5em;
+  padding-bottom: 1.5em!important;
 }
 .fiche li {
   padding-bottom: 1em;
