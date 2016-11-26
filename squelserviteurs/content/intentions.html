@@ -3,7 +3,8 @@
     <header class="avec-padding-bottom" style="max-width: 62.5em;margin:0 auto;border-top: 1px solid #ccc;">
       <h1 class="texte-colorGrisFonce text-center avec-padding-top">Intentions de prières</h1>
     </header>
-    <div class="container avec-padding-bottom"[ style="background: #444444 url('(#CHEMIN{css/img/fond_intention_priere.jpg})') top center no-repeat"]>
+    <div class="container avec-padding-bottom"[ style="background: #444444 url('(#CHEMIN{css/img/fond_intention_priere.jpg})') top center no-repeat"]
+    data-enllax-ratio="0.2">
       <div class="pave-content row avec-padding-top avec-padding-bottom">
         <div class="formulaire-intentions medium-5 medium-push-7 columns avec-margin-top avec-padding">
           <h2 class="text-transform-none">Déposer une intention de prière</h2>
@@ -62,3 +63,11 @@
   <INCLURE{fond=inclure/documents,env} />
 
 </div>
+
+[<script type="text/javascript" src="(#CHEMIN{js/jquery.enllax.min.js})"></script>]
+<script type="text/javascript">
+  $(document).ready( function() {
+    // init parallax
+    $(window).enllax();
+  });
+</script>

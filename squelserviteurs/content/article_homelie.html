@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="large-4 medium-3 columns">
-          <div class="fiche row avec-border-bottom avec-padding-bottom">
+          <div class="fiche row avec-padding-bottom">
             [(#REM) portrait de 200px de large ]
             [<figure class="large-6 columns sans-margin avec-margin-top text-center medium-text-left">
               <img src="(#CHEMIN{_elements-maquette/portrait_de_pere_pierre-marie.jpg})" alt="" />
@@ -44,16 +44,16 @@
             <div class="large-6 columns avec-margin-top text-center medium-text-left">
               <BOUCLE_auteur(AUTEURS){id_article}>
               <ul class="auteur sans-margin">
-                [<li class="avec-padding-bottom">
-                  <span class="icon-user icon-lg texte-triadeB avec-padd"></span>(#NOM)
+                [<li>
+                  <span class="icon-user icon-lg texte-triadeB"></span>(#NOM)
                 </li>]
-                <li class="avec-padding-bottom">
+                <li>
                   <a class="sans-padding texte-triadeP" href="#" title="Envoyer un message à l'auteur">
                     <span class="icon-envelope icon-lg texte-triadeB"></span>
                     Écrire à l'auteur
                   </a>
                 </li>
-                <li class="avec-padding-bottom">
+                <li>
                   <span class="icon-phone icon-fw texte-triadeB"></span>04 04 04 04 09
                 </li>
               </ul>
