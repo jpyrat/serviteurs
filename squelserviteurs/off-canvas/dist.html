@@ -1,7 +1,17 @@
             <nav class="tab-bar title-bar show-for-small-only" id="navPageSmall">
-                <button class="menu-icon float-left" type="button" data-toggle="menu-ext-gauche"><span class="icon-bar"></span></button>
-                <h1>#NOM_SITE_SPIP</h1>
-                <button class="menu-icon float-right" type="button" data-toggle="menu-ext-droite"><span class="icon-square-plus"></span></button>
+              <div class="title-bar-left">
+                <div class="title-bar-title" data-toggle="menu-ext-gauche"><a title="menu plan du site" role="navigation"><span class="icon-bar"></span></a></div>
+              </div>
+              <div class="title-bar-center smartphone">
+                <h1 class="hide">#NOM_SITE_SPIP</h1>
+                [(#ENV{type-page}|=={
+                  sommaire}?{'',
+                  <a href="#URL_SITE_SPIP" class="item retourHome" title="Retour à l'accueil">
+                    [<img src="(#CSS{css/img/logo_serviteurs-small.png})" alt="Serviteurs de Jésus & de Marie" />]
+                  </a>
+                  }
+                )]
+              </div>
             </nav>
 
             [(#REM) barre de navigation qui reste masquée côté gauche ]
@@ -22,24 +32,6 @@
                   </B_SsRubriques>
                   </li>
                   </BOUCLE_Rubriques>
-                </ul>
-              </section>
-            </div>
-
-            [(#REM) barre de navigation qui reste masquée côté de droite ]
-            <div id="menu-ext-droite" data-toggler=".is-active">
-              <a class="texte-blanc float-left avec-padding" data-toggle="menu-ext-droite" title="Masquer le menu"><span class="icon-cross icon-lg icon-fw"></span></a>
-              <hr class="sans-border" />
-              [(#REM) affichage de la navigation principal pour les small screens ]
-              <section class="show-for-small-only">
-                <ul class="vertical menu" role="navigation">
-                  <li class="niveauA"><a href="https://www.diocese-avignon.fr/" class="item" title="Portail du Diocèse d'Avignon"><span class="icon-diocese"></span>&nbsp;&nbsp;Portail du Diocèse d'Avignon</a></li>
-                  <li class="niveauA"><a href="#URL_SITE_SPIP" class="item" title="Accueil"><span class="fa fa-home fa-fw"></span>Accueil</a></li>
-                   <BOUCLE_Page1(ARTICLES){page=presentation}>
-                  <li class="niveauA"><a[ class="(#EXPOSE)"] href="#URL_ARTICLE" class="item">Présentation</a></li>
-                  </BOUCLE_Page1>
-                 <li class="niveauA"><a href="#URL_SITE_SPIP#ancre_agenda" class="item">Agenda</a>
-                  <li class="niveauA"><a href="#URL_SITE_SPIP#ancre_actualites" class="item">Actualités</a></li>
                 </ul>
               </section>
             </div>

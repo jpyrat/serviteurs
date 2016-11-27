@@ -12,12 +12,11 @@
             <div class="title-bar-left">
               <div class="title-bar-title" data-toggle="menu-ext-gauche"><a title="menu plan du site" role="navigation"><span class="icon-bar"></span></a></div>
             </div>
-            [(#REM) bouton toggle pour off-canvas de droite ]
-            <div class="title-bar-right">
-              <div class="title-bar-title" data-toggle="menu-ext-droite"><a title="menu des autres services" role="navigation">Les services<span class="fa fa-list fa-fw"></span></a></div>
-            </div>
             [(#REM) navigation principale ]
             <div class="title-bar-center menuPrincipal">
+              [<a href="#URL_SITE_SPIP" class="item retourHome" title="Retour à l'accueil">
+                <img src="(#CSS{css/img/logo_serviteurs-small.png})" alt="Serviteurs de Jésus & de Marie" />
+              </a>]
               <ul class="dropdown menu" role="navigation">
 		<BOUCLE_rub(RUBRIQUES){racine}{!id_rubrique=15}>
                 <li[ class="(#EXPOSE{rubActive})"]><a href="#URL_RUBRIQUE" title="Voir #TITRE">[<(#EXPOSE{strong})>]#TITRE[</(#EXPOSE{strong})>]</a></li>

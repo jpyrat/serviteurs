@@ -8,12 +8,11 @@
       <div class="row expanded">
         <div class="small-12 columns sans-padding">
           <div class="title-bar">
+            [(#REM) bouton toggle pour off-canvas de gauche ]
             <div class="title-bar-left">
               <div class="title-bar-title" data-toggle="menu-ext-gauche"><a title="menu plan du site" role="navigation"><span class="icon-bar"></span></a></div>
             </div>
-            <div class="title-bar-right">
-              <div class="title-bar-title" data-toggle="menu-ext-droite"><a title="menu des autres services" role="navigation">Les services<span class="fa fa-list fa-fw"></span></a></div>
-            </div>
+            [(#REM) navigation principale ]
             <div class="title-bar-center">
               <ul class="dropdown menu" role="navigation">
 		<BOUCLE_rub(RUBRIQUES){racine}{!id_rubrique=15}>
@@ -39,3 +38,5 @@
       </div>
     </nav>
   </div>
+
+  <INCLURE{fond=_bibliotheque/pictos-raccourcis-sommaire} />
