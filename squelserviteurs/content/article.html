@@ -1,7 +1,7 @@
 <BOUCLE_(ARTICLES){id_article}>
 <div class="row column">
   [(#REM) le breadcrumb ]
-  <nav class="show-for-medium" aria-label="Vous êtes ici :" role="navigation">
+  <nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
     <ul class="breadcrumbs">
       <li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
       <BOUCLE_Breadcrumbs(HIERARCHIE){id_article}>
@@ -38,7 +38,7 @@
         <hr class="show-for-medium" />
         <h3 class="show-for-medium avec-margin-bottom05" id="social-tags">Partager cette page</h3>
       </div>
-      <aside class="large-4 columns avec-margin-top sans-padding-for-small">
+      <aside class="large-4 columns avec-margin-top">
         <INCLURE{fond=_bibliotheque/pave-evenement-article,env} />
 
         <section class="text-center">
