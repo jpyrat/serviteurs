@@ -739,6 +739,12 @@ nav.tab-bar.title-bar h1 {
 }
 
 // recherche
+@media screen and (max-width:40em) {
+  .recherche {
+    margin-right: 0!important;
+    margin-left: 0!important;
+  }
+}
 .recherche #champRecherche,
 .recherche-homelies #champRechercheHomelies {
   height: auto;
@@ -1565,6 +1571,13 @@ table tfoot {
   text-align: center;
 }
 
+// portail
+@media screen and (max-width:540px) {
+  .bandeau-portail img {
+    width: 50vw;
+  }
+}
+
 // articles
 .main {
   margin-bottom: 2em;
@@ -1588,6 +1601,11 @@ table tfoot {
   font-size: 1.6em;
   font-style: italic;
   color: @colorComm;
+}
+@media screen and (max-width:40em) {
+  .contentArticle .chapo {
+    font-size: 1.35em;
+  }
 }
 .contentArticle .chapo p {
   line-height: 1.35em;
@@ -1639,6 +1657,12 @@ blockquote p {
   top: 40px!important;
   font-size: 8em!important;
   color: fade(@triadeB, 30%);
+}
+.socialtags {}
+@media screen and (max-width:40em) {
+  .socialtags {
+    text-align: center;
+  }
 }
 .socialtags img {
   width: auto;
