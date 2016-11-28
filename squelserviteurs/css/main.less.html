@@ -204,17 +204,26 @@ h1,h2,h3,h4,h5,h6,
 .texte-colorComm {
   color: @colorComm!important;
 }
+.colorComm.opacity-85 {
+  background-color: fade(@colorComm,85%);
+}
 .colorForm {
   background-color: @colorForm;
 }
 .texte-colorForm {
   color: @colorForm!important;
 }
+.colorForm.opacity-85 {
+  background-color: fade(@colorForm,85%);
+}
 .colorMari {
   background-color: @colorMari;
 }
 .texte-colorMari {
   color: @colorMari!important;
+}
+.colorMari.opacity-85 {
+  background-color: fade(@colorMari,85%);
 }
 
 .triadeP {
@@ -798,6 +807,18 @@ nav.tab-bar.title-bar h1 {
 .contentRubrique article,
 .contentHomelie article {
   border-top: none;
+}
+.plan-sommaire h2.hide-for-medium {
+    position: absolute;
+    max-width: 400px;
+    padding: .25em 0 .3em;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.plan-sommaire h2.hide-for-medium a {
+  font-size: 1.3em;
 }
 .plan-sommaire p,
 .contentRubrique p {
