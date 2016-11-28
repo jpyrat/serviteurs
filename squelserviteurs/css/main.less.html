@@ -63,6 +63,13 @@ body {
     font-size: @cgFontSizeP * .84210526;
   }
 }
+// pour éviter le scroll quand off-canvas plus haut que body
+html, body {
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  overflow: auto;
+}
 
 p,ul,ol,dl {
   font-weight: @cgFontWeightP;
@@ -204,8 +211,8 @@ h1,h2,h3,h4,h5,h6,
 .texte-colorComm {
   color: @colorComm!important;
 }
-.colorComm.opacity-85 {
-  background-color: fade(@colorComm,85%);
+.colorComm.opacity-70 {
+  background-color: fade(@colorComm,70%);
 }
 .colorForm {
   background-color: @colorForm;
@@ -213,8 +220,8 @@ h1,h2,h3,h4,h5,h6,
 .texte-colorForm {
   color: @colorForm!important;
 }
-.colorForm.opacity-85 {
-  background-color: fade(@colorForm,85%);
+.colorForm.opacity-70 {
+  background-color: fade(@colorForm,70%);
 }
 .colorMari {
   background-color: @colorMari;
@@ -222,8 +229,8 @@ h1,h2,h3,h4,h5,h6,
 .texte-colorMari {
   color: @colorMari!important;
 }
-.colorMari.opacity-85 {
-  background-color: fade(@colorMari,85%);
+.colorMari.opacity-70 {
+  background-color: fade(@colorMari,70%);
 }
 
 .triadeP {
@@ -902,6 +909,14 @@ nav.tab-bar.title-bar h1 {
 #ancre_agenda {
   border-top: 1px solid @triadeC;
 }
+@media screen and (max-width: 40em) {
+  #ancre_agenda {
+    background: none!important;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+    border-top: 1px solid @triadeA;
+  }
+}
 #listeEvenements .dateEvenementCarre {
   margin-bottom: 0!important;
 }
@@ -930,6 +945,13 @@ nav.tab-bar.title-bar h1 {
 .dateEvenementCarre {
   max-width: 100px;
   margin-bottom:1em;
+}
+@media screen and (max-width: 64em) {
+  .dateEvenementCarre {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 .dateEvenementCarre p {
   margin:0;
