@@ -1,4 +1,4 @@
-<BOUCLE_(ARTICLES){id_article}>
+<BOUCLE_(ARTICLES){id_article}{statut IN publie,archive}>
 <div class="row column">
   [(#REM) le breadcrumb ]
   <nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
@@ -17,7 +17,7 @@
 <div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
   <article>
     <header class="avec-padding-bottom">
-      <h1 class="texte-colorComm text-center">#TITRE</h1>
+      <h1 class="texte-colorComm text-center">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
       <div class="#EDIT{chapo} chapo">
         #CHAPO
       </div>
