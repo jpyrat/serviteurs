@@ -39,11 +39,11 @@
   </div>
 
   [(#REM) 3 article en suivants sans images ]
+  <B_ap>
   <section class="avec-margin-bottom avec-padding-bottom">
     <div class="row avec-padding-bottom">
-    <B_ap>
     #ANCRE_PAGINATION
-[(#REM) ne pas paginer sur les 3 articles focus déjà affichés au dessus ]
+    [(#REM) ne pas paginer sur les 3 articles focus déjà affichés au dessus ]
     <BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{pagination 3}>
     <article class="medium-4 columns text-left">
       <h2>
@@ -54,8 +54,8 @@
     </BOUCLE_ap>
     </div>
     #PAGINATION{suite_agenda}
-    </B_ap>
   </section>
+  </B_ap>
 
 </div>
 </BOUCLE_>
