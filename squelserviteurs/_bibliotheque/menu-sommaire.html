@@ -16,7 +16,7 @@
             <div class="title-bar-center">
               <ul class="dropdown menu" role="navigation">
 		<BOUCLE_rub(RUBRIQUES){racine}{!id_rubrique=15}>
-                <li><a href="#URL_RUBRIQUE" title="Voir #TITRE">#TITRE</a></li>
+                <li><a href="#URL_RUBRIQUE" title="Voir [(#TITRE|attribut_html)]">#TITRE</a></li>
 		</BOUCLE_rub>
               </ul>
             </div>

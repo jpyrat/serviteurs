@@ -11,7 +11,7 @@
         [<img src="(#LOGO_ARTICLE|image_passe_partout{400,290}|image_recadre{400,290}|extraire_attribut{src})" alt="">]
       </a>
       <h2>
-        <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+        <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
       </h2>
       <div class="sous-titre">#SOUSTITRE</div>
     </article>
@@ -24,7 +24,7 @@
       <BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{0,4}>
       <article class="triadeC avec-padding avec-margin-bottom05">
         <h2>
-          <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+          <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
         </h2>
         <div class="sous-titre">#SOUSTITRE</div>
       </article>
@@ -37,7 +37,7 @@
       <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
       <article class="triadeC avec-padding avec-margin-bottom05">
         <h2>
-          <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+          <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
         </h2>
         <div class="sous-titre">
           #SOUSTITRE

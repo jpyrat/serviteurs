@@ -5,9 +5,9 @@
     <ul class="breadcrumbs">
       <li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
       <BOUCLE_Breadcrumbs(HIERARCHIE){id_rubrique}>
-      <li><a href="#URL_RUBRIQUE" title="Voir la rubrique #TITRE">#TITRE</a></li>
+      <li><a href="#URL_RUBRIQUE" title="Voir la rubrique [(#TITRE|attribut_html)]">#TITRE</a></li>
       </BOUCLE_Breadcrumbs>
-      <li title="En cours: #TITRE">
+      <li title="En cours: [(#TITRE|attribut_html)]">
         <span class="show-for-sr">En cours: </span>#TITRE
       </li>
     </ul>
@@ -33,7 +33,7 @@
     <div class="large-8 medium-6 columns medium-text-left flexbox-wrap-space-between">
       <header>
         <h2>
-          <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+          <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
         </h2>
         <p class="sans-padding"><BOUCLEaut(AUTEURS){id_article}>[(#NOM) - ]</BOUCLEaut>[(#DATE*|affdate)]</p>
       </header>
@@ -63,7 +63,7 @@
     <div class="large-8 medium-6 columns medium-text-left flexbox-wrap-space-between">
       <header>
         <h2>
-          <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+          <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
         </h2>
         <p class="sans-padding"><BOUCLEautz(AUTEURS){id_article}>[(#NOM) - ]</BOUCLEautz>[(#DATE*|affdate)]</p>
       </header>

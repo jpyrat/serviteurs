@@ -5,9 +5,9 @@
     <ul class="breadcrumbs">
       <li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
       <BOUCLE_Breadcrumbs(HIERARCHIE){id_article}>
-      <li><a href="#URL_RUBRIQUE" title="Voir la rubrique #TITRE">#TITRE</a></li>
+      <li><a href="#URL_RUBRIQUE" title="Voir la rubrique [(#TITRE|attribut_html)]">#TITRE</a></li>
       </BOUCLE_Breadcrumbs>
-      <li title="En cours: #TITRE">
+      <li title="En cours: [(#TITRE|attribut_html)]">
         <span class="show-for-sr">En cours: </span>#TITRE
       </li>
     </ul>
@@ -46,7 +46,7 @@
           <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
           <article class="triadeC avec-padding avec-margin-bottom05">
             <h2>
-              <a href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
+              <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
             </h2>
             <div class="sous-titre">
               #SOUSTITRE
