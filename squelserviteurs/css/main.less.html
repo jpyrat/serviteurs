@@ -63,13 +63,6 @@ body {
     font-size: @cgFontSizeP * .84210526;
   }
 }
-// pour éviter le scroll quand off-canvas plus haut que body
-html, body {
-  height: 100%;
-  bottom: 0;
-  top: 0;
-  overflow: auto;
-}
 
 p,ul,ol,dl {
   font-weight: @cgFontWeightP;
@@ -78,8 +71,9 @@ a, li, button {
   -webkit-transition: all .3s ease!important;
   transition: all .3s ease!important;
 }
-a[href]:hover {
-  opacity: .75;
+a[href]:hover,
+a[href]:focus {
+  color: @triadeB!important;
 }
 iframe {
   width:100%!important;
@@ -426,6 +420,12 @@ h1,h2,h3,h4,h5,h6,
 .font-size-130 {
   font-size: 130%!important;
 }
+.position-relative {
+  position: relative!important;
+}
+.z-index-999 {
+  z-index: 999!important;
+}
 
 
 
@@ -727,7 +727,7 @@ nav.tab-bar.title-bar h1 {
   padding-left: 5px!important;
 }
 #navPictosRaccourcisSommaire .icon-2x:hover {
-  color: @colorComm!important;
+  color: @triadeB!important;
 }
 
 // off-canvas
@@ -852,16 +852,16 @@ nav.tab-bar.title-bar h1 {
 .plan-sommaire li:last-child a {
   border-bottom: none;
 }
-.plan-sommaire a.chevron,
+.plan-sommaire .chevron,
 .contentRubrique a.chevron,
 .contentHomelie a.chevron {
   display: block;
   position: absolute;
-  top: 25%;
-  right: 45px;
-  font-size: 3em;
+  top: 100px;
+  right: 25px;
+  font-size: 3.56rem;
 }
-.contentRubrique a.chevron,
+.contentRubrique .chevron,
 .contentHomelie a.chevron {
   color: #aaa!important;
 }
@@ -972,6 +972,9 @@ nav.tab-bar.title-bar h1 {
   padding: .5em;
   font-size: 1.1em;
   color: white;
+}
+#agenda-boutons-filtre a:hover {
+  background-color: @triadeC;
 }
 #agenda-boutons-filtre .menu {
   background-color: white;
@@ -1147,15 +1150,23 @@ nav.tab-bar.title-bar h1 {
 }
 
 // liens raccourcis
-.liens-raccourcis {
-  padding: 2em 0;
-}
+.liens-raccourcis {}
 .liens-raccourcis h2 {
   padding-top: .5em;
   font-family: Roboto;
   font-size: 1.3em;
   text-transform: none;
   line-height: 1.25em;
+}
+.liens-raccourcis a {
+  display: inline-block;
+  height: 100%;
+  padding: 1em;
+}
+.liens-raccourcis a:hover,
+.liens-raccourcis a:focus {
+  background-color: @triadeA;
+  color: white!important;
 }
 @media screen and (max-width: 40em) {
   .liens-raccourcis {
@@ -1191,6 +1202,13 @@ nav.tab-bar.title-bar h1 {
 .contact .bouton a {
   width: 100%;
 }
+.contact .bouton a:hover,
+.is-dropdown-submenu-parent > a:hover {
+  background-color: @triadeC;
+}
+.contact .is-dropdown-submenu-parent > a {
+  padding: 1em!important;
+}
 .contact .bouton .menu {
   z-index: 99;
 }
@@ -1201,6 +1219,7 @@ nav.tab-bar.title-bar h1 {
   padding-right: 1.5rem !important;
 }
 .contact .bouton .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+  right: 15px;
   border-color: @colorComm transparent transparent;
 }
 .contact .bouton .dropdown.menu li {
@@ -1229,6 +1248,9 @@ footer .pied {
   display: inline-block;
   margin-bottom: 3.5em;
   border-bottom: 1px dotted white;
+}
+footer .pied a:hover {
+  background-color: @triadeC;
 }
 @media screen and (min-width: 40em) {
   footer .pied {
@@ -2130,8 +2152,6 @@ aside a {
   list-style: none;
 }
 
-
-
 #menu-ext-gauche .menu a,
 #menu-ext-droite .menu a {
   display: block;
@@ -2142,6 +2162,7 @@ aside a {
   font-weight: 300;
   line-height: initial;
   border-bottom: 1px solid fade(@colorGrisClair,60%);
+  border-left: 8px solid transparent;
 }
 #menu-ext-gauche li li a,
 #menu-ext-droite li li a {
@@ -2178,11 +2199,11 @@ aside a {
 #menu-ext-droite a:hover {
   background-color: @triadeA!important;
   color: white!important;
-  border-left: 10px solid @triadeB;
+  border-left: 8px solid @triadeB;
 }
 #menu-ext-gauche .actif-OffCanvas > a,
 #menu-ext-droite .actif-OffCanvas > a {
-  border-left: 10px solid @triadeB;
+  border-left: 8px solid @triadeB;
 }
 
 #menu-ext-droite a.retourHome {
