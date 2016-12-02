@@ -72,7 +72,9 @@ a, li, button {
   transition: all .3s ease!important;
 }
 a[href]:hover,
-a[href]:focus {
+a[href]:focus,
+a[href]:hover h2,
+a[href]:focus h2 {
   color: @triadeB!important;
 }
 iframe {
@@ -363,6 +365,9 @@ h1,h2,h3,h4,h5,h6,
 .avec-margin-bottom05 {
   margin-bottom: .5em!important;
 }
+.avec-margin-bottom015 {
+  margin-bottom: .15em!important;
+}
 .avec-margin-left {
   margin-left: 1.5em!important;
 }
@@ -387,6 +392,9 @@ h1,h2,h3,h4,h5,h6,
 }
 .avec-padding-top {
   padding-top: 1em!important;
+}
+.avec-padding-top05 {
+  padding-top: .5em!important;
 }
 .avec-padding-top15 {
   padding-top: 1.5em!important;
@@ -416,6 +424,9 @@ h1,h2,h3,h4,h5,h6,
 }
 .text-uppercase {
   text-transform: uppercase!important;
+}
+.font-style-italic {
+  font-style: italic!important;
 }
 .font-size-130 {
   font-size: 130%!important;
@@ -1128,7 +1139,7 @@ nav.tab-bar.title-bar h1 {
   background-color: inherit;
   margin: 0;
   padding: 0;
-  font-size: 1em;
+  font-size: 1.185rem;
   line-height: 1.4rem;
   text-transform: uppercase;
 }
@@ -1520,13 +1531,13 @@ table tfoot {
 }
 
 
-
 // media query globaux
 @media screen and (max-width: 64em) {
   #corps {
     margin-top: 90px;
   }
-  .sommaire #corps {
+  .sommaire #corps,
+  .espace #corps {
     margin-top: 60px;
   }
 }
@@ -1664,6 +1675,9 @@ table tfoot {
 }
 .breadcrumbs li:not(:last-child)::after {
   color: @triadeB;
+}
+.sous-titre {
+  font-size: 1.25em;
 }
 .contentArticle .chapo {
   margin-top: 1em;
@@ -1806,8 +1820,16 @@ blockquote p {
   background-color: #aaa;
   margin-top: .5em;
 }
-.contentRubrique article.focus:not(:last-of-type) {
+article.focus:not(:last-of-type) {
   border-bottom: 1px solid #ddd;
+}
+.espace article.focus {
+  margin-bottom: 4em;
+  padding-bottom: 2em!important;
+}
+.espace article.focus h2 {
+  font-size: 1.35em!important;
+  font-weight: 700;
 }
 .content-temps-liturgiques {}
 //// bug Safari
@@ -2027,8 +2049,9 @@ header.transitionTemps {
 }
 
 
-aside {
-  font-size: 1rem;
+aside {}
+.contentEspace aside {
+  border-left: 1px solid #bbb;
 }
 aside h1,
 aside .h1 {
@@ -2042,12 +2065,16 @@ aside .h1 {
   color: white;
 }
 aside h2 {
-  font-size: 1.125rem;
-  color: @triadeA;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: @colorP;
 }
 aside h3 {
   font-size: 1.0625rem;
   color: @triadeA;
+}
+aside .sous-titre {
+  font-size: 1.125em;
 }
 aside ul.spip {
   margin-left: .4em!important;
@@ -2068,9 +2095,6 @@ aside .spip_logo.float-left {
 aside h1 a,
 aside .h1 a {
   color: contrast(@triadeA,@contrastDark,@contrastLight);
-}
-aside a {
-  color: @triadeB;
 }
 .accordion-title.h1 {
   margin: auto;
