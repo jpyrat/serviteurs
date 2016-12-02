@@ -76,6 +76,8 @@ a[href]:focus,
 a[href]:hover h2,
 a[href]:focus h2 {
   color: @triadeB!important;
+  -webkit-transition: all .3s ease!important;
+  transition: all .3s ease!important;
 }
 iframe {
   width:100%!important;
@@ -635,8 +637,9 @@ nav.tab-bar.title-bar h1 {
   right: 0% !important;
   border: none!important;
   border-bottom: 1px solid @triadeA!important;
-  -webkit-transition: all .2s ease-in!important;
-  transition: all .2s ease-in!important;
+  z-index: 1000;
+  -webkit-transition: all .1s ease-in!important;
+  transition: all .1s ease-in!important;
 }
 .menu-mega li > a {
   padding-left: 0!important;
@@ -847,6 +850,13 @@ nav.tab-bar.title-bar h1 {
   padding-top: 1em;
   padding-right: 5.3em;
 }
+.contentRubrique .sous-titre {
+  padding-right: 5.3em;
+  line-height: 1.25em;
+}
+.autres-articles .sous-titre {
+  padding-bottom: .25em!important;
+}
 .contentHomelie .logo-content p {
   padding-top: 2.5em;
   font-weight: 400;
@@ -868,17 +878,13 @@ nav.tab-bar.title-bar h1 {
   border-bottom: none;
 }
 .plan-sommaire .chevron,
-.contentRubrique a.chevron,
-.contentHomelie a.chevron {
+.contentRubrique .chevron,
+.contentHomelie .chevron {
   display: block;
   position: absolute;
   top: 100px;
   right: 25px;
   font-size: 3.56rem;
-}
-.contentRubrique .chevron,
-.contentHomelie a.chevron {
-  color: #aaa!important;
 }
 .contentHomelie header,
 .contentHomelie footer {
@@ -1181,6 +1187,10 @@ nav.tab-bar.title-bar h1 {
 .liens-raccourcis a:hover,
 .liens-raccourcis a:focus {
   background-color: @triadeA;
+  color: white!important;
+}
+.liens-raccourcis a:hover h2,
+.liens-raccourcis a:focus h2 {
   color: white!important;
 }
 @media screen and (max-width: 40em) {
@@ -1782,6 +1792,7 @@ blockquote p {
 .contentRubrique h2,
 .contentHomelie h2 {
   font-size: 1.45em;
+  font-weight: 700;
 }
 .contentRubrique h2 a,
 .contentHomelie h2 a {

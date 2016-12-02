@@ -19,16 +19,18 @@
   <h1 class="texte-colorComm">#TITRE</h1>
   <BOUCLE_a(ARTICLES){id_rubrique}{par num titre}{0,3}>
   <article class="focus row text-center">
-    <div class="large-4 medium-6 columns">
+    <div class="large-4 medium-6 columns sans-padding-for-small">
+      [(#REM) img 400x270 ]
       [<img src="(#LOGO_ARTICLE|image_passe_partout{400,290}|image_recadre{400,290}|extraire_attribut{src})" alt="">]
     </div>
     <div class="large-8 medium-6 columns medium-text-left">
-      <h2>
-        <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
+      <h2 class="show-for-medium position-relative z-index-999">
+        <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE
+        <span class="chevron icon-chevron-thin-right show-for-large"></span>
+        </a>
       </h2>
-      <div class="sous-titre">#SOUSTITRE</div>
+      [<div class="sous-titre texte-colorGrisFonce font-style-italic">(#SOUSTITRE)</div>]
       #DESCRIPTIF
-      <a class="chevron show-for-medium" href="#URL_ARTICLE" title="Voir cette article"><span class="icon-chevron-thin-right"></span></a>
     </div>
   </article>
   </BOUCLE_a>
@@ -39,7 +41,7 @@
     <span class="icon-chevron-thin-down icon-3x"></span>
   </div>
   [(#REM) 3 article en suivants sans images ]
-  <section class="avec-margin-bottom avec-padding-bottom">
+  <section class="autres-articles avec-margin-bottom avec-padding-bottom">
     <div class="row avec-padding-bottom">
     #ANCRE_PAGINATION
     [(#REM) ne pas paginer sur les 3 articles focus déjà affichés au dessus ]
@@ -48,7 +50,7 @@
       <h2>
         <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
       </h2>
-      <div class="sous-titre">#SOUSTITRE</div>
+      [<div class="sous-titre texte-colorGrisFonce font-style-italic sans-padding">(#SOUSTITRE)</div>]
     </article>
     </BOUCLE_ap>
     </div>

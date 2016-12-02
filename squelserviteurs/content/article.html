@@ -18,6 +18,7 @@
   <article>
     <header class="avec-padding-bottom">
       <h1 class="texte-colorComm text-center">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
+      [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05">(#SOUSTITRE)</div>]
       <div class="#EDIT{chapo} chapo">
         #CHAPO
       </div>
@@ -32,25 +33,25 @@
       </figure>]
     </header>
     <div class="row container avec-padding-top avec-padding-bottom avec-border-top">
-      <div class="#EDIT{texte} texte large-8 columns">
+      <div class="#EDIT{texte} texte large-8 columns avec-padding-top">
         #TEXTE
         <div class="auteur show-for-small-only text-center"><a class="texte-colorComm" href="#" title="Envoyer un message à l'auteur"><span class="icon-envelope icon-2x"></span>Écrire à l'auteur</a></div>
         <hr />
         <h3 class="show-for-medium avec-margin-bottom05" id="social-tags">Partager cette page</h3>
       </div>
-      <aside class="large-4 columns avec-margin-top">
+      <aside class="large-4 columns">
         <INCLURE{fond=_bibliotheque/pave-evenement-article,env} />
 
         <section class="text-center">
           <h1 class="text-center text-transform-none">Sur le même thème</h1>
           <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
-          <article class="triadeC avec-padding avec-margin-bottom05">
+          <article class="triadeC avec-padding avec-margin-bottom015">
             <h2>
-              <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
+              <a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
             </h2>
-            <div class="sous-titre">
-              #SOUSTITRE
-            </div>
+              [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05">
+                (#SOUSTITRE)
+              </div>]
           </article>
           </BOUCLE_apa>
         </section>
