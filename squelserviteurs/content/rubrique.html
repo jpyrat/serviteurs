@@ -19,12 +19,12 @@
   <h1 class="texte-colorComm">#TITRE</h1>
   <BOUCLE_a(ARTICLES){id_rubrique}{par num titre}{0,3}>
   <article class="focus row text-center">
-    <div class="large-4 medium-6 columns sans-padding-for-small">
+    <div class="large-4  columns avec-padding-bottom avec-margin-bottom">
       [(#REM) img 400x270 ]
       [<img src="(#LOGO_ARTICLE|image_passe_partout{400,290}|image_recadre{400,290}|extraire_attribut{src})" alt="">]
     </div>
-    <div class="large-8 medium-6 columns medium-text-left">
-      <h2 class="show-for-medium position-relative z-index-999">
+    <div class="large-8  columns large-text-left">
+      <h2 class="position-relative z-index-999">
         <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE
         <span class="chevron icon-chevron-thin-right show-for-large"></span>
         </a>

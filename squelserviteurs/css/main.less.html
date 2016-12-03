@@ -162,6 +162,11 @@ h1,h2,h3,h4,h5,h6,
   font-family: @cgFontFamilyHn;
   font-weight: 400;
 }
+@media screen and (max-width: 40em) {
+  h1 {
+    font-size: 2rem;
+  }
+}
 .triadeA {
   background-color: @triadeA;
 }
@@ -426,6 +431,9 @@ h1,h2,h3,h4,h5,h6,
 }
 .text-uppercase {
   text-transform: uppercase!important;
+}
+.font-family-roboto {
+  font-family: Roboto!important;
 }
 .font-style-italic {
   font-style: italic!important;
@@ -834,13 +842,13 @@ nav.tab-bar.title-bar h1 {
   border-top: none;
 }
 .plan-sommaire h2.hide-for-medium {
-    position: absolute;
-    max-width: 400px;
-    padding: .25em 0 .3em;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  position: absolute;
+  max-width: 400px;
+  padding: .25em 0 .3em;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .plan-sommaire h2.hide-for-medium a {
   font-size: 1.3em;
@@ -848,12 +856,34 @@ nav.tab-bar.title-bar h1 {
 .plan-sommaire p,
 .contentRubrique p {
   padding-top: 1em;
-  padding-right: 5.3em;
 }
+.contentRubrique h2,
 .contentRubrique .sous-titre {
-  padding-right: 5.3em;
   line-height: 1.25em;
 }
+.plan-sommaire p,
+.contentRubrique p,
+.contentRubrique h2,
+.contentRubrique .sous-titre {
+  padding-right: 5.3rem;
+}
+@media screen and (max-width:64em) {
+  .plan-sommaire p,
+  .contentRubrique p,
+  .contentRubrique h2,
+  .contentRubrique .sous-titre {
+    padding-right: 3rem;
+  }
+}
+@media screen and (max-width:40em) {
+  .plan-sommaire p,
+  .contentRubrique p,
+  .contentRubrique h2,
+  .contentRubrique .sous-titre {
+    padding-right: 1em;
+  }
+}
+
 .autres-articles .sous-titre {
   padding-bottom: .25em!important;
 }
@@ -1789,8 +1819,7 @@ blockquote p {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-.contentRubrique h2,
-.contentHomelie h2 {
+.contentRubrique h2 {
   font-size: 1.45em;
   font-weight: 700;
 }
@@ -1831,12 +1860,26 @@ blockquote p {
   background-color: #aaa;
   margin-top: .5em;
 }
+@media screen and (max-width:40em) {
+  .contentRubrique section article:after {
+    background: none;
+    margin-top: -2em;
+  }
+}
+
 article.focus:not(:last-of-type) {
   border-bottom: 1px solid #ddd;
 }
 .espace article.focus {
   margin-bottom: 4em;
   padding-bottom: 2em!important;
+}
+@media screen and (max-width:64em) {
+  .espace article.focus {
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 .espace article.focus h2 {
   font-size: 1.35em!important;
