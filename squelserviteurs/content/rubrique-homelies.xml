@@ -1,0 +1,7 @@
+<composition>
+	<nom>Rubrique Homélies</nom>
+	<description>Composition pour les rubriques des homélies</description>
+	<icon>images/objet-liste-contenus-dates.png</icon>
+	<branche type="article" composition="homelie" />
+	<branche type="rubrique" composition="homelies" />
+</composition>
