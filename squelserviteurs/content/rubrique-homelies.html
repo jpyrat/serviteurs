@@ -32,51 +32,21 @@
     </div>
     <div class="large-8 medium-6 columns medium-text-left flexbox-wrap-space-between">
       <header>
-        <h2>
-          <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
+        <h2 class="position-relative z-index-999 show-for-medium">
+          <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE
+          <span class="chevron icon-chevron-thin-right show-for-large"></span>
+          </a>
         </h2>
         <p class="sans-padding"><BOUCLEaut(AUTEURS){id_article}>[(#NOM) - ]</BOUCLEaut>[(#DATE*|affdate)]</p>
       </header>
       <footer class="player-mp3 avec-padding-bottom">
         <BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}>
         #MODELE{emb,skin=ted,hauteur=85}
-        <a href="#" title="Télécharger le fichier audio"><small>Télécharger <BOUCLE_aa(ARTICLES){id_article}>#TITRE</BOUCLE_aa> - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
+        <a class="show-for-medium" href="#" title="Télécharger le fichier audio"><small>Télécharger <BOUCLE_aa(ARTICLES){id_article}>#TITRE</BOUCLE_aa> - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
         </BOUCLE_mp3>
       </footer>
-      <a class="chevron show-for-medium" href="#URL_ARTICLE" title="Voir cette article"><span class="icon-chevron-thin-right texte-#GET{couleur}"></span></a>
     </div>
   </article>
-  [(#REM) pour l'exemple ]
-
-  #SET{couleur,colorComm}
-  <article class="focus row text-center flexbox-stretch">
-    <div class="large-4 medium-6 columns">
-      <div class="logo-content #GET{couleur}">
-        <p class="font-size-130 texte-blanc avec-padding-leftright">27e dimanche du temps ordinaire</p>
-        <div class="transitionHomelies avec-padding-top">
-          <hr aria-hidden="true" />
-          <span class="icon-chevron-thin-up icon-lg #GET{couleur}"></span>
-        </div>
-        <p class="h2 texte-blanc text-uppercase avec-padding">Année C</p>
-      </div>
-    </div>
-    <div class="large-8 medium-6 columns medium-text-left flexbox-wrap-space-between">
-      <header>
-        <h2>
-          <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
-        </h2>
-        <p class="sans-padding"><BOUCLEautz(AUTEURS){id_article}>[(#NOM) - ]</BOUCLEautz>[(#DATE*|affdate)]</p>
-      </header>
-      <footer class="player-mp3 avec-padding-bottom">
-        <BOUCLE_mp3z(DOCUMENTS){id_article}{extension==mp3}>
-        #MODELE{emb,skin=ted,hauteur=85}
-        <a href="#" title="Télécharger le fichier audio"><small>Télécharger <BOUCLE_az(ARTICLES){id_article}>#TITRE</BOUCLE_az> - Année C - <BOUCLEauttz(AUTEURS){id_article}>[(#NOM)]</BOUCLEauttz></small></a>
-        </BOUCLE_mp3z>
-      </footer>
-      <a class="chevron show-for-medium" href="#URL_ARTICLE" title="Voir cette article"><span class="icon-chevron-thin-right texte-#GET{couleur}"></span></a>
-    </div>
-  </article>
-
   </BOUCLE_a>
 
 </div>
