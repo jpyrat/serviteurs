@@ -123,7 +123,9 @@ button {
   border-radius: 4px;
 }
 .button:hover,
-button:hover {
+.button:focus,
+button:hover,
+button:focus {
   background-color:fade(@triadeA,50)!important
 }
 [type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"],
@@ -148,6 +150,7 @@ textarea {
   }
 }
 .title-bar-center .menu > li:hover,
+.title-bar-center .menu > li:focus,
 .title-bar-center .menu > li.rubActive {
   background-color: @triadeB;
   font-weight: normal;
@@ -610,7 +613,8 @@ nav.tab-bar.title-bar h1 {
   padding: .1em .1em 0;
   font-size: 2.4em;
 }
-.title-bar .icon-bar:hover {
+.title-bar .icon-bar:hover,
+.title-bar .icon-bar:focus {
   color: lighten(@triadeB,20%);
 }
 
@@ -630,7 +634,8 @@ nav.tab-bar.title-bar h1 {
 .sous-bar ul.dropdown > li > a strong {
   font-weight: inherit;
 }
-.sous-bar ul.dropdown > li:hover {
+.sous-bar ul.dropdown > li:hover,
+.sous-bar ul.dropdown > li:focus {
   background-color: @triadeC!important;
 }
 .menu-mega {
@@ -661,10 +666,12 @@ nav.tab-bar.title-bar h1 {
   -webkit-transition: none!important;
   transition: none!important;
 }
-.menu-mega li:hover {
+.menu-mega li:hover,
+.menu-mega li:focus {
   background-color: transparent!important;
 }
-.menu-mega li a:hover {
+.menu-mega li a:hover,
+.menu-mega li a:focus {
   color: saturate(darken(@triadeB,10%),20%) !important;
 }
 .menu-mega .titre-list {
@@ -710,7 +717,8 @@ nav.tab-bar.title-bar h1 {
   color: white;
   font-size: 1.4em;
 }
-#navPictosRaccourcis a:hover {
+#navPictosRaccourcis a:hover,
+#navPictosRaccourcis a:focus {
   background-color: @triadeA!important;
 }
 @media screen and (max-width:39.9375em) {
@@ -741,7 +749,8 @@ nav.tab-bar.title-bar h1 {
 #navPictosRaccourcisSommaire li:first-of-type {
   border-left: none!important;
 }
-#navPictosRaccourcisSommaire li:hover {
+#navPictosRaccourcisSommaire li:hover,
+#navPictosRaccourcisSommaire li:focus {
   background-color: transparent;
 }
 #navPictosRaccourcisSommaire a {
@@ -752,7 +761,8 @@ nav.tab-bar.title-bar h1 {
   font-size: 2rem!important;
   padding-left: 5px!important;
 }
-#navPictosRaccourcisSommaire .icon-2x:hover {
+#navPictosRaccourcisSommaire .icon-2x:hover,
+#navPictosRaccourcisSommaire .icon-2x:focus {
   color: @triadeB!important;
 }
 
@@ -776,7 +786,8 @@ nav.tab-bar.title-bar h1 {
   color: @triadeA;
   border-bottom: 1px solid #ccc;
 }
-.vertical.menu .item:hover {
+.vertical.menu .item:hover,
+.vertical.menu .item:focus {
   background-color: white;
 }
 
@@ -1027,7 +1038,8 @@ nav.tab-bar.title-bar h1 {
   font-size: 1.1em;
   color: white;
 }
-#agenda-boutons-filtre a:hover {
+#agenda-boutons-filtre a:hover,
+#agenda-boutons-filtre a:focus {
   background-color: @triadeC;
 }
 #agenda-boutons-filtre .menu {
@@ -1085,7 +1097,9 @@ nav.tab-bar.title-bar h1 {
   border-bottom: none;
 }
 #agenda-boutons-filtre .dropdown.menu li li a:hover,
-.listeRecherches .dropdown.menu li li a:hover {
+#agenda-boutons-filtre .dropdown.menu li li a:focus,
+.listeRecherches .dropdown.menu li li a:hover,
+.listeRecherches .dropdown.menu li li a:focus {
   background-color: @triadeC;
 }
 
@@ -1125,7 +1139,8 @@ nav.tab-bar.title-bar h1 {
 .menulisteRecherches .dropdown.menu li li:last-child {
   border-bottom: none;
 }
-.menulisteRecherches .dropdown.menu li li a:hover {
+.menulisteRecherches .dropdown.menu li li a:hover,
+.menulisteRecherches .dropdown.menu li li a:focus {
   background-color: @triadeC;
 }
 ////
@@ -1261,7 +1276,9 @@ nav.tab-bar.title-bar h1 {
   width: 100%;
 }
 .contact .bouton a:hover,
-.is-dropdown-submenu-parent > a:hover {
+.contact .bouton a:focus,
+.is-dropdown-submenu-parent > a:hover,
+.is-dropdown-submenu-parent > a:focus {
   background-color: @triadeC;
 }
 .contact .is-dropdown-submenu-parent > a {
@@ -1290,7 +1307,8 @@ nav.tab-bar.title-bar h1 {
 .contact .bouton .dropdown.menu li li:last-child {
   border-bottom: none;
 }
-.contact .bouton .dropdown.menu li li a:hover {
+.contact .bouton .dropdown.menu li li a:hover,
+.contact .bouton .dropdown.menu li li a:focus {
   background-color: @triadeC;
 }
 @media screen and (max-width: 64em) {
@@ -1307,7 +1325,8 @@ footer .pied {
   margin-bottom: 3.5em;
   border-bottom: 1px dotted white;
 }
-footer .pied a:hover {
+footer .pied a:hover,
+footer .pied a:focus {
   background-color: @triadeC;
 }
 @media screen and (min-width: 40em) {
@@ -1631,7 +1650,9 @@ table tfoot {
   border-radius:0
 }
 .pagination a:hover,
-.pagination button:hover {
+.pagination a:focus,
+.pagination button:hover,
+.pagination button:focus {
   background: #fff
 }
 .pagination .current {
@@ -1644,7 +1665,8 @@ table tfoot {
   color:#cacaca;
   cursor:default
 }
-.pagination .disabled:hover {
+.pagination .disabled:hover,
+.pagination .disabled:focus {
   background:transparent
 }
 .pagination .ellipsis:after {
@@ -1798,14 +1820,16 @@ blockquote p {
   height: auto;
   margin: 0 .5em;
 }
-.socialtags img:hover {
+.socialtags img:hover,
+.socialtags img:focus {
   -webkit-transition: all .3s ease!important;
   transition: all .3s ease!important;
   -webkit-transform: scale(1.05,1.05)!important;
   transform: scale(1.05,1.05)!important;
 }
 .socialtags-hovers,
-.socialtags-hovers:hover {
+.socialtags-hovers:hover,
+.socialtags-hovers:focus {
   -webkit-transition: all .3s ease!important;
   transition: all .3s ease!important;
 }
@@ -2190,10 +2214,12 @@ aside .h1 a {
   -webkit-transition: all .3s ease!important;
   transition: all .3s ease!important;
 }
-#documents_portfolio a:hover {
+#documents_portfolio a:hover,
+#documents_portfolio a:focus {
   opacity: 1;
 }
-#documents_portfolio .thumbnail:hover {
+#documents_portfolio .thumbnail:hover,
+#documents_portfolio .thumbnail:focus {
   opacity: 1;
   -webkit-transition: all .3s ease!important;
   transition: all .3s ease!important;
@@ -2290,7 +2316,9 @@ aside .h1 a {
 
 // hover
 #menu-ext-gauche a:hover,
-#menu-ext-droite a:hover {
+#menu-ext-gauche a:focus,
+#menu-ext-droite a:hover,
+#menu-ext-droite a:focus {
   background-color: @triadeA!important;
   color: white!important;
   border-left: 8px solid @triadeB;
