@@ -17,7 +17,7 @@
 <div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
   <article>
     <header class="avec-padding-bottom">
-      <h1 class="texte-colorComm text-center">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
+      <h1 class="texte-colorComm text-center #EDIT{titre}">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
       [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05">(#SOUSTITRE)</div>]
       <div class="#EDIT{chapo} chapo">
         #CHAPO
@@ -47,9 +47,9 @@
           <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
           <article class="triadeC avec-padding avec-margin-bottom015">
             <h2>
-              <a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
+              <a class="texte-colorGrisFonce #EDIT{titre}" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
             </h2>
-              [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05">
+              [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05 #EDIT{soustitre}">
                 (#SOUSTITRE)
               </div>]
           </article>
