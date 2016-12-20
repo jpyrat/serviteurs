@@ -32,6 +32,6 @@
   <necessite nom="iextras" compatibilite="[3.3.5;[" />
   <necessite nom="socialtags" compatibilite="[1.0.14;[" />
   <necessite nom="campagnes" compatibilite="[1.3.4;[" />
-  <necessite nom="dame" compatibilite="[0.2.3;[" />
+  <necessite nom="modelexergue" compatibilite="[1.0.1;[" />
 
 </paquet>
