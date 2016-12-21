@@ -19,7 +19,7 @@
                 <img src="(#CSS{css/img/logo_serviteurs-small.png})" alt="Serviteurs de Jésus & de Marie" />
               </a></li>]
 		<BOUCLE_rub(RUBRIQUES){racine}>
-                <li[ class="(#EXPOSE{rubActive})"]><a href="#URL_RUBRIQUE" title="Voir [(#TITRE|attribut_html)]">[<(#EXPOSE{strong})>]#TITRE[</(#EXPOSE{strong})>]</a></li>
+                <li class="#EDIT{titre} [(#EXPOSE{rubActive})]"><a href="#URL_RUBRIQUE" title="Voir [(#TITRE|attribut_html)]">[<(#EXPOSE{strong})>]#TITRE[</(#EXPOSE{strong})>]</a></li>
 		</BOUCLE_rub>
               </ul>
             </div>
@@ -28,7 +28,7 @@
             <div class="title-bar-center sous-bar colorBlanc">
               <ul class="dropdown menu" data-dropdown-menu role="navigation">
               <BOUCLE_par(RUBRIQUES){id_parent}>
-                <li classs="racine"><a class="dropdown[ (#EXPOSE)]" href="#URL_RUBRIQUE" title="Voir [(#TITRE|attribut_html)]" data-toggle="mega#ID_RUBRIQUE">[<(#EXPOSE{strong})>]#TITRE[</(#EXPOSE{strong})>]</a>
+                <li classs="racine #EDIT{titre}"><a class="dropdown[ (#EXPOSE)]" href="#URL_RUBRIQUE" title="Voir [(#TITRE|attribut_html)]" data-toggle="mega#ID_RUBRIQUE">[<(#EXPOSE{strong})>]#TITRE[</(#EXPOSE{strong})>]</a>
                   <div class="dropdown-pane menu-mega" id="mega#ID_RUBRIQUE" data-dropdown data-options="closeOnClick:true;hover:true;hoverPane:true;">
                     <div class="row medium-up-3 large-up-4 text-left">
                       <ul class="columns menu">
