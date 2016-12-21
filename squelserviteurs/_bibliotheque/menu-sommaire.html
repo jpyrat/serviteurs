@@ -15,7 +15,7 @@
             [(#REM) navigation principale ]
             <div class="title-bar-center">
               <ul class="dropdown menu" role="navigation">
-		<BOUCLE_rub(RUBRIQUES){racine}>
+		<BOUCLE_rub(RUBRIQUES){racine}{id_rubrique !IN 1,273,280}>
                 <li><a href="#URL_RUBRIQUE" title="Voir [(#TITRE|attribut_html)]">#TITRE</a></li>
 		</BOUCLE_rub>
               </ul>
