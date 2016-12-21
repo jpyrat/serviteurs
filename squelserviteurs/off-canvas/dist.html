@@ -21,7 +21,7 @@
               <section>
                 <ul class="vertical menu" role="navigation">
                   <li><a href="#URL_SITE_SPIP" class="item retourHome" title="Retour à l'accueil"><span class="icon-home icon-fw"></span>Accueil</a></li>
-                  <BOUCLE_Rubriques(RUBRIQUES){racine}{par num titre}>
+                  <BOUCLE_Rubriques(RUBRIQUES){racine}{id_rubrique !IN 1,273,280}{par num titre}>
                   <li class="niveauA[ (#EXPOSE{actif-OffCanvas})]"><a href="#URL_RUBRIQUE" class="item"[ title="(#DESCRIPTIF|attribut_html)"]>#TITRE</a>
                   <B_SsRubriques>
                     <ul>

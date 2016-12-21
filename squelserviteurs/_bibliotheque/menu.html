@@ -18,7 +18,7 @@
                 [<li><a href="#URL_SITE_SPIP" class="item retourHome sans-margin" title="Retour à l'accueil">
                 <img src="(#CSS{css/img/logo_serviteurs-small.png})" alt="Serviteurs de Jésus & de Marie" />
               </a></li>]
-		<BOUCLE_rub(RUBRIQUES){racine}{id_rubrique !IN 1,273,280}>
+		<BOUCLE_rub(RUBRIQUES){racine}{id_rubrique !IN 1,273,280}{par num titre}>
                 <li class="#EDIT{titre} [(#EXPOSE{rubActive})]"><a href="#URL_RUBRIQUE" title="Voir [(#TITRE|attribut_html)]">[<(#EXPOSE{strong})>]#TITRE[</(#EXPOSE{strong})>]</a></li>
 		</BOUCLE_rub>
               </ul>
