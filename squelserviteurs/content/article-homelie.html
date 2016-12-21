@@ -31,18 +31,18 @@
           <div class="player-mp3 avec-padding-bottom">
             <BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}>
             #MODELE{emb,skin=ted,hauteur=85}
-            <a class="texte-colorGris show-for-medium"href="#" title="Télécharger le fichier audio"><small>Télécharger #_:TITRE - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
+            <a class="texte-colorGris show-for-medium" href="#" title="Télécharger le fichier audio"><small>Télécharger #_:TITRE - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
             </BOUCLE_mp3>
           </div>
         </div>
         <div class="large-4 medium-3 columns">
+          <BOUCLE_auteur(AUTEURS){id_article}>
           <div class="fiche row avec-padding-bottom">
             [(#REM) portrait de 200px de large ]
             [<figure class="large-6 columns sans-margin avec-margin-top text-center medium-text-left">
-              <img src="(#LOGO_AUTEUR_NORMAL|extraire_attribut{src})" alt="" />
+              <img src="(#LOGO_AUTEUR_NORMAL|image_reduire{200,0}|extraire_attribut{src})" alt="" />
             </figure>]
             <div class="large-6 columns avec-margin-top text-center medium-text-left">
-              <BOUCLE_auteur(AUTEURS){id_article}>
               <ul class="auteur sans-margin">
                 [<li>
                   <span class="icon-user icon-lg texte-triadeB"></span>(#NOM)
@@ -57,14 +57,15 @@
                   <span class="icon-phone icon-fw texte-triadeB"></span>04 04 04 04 09
                 </li>
               </ul>
-              </BOUCLE_auteur>
             </div>
-        </div>
-      </div>
+          </div>
+          </BOUCLE_auteur>
+       </div>
+	  </div>
     </header>
 
     <div class="container avec-padding-top avec-padding-bottom">
-      <div clas="row">
+      <div class="row">
         <div class="#EDIT{texte} texte large-8 large-centered columns">
           #TEXTE
         </div>
