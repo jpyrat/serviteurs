@@ -17,7 +17,7 @@
 <div class="contentArticle row column avec-margin-bottom" id="ancre_article_homelie" role="main">
   <article>
     <header class="avec-padding-bottom">
-      <h1 class="texte-colorComm">#TITRE</h1>
+      <h1 class="texte-colorComm #EDIT{titre}">#TITRE</h1>
       <div class="auteur show-for-medium">
         <p>
           <span class="icon-calendar-check-o icon-lg texte-triadeB"></span>[(#DATE*|affdate)]
@@ -31,7 +31,7 @@
           <div class="player-mp3 avec-padding-bottom">
             <BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}>
             #MODELE{emb,skin=ted,hauteur=85}
-            <a class="texte-colorGris show-for-medium"href="#" title="Télécharger le fichier audio"><small>Télécharger <BOUCLE_aa(ARTICLES){id_article}>#TITRE</BOUCLE_aa> - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
+            <a class="texte-colorGris show-for-medium"href="#" title="Télécharger le fichier audio"><small>Télécharger #_:TITRE - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
             </BOUCLE_mp3>
           </div>
         </div>
@@ -39,7 +39,7 @@
           <div class="fiche row avec-padding-bottom">
             [(#REM) portrait de 200px de large ]
             [<figure class="large-6 columns sans-margin avec-margin-top text-center medium-text-left">
-              <img src="(#CHEMIN{_elements-maquette/portrait_de_pere_pierre-marie.jpg})" alt="" />
+              <img src="(#LOGO_AUTEUR_NORMAL|extraire_attribut{src})" alt="" />
             </figure>]
             <div class="large-6 columns avec-margin-top text-center medium-text-left">
               <BOUCLE_auteur(AUTEURS){id_article}>
