@@ -6,12 +6,12 @@
       <div class="large-4 medium-6 columns sans-padding-for-small">
         [(#REM) img 400x270 ]
         [<img src="(#LOGO_RUBRIQUE_NORMAL|image_reduire{400,0}|image_passe_partout{400,270}|extraire_attribut{src}|sinon{https://placehold.it/400x270})" alt="" />]
-        <h2 class="hide-for-medium colorComm opacity-70">
+        <h2 class="hide-for-medium colorComm opacity-70>
           <a class="texte-blanc" href="#URL_RUBRIQUE">#TITRE</a>
         </h2>
       </div>
       <div class="large-8 medium-6 columns medium-text-left">
-        <h2 class="show-for-medium position-relative z-index-999">
+        <h2 class="show-for-medium position-relative z-index-999 #EDIT{titre}"">
           <a class="texte-colorComm" href="#URL_RUBRIQUE">#TITRE
           <span class="chevron icon-chevron-thin-right show-for-large"></span>
           </a>
@@ -21,7 +21,7 @@
             <B_SsRubriques>
 			<ul class="menu vertical">
               <BOUCLE_SsRubriques(RUBRIQUES){id_parent}{par num titre}>
-			  <li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+			  <li class="#EDIT{titre}"><a href="#URL_RUBRIQUE">#TITRE</a></li>
 			  </BOUCLE_SsRubriques>
             </ul>
 			</B_SsRubriques>
