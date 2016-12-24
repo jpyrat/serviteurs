@@ -23,9 +23,10 @@
             {pictopastille='icon-location'}
             {couleurpastille='texte-triadeA'}
       />
+	  <BOUCLE_carte(ARTICLES){page=carte}>#SET{urlcarte,#URL_ARTICLE}</BOUCLE_carte>
       [(#REM) carte pour petits écrans ]
       [<figure class="sans-margin avec-margin-bottom avec-padding05 avec-border show-for-small-only">
-        <a href="#" title="Voir la carte">
+        <a href="#GET{urlcarte}" title="Voir la carte">
           <img src="(#CHEMIN{css/img/carte.png})" alt="Carte de situation" />
         </a>
       </figure>]
@@ -71,7 +72,7 @@
       [(#REM) carte pour grands écrans ]
       <div class="row column avec-padding show-for-medium">
         [<figure class="sans-margin avec-padding05 avec-border">
-          <a href="#" title="Voir la carte">
+          <a href="#GET{urlcarte}" title="Voir la carte">
             <img src="(#CHEMIN{css/img/carte.png})" alt="Carte de situation" />
           </a>
         </figure>]
@@ -122,30 +123,9 @@
             <li class="display-block">
               <a class="avec-padding display-block" href="#" title="Pour Contacter un frère">Contacter un frère</a>
               <ul class="menu vertical">
-                <li><a href="#" title="?">Frère Jean</a></li>
-                <li><a href="#" title="?">Frère Jacques</a></li>
-                <li><a href="#" title="?">Frère Julien</a></li>
-                <li><a href="#" title="?">Frère Jean</a></li>
-                <li><a href="#" title="?">Frère Jacques</a></li>
-                <li><a href="#" title="?">Frère Julien</a></li>
-                <li><a href="#" title="?">Frère Jean</a></li>
-                <li><a href="#" title="?">Frère Jacques</a></li>
-                <li><a href="#" title="?">Frère Julien</a></li>
-                <li><a href="#" title="?">Frère Jean</a></li>
-                <li><a href="#" title="?">Frère Jacques</a></li>
-                <li><a href="#" title="?">Frère Julien</a></li>
-                <li><a href="#" title="?">Frère Jean</a></li>
-                <li><a href="#" title="?">Frère Jacques</a></li>
-                <li><a href="#" title="?">Frère Julien</a></li>
-                <li><a href="#" title="?">Frère Jean</a></li>
-                <li><a href="#" title="?">Frère Jacques</a></li>
-                <li><a href="#" title="?">Frère Julien</a></li>
-                <li><a href="#" title="?">Frère Jean</a></li>
-                <li><a href="#" title="?">Frère Jacques</a></li>
-                <li><a href="#" title="?">Frère Julien</a></li>
-                <li><a href="#" title="?">Frère Jean</a></li>
-                <li><a href="#" title="?">Frère Jacques</a></li>
-                <li><a href="#" title="?">Frère Julien</a></li>
+                <BOUCLES_Freres(AUTEURS){freres=on}{par nom}>
+				<li><a href="#URL_AUTEUR" title="Contacter[ (#NOM|attribut_html)]">#NOM</a></li>
+				</BOUCLES_Freres>
               </ul>
             </li>
           </ul>
