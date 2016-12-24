@@ -1,0 +1,29 @@
+<BOUCLE_principale(AUTEURS) {id_auteur}>
+<div class="row column">
+  [(#REM) le breadcrumb ]
+  <nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
+	  [<li title="En cours: [(#RECHERCHE|attribut_html)]"><:info_auteurs:>&nbsp;:
+        <span class="show-for-sr">En cours: </span>(#NOM)
+      </li>]
+    </ul>
+  </nav>
+</div>
+
+<div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
+  <article>
+    <header class="avec-padding-bottom">
+      <h1 class="texte-colorComm text-center #EDIT{qui}">#NOM</h1>
+    </header>
+    <div class="row container avec-padding-top avec-padding-bottom avec-border-top">
+	  [<div class="#EDIT{bio} texte note">(#BIO)</div>]
+	  [<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="url org spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+	  [<div class="notes"><hr />(#NOTES)</div>]
+	  #FORMULAIRE_ECRIRE_AUTEUR
+	</div>
+      
+  </article>
+
+</div>
+</BOUCLE_principale>
