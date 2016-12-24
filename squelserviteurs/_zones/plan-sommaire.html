@@ -1,97 +1,37 @@
 <div class="zone-arriere avec-padding" id="ancre_plan-sommaire">
   <div class="plan-sommaire row column">
     <h1 class="hide">Plan du site / Présentation</h1>
-    <article class="row text-center">
+    <BOUCLE_ListeRubriques(RUBRIQUES){racine}{id_rubrique !IN 1,273,280}{par num titre}>
+	<article class="row text-center">
       <div class="large-4 medium-6 columns sans-padding-for-small">
         [(#REM) img 400x270 ]
-        <img src="https://unsplash.it/400/270?image=1059" alt="" />
+        [<img src="(#LOGO_RUBRIQUE_NORMAL|image_reduire{400,0}|image_passe_partout{400,270}|extraire_attribut{src}|sinon{https://placehold.it/400x270})" alt="" />]
         <h2 class="hide-for-medium colorComm opacity-70">
-          <a class="texte-blanc" href="#" title="Lire La communauté">La communauté</a>
+          <a class="texte-blanc" href="#URL_RUBRIQUE">#TITRE</a>
         </h2>
       </div>
       <div class="large-8 medium-6 columns medium-text-left">
         <h2 class="show-for-medium position-relative z-index-999">
-          <a class="texte-colorComm" href="#" title="Lire La communauté">La communauté
+          <a class="texte-colorComm" href="#URL_RUBRIQUE">#TITRE
           <span class="chevron icon-chevron-thin-right show-for-large"></span>
           </a>
         </h2>
         <div class="row">
           <div class="large-5 columns collapse">
-            <ul class="menu vertical">
-              <li><a href="#" title="Lire Qui sommes-nous ?">Qui sommes-nous ?</a></li>
-              <li><a href="#" title="Lire Vocation">Vocation</a></li>
-              <li><a href="#" title="Lire Histoire">Histoire</a></li>
-              <li><a href="#" title="Lire Spiritualité">Spiritualité</a></li>
-              <li><a href="#" title="Lire Maisons">Maisons</a></li>
+            <B_SsRubriques>
+			<ul class="menu vertical">
+              <BOUCLE_SsRubriques(RUBRIQUES){id_parent}{par num titre}>
+			  <li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+			  </BOUCLE_SsRubriques>
             </ul>
+			</B_SsRubriques>
           </div>
-          <div class="large-7 columns show-for-large sans-padding">
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum.</p>
+          <div class="large-7 columns show-for-large sans-padding #EDIT{descriptif}">
+            [(#DESCRIPTIF|sinon{Double-cliquer pour mettre ici un texte})]
           </div>
         </div>
       </div>
     </article>
-    <article class="row text-center">
-      <div class="large-4 medium-6 columns sans-padding-for-small">
-        [(#REM) img 400x270 ]
-        <img src="https://unsplash.it/400/270?image=1069" alt="" />
-        <h2 class="hide-for-medium colorForm opacity-70">
-          <a class="texte-blanc" href="#" title="Lire Formation spirituelle">Formation spirituelle</a>
-        </h2>
-      </div>
-      <div class="large-8 medium-6 columns medium-text-left">
-        <h2 class="show-for-medium position-relative z-index-999">
-          <a class="texte-colorForm" href="#" title="Lire Formation spirituelle">Formation spirituelle
-          <span class="chevron icon-chevron-thin-right show-for-large"></span>
-          </a>
-        </h2>
-        <div class="row">
-          <div class="large-5 columns collapse">
-            <ul class="menu vertical">
-              <li><a href="#" title="Lire Qui sommes-nous ?">Homélies</a></li>
-              <li><a href="#" title="Lire Vocation">Conférences</a></li>
-              <li><a href="#" title="Lire Histoire">Vidéos</a></li>
-              <li><a href="#" title="Lire Spiritualité">Discerner sa vocation</a></li>
-              <li><a href="#" title="Lire Maisons">Spiritualité mariale</a></li>
-              <li><a href="#" title="Lire Maisons">Foi - guide pratique</a></li>
-            </ul>
-          </div>
-          <div class="large-7 columns show-for-large sans-padding">
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum.</p>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="row text-center">
-      <div class="large-4 medium-6 columns sans-padding-for-small">
-        [(#REM) img 400x270 ]
-        <img src="https://unsplash.it/400/270?image=869" alt="" />
-        <h2 class="hide-for-medium colorMari opacity-70">
-          <a class="texte-blanc" href="#" title="Lire Mariage">Mariage</a>
-        </h2>
-      </div>
-      <div class="large-8 medium-6 columns medium-text-left">
-        <h2 class="show-for-medium position-relative z-index-999">
-          <a class="texte-colorMari" href="#" title="Lire Mariage">Mariage
-          <span class="chevron icon-chevron-thin-right show-for-large"></span>
-          </a>
-        </h2>
-        <div class="row">
-          <div class="large-5 columns collapse">
-            <ul class="menu vertical">
-              <li><a href="#" title="Lire Qui sommes-nous ?">Discernement</a></li>
-              <li><a href="#" title="Lire Vocation">Fiançailles</a></li>
-              <li><a href="#" title="Lire Histoire">Préparation</a></li>
-              <li><a href="#" title="Lire Spiritualité">Célébration</a></li>
-              <li><a href="#" title="Lire Maisons">SAV jeunes mariés</a></li>
-            </ul>
-          </div>
-          <div class="large-7 columns show-for-large sans-padding">
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum.</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
+	</BOUCLE_ListeRubriques>
   </div>
 </div>
