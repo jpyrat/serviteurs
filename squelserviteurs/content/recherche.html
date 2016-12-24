@@ -3,8 +3,7 @@
   <nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
     <ul class="breadcrumbs">
       <li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
-	  <li><:info_rechercher:></li>
-      [<li title="En cours: [(#TITRE|attribut_html)]">
+	  [<li title="En cours: [(#RECHERCHE|attribut_html)]"><:info_rechercher:>&nbsp;:
         <span class="show-for-sr">En cours: </span>(#RECHERCHE)
       </li>]
     </ul>
@@ -14,7 +13,7 @@
 <div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
   <article>
     <header class="avec-padding-bottom">
-      <h1 class="texte-colorComm text-center #EDIT{titre}"><:resultats_recherche:> &#171;&nbsp;(#RECHERCHE)&nbsp;&#187;</h1>
+      <h1 class="texte-colorComm text-center #EDIT{titre}"><:resultats_recherche:> &#171;&nbsp;#RECHERCHE&nbsp;&#187;</h1>
     </header>
     <div class="row container avec-padding-top avec-padding-bottom avec-border-top">
 			[(#REM) Articles trouves ]
@@ -27,7 +26,7 @@
 					<li><a href="#URL_ARTICLE">#TITRE</a></li>
 					</BOUCLE_articles>
 				</ul>
-				[<p class="pagination">(#PAGINATION)</p>]
+				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
 			</div>
 			</B_articles>
 			
@@ -41,7 +40,7 @@
 					<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
 					</BOUCLE_rubriques>
 				</ul>
-				[<p class="pagination">(#PAGINATION)</p>]
+				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
 			</div>
 			</B_rubriques>
 			
@@ -55,7 +54,7 @@
 					<li><a href="#URL_MOT">#TITRE</a></li>
 					</BOUCLE_mots>
 				</ul>
-				[<p class="pagination">(#PAGINATION)</p>]
+				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
 			</div>
 			</B_mots>
 			
@@ -69,7 +68,7 @@
 					<li><a href="#URL_BREVE">#TITRE</a></li>
 					</BOUCLE_breves>
 				</ul>
-				[<p class="pagination">(#PAGINATION)</p>]
+				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
 			</div>
 			</B_breves>
 			
@@ -83,7 +82,7 @@
 					[<li><a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>(#TEXTE|couper{80})</a></li>]
 					</BOUCLE_messages>
 				</ul>
-				[<p class="pagination">(#PAGINATION)</p>]
+				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
 			</div>
 			</B_messages>
 			
@@ -97,7 +96,7 @@
 					<li><a href="[(#ID_SYNDIC|generer_url_entite{site,'','',#CONNECT})]">#NOM_SITE</a></li>
 					</BOUCLE_sites>
 				</ul>
-				[<p class="pagination">(#PAGINATION)</p>]
+				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
 			</div>
 			</B_sites>
 	</div>
