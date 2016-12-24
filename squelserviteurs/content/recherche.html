@@ -1,15 +1,12 @@
-<BOUCLE_(ARTICLES){id_article}{statut IN publie,archive}>
 <div class="row column">
   [(#REM) le breadcrumb ]
   <nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
     <ul class="breadcrumbs">
       <li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
-      <BOUCLE_Breadcrumbs(HIERARCHIE){id_article}>
-      <li><a href="#URL_RUBRIQUE" title="Voir la rubrique [(#TITRE|attribut_html)]">#TITRE</a></li>
-      </BOUCLE_Breadcrumbs>
-      <li title="En cours: [(#TITRE|attribut_html)]">
-        <span class="show-for-sr">En cours: </span>#TITRE
-      </li>
+	  <li><:info_rechercher:></li>
+      [<li title="En cours: [(#TITRE|attribut_html)]">
+        <span class="show-for-sr">En cours: </span>(#RECHERCHE)
+      </li>]
     </ul>
   </nav>
 </div>
@@ -17,20 +14,7 @@
 <div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
   <article>
     <header class="avec-padding-bottom">
-      <h1 class="texte-colorComm text-center #EDIT{titre}">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
-      [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05">(#SOUSTITRE)</div>]
-      <div class="#EDIT{chapo} chapo">
-        #CHAPO
-      </div>
-      <div class="auteur show-for-medium">
-        <a class="texte-colorComm" href="#" title="Envoyer un message à l'auteur">
-          <span class="icon-envelope icon-2x"></span>
-          Écrire à l'auteur
-        </a>
-      </div>
-      [<figure class="text-center sans-margin avec-margin-top avec-margin-bottom">
-        <img src="(#LOGO_ARTICLE|image_reduire{800,600}|extraire_attribut{src})" alt="" />
-      </figure>]
+      <h1 class="texte-colorComm text-center #EDIT{titre}"><:resultats_recherche:> &#171;&nbsp;(#RECHERCHE)&nbsp;&#187;</h1>
     </header>
     <div class="row container avec-padding-top avec-padding-bottom avec-border-top">
 			[(#REM) Articles trouves ]
@@ -120,7 +104,5 @@
       
   </article>
 
-  <INCLURE{fond=inclure/documents,env} />
 
 </div>
-</BOUCLE_>
