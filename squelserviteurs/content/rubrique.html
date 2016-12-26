@@ -24,16 +24,18 @@
       [<img src="(#LOGO_ARTICLE|image_passe_partout{400,290}|image_recadre{400,290}|extraire_attribut{src})" alt="">]
     </div>
     <div class="large-8  columns large-text-left">
-      <h2 class="position-relative z-index-999">
+      <h2 class="position-relative z-index-999 #EDIT{titre}">
         <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE
         <span class="chevron icon-chevron-thin-right show-for-large"></span>
         </a>
       </h2>
       [<div class="sous-titre texte-colorGrisFonce font-style-italic">(#SOUSTITRE)</div>]
-      #DESCRIPTIF
+      [<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinon{Double-cliquer pour mettre ici un texte})</div>]
     </div>
   </article>
   </BOUCLE_a>
+  <p>Il faut absolument avoir des articles dans la rubrique</p>
+  <//B_a>
 
   <B_ap>
   <div class="transitionArticles avec-margin-top avec-margin-bottom avec-padding-top">
@@ -49,7 +51,7 @@
     [(#REM) ne pas paginer sur les 3 articles focus déjà affichés au dessus ]
     <BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{pagination 3}>
     <article class="medium-4 columns text-left">
-      <h2>
+      <h2 class="#EDIT{titre}">
         <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
       </h2>
       [<div class="sous-titre texte-colorGrisFonce font-style-italic sans-padding">(#SOUSTITRE)</div>]

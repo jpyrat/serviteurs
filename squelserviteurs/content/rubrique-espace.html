@@ -1,9 +1,10 @@
 <BOUCLE_(RUBRIQUES){id_rubrique}>
 <div class="contentEspace row" id="ancre_espace">
   <div class="bandeau-espace text-center avec-margin-bottom">
-    [<img src="(#LOGO_RUBRIQUE|image_passe_partout{1200,320}|image_recadre{1200,320}|extraire_attribut{src})" alt="">]
-    <h1 class="colorComm">#TITRE</h1>
+    [<img src="(#LOGO_RUBRIQUE|image_passe_partout{1200,320}|image_recadre{1200,320}|extraire_attribut{src}|sinon{https://placehold.it/1200x320})" alt="">]
+    <h1 class="colorComm #EDIT{titre}">#TITRE</h1>
   </div>
+  <B_a>
   <div class="large-8 columns avec-margin-top avec-margin-bottom avec-padding-bottom">
     <BOUCLE_a(ARTICLES){id_rubrique}{par num titre}>
     <article class="focus text-center">
@@ -15,10 +16,26 @@
     </article>
     </BOUCLE_a>
   </div>
+  </B_a>
+  <B_r>
+  <div class="large-8 columns avec-margin-top avec-margin-bottom avec-padding-bottom">
+    <BOUCLE_r(RUBRIQUES){id_parent}{par num titre}>
+    <article class="focus text-center">
+      <a href="#URL_RUBRIQUE" title="Lire [(#TITRE|attribut_html)]">
+        [<img src="(#LOGO_RUBRIQUE_NORMAL|image_passe_partout{400,290}|image_recadre{400,290}|extraire_attribut{src}|sinon{https://placehold.it/400x290})" alt="">]
+        <h2 class="avec-padding-top texte-colorGrisFonce #EDIT{titre}">#TITRE</h2>
+      </a>
+      [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05 #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
+    </article>
+    </BOUCLE_r>
+  </div>
+  </B_r>
+  <//B_a>
 
   <aside class="large-4 columns avec-margin-top avec-margin-bottom">
-    <section class="text-center hide-for-large">
-      <h1>Pour aller plus loin</h1>
+   <B_ap>
+   <section class="text-center hide-for-large">
+	  <h1>Pour aller plus loin</h1>
       <BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{0,4}>
       <article class="triadeC avec-padding avec-margin-bottom015">
         <h2>
@@ -28,9 +45,11 @@
       </article>
       </BOUCLE_ap>
     </section>
+	</B_ap>
     <INCLURE{fond=_bibliotheque/pave-evenement-rubrique,env} />
 
-    <section class="text-center show-for-large">
+    <B_apa>
+	<section class="text-center show-for-large">
       <h1>Pour aller plus loin</h1>
       <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
       <article class="triadeC avec-padding avec-margin-bottom015">
@@ -43,6 +62,7 @@
       </article>
       </BOUCLE_apa>
     </section>
+	</B_apa>
   </aside>
 
 </div>
