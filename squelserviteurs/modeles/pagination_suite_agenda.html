@@ -1,15 +1,29 @@
+#ENV*{bloc_ancre}
+#SET{bornes,#ENV{page_courante}|bornes_pagination{#ENV{nombre_pages},6}}
+#SET{premiere, #GET{bornes}|reset}
+#SET{derniere, #GET{bornes}|end}
+#SET{pages,#GET{premiere}|range{#GET{derniere}}}
 <B_pages>
   <div class="pagination-rubriques row expanded">
     <div class="small-12 column">
       <ul class="pagination text-center" role="navigation" aria-label="Pagination">
-        <li class="pagination-previous"><a href="#" aria-label="Page précédente"></a></li>
-        <li><a href="#" aria-label="Page 2">1</a></li>
-        <li class="current"><span class="show-for-sr">Vous êtes sur la page</span> 2</li>
-        <li><a href="#" aria-label="Page 3">3</a></li>
-        <li class="ellipsis"></li>
-        <li><a href="#" aria-label="Page 12">12</a></li>
-        <li><a href="#" aria-label="Page 13">13</a></li>
-        <li class="pagination-next"><a href="#" aria-label="Page suivante"></a></li>
+		[(#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
+	    ][(#ENV{page_courante}|<={1}|non)<li class="pagination-previous"><a href="[(#ENV{url}
+		|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
+		|ancre_url{#ENV{ancre}})]" aria-label="Page précédente"></a></li>]
+		[(#GET{premiere}|>{1}|oui)<li class="ellipsis"></li>]
+        <BOUCLE_pages(POUR){tableau #GET{pages}}>[
+		(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
+		]
+		<li[(#VALEUR|=={#ENV{page_courante}}|oui) class="current"]>
+		[(#VALEUR|=={#ENV{page_courante}}|oui)<span class="show-for-sr">Vous êtes sur la page</span> ][(#VALEUR|=={#ENV{page_courante}}|non)<a href="[(#ENV{url}
+		|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}})]##ENV{ancre}" aria-label="Page #VALEUR">]#VALEUR[(#VALEUR|=={#ENV{page_courante}}|?{'','</a>'})]</li>		
+		</BOUCLE_pages>
+		[(#GET{derniere}|<{#ENV{nombre_pages}}|oui)<li class="ellipsis" title="#ENV{nombre_pages}"></li>]
+        [(#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })
+	    ][(#ENV{page_courante}|>={#ENV{nombre_pages}}|non)<li class="pagination-next"><a href="[(#ENV{url}
+	    |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
+	    |ancre_url{#ENV{ancre}})]" aria-label="Page suivante"></a></li>]
       </ul>
     </div>
   </div>
