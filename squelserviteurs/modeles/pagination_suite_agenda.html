@@ -11,15 +11,19 @@
 	    ][(#ENV{page_courante}|<={1}|non)<li class="pagination-previous"><a href="[(#ENV{url}
 		|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
 		|ancre_url{#ENV{ancre}})]" aria-label="Page précédente"></a></li>]
-		[(#GET{premiere}|>{1}|oui)<li class="ellipsis"></li>]
-        <BOUCLE_pages(POUR){tableau #GET{pages}}>[
-		(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
+		[(#GET{premiere}|>{1}|oui)<li title="Première page"><a href="[(#ENV{url}
+		|parametre_url{#ENV{debut},''}
+	    |ancre_url{#ENV{ancre}})]" aria-label="Première page">…</a></li>]
+        <BOUCLE_pages(POUR){tableau #GET{pages}}>[(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
 		]
 		<li[(#VALEUR|=={#ENV{page_courante}}|oui) class="current"]>
 		[(#VALEUR|=={#ENV{page_courante}}|oui)<span class="show-for-sr">Vous êtes sur la page</span> ][(#VALEUR|=={#ENV{page_courante}}|non)<a href="[(#ENV{url}
 		|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}})]##ENV{ancre}" aria-label="Page #VALEUR">]#VALEUR[(#VALEUR|=={#ENV{page_courante}}|?{'','</a>'})]</li>		
 		</BOUCLE_pages>
-		[(#GET{derniere}|<{#ENV{nombre_pages}}|oui)<li class="ellipsis" title="#ENV{nombre_pages}"></li>]
+		[(#SET{item, #ENV{nombre_pages}|moins{1}|mult{#ENV{pas}} })]
+		[(#GET{derniere}|<{#ENV{nombre_pages}}|oui)<li title="Dernière page \(#ENV{nombre_pages}\)"><a href="[(#ENV{url}
+	    |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
+	    |ancre_url{#ENV{ancre}})]" aria-label="Dernière page">…</a></li>]
         [(#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })
 	    ][(#ENV{page_courante}|>={#ENV{nombre_pages}}|non)<li class="pagination-next"><a href="[(#ENV{url}
 	    |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
