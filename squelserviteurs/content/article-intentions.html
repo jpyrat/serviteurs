@@ -4,7 +4,8 @@
     <header class="avec-padding-bottom" style="max-width: 62.5em;margin:0 auto;border-top: 1px solid #ccc;">
       <h1 class="texte-colorGrisFonce text-center avec-padding-top #EDIT{titre}">#TITRE</h1>
     </header>
-    <div class="container avec-padding-bottom"[ style="background: #444444 url('(#CHEMIN{css/img/fond_intention_priere.jpg})') top center no-repeat"]
+	#SET{imagefond,#LOGO_ARTICLE_NORMAL|extraire_attribut{src}|sinon{#CHEMIN{css/img/fond_intention_priere.jpg}}}
+    <div class="container avec-padding-bottom"[ style="background: #[(#GET{imagefond}|couleur_extraire)] url('(#GET{imagefond})') top center no-repeat"]
     data-enllax-ratio="0.2">
       <div class="pave-content row avec-padding-top avec-padding-bottom">
         <div class="formulaire-intentions medium-5 medium-push-7 columns avec-margin-top avec-padding">
@@ -15,14 +16,17 @@
           [(#TEXTE|image_reduire{670,0})]
         </div>
       </div>
-      <div class="row columns avec-padding-top avec-padding-bottom avec-margin-top avec-margin-bottom">
+      #SET{imagebougie,#LOGO_ARTICLE_SURVOL|extraire_attribut{src}|sinon{#CHEMIN{css/img/intention_priere.png}}}
+	  <B_IP>
+	  <div class="row columns avec-padding-top avec-padding-bottom avec-margin-top avec-margin-bottom">
         <h2 class="hide">Les prières déposées</h2>
         <ul class="prieres menu simple text-center">
 		  <BOUCLE_IP(FORMULAIRES_REPONSES){id_formulaire=27}{!par date}{age<90}>
-          <li><a class="avec-padding" href="#" title="[(#VOIR_REPONSE{ligne_1, valeur_uniquement}|attribut_html)]">[<img src="(#CHEMIN{css/img/intention_priere.png})" alt="[(#VOIR_REPONSE{ligne_1, valeur_uniquement}|attribut_html)]" />]</a></li>
+          <li title="[(#VOIR_REPONSE{ligne_1, valeur_uniquement}|attribut_html)]">[<img src="(#GET{imagebougie})" alt="[(#VOIR_REPONSE{ligne_1, valeur_uniquement}|attribut_html)]" />]</li>
 		  </BOUCLE_IP>
         </ul>
       </div>
+      </B_IP>
     </div>
   </article>
 

@@ -3,7 +3,7 @@
     <section class="liens-raccourcis">
       <h1 class="hide">Raccourcis</h1>
       <div class="row large-up-4 medium-up-4 small-up-1 align-center flexbox-center-top">
-	    <BOUCLE_intentions(ARTICLES){page=intentions}>#SET{urlintentions,#URL_ARTICLE}</BOUCLE_intentions>
+	    <BOUCLE_intentions(ARTICLES){page=intentions_prieres}>#SET{urlintentions,#URL_ARTICLE}</BOUCLE_intentions>
         <INCLURE{fond=_bibliotheque/pave-raccourci,picto=icon-bougie,titre='Déposer une intention de prière',url=#GET{urlintentions}} />
 
         <INCLURE{fond=_bibliotheque/pave-raccourci,picto=icon-calice,titre='Faire dire une messe',url=#URL_ARTICLE{186}} />
