@@ -6,6 +6,7 @@
     <script type="text/javascript">
     /*<![CDATA[*/
 	var agendaSource = "[(#URL_PAGE{agenda.json}
+            |parametre_url{id_rubrique,#ENV{id_rubrique}}
             |parametre_url{id_mot,#ENV{id_mot}}
             |parametre_url{motstheme,#ENV{motstheme}}
             |parametre_url{motscible,#ENV{motscible}}

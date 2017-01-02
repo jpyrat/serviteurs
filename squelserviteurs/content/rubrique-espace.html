@@ -1,7 +1,7 @@
 <BOUCLE_(RUBRIQUES){id_rubrique}>
 <div class="contentEspace row" id="ancre_espace">
   <div class="bandeau-espace text-center avec-margin-bottom">
-    [<img src="(#LOGO_RUBRIQUE|image_passe_partout{1200,320}|image_recadre{1200,320}|extraire_attribut{src}|sinon{https://placehold.it/1200x320})" alt="">]
+    [<img src="(#LOGO_RUBRIQUE_NORMAL|focusimage{1200,320,center}|extraire_attribut{src}|sinon{https://placehold.it/1200x320})" alt="">]
     <h1 class="colorComm #EDIT{titre}">#TITRE</h1>
   </div>
   <B_a>
@@ -9,7 +9,7 @@
     <BOUCLE_a(ARTICLES){id_rubrique}{par num titre}>
     <article class="focus text-center">
       <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">
-        [<img src="(#LOGO_ARTICLE|image_passe_partout{400,290}|image_recadre{400,290}|extraire_attribut{src})" alt="">]
+        [<img src="(#LOGO_ARTICLE_NORMAL|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
         <h2 class="avec-padding-top texte-colorGrisFonce">#TITRE</h2>
       </a>
       [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05">(#SOUSTITRE)</div>]
@@ -22,7 +22,7 @@
     <BOUCLE_r(RUBRIQUES){id_parent}{par num titre}>
     <article class="focus text-center">
       <a href="#URL_RUBRIQUE" title="Lire [(#TITRE|attribut_html)]">
-        [<img src="(#LOGO_RUBRIQUE_NORMAL|image_passe_partout{400,290}|image_recadre{400,290}|extraire_attribut{src}|sinon{https://placehold.it/400x290})" alt="">]
+        [<img src="(#LOGO_RUBRIQUE_NORMAL|focusimage{400,290,center}|extraire_attribut{src}|sinon{https://placehold.it/400x290})" alt="">]
         <h2 class="avec-padding-top texte-colorGrisFonce #EDIT{titre}">#TITRE</h2>
       </a>
       [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05 #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
