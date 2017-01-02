@@ -24,7 +24,7 @@ function focusimage($img, $largeur, $hauteur, $position = 'center') {
 	if (!$img) return('');
 	
 	include_spip('inc/filtres');
-	if ((largeur($img) <= $largeur) OR (hauteur($img) <= $hauteur)) {
+	if ((largeur($img) < $largeur) OR (hauteur($img) < $hauteur)) {
 		$img = filtrer('image_recadre', $img, "$largeur:$hauteur", '+', $position, 'transparent');
 		$img = filtrer('image_recadre', $img, $largeur, $hauteur, $position, 'transparent');
 	} else  {
