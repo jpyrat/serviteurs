@@ -33,3 +33,16 @@ function focusimage($img, $largeur, $hauteur, $position = 'center') {
 	}
 	return $img;
 }
+
+function plagemois($start, $end) {
+	$current = $start;
+	$ret = array();
+
+	while( $current<$end ){
+		$ret[] = @date('m', $current);	
+		$next = @date('Y-M-01', $current) . "+1 month";
+		$current = @strtotime($next);
+	}
+
+	return $ret;
+}

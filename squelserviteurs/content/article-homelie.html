@@ -28,12 +28,14 @@
           <div class="#EDIT{chapo} chapo">
             #CHAPO
           </div>
-          <div class="player-mp3 avec-padding-bottom">
-            <BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}>
-            #MODELE{emb,skin=ted,hauteur=85}
-            <a class="texte-colorGris show-for-medium" href="#" title="Télécharger le fichier audio"><small>Télécharger #_:TITRE - Année C - <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
+          <B_mp3>
+		  <div class="player-mp3 avec-padding-bottom">
+            <BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}{par num titre}>
+            #MODELE{emb,skin=ted,hauteur=85, titre=zzz}
+            <a class="texte-colorGris show-for-medium" href="#URL_DOCUMENT" title="Télécharger le fichier audio" download="[(#FICHIER|basename)]"><small>Télécharger #TITRE<!-- – Année C --><Bautt> – <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
             </BOUCLE_mp3>
           </div>
+		  </B_mp3>
         </div>
         <div class="large-4 medium-3 columns">
           <BOUCLE_auteur(AUTEURS){id_article}>

@@ -1,0 +1,15 @@
+#HTTP_HEADER{Content-type:text/javascript;}[(#SET{lannee,#DATE|annee})][(#SET{intervalle,[(#ENV{start}|plagemois{#ENV{end}})]})][(#REM)
+][<BOUCLE_Homelies(ARTICLES){branche ?}{id_mot ?= #ENV{id_mot}}{id_auteur ?}{', '}{par date}
+{MONTH(date) IN #GET{intervalle}}
+>[(#REM)
+]#SET{couleurThematique,'colorComm'}[(#REM)
+]#SET{ladate,#DATE|affdate{#GET{lannee}-m-j 00:00:00}}[(#REM)
+]<BOUCLE_e(MOTS){id_article}{id_mot ?= #ENV{id_mot}}{0,1}>[(#SET{couleurThematique,[(#GET{CouleurTheme}|table_valeur{mot#ID_MOT})]})]</BOUCLE_e>[(#REM)
+][(#ARRAY{id,#ID_EVENEMENT,
+title,[(#TITRE|supprimer_tags|html2unicode|unicode2charset)],
+allDay,[(#EVAL{true})],
+start,#GET{ladate},
+end,#GET{ladate},
+className,#GET{couleurThematique},
+url,[(#ID_RUBRIQUE|>{0}|?{#URL_ARTICLE})],
+description,[(#DESCRIPTIF|supprimer_tags|couper{85}|html2unicode|unicode2charset)]}|json_encode)]</BOUCLE_Homelies>]
