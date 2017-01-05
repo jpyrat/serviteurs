@@ -60,38 +60,43 @@
         <INCLURE{fond=_bibliotheque/agenda-homelies,env,ajax} />
 
       </div>
-	  <form action="#SELF" method="get">
       <div class="listeRecherches medium-4 columns">
         <B_Predicateurs>
 		<article>
           <label><h2>Rechercher une homélie par prédicateur</h2>
+			<form action="#SELF" method="get">
 			  <div class="sans-padding">
 				<select name="id_auteur" onchange='if(this.value > 0) { this.form.submit(); }'>
-				  <option title="Menu de sélection d'un prédicateur">Sélectionner un prédicateur</option>
+				  <option title="Menu de sélection d'un prédicateur">Sélectionnez un prédicateur</option>
 				  <BOUCLE_Predicateurs(AUTEURS articles){branche}{fusion TRIM(nom)}{par nom}>
-				  <option value="#ID_AUTEUR"[(#ENV{id_auteur}|=={#ID_AUTEUR}|oui) selected="selected"]>#NOM</option>
+				  <BOUCLE_ArticlesPredicateurs(ARTICLES){id_auteur}{branche}{pagination 1}>
+				  <option value="#ID_AUTEUR"[(#ENV{id_auteur}|=={#ID_AUTEUR}|oui) selected="selected"]>#_Predicateurs:NOM (#GRAND_TOTAL)</option>
+				  </BOUCLE_ArticlesPredicateurs>
 				  </BOUCLE_Predicateurs>
 				</select>
 			  </div>
+			</form>
 		  </label>
         </article>
 		</B_Predicateurs>
-        <article>
-          <h2>Rechercher une homélie par évangile</h2>
-          <div class="sans-padding">
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection d'une homélie par évangile">Sélectionner une homélie par évangile</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner Évangile selon Saint-Marc">Évangile selon Saint-Marc</a></li>
-                  <li><a href="#" title="Sélectionner Évangile selon Saint-Jean">Évangile selon Saint-Jean</a></li>
-                  <li><a href="#" title="Sélectionner Évangile selon Saint-Luc">Évangile selon Saint-Luc</a></li>
-                  <li><a href="#" title="Sélectionner Évangile selon Saint-Jean">Évangile selon Saint-Jean</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+        <B_Evangiles>
+		<article>
+          <label><h2>Rechercher une homélie par évangile</h2>
+			<form action="#SELF" method="get">
+			  <div class="sans-padding">
+				<select name="mots\[\]" onchange='if(this.value > 0) { this.form.submit(); }'>
+					<option title="Menu de sélection d'une homélie par évangile">Sélectionner une homélie par évangile</option>
+					<BOUCLE_Evangiles(MOTS){id_groupe=27}{par num titre}>
+					<BOUCLE_ArticlesEvangiles(ARTICLES){id_mot}{branche}{pagination 1}>
+					<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_Evangiles:TITRE (#GRAND_TOTAL)</option>
+					</BOUCLE_ArticlesEvangiles>
+					</BOUCLE_Evangiles>
+				</select>
+			  </div>
+			</form>
+		  </label>
         </article>
+		</B_Evangiles>
         <article>
           <h2>Rechercher une homélie par thème</h2>
           <div class="sans-padding">
@@ -132,7 +137,6 @@
             </section>
         </article>
       </div>
-	  </form>
     </div>
   </section>
 
@@ -284,7 +288,7 @@
         </div>
         <div class="column avec-margin-bottom">
           <div class="pave-content tempsSolennites avec-padding menulisteRecherches">
-            <h2 class="texte-blanc text-transform-none font-family-roboto">Solennités hors dimanches</h2>
+            <h2 class="texte-blanc text-transform-none font-family-roboto">Solennités</h2>
             <ul class="dropdown menu" data-dropdown-menu role="navigation">
               <li>
                 <a href="#" title="Menu de sélection solennités">Sélectionner</a>
