@@ -22,12 +22,14 @@
       <div class="#EDIT{chapo} chapo">
         #CHAPO
       </div>
+	  <BOUCLE_EcrireAuteur(AUTEURS){id_article}{0,1}>
       <div class="auteur show-for-medium">
-        <a class="texte-colorComm" href="#" title="Envoyer un message à l'auteur">
+        <a class="texte-colorComm" href="#URL_AUTEUR" title="Envoyer un message à l'auteur">
           <span class="icon-envelope icon-2x"></span>
           Écrire à l'auteur
         </a>
       </div>
+	  </BOUCLE_EcrireAuteur>
       [<figure class="text-center sans-margin avec-margin-top avec-margin-bottom">
         <img src="(#LOGO_ARTICLE|focusimage{800,600,center}|extraire_attribut{src})" alt="" />
       </figure>]

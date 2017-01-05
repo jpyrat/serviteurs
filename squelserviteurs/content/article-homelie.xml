@@ -1,5 +1,5 @@
 <composition>
-	<nom>Article Homélies</nom>
-	<description>Composition pour les articles des homélies</description>
+	<nom>Article Audio</nom>
+	<description>Composition pour les articles devant afficher le player audio en début d'article</description>
 	<icon>images/objet-liste-contenus-dates.png</icon>
 </composition>
