@@ -148,60 +148,30 @@
         <h1 class="text-transform-none">Temps ordinaire</h1>
       </header>
       <div class="row medium-up-3 collapse avec-margin-top flexbox-center-top">
+      <BOUCLE_AnneesLiturgiques(MOTS){id_groupe=24}{par num titre}>
+		<B_Dimanches>
         <div class="column avec-margin-bottom">
           <div class="pave-content tempsAnnee avec-padding menulisteRecherches">
-            <h2 class="texte-colorGrisFonce">Année A</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection d'une année par dimanche">Sélectionner un dimanche</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
+          <label><h2 class="texte-colorGrisFonce">#_AnneesLiturgiques:TITRE</h2>
+			<form action="#SELF" method="get">
+			  <div class="sans-padding">
+			  <input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
+				<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
+					<option title="Menu de sélection d'un dimanche de l'Année A" value="-1">Sélectionner</option>
+					<option title="Sélectionner tous les dimanches de l'année A" value="0"[(#VAL{0}|in_array{#ENV{mots}}|oui) selected="selected"]>Tous les dimanches</option>
+					<BOUCLE_Dimanches(MOTS){id_groupe=25}{par num titre}><B_ArticlesDimanches>
+					<BOUCLE_ArticlesDimanches(ARTICLES){id_mot}{id_mot=#_AnneesLiturgiques:ID_MOT}{branche}{pagination 1}>
+					<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_Dimanches:TITRE (#GRAND_TOTAL)</option>
+					</BOUCLE_ArticlesDimanches>
+					</B_ArticlesDimanches></BOUCLE_Dimanches>
+				</select>
+			  </div>
+			</form>
+		  </label>
           </div>
         </div>
-        <div class="column avec-margin-bottom">
-          <div class="pave-content tempsAnnee avec-padding menulisteRecherches">
-            <h2 class="texte-colorGrisFonce">Année B</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection d'une année par dimanche">Sélectionner un dimanche</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="column avec-margin-bottom">
-          <div class="pave-content tempsAnnee avec-padding menulisteRecherches">
-            <h2 class="texte-colorGrisFonce">Année C</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection d'une année par dimanche">Sélectionner un dimanche</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
+		</B_Dimanches>
+		</BOUCLE_AnneesLiturgiques>
       </div>
     </div>
   </div>
