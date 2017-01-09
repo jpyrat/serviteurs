@@ -4,8 +4,8 @@
   <div class="avec-padding-top" id="documents_joints">
     <ul class="no-bullet text-left">
       <BOUCLE_documents_joints(DOCUMENTS) {id_article} {extension !IN gif,jpg,png} {vu=non}{par num titre, date}>[
-        <li><a href="#URL_DOCUMENT" target="_blank">[<img src="(#LOGO_DOCUMENT|extraire_attribut{src})" alt="">]</a>
-          <a href="(#URL_DOCUMENT)" target="_blank" type="#MIME_TYPE" class="spip_doc[ (#EXTENSION|attribut_html)] texte-colorGris" title="<:bouton_telecharger:>">
+        <li class="#EDIT{titre}"><a href="#URL_DOCUMENT" target="_blank">[<img src="(#LOGO_DOCUMENT|extraire_attribut{src})" alt="">]</a>
+          <a href="(#URL_DOCUMENT)" target="_blank" download="[(#FICHIER|basename)]" type="#MIME_TYPE" class="spip_doc[ (#EXTENSION|attribut_html)] texte-colorGris" title="<:bouton_telecharger:>">
             <strong class="titreDoc">[(#TITRE|sinon{[(#FICHIER|basename|couper{80})]})]</strong>
             <span class="infoDoc">([<abbr title="#TYPE_DOCUMENT">(#EXTENSION|strtoupper)</abbr> - ][(#TAILLE|taille_en_octets)])</span></a>
           [<div class="descDoc">(#DESCRIPTIF|textebrut)</div>]
