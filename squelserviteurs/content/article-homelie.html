@@ -32,7 +32,7 @@
 		  <div class="player-mp3 avec-padding-bottom">
             <BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}{par num titre}>
             #MODELE{emb,skin=ted,hauteur=85}
-            <a class="texte-colorGris show-for-medium" href="#URL_DOCUMENT" title="Télécharger le fichier audio" download="[(#FICHIER|basename)]"><small>Télécharger #TITRE<!-- – Année C --><Bautt> – <BOUCLEautt(AUTEURS){id_article}>[(#NOM)]</BOUCLEautt></small></a>
+            <a class="texte-colorGris show-for-medium" href="#URL_DOCUMENT" title="Télécharger le fichier audio" download="[(#FICHIER|basename)]"><small>Télécharger #TITRE<!-- – Année C --><Bautt> – <BOUCLEautt(AUTEURS){id_article}{", "}>[(#NOM)]</BOUCLEautt></small></a>
             </BOUCLE_mp3>
           </div>
 		  </B_mp3>
