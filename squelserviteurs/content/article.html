@@ -20,7 +20,7 @@
       <h1 class="texte-colorComm text-center #EDIT{titre}">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
       [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05">(#SOUSTITRE)</div>]
       <div class="#EDIT{chapo} chapo">
-        #CHAPO
+        [(#CHAPO|image_reduire{1170,0})]
       </div>
 	  <B_mp3>
 	  <div class="player-mp3 avec-padding-bottom">
