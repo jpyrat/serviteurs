@@ -57,8 +57,20 @@
     <div class="row">
       <div class="medium-8 columns avec-margin-bottom">
         [(#REM) le calendrier ]
-        <INCLURE{fond=_bibliotheque/agenda-homelies,env,ajax} />
-
+        <!--INCLURE{fond=_bibliotheque/agenda-homelies,env,ajax} /-->
+		<B_ListeHomelies>
+		#ANCRE_PAGINATION
+		<h2>Homélies (#GRAND_TOTAL)</h2>
+		<ul>
+		<BOUCLE_ListeHomelies(ARTICLES){branche}{mots ?}{id_auteur ?}{recherche ?}{!par date}{pagination 15}>
+			<li><a href="#URL_ARTICLE">#TITRE</a><B_MotsAssociés> <small>(<BOUCLE_MotsAssociés(MOTS){id_article}{id_groupe IN 24,25,27,28,29,33,31,26,30,32}{", "}>#TITRE</BOUCLE_MotsAssociés>)</small></B_MotsAssociés><B_AuteursAssociés><br /><small><BOUCLE_AuteursAssociés(AUTEURS){id_article}{", "}>#NOM</BOUCLE_AuteursAssociés></small></B_AuteursAssociés></li>
+		</BOUCLE_ListeHomelies>
+		</ul>
+		[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
+		</B_ListeHomelies>
+		<h2>Homélies</h2>
+		<p>Nous n'avons trouvé aucunes homélie correspondant à vos critères.</p>
+		<//B_ListeHomelies>
       </div>
       <div class="listeRecherches medium-4 columns">
         <B_Predicateurs>
@@ -69,8 +81,8 @@
 				<select name="id_auteur" onchange='if(this.value > 0) { this.form.submit(); }'>
 				  <option title="Menu de sélection d'un prédicateur">Sélectionnez un prédicateur</option>
 				  <BOUCLE_Predicateurs(AUTEURS articles){branche}{fusion TRIM(nom)}{par nom}>
-				  <BOUCLE_ArticlesPredicateurs(ARTICLES){id_auteur}{branche}{pagination 1}>
-				  <option value="#ID_AUTEUR"[(#ENV{id_auteur}|=={#ID_AUTEUR}|oui) selected="selected"]>#_Predicateurs:NOM (#GRAND_TOTAL)</option>
+				  <BOUCLE_ArticlesPredicateurs(ARTICLES){id_auteur}{branche}>
+				  <option value="#ID_AUTEUR"[(#ENV{id_auteur}|=={#ID_AUTEUR}|oui) selected="selected"]>#_Predicateurs:NOM (#_ArticlesPredicateurs:GRAND_TOTAL)</option>
 				  </BOUCLE_ArticlesPredicateurs>
 				  </BOUCLE_Predicateurs>
 				</select>
@@ -97,24 +109,31 @@
 		  </label>
         </article>
 		</B_Evangiles>
-        <article>
+        <B_Themes>
+		<article>
           <h2>Rechercher une homélie par thème</h2>
           <div class="sans-padding">
             <ul class="dropdown menu" data-dropdown-menu role="navigation">
               <li>
                 <a href="#" title="Menu de sélection d'une homélie par thème">Sélectionner une homélie par thème</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner Thème 01">Thème 01</a></li>
-                  <li><a href="#" title="Sélectionner Thème 02">Thème 02</a></li>
-                  <li><a href="#" title="Sélectionner Thème 03">Thème 03</a></li>
-                  <li><a href="#" title="Sélectionner Thème 04">Thème 04</a></li>
-                  <li><a href="#" title="Sélectionner Thème 05">Thème 05</a></li>
-                  <li><a href="#" title="Sélectionner Thème 06">Thème 06</a></li>
-                </ul>
+				<form action="#SELF" method="get">
+				  <div class="sans-padding">
+				  <input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
+					<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
+						<option title="Menu de sélection d'un thème" value="-1">Sélectionner</option>
+						<BOUCLE_Themes(MOTS){id_groupe=28}{par titre}><B_ArticlesThemes>
+						<BOUCLE_ArticlesThemes(ARTICLES){id_mot}{pagination 1}>
+						<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_Themes:TITRE (#GRAND_TOTAL)</option>
+						</BOUCLE_ArticlesThemes>
+						</B_ArticlesThemes></BOUCLE_Themes>
+					</select>
+				  </div>
+				</form>
               </li>
             </ul>
           </div>
         </article>
+		</B_Themes>
         <article>
           <h2>Recherche libre</h2>
             <section class="recherche-homelies">
@@ -149,29 +168,29 @@
       </header>
       <div class="row medium-up-3 collapse avec-margin-top flexbox-center-top">
       <BOUCLE_AnneesLiturgiques(MOTS){id_groupe=24}{par num titre}>
-		<B_Dimanches>
         <div class="column avec-margin-bottom">
           <div class="pave-content tempsAnnee avec-padding menulisteRecherches">
           <label><h2 class="texte-colorGrisFonce">#_AnneesLiturgiques:TITRE</h2>
-			<form action="#SELF" method="get">
+			<form action="#SELF" method="get" class="ajax">
 			  <div class="sans-padding">
 			  <input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
 				<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
 					<option title="Menu de sélection d'un dimanche de l'Année A" value="-1">Sélectionner</option>
-					<option title="Sélectionner tous les dimanches de l'année A" value="0"[(#VAL{0}|in_array{#ENV{mots}}|oui) selected="selected"]>Tous les dimanches</option>
+					<option title="Sélectionner tous les dimanches de l'année A" value="0"[(#VAL{0}|in_array{#ENV{mots}}|oui) selected="selected"]>Tous les dimanches #_AnneesLiturgiques:TITRE</option>
+		<B_Dimanches>
 					<BOUCLE_Dimanches(MOTS){id_groupe=25}{par num titre}><B_ArticlesDimanches>
 					<BOUCLE_ArticlesDimanches(ARTICLES){id_mot}{id_mot=#_AnneesLiturgiques:ID_MOT}{branche}{pagination 1}>
 					<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_Dimanches:TITRE (#GRAND_TOTAL)</option>
 					</BOUCLE_ArticlesDimanches>
 					</B_ArticlesDimanches></BOUCLE_Dimanches>
+		</B_Dimanches>
 				</select>
 			  </div>
 			</form>
 		  </label>
           </div>
         </div>
-		</B_Dimanches>
-		</BOUCLE_AnneesLiturgiques>
+	  </BOUCLE_AnneesLiturgiques>
       </div>
     </div>
   </div>
@@ -184,100 +203,111 @@
         <h1 class="text-transform-none">Temps liturgiques</h1>
       </header>
       <div class="row large-up-3 medium-up-2 avec-margin-bottom avec-margin-top flexbox-center-top">
-        <div class="column avec-margin-bottom">
+        <B_TempsAvent>
+		<div class="column avec-margin-bottom">
           <div class="pave-content tempsAvent avec-padding menulisteRecherches">
             <h2 class="texte-blanc text-transform-none font-family-roboto">Temps de l'avent</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection d'un temps">Sélectionner</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
+			<form action="#SELF" method="get">
+			  <div class="sans-padding">
+			  <input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
+				<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
+					<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
+					<BOUCLE_TempsAvent(MOTS){id_groupe=26}{par titre}><B_ArticlesTempsAvent>
+					<BOUCLE_ArticlesTempsAvent(ARTICLES){id_mot}{pagination 1}>
+					<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_TempsAvent:TITRE (#GRAND_TOTAL)</option>
+					</BOUCLE_ArticlesTempsAvent>
+					</B_ArticlesTempsAvent></BOUCLE_TempsAvent>
+				</select>
+			  </div>
+			</form>
           </div>
         </div>
+		</B_TempsAvent>
+		<B_TempsNoel>
         <div class="column avec-margin-bottom">
           <div class="pave-content tempsNoel avec-padding menulisteRecherches">
             <h2 class="texte-blanc text-transform-none font-family-roboto">Temps de Noël</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection d'un temps">Sélectionner</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
+			<form action="#SELF" method="get">
+			  <div class="sans-padding">
+			  <input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
+				<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
+					<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
+					<BOUCLE_TempsNoel(MOTS){id_groupe=30}{par titre}><B_ArticlesTempsNoel>
+					<BOUCLE_ArticlesTempsNoel(ARTICLES){id_mot}{pagination 1}>
+					<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_TempsNoel:TITRE (#GRAND_TOTAL)</option>
+					</BOUCLE_ArticlesTempsNoel>
+					</B_ArticlesTempsNoel></BOUCLE_TempsNoel>
+				</select>
+			  </div>
+			</form>
           </div>
         </div>
-        <div class="column avec-margin-bottom">
+        </B_TempsNoel>
+		<B_TempsCareme>
+		<div class="column avec-margin-bottom">
           <div class="pave-content tempsCareme avec-padding menulisteRecherches">
             <h2 class="texte-blanc text-transform-none font-family-roboto">Temps de carême</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection d'un temps">Sélectionner</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
+			<form action="#SELF" method="get">
+			  <div class="sans-padding">
+			  <input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
+				<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
+					<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
+					<BOUCLE_TempsCareme(MOTS){id_groupe=31}{par titre}><B_ArticlesTempsCareme>
+					<BOUCLE_ArticlesTempsCareme(ARTICLES){id_mot}{pagination 1}>
+					<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_TempsCareme:TITRE (#GRAND_TOTAL)</option>
+					</BOUCLE_ArticlesTempsCareme>
+					</B_ArticlesTempsCareme></BOUCLE_TempsCareme>
+				</select>
+			  </div>
+			</form>
           </div>
         </div>
-        <div class="column avec-margin-bottom">
+		</B_TempsCareme>
+        <B_TempsPascal>
+		<div class="column avec-margin-bottom">
           <div class="pave-content tempsPascal avec-padding menulisteRecherches">
             <h2 class="texte-blanc text-transform-none font-family-roboto">Temps Pascal</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection d'un temps">Sélectionner</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
+			<form action="#SELF" method="get">
+			  <div class="sans-padding">
+			  <input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
+				<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
+					<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
+					<BOUCLE_TempsPascal(MOTS){id_groupe=32}{par titre}><B_ArticlesTempsPascal>
+					<BOUCLE_ArticlesTempsPascal(ARTICLES){id_mot}{pagination 1}>
+					<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_TempsPascal:TITRE (#GRAND_TOTAL)</option>
+					</BOUCLE_ArticlesTempsPascal>
+					</B_ArticlesTempsPascal></BOUCLE_TempsPascal>
+				</select>
+			  </div>
+			</form>
           </div>
         </div>
-        <div class="column avec-margin-bottom">
+		</B_TempsPascal>
+        <B_Solennites>
+		<div class="column avec-margin-bottom">
           <div class="pave-content tempsSolennites avec-padding menulisteRecherches">
             <h2 class="texte-blanc text-transform-none font-family-roboto">Solennités</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection solennités">Sélectionner</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
+			<form action="#SELF" method="get">
+			  <div class="sans-padding">
+			  <input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
+				<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
+					<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
+					<BOUCLE_Solennites(MOTS){id_groupe=33}{par titre}><B_ArticlesSolennites>
+					<BOUCLE_ArticlesSolennites(ARTICLES){id_mot}{pagination 1}>
+					<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_Solennites:TITRE (#GRAND_TOTAL)</option>
+					</BOUCLE_ArticlesSolennites>
+					</B_ArticlesSolennites></BOUCLE_Solennites>
+				</select>
+			  </div>
+			</form>
           </div>
         </div>
+		</B_Solennites>
       </div>
     </div>
   </div>
 
+<B_EvenementsdelaVie>
 [(#REM) événements de la vie ]
   <div class="zone-arriere avec-padding">
     <div class="row column content-evenements-vie text-center avec-margin-bottom" id="ancre_evenements-vie">
@@ -286,63 +316,27 @@
         <h1 class="text-transform-none">Les événements de la vie</h1>
       </header>
       <div class="row medium-up-3 collapse avec-margin-top avec-padding-leftright">
-        <div class="column avec-margin-bottom">
+        <BOUCLE_EvenementsdelaVie(MOTS){id_groupe=29}{par num titre}><B_EvenementdelaVie>
+		<div class="column avec-margin-bottom">
           <div class="pave-content evenementsVie avec-padding menulisteRecherches">
-            <h2 class="texte-colorComm text-transform-none font-family-roboto">Mariage</h2>
+            <h2 class="texte-colorComm text-transform-none font-family-roboto #EDIT{titre}">#TITRE</h2>
             <ul class="dropdown menu" data-dropdown-menu role="navigation">
               <li>
                 <a href="#" title="Menu de sélection">Sélectionner</a>
                 <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
+                  <BOUCLE_EvenementdelaVie(ARTICLES){id_mot}{!par date}>
+				  <li><a href="#URL_ARTICLE" title="Visiter [(#TITRE|attribut_html)]">#TITRE</a></li>
+                  </BOUCLE_EvenementdelaVie>
                 </ul>
               </li>
             </ul>
           </div>
         </div>
-        <div class="column avec-margin-bottom">
-          <div class="pave-content evenementsVie avec-padding menulisteRecherches">
-            <h2 class="texte-colorComm text-transform-none font-family-roboto">Obsèques</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection">Sélectionner</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="column avec-margin-bottom">
-          <div class="pave-content evenementsVie avec-padding menulisteRecherches">
-            <h2 class="texte-colorComm text-transform-none font-family-roboto">Vœux & ordination des frères</h2>
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Menu de sélection">Sélectionner</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Sélectionner dimanche 01">dimanche 01</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 02">dimanche 02</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 03">dimanche 03</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 04">dimanche 04</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 05">dimanche 05</a></li>
-                  <li><a href="#" title="Sélectionner dimanche 06">dimanche 06</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
+		</B_EvenementdelaVie></BOUCLE_EvenementsdelaVie>
       </div>
     </div>
   </div>
+<B_EvenementsdelaVie>
 
 </div>
 </BOUCLE_>
