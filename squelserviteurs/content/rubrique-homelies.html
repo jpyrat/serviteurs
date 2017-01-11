@@ -80,10 +80,8 @@
 			  <div class="sans-padding">
 				<select name="id_auteur" onchange='if(this.value > 0) { this.form.submit(); }'>
 				  <option title="Menu de sélection d'un prédicateur">Sélectionnez un prédicateur</option>
-				  <BOUCLE_Predicateurs(AUTEURS articles){branche}{fusion TRIM(nom)}{par nom}>
-				  <BOUCLE_ArticlesPredicateurs(ARTICLES){id_auteur}{branche}>
-				  <option value="#ID_AUTEUR"[(#ENV{id_auteur}|=={#ID_AUTEUR}|oui) selected="selected"]>#_Predicateurs:NOM (#_ArticlesPredicateurs:GRAND_TOTAL)</option>
-				  </BOUCLE_ArticlesPredicateurs>
+				  <BOUCLE_Predicateurs(AUTEURS){predicateurs=on}{par nom}>
+				  <option value="#ID_AUTEUR"[(#ENV{id_auteur}|=={#ID_AUTEUR}|oui) selected="selected"]>#NOM (<BOUCLE_NbHomelies(ARTICLES){id_auteur}{branche}{pagination 1}>#GRAND_TOTAL</BOUCLE_NbHomelies>)</option>
 				  </BOUCLE_Predicateurs>
 				</select>
 			  </div>
