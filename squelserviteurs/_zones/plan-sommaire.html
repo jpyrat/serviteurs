@@ -5,7 +5,6 @@
 		<article class="row text-center">
 			<div class="large-4 medium-6 columns sans-padding-for-small">
 				[(#REM) img 400x270 ]
-				[<img src="(#LOGO_ARTICLE_NORMAL|focusimage{360,240,center}|extraire_attribut{src})" alt="">]
 				[<img src="(#LOGO_RUBRIQUE_SURVOL|sinon{#LOGO_RUBRIQUE_NORMAL}|focusimage{400,270,center}|extraire_attribut{src}|sinon{https://placehold.it/400x270})" alt="" />]
 				<h2 class="hide-for-medium colorComm opacity-70>
 					<a class="texte-blanc" href="#URL_RUBRIQUE">#TITRE</a>
@@ -28,7 +27,7 @@
 						</B_SsRubriques>
 					</div>
 					<div class="large-7 columns show-for-large sans-padding #EDIT{descriptif}">
-						[(#DESCRIPTIF|sinon{#CHAPO}|sinon{Double-cliquer pour mettre ici un texte})]
+						[(#DESCRIPTIF|sinon{#CHAPO}|sinoncrayon{Double-cliquer pour mettre ici un texte})]
 					</div>
 				</div>
 			</div>
