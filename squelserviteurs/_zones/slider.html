@@ -1,63 +1,73 @@
-<BOUCLE_Grappe(GRAPPES){identifiant=carrouselaccueil}>
+<BOUCLE_Grappe(GRAPPES){identifiant=carrouselaccueil}><B_Articles>
 <div class="zone-arriere avec-margin-bottom avec-padding-bottom">
 	<div class="zone-slider row expanded column sans-padding">
 		<h1 class="hide">SLIDER</h1>
 			<article class="slider-imgwide-titre-right">
 				[(#REM) affichage smartphones ]
+				<BOUCLE_ArticlesSmartphones(ARTICLES){id_grappe}{par rang}{0,1}>
 				<div class="show-for-small-only" role="region" aria-label="Diaporama d'accueil">
-					<a href="#" title="Lire l'article suivant">
+					<a href="#URL_ARTICLE">
 						<div class="slider-content desc-bas text-center">
-							<h2>Direction spirituelle</h2>
+							<h2>#TITRE</h2>
 						</div>
 					</a>
 				</div>
+				</BOUCLE_ArticlesSmartphones>
 				[(#REM) affichage pour les autres ]
 				<div class="slider-slick show-for-medium" role="region" aria-label="Diaporama d'accueil">
+					<BOUCLE_Articles(ARTICLES){tous}{id_grappe}{par rang}>
+					[(#CARROUSELFORMAT|=={full}|oui)
 					[(#REM) Diapo avec une seule image full ]
 					<div class="slider-diapo-imgfull">
-						<a href="#" title="Lire l'article suivant">
-							<img src="https://unsplash.it/1920/525?image=1043" alt="" />
+						<a href="#URL_ARTICLE" title="Lire l'article [(#TITRE|attribut_html)]">
+							[<img src="(#LOGO_ARTICLE|focusimage{1920,525,center}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]" />]
 						</a>
 					</div>
+					]
+					[(#CARROUSELFORMAT|=={deux}|oui)
 					[(#REM) Diapo avec 2 images + #TITRE ]
 					<div class="slider-diapo-imgx2">
 						<div class="row sans-padding collapse">
 							<div class="medium-4 columns">
-								<img src="https://unsplash.it/640/525?image=1040" alt="" />
+								[<img src="(#LOGO_ARTICLE_SURVOL|focusimage{640,525,center}|extraire_attribut{src})" alt="" />]
 							</div>
 							<div class="medium-8 columns" style="outline: 1.5em solid white;">
-								<a href="#" title="Lire l'article suivant">
-									<img src="https://unsplash.it/1280/525?image=984" alt="" />
+								<a href="#URL_ARTICLE" title="Lire l'article suivant">
+									[<img src="(#LOGO_ARTICLE_NORMAL|focusimage{1280,525,center}|extraire_attribut{src})" alt="" />]
 									<div class="slider-content desc-centre text-center">
-										<h2>Le mariage en plus</h2>
+										<h2>#TITRE</h2>
 									</div>
 								</a>
 							</div>
 						</div>
 					</div>
-					[(#REM) Diapo avec 1 applat de couleur + #DESCRIPTIF et 1 image + #TITRE ]
+					]
+					[(#CARROUSELFORMAT|=={une}|oui)
+					[(#REM) Diapo avec 1 aplat de couleur + #DESCRIPTIF et 1 image + #TITRE ]
 					#SET{colorDiapo,#39557A}
 					<div class="slider-diapo-couleur-img" style="background-color:#GET{colorDiapo}">
 						<div class="row sans-padding collapse flexbox--center">
 							<div class="medium-4 columns">
 								<div class="slider-content">
-									<p>Nous vous accueillons pour des retraites, des haltes spirituelles, des préparations au mariage</>
+									#DESCRIPTIF
 								</div>
 							</div>
 							<div class="medium-8 columns" style="outline: 1.5em solid white;">
-								<a href="#" title="Lire l'article suivant">
-									<img src="https://unsplash.it/1280/525?image=1005" alt="" />
+								<a href="#URL_ARTICLE" title="Lire l'article suivant">
+									[<img src="(#LOGO_ARTICLE|focusimage{1280,525,center}|extraire_attribut{src})" alt="" />]
 									<div class="slider-content desc-centre text-center">
-										<h2>Direction spirituelle</h2>
+										<h2>#TITRE</h2>
 									</div>
 								</a>
 							</div>
 						</div>
 					</div>
+					]
+					</BOUCLE_Articles>
 				</div>
-				[(#REM) chargement du script Slick )]
+				[(#REM) chargement du script Slick ]
 				<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 			</article>
 	</div>
 </div>
-</BOUCLE_Grappe>
+</B_Articles></BOUCLE_Grappe>
