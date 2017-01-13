@@ -6,12 +6,12 @@
 			<div class="large-4 medium-6 columns sans-padding-for-small">
 				[(#REM) img 400x270 ]
 				[<img src="(#LOGO_RUBRIQUE_SURVOL|sinon{#LOGO_RUBRIQUE_NORMAL}|focusimage{400,270,center}|extraire_attribut{src}|sinon{https://placehold.it/400x270})" alt="" />]
-				<h2 class="hide-for-medium <INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> opacity-70>
+				<h2 class="hide-for-medium <INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> opacity-70">
 					<a class="texte-blanc" href="#URL_RUBRIQUE">#TITRE</a>
 				</h2>
 			</div>
 			<div class="large-8 medium-6 columns medium-text-left">
-				<h2 class="show-for-medium position-relative z-index-999 #EDIT{titre}"">
+				<h2 class="show-for-medium position-relative z-index-999 #EDIT{titre}">
 					<a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_RUBRIQUE">#TITRE
 					<span class="chevron icon-chevron-thin-right show-for-large"></span>
 					</a>
