@@ -32,14 +32,14 @@
 	  </B_mp3>
 	  <BOUCLE_EcrireAuteur(AUTEURS){id_article}{0,1}>
       <div class="auteur show-for-medium">
-        <a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_AUTEUR" title="Envoyer un message à l'auteur">
+        <a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_AUTEUR" onclick="if (jQuery.modalbox) {jQuery.modalbox('[(#URL_AUTEUR|parametre_url{var_zajax,content})]');return false;}" title="Envoyer un message à l'auteur">
           <span class="icon-envelope icon-2x"></span>
           Écrire à l'auteur
         </a>
       </div>
 	  </BOUCLE_EcrireAuteur>
-      [(#LOGO_ARTICLE|largeur|>{799})
-      [(#LOGO_ARTICLE|hauteur|>{599})
+      [(#LOGO_ARTICLE|largeur|>{799}|oui)
+      [(#LOGO_ARTICLE|hauteur|>{599}|oui)
 	  [<figure class="text-center sans-margin avec-margin-top avec-margin-bottom">
         <img src="(#LOGO_ARTICLE|focusimage{800,600,center}|extraire_attribut{src})" alt="" />
       </figure>]
