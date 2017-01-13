@@ -1,6 +1,7 @@
 <BOUCLE_rem(CONDITION){si #REM}>
 <!-- titre=Newsletter Serviteurs mensuelle -->
 </BOUCLE_rem>
+<BOUCLE_newsletter(NEWSLETTERS){id_newsletter}{statut?}>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -599,7 +600,7 @@
 						<div class="webkit" style="max-width:600px;" >
 							<!-- DATE NEWSLETTER -->
 							<div style="font-family:sans-serif, 'Roboto';font-weight:300;font-size:16px;color:#5782BD;line-height:18px;mso-line-height-rule:exactly;" >
-								Janvier 2017
+								[(#DATE|nom_mois|ucfirst)] [(#DATE|annee)]
 							</div>
 						</div>
 					</center>
@@ -676,34 +677,34 @@
 					<center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
 						<div class="webkit" style="max-width:600px;" >
 
-							<!--[if (gte mso 9)|(IE)]>
+							[<!--\[if (gte mso 9)|(IE)\]>
 							<table width="600" align="center" style="border-spacing:0;font-family:sans-serif, 'Roboto';" >
 							<tr>
 							<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-							<![endif]-->
+							<!\[endif\]-->
 
 							<!-- START éditorial IMAGE -->
 							<table class="outer" align="center" style="border-spacing:0;font-family:sans-serif, 'Roboto';Margin:0 auto;width:100%;max-width:600px;" >
 								<tr>
 									<td class="full-width-image padding-toprightleft-35" style="padding-top:35px;padding-bottom:0;padding-right:20px;padding-left:20px;" >
 										<!-- LOGO NEWSLETTER -->
-										<img src="http://serviteurs.philographie.com/newsletter/600x350.jpg" width="600" alt="" style="border-width:0;width:100%;height:auto;max-width:600px;" />
+										<img src="(#LOGO_NEWSLETTER|focusimage{600,350,center}|extraire_attribut{src})" width="600" alt="" style="border-width:0;width:100%;height:auto;max-width:600px;" />
 									</td>
 								</tr>
 							</table>
 							<!-- END éditorial IMAGE -->
 
-							<!--[if (gte mso 9)|(IE)]>
+							<!--\[if (gte mso 9)|(IE)\]>
 							</td>
 							</tr>
 							</table>
-							<![endif]-->
+							<!\[endif\]-->
 
-							<!--[if (gte mso 9)|(IE)]>
+							<!--\[if (gte mso 9)|(IE)\]>
 							<table width="600" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, 'Roboto';" >
 							<tr>
 							<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-							<![endif]-->
+							<!\[endif\]-->]
 
 							<table class="outer" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, 'Roboto';Margin:0 auto;width:100%;max-width:600px;" >
 								<tr>
@@ -713,19 +714,10 @@
 												<td class="padding-20 contents2" style="padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;text-align:center;" >
 													<!-- TITRE éditorial -->
 													<h1 style="Margin:0;font-size:26px;line-height:34px;"><span style="font-size:22px;color:#5782BD;font-weight:300;text-transform:uppercase;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;" >
-															Titre : Notre dernière newsletter de janvier 2017
+															#TITRE
 														</span></h1>
-													<!-- INTITRE éditorial -->
-													<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-top:18px;Margin-bottom:18px;" >
-														Intertitre. Maecenas sed ante pellentesque, posuere leo id dolor
-													</h2>
-													<!-- CONTENU éditorial -->
-													<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >
-														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget lacus ullamcorper, laoreet metus eu, tempus elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi condimentum vehicula odio, non porta tellus faucibus vel. Morbi ornare libero vitae consectetur aliquet.
-													</p>
-													<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >
-														Tum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis.
-													</p>
+													[(#CHAPO|replace{'<p>','<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<h2 class="spip">','<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-top:18px;Margin-bottom:18px;" >'})]
+													[(#TEXTE|replace{'<p>','<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<h2 class="spip">','<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-top:18px;Margin-bottom:18px;" >'})]
 												</td>
 											</tr>
 										</table>
@@ -1469,3 +1461,5 @@
 		</table>
 	</body>
 </html>
+</BOUCLE_newsletter>
+#FILTRE{newsletters_liens_absolus}
