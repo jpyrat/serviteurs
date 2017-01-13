@@ -1,22 +1,22 @@
 <body id="top">
-  <div class="page #ENV{type-page}">
-    <div class="container">
-      <header>
-        <INCLURE{fond=off-canvas/#ENV{type-page},env} />
+	<div class="page [(#ENV{type-page})][ (#ENV{composition})]">
+		<div class="container">
+			<header>
+				<INCLURE{fond=off-canvas/#ENV{type-page},env} />
 
-        <INCLURE{fond=header/#ENV{type-page},env} />
+				<INCLURE{fond=header/#ENV{type-page},env} />
 
-      </header>
+			</header>
 
-      <div id="corps">
-        <INCLURE{fond=content/#ENV{type-page},env} />
+			<div id="corps">
+				<INCLURE{fond=content/#ENV{type-page},env} />
 
-      </div>
+			</div>
 
-      <footer>
-        <INCLURE{fond=footer/#ENV{type-page}} />
+			<footer>
+				<INCLURE{fond=footer/#ENV{type-page}} />
 
-      </footer>
-    </div>
-  </div>
+			</footer>
+		</div>
+	</div>
 </body>
