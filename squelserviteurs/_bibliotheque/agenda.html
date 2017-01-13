@@ -6,11 +6,7 @@
     <script type="text/javascript">
     /*<![CDATA[*/
 	var agendaSource = "[(#URL_PAGE{agenda.json}
-            |parametre_url{id_mot,#ENV{id_mot}}
-            |parametre_url{motstheme,#ENV{motstheme}}
-            |parametre_url{motscible,#ENV{motscible}}
-            |parametre_url{motszone,#ENV{motszone}}
-            |parametre_url{recherche,#ENV{recherche}}
+            |parametre_url{mots,#ENV{mots}}
             |replace{&amp;,&})]";
     jQuery(document).ready(function() {
         $('#agenda').fullCalendar({

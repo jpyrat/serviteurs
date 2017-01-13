@@ -1,70 +1,74 @@
 <div class="zone-arriere avec-padding" id="ancre_agenda"
-    style="background: #EDE0CE url([(#CHEMIN{css/img/AdobeStock_74641866.jpg})]) no-repeat top center"
-    data-enllax-ratio="0.2"
-     >
-  <div class="agenda row column">
-    <INCLURE{fond=_bibliotheque/pave-pastille-titre}
-          {titrepastille='Agenda'}
-          {pictopastille='icon-calendar-check-o'}
-          {couleurpastille='texte-triadeA'}
-    />
-    <article class="agenda-calendrier avec-margin-bottom avec-padding-bottom">
-      <div class="agenda-calendrier-content row">
-        <div class="large-8 columns large-push-4" id="agenda-boutons-filtre">
-          <div class="row align-center">
-            <div class="medium-4 columns text-center">
-              <a class="colorComm" href="#" title="Afficher les événements de l'Abbaye d'Ourscamp">Abbaye d'Ourscamp</a>
-            </div>
-            <div class="medium-4 columns text-center">
-              <a class="colorOttm" href="#" title="Afficher les événements du Prieuré d'Ottmarsheim">Prieuré d'Ottmarsheim</a>
-            </div>
-            <div class="medium-4 columns text-center">
-              <a class="colorJeun" href="#" title="Afficher les événements de l'Œuvre de jeunesse">Œuvre de jeunesse</a>
-            </div>
-          </div>
-          <div class="sans-padding avec-margin-bottom-for-medium">
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Choisir le public concerné">Pour qui ?</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Pour Adultes">Adulte</a></li>
-                  <li><a href="#" title="Pour Jeunes">Jeunes</a></li>
-                  <li><a href="#" title="Pour 25 / 35 ans">25 / 35 ans</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          [(#REM) le calendrier ]
-          <INCLURE{fond=_bibliotheque/agenda,env,ajax} />
-          <div class="sans-padding avec-margin-bottom">
-            <ul class="dropdown menu" data-dropdown-menu role="navigation">
-              <li>
-                <a href="#" title="Choisir le public concerné">Participer à nos offices</a>
-                <ul class="menu vertical">
-                  <li><a href="#" title="Pour Ourscamp">Ourscamp</a></li>
-                  <li><a href="#" title="Pour Ottmarsheim">Ottmarsheim</a></li>
-                  <li><a href="#" title="Pour Œuvres de jeunesse">Œuvres de jeunesse</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <nav class="large-4 columns large-pull-8" role="navigation">
-          <div class="listeEvenementsAgenda">
-            <h3 class="hide">Événements</h3>
-            <INCLURE{fond=_bibliotheque/pave-evenement-rubrique,env} />
-          </div>
-        </nav>
-      </div>
-    </article>
+		style="background: #EDE0CE url([(#CHEMIN{css/img/AdobeStock_74641866.jpg})]) no-repeat top center"
+		data-enllax-ratio="0.2"
+		 >
+	<div class="agenda row column">
+		<INCLURE{fond=_bibliotheque/pave-pastille-titre}
+			{titrepastille='Agenda'}
+			{pictopastille='icon-calendar-check-o'}
+			{couleurpastille='texte-triadeA'}
+		/>
+		<article class="agenda-calendrier avec-margin-bottom avec-padding-bottom">
+			<div class="agenda-calendrier-content row">
+				<div class="large-8 columns large-push-4" id="agenda-boutons-filtre">
+					<div class="row align-center">
+						<BOUCLE_Lieux(MOTS){id_groupe=35}{par num titre}>
+						<div class="medium-4 columns text-center">
+							<a class="[(#DESCRIPTIF|attribut_html)]" href="[(#SELF|parametre_url{mots\[\],#ID_MOT})]#agenda-boutons-filtre" title="[(#TEXTE|ptobr|attribut_html)]">#TITRE</a>
+						</div>
+						</BOUCLE_Lieux>
+					</div>
+					<B_PourQui>
+					<div class="sans-padding avec-margin-bottom-for-medium">
+						<ul class="dropdown menu" data-dropdown-menu role="navigation">
+							<li>
+								<form action="#SELF#agenda-boutons-filtre" method="get" class="ajax">
+									<div class="sans-padding">
+									<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
+										<option title="Choisir le public concerné" value="-1">Pour qui ?</option>
+										<BOUCLE_PourQui(MOTS){id_groupe=34}{par num titre, titre}><B_EvenementsPourQui>
+										<BOUCLE_EvenementsPourQui(EVENEMENTS){id_mot}{pagination 1}>
+										<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_PourQui:TITRE (#GRAND_TOTAL)</option>
+										</BOUCLE_EvenementsPourQui>
+										</B_EvenementsPourQui></BOUCLE_PourQui>
+									</select>
+									</div>
+								</form>
+							</li>
+						</ul>
+					</div>
+					</B_PourQui>
+					[(#REM) le calendrier ]
+					<INCLURE{fond=_bibliotheque/agenda,env,ajax} />
+					<div class="sans-padding avec-margin-bottom">
+						<ul class="dropdown menu" data-dropdown-menu role="navigation">
+							<li>
+								<a href="#" title="Choisir le public concerné">Participer à nos offices</a>
+								<ul class="menu vertical">
+									<li><a href="#" title="Pour Ourscamp">Ourscamp</a></li>
+									<li><a href="#" title="Pour Ottmarsheim">Ottmarsheim</a></li>
+									<li><a href="#" title="Pour Œuvres de jeunesse">Œuvres de jeunesse</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<nav class="large-4 columns large-pull-8" role="navigation">
+					<div class="listeEvenementsAgenda">
+						<h3 class="hide">Événements</h3>
+						<INCLURE{fond=_bibliotheque/pave-evenement-rubrique,env} />
+					</div>
+				</nav>
+			</div>
+		</article>
 
-  </div>
+	</div>
 </div>
 
 [<script type="text/javascript" src="(#CHEMIN{js/jquery.enllax.min.js})"></script>]
 <script type="text/javascript">
-  $(document).ready( function() {
-    // init parallax
-    $(window).enllax();
-  });
+	$(document).ready( function() {
+		// init parallax
+		$(window).enllax();
+	});
 </script>
