@@ -17,7 +17,7 @@
 <div class="contentArticle row column avec-margin-bottom" id="ancre_article_homelie" role="main">
   <article>
     <header class="avec-padding-bottom">
-      <h1 class="texte-colorComm #EDIT{titre}">#TITRE</h1>
+      <h1 class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> #EDIT{titre}">#TITRE</h1>
       <div class="auteur show-for-medium">
         <p>
           <span class="icon-calendar-check-o icon-lg texte-triadeB"></span>[(#DATE*|affdate)]
@@ -78,7 +78,7 @@
   <aside class="row avec-margin-bottom">
     <div class="large-4 columns avec-margin-top avec-padding-top15 sans-padding-for-small text-center">
       <hr class="show-for-medium" />
-      <div class="h2 texte-colorComm show-for-medium avec-margin-bottom05" id="social-tags">Partager cette page</div>
+      <div class="h2 texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> show-for-medium avec-margin-bottom05" id="social-tags">Partager cette page</div>
     </div>
     <div class="large-4 columns avec-margin-top sans-padding-for-small">
       <INCLURE{fond=inclure/telecharger,env} />

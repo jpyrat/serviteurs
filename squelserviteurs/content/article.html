@@ -17,7 +17,7 @@
 <div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
   <article>
     <header class="avec-padding-bottom">
-      <h1 class="texte-colorComm text-center #EDIT{titre}">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
+      <h1 class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> text-center #EDIT{titre}">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
       [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05">(#SOUSTITRE)</div>]
       <div class="#EDIT{chapo} chapo">
         [(#CHAPO|image_reduire{1170,0})]
@@ -32,7 +32,7 @@
 	  </B_mp3>
 	  <BOUCLE_EcrireAuteur(AUTEURS){id_article}{0,1}>
       <div class="auteur show-for-medium">
-        <a class="texte-colorComm" href="#URL_AUTEUR" title="Envoyer un message à l'auteur">
+        <a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_AUTEUR" title="Envoyer un message à l'auteur">
           <span class="icon-envelope icon-2x"></span>
           Écrire à l'auteur
         </a>
@@ -49,7 +49,7 @@
     <div class="row container avec-padding-top avec-padding-bottom avec-border-top">
       <div class="#EDIT{texte} texte large-8 columns avec-padding-top">
         [(#TEXTE|image_reduire{770,0})]
-        <BOUCLE_EcrireAuteurSmallOnly(AUTEURS){id_article}{0,1}><div class="auteur show-for-small-only text-center"><a class="texte-colorComm" href="#URL_AUTEUR" title="Envoyer un message à l'auteur"><span class="icon-envelope icon-2x"></span>Écrire à l'auteur</a></div></BOUCLE_EcrireAuteurSmallOnly>
+        <BOUCLE_EcrireAuteurSmallOnly(AUTEURS){id_article}{0,1}><div class="auteur show-for-small-only text-center"><a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_AUTEUR" title="Envoyer un message à l'auteur"><span class="icon-envelope icon-2x"></span>Écrire à l'auteur</a></div></BOUCLE_EcrireAuteurSmallOnly>
 		[<div id="carto">
 		(#PLUGIN{GIS}|oui)[(#INCLURE{fond=json/gis,id_article,limit=1}|oui)[(#INCLURE{fond=modeles/carte_gis,id_article,autocenterandzoom=oui,hauteur=400px,cluster=[(#PLUGIN{GISGEOM}|?{'non','oui'})],maxClusterRadius=40,clusterShowCoverageOnHover=oui,clusterSpiderfyOnMaxZoom=oui,fullscreen=oui,zoom_wheel=non})]]
 		</div>]

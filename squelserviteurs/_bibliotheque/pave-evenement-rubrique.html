@@ -2,11 +2,11 @@
 [(#REM) on affiche les 9 derniers événements avec id_rubrique ou pas ]
 <B_agenda>
 #ANCRE_PAGINATION
-<BOUCLE_agenda(EVENEMENTS){age_fin<0}{par date}{statut=publie}{pagination 5}>
+<BOUCLE_agenda(EVENEMENTS){mots ?}{age_fin<0}{par date_debut}{statut=publie}{pagination 5}>
 	<div class="column text-center large-text-left">
 		<div class="row collapse" itemscope itemtype="http://schema.org/Event">
 			[(#REM) on passe la couleur de l'espace colorComm / colorForm / colorMari ]
-			<div class="dateEvenementCarre large-3 columns colorComm">
+			<div class="dateEvenementCarre large-3 columns <BOUCLE_CouleurEvenement(MOTS){id_evenement}{id_groupe=35}{0,1}>[(#DESCRIPTIF|attribut_html)]</BOUCLE_CouleurEvenement>colorComm<//B_CouleurEvenement>">
 				<p class="texte-filaire">
 					<time itemprop="startDate" title="#DATE_DEBUT" datetime="#DATE_DEBUT">
 					[(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
