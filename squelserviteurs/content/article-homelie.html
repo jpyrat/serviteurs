@@ -50,7 +50,7 @@
                   <span class="icon-user icon-lg texte-triadeB"></span>(#NOM)
                 </li>]
                 <li>
-                  <a class="sans-padding texte-triadeP" href="#URL_AUTEUR" title="Envoyer un message à l'auteur">
+                  <a class="sans-padding texte-triadeP" href="#URL_AUTEUR" onclick="if (jQuery.modalbox) {jQuery.modalbox('[(#URL_AUTEUR|parametre_url{var_zajax,content})]');return false;}" title="Envoyer un message à l'auteur">
                     <span class="icon-envelope icon-lg texte-triadeB"></span>
                     Écrire à l'auteur
                   </a>
