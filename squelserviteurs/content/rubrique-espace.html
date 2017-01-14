@@ -51,7 +51,8 @@
     <B_apa>
 	<section class="text-center show-for-large">
       <h1>Pour aller plus loin</h1>
-      <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
+	  #ANCRE_PAGINATION
+      <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{pagination 4}>
       <article class="triadeC avec-padding avec-margin-bottom015">
         <h2 class="#EDIT{titre}">
           <a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
@@ -61,6 +62,7 @@
         </div>]
       </article>
       </BOUCLE_apa>
+	  #PAGINATION{suite_agenda}
     </section>
 	</B_apa>
   </aside>
