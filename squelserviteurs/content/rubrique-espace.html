@@ -6,7 +6,7 @@
   </div>
   <B_a>
   <div class="large-8 columns avec-margin-top avec-margin-bottom avec-padding-bottom">
-    <BOUCLE_a(ARTICLES){id_rubrique}{par num titre}>
+    <BOUCLE_a(ARTICLES){id_rubrique}{par num titre}{doublons desktop}{doublons mobiles}>
     <article class="focus text-center">
       <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">
         [<img src="(#LOGO_ARTICLE_NORMAL|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
@@ -36,14 +36,16 @@
    <B_ap>
    <section class="text-center hide-for-large">
 	  <h1>Pour aller plus loin</h1>
-      <BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{0,4}>
+	  #ANCRE_PAGINATION
+      <BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{doublons mobiles}{pagination 4}>
       <article class="triadeC avec-padding avec-margin-bottom015">
-        <h2>
+        <h2 class="#EDIT{titre}">
           <a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
         </h2>
         [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05 #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
       </article>
       </BOUCLE_ap>
+	  #PAGINATION{suite_agenda}
     </section>
 	</B_ap>
     <INCLURE{fond=_bibliotheque/pave-evenement-rubrique,env} />
@@ -52,7 +54,7 @@
 	<section class="text-center show-for-large">
       <h1>Pour aller plus loin</h1>
 	  #ANCRE_PAGINATION
-      <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{pagination 4}>
+      <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{doublons desktop}{pagination 4}>
       <article class="triadeC avec-padding avec-margin-bottom015">
         <h2 class="#EDIT{titre}">
           <a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
