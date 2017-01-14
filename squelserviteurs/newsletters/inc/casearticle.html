@@ -4,11 +4,21 @@
 													<td class="padding-20 interligne" style="padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;border-top:1px solid #e0e8f2;" >
 														<table class="contents" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, 'Roboto';width:100%;font-size:14px;text-align:left;" >
 															<BOUCLE_(ARTICLES){id_article}>
+															<BOUCLE_EstHomelie(HIERARCHIE){inverse}><B_Auteur>
+															<BOUCLE_Auteur(AUTEURS){si #_EstHomelie:ID_RUBRIQUE|=={362}}{id_article}{0,1}>
+															[<tr>
+																<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+																	<img src="(#LOGO_AUTEUR|focusimage{265,175,center}|extraire_attribut{src})" width="265" alt="" style="border-width:0;width:100%;height:auto;max-width:260px;" />
+																</td>
+															</tr>]
+															</BOUCLE_Auteur>
+															</B_Auteur></BOUCLE_EstHomelie>
 															[<tr>
 																<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
 																	<img src="(#LOGO_ARTICLE|focusimage{265,175,center}|extraire_attribut{src})" width="265" alt="" style="border-width:0;width:100%;height:auto;max-width:260px;" />
 																</td>
 															</tr>]
+															<//B_EstHomelie>
 															<tr>
 																<td class="padding-top-10" style="padding-top:10px;padding-bottom:0;padding-right:0;padding-left:0;" >
 																	<h1 class="titre-article" style="Margin:0;font-size:21px;font-weight:400;line-height:28px;Margin-bottom:14px;color:#5782BD;" >
