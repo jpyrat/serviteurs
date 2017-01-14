@@ -12,15 +12,12 @@
 															<tr>
 																<td class="padding-top-10" style="padding-top:10px;padding-bottom:0;padding-right:0;padding-left:0;" >
 																	<h1 class="titre-article" style="Margin:0;font-size:21px;font-weight:400;line-height:28px;Margin-bottom:14px;color:#5782BD;" >
-																		Titre article 1/#ENV{id_article}
+																		#TITRE
 																	</h1>
 																	<!-- RESUME -->
-																	<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-bottom:18px;color:#515152;" >
-																		Intertitre article 1 ipsum dolor sit amet</h2>
-																	<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;color:#515152;" >
-																		Texte. Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-																	</p>
+																	[(#CHAPO|replace{'<p>','<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;color:#515152;" >'}|replace{'<h2 class="spip">','<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-bottom:18px;color:#515152;" >'})]
 																	<!-- FIN RESUME -->
+																	<BOUCLE_Agenda(EVENEMENTS){id_article}{age_fin<0}{0,1}>
 																	<!-- ESPACE POUR AGENDA --->
 																	<table border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;">
 																		<tr>
@@ -51,6 +48,7 @@
 																		</tr>
 																	</table>
 																	<!-- FIN AGENDA -->
+																	</BOUCLE_Agenda>
 																	<!-- START BUTTON -->
 																	<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, 'Roboto';" >
 																		<tr>
