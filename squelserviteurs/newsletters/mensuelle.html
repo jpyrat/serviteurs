@@ -579,7 +579,7 @@
 			<!-- START HEADER -->
 			<!-- bandeau bleu foncé -->
 			<tr>
-				<td id="logo-region-back" height="50" width="100%" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#5782BD;" >
+				<td id="logo-region-back" height="50" width="100%" valign="middle" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#5782BD;" >
 					<center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
 						<div class="webkit" style="max-width:600px;padding-right:20px; padding-left:20px;" >
 							<!-- START PREHEADER -->
@@ -595,7 +595,7 @@
 
 			<!-- bandeau bleu ciel -->
 			<tr>
-				<td id="date" height="40" width="100%" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;;background-color:#e9f2fc;" >
+				<td id="date" height="40" width="100%" valign="middle" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;;background-color:#e9f2fc;" >
 					<center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
 						<div class="webkit" style="max-width:600px;" >
 							<!-- DATE NEWSLETTER -->
@@ -713,11 +713,11 @@
 											<tr>
 												<td class="padding-20 contents2" style="padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;text-align:left;" >
 													<!-- TITRE éditorial -->
-													<h1 style="Margin:0;font-size:26px;line-height:34px;"><span style="font-size:22px;color:#5782BD;font-weight:300;text-transform:uppercase;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;" >
+													<h1 style="Margin:0;font-size:26px;line-height:34px;"><span style="font-size:22px;color:#5782BD;font-weight:300;text-transform:uppercase;padding-top:10px;padding-bottom:10px;padding-right:0px;padding-left:0px;" >
 															#TITRE
 														</span></h1>
 													[(#CHAPO|replace{'<p>','<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<h2 class="spip">','<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-top:18px;Margin-bottom:18px;" >'})]
-													[(#TEXTE|replace{'<p>','<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<ul class="spip">','<ul style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<h2 class="spip">','<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-top:18px;Margin-bottom:18px;" >'})]
+													[(#TEXTE|replace{'<p>','<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<ul class="spip">','<ul style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<li>','<li style="list-style:disc inside; mso-special-format:bullet;" >'}|replace{'<h2 class="spip">','<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-top:18px;Margin-bottom:18px;" >'})]
 												</td>
 											</tr>
 										</table>
@@ -780,7 +780,7 @@
 										<INCLURE{fond=newsletters/inc/casearticle}>
 										]
 										</B_DeuxArticles>
-										
+
 										<!--[if (gte mso 9)|(IE)]>
 										</td>
 										</tr>

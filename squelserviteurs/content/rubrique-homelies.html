@@ -61,10 +61,10 @@
 					<B_ListeHomelies>
 						#ANCRE_PAGINATION
 						<h2>Homélies (#GRAND_TOTAL)</h2>
-						<ul>
+						<ul class="text-left">
 							<BOUCLE_ListeHomelies(ARTICLES){branche}{mots ?}{id_auteur ?}{recherche ?}{!par date}{pagination 15}>
-							<li><a class="h3 texte-colorComm" href="#URL_ARTICLE" title="Lire #TITRE">#TITRE</a>
-								<B_MotsAssociés><small>(<BOUCLE_MotsAssociés(MOTS){id_article}{id_groupe IN 24,25,27,28,29,33,31,26,30,32}{", "}>#TITRE</BOUCLE_MotsAssociés>)</small></B_MotsAssociés><B_AuteursAssociés>
+							<li class="avec-border-top avec-padding-top avec-margin-top"><a class="h3 texte-colorComm" href="#URL_ARTICLE" title="Voir[ (#TITRE|attribut_html)]">#TITRE</a>
+								<B_MotsAssociés><label class="colorMari texte-blanc"><BOUCLE_MotsAssociés(MOTS){id_article}{id_groupe IN 24,25,27,28,29,33,31,26,30,32}{", "}>#TITRE</BOUCLE_MotsAssociés></label></B_MotsAssociés><B_AuteursAssociés>
 								<p><BOUCLE_AuteursAssociés(AUTEURS){id_article}{", "}>#NOM</BOUCLE_AuteursAssociés></p></B_AuteursAssociés>
 							</li>
 							</BOUCLE_ListeHomelies>
