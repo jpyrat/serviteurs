@@ -766,7 +766,7 @@
 										<tr>
 										<td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
 										<![endif]-->
-										<BOUCLE_DeuxArticles(ARTICLES){id_newsletter}{0,2}{doublons}{""}>
+										<BOUCLE_DeuxArticles(ARTICLES){id_newsletter}{!par date}{0,2}{doublons}{""}>
 										<!-- START LEFT ARTICLE -->
 										<INCLURE{fond=newsletters/inc/casearticle,id_article}>
 										<!-- END LEFT ARTICLE -->
