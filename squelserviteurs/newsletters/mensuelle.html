@@ -776,6 +776,10 @@
 										<!\[endif\]-->
 										]
 										</BOUCLE_DeuxArticles>
+										[(#TOTAL_BOUCLE|=={1}|oui)
+										<INCLURE{fond=newsletters/inc/casearticle}>
+										]
+										</B_DeuxArticles>
 										
 										<!--[if (gte mso 9)|(IE)]>
 										</td>
