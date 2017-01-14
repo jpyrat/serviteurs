@@ -744,7 +744,7 @@
 				</td>
 			</tr>
 			<!-- END éditorial -->
-
+			<BOUCLE_selectionarticles(ARTICLES){id_newsletter}{1/2}>
 			<!-- START TWO COLUMN ARTICLE -->
 			<tr>
 				<td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#ffffff;" >
@@ -766,19 +766,17 @@
 										<tr>
 										<td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
 										<![endif]-->
-
+										<BOUCLE_DeuxArticles(ARTICLES){id_newsletter}{0,2}{doublons}{""}>
 										<!-- START LEFT ARTICLE -->
-										<INCLURE{fond=newsletters/inc/casearticle}>
+										<INCLURE{fond=newsletters/inc/casearticle,id_article}>
 										<!-- END LEFT ARTICLE -->
-
-										<!--[if (gte mso 9)|(IE)]>
+										[(#COMPTEUR_BOUCLE|=={1}|oui)
+										<!--\[if (gte mso 9)|(IE)\]>
 										</td><td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-										<![endif]-->
-
-										<!-- START RIGHT ARTICLE -->
-										<INCLURE{fond=newsletters/inc/casearticle}>
-										<!-- END RIGHT ARTICLE -->
-
+										<!\[endif\]-->
+										]
+										</BOUCLE_DeuxArticles>
+										
 										<!--[if (gte mso 9)|(IE)]>
 										</td>
 										</tr>
@@ -799,65 +797,7 @@
 				</td>
 			</tr>
 			<!-- END TWO COLUMN ARTICLE -->
-
-
-			<!-- START TWO COLUMN ARTICLE -->
-			<tr>
-				<td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#ffffff;" >
-					<center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
-						<div class="webkit" style="max-width:600px;" >
-
-							<!--[if (gte mso 9)|(IE)]>
-							<table width="600" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, 'Roboto';" >
-							<tr>
-							<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-							<![endif]-->
-
-							<table class="outer" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, 'Roboto';Margin:0 auto;width:100%;max-width:600px;" >
-								<tr>
-									<td class="two-column padding-topbottom-10" style="padding-top:10px;padding-bottom:10px;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
-
-										<!--[if (gte mso 9)|(IE)]>
-										<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, 'Roboto';" >
-										<tr>
-										<td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-										<![endif]-->
-
-										<!-- START LEFT ARTICLE -->
-										<INCLURE{fond=newsletters/inc/casearticle}>
-										<!-- END LEFT ARTICLE -->
-
-										<!--[if (gte mso 9)|(IE)]>
-										</td><td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-										<![endif]-->
-
-										<!-- START RIGHT ARTICLE -->
-										<INCLURE{fond=newsletters/inc/casearticle}>
-										<!-- END RIGHT ARTICLE -->
-
-										<!--[if (gte mso 9)|(IE)]>
-										</td>
-										</tr>
-										</table>
-										<![endif]-->
-
-									</td>
-								</tr>
-
-
-							</table>
-
-							<!--[if (gte mso 9)|(IE)]>
-							</td>
-							</tr>
-							</table>
-							<![endif]-->
-
-						</div>
-					</center>
-				</td>
-			</tr>
-			<!-- END TWO COLUMN ARTICLE -->
+			</BOUCLE_selectionarticles>
 
 			<!-- ESPACE -->
 			<tr>
