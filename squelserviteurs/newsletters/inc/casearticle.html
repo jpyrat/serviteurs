@@ -6,11 +6,12 @@
 															<BOUCLE_(ARTICLES){id_article}>
 															<BOUCLE_EstHomelie(HIERARCHIE){inverse}><B_Auteur>
 															<BOUCLE_Auteur(AUTEURS){si #_EstHomelie:ID_RUBRIQUE|=={362}}{id_article}{0,1}>
+															[(#SET{esthomelie,''})][(#SET{auteur,''})]
 															[<tr>
 																<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
 																	<img src="(#LOGO_AUTEUR|focusimage{265,175,center}|extraire_attribut{src}|url_absolue)" width="265" alt="" style="border-width:0;width:100%;height:auto;max-width:260px;" />
 																</td>
-															</tr>]
+															</tr>][(#SET{esthomelie,oui})][(#SET{auteur,#NOM})]
 															</BOUCLE_Auteur>
 															</B_Auteur></BOUCLE_EstHomelie>
 															[<tr>
@@ -22,10 +23,15 @@
 															<tr>
 																<td class="padding-top-10" style="padding-top:10px;padding-bottom:0;padding-right:0;padding-left:0;" >
 																	<h1 class="titre-article" style="Margin:0;font-size:21px;font-weight:400;line-height:28px;Margin-bottom:14px;color:#5782BD;" >
-																		#TITRE
+																		#TITRE[<br />(#GET{auteur})]
 																	</h1>
 																	<!-- RESUME -->
+																	[(#GET{esthomelie}|oui)
+																	[<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;color:#515152;" >(#TEXTE|couper{300})</p>]
+																	]
+																	[(#GET{esthomelie}|non)
 																	[(#CHAPO|replace{'<p>','<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;color:#515152;" >'}|replace{'<h2 class="spip">','<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-bottom:18px;color:#515152;" >'})]
+																	]
 																	<!-- FIN RESUME -->
 																	<BOUCLE_Agenda(EVENEMENTS){id_article}{age_fin<0}{0,1}>
 																	<!-- ESPACE POUR AGENDA --->
