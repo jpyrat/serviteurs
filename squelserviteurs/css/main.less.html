@@ -2349,9 +2349,15 @@ aside .h1 a {
 }
 
 // colorbox
-#cboxLoadedContent .row.column {
-	width: auto!important;
-	margin: 1em 1em 0 !important;
+#cboxLoadedContent {
+	& .breadcrumbs {
+		padding-top: 0;
+		border-top: none;
+	}
+	& .row.column {
+		width: auto!important;
+		margin: 1em 1em 0 !important;
+	}
 }
 
 // exergues homélies
@@ -2385,6 +2391,27 @@ aside .h1 a {
 		&:after {
 			right: auto!important;
 			text-align: center!important;
+		}
+	}
+}
+
+// form
+.formulaire_spip {
+	& legend,
+	& label {
+		font-size: @cgFontSizeP;
+	}
+	& .boutons {
+		text-align: center;
+		& input {
+			border: 1px solid white;
+			background-color: @triadeA;
+			color: white;
+			padding: .9em 1.25em 1em;
+			font-weight: 400;
+			&:hover {
+				background-color: @triadeB;
+			}
 		}
 	}
 }
