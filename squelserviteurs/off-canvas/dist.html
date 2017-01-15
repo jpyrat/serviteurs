@@ -1,37 +1,38 @@
-            <nav class="tab-bar title-bar hide-for-large" id="navPageSmall">
-              <div class="title-bar-right">
-                <div class="title-bar-title" data-toggle="menu-ext-droite"><a title="menu plan du site" role="navigation"><span class="icon-bar"></span></a></div>
-              </div>
-              <div class="title-bar-center smartphone">
-                <h1 class="hide">#NOM_SITE_SPIP</h1>
-                [(#ENV{type-page}|=={
-                  sommaire}?{'',
-                  <a href="#URL_SITE_SPIP" class="item retourHome" title="Retour à l'accueil">
-                    [<img src="(#CSS{css/img/logo_serviteurs-small.png})" alt="Serviteurs de Jésus & de Marie" />]
-                  </a>
-                  }
-                )]
-              </div>
-            </nav>
+<nav class="tab-bar title-bar hide-for-large" id="navPageSmall">
+	<div class="title-bar-right">
+		<div class="title-bar-title" data-toggle="menu-ext-droite"><a title="menu plan du site" role="navigation"><span class="icon-bar"></span></a></div>
+	</div>
+	<div class="title-bar-center smartphone">
+		<h1 class="hide">#NOM_SITE_SPIP</h1>
+		[(#ENV{type-page}|=={
+		sommaire}?{'',
+		<a href="#URL_SITE_SPIP" class="item retourHome" title="Retour à l'accueil">
+			[<img src="(#CSS{css/img/logo_serviteurs-small.png})" alt="Serviteurs de Jésus & de Marie" />]
+		</a>
+		}
+		)]
+	</div>
+</nav>
 
-            [(#REM) barre de navigation qui reste masquée côté droite ]
-            <div id="menu-ext-droite" data-toggler=".is-active">
-              <a class="texte-blanc float-left avec-padding" data-toggle="menu-ext-droite" title="Masquer le menu"><span class="icon-cross icon-lg icon-fw"></span></a>
-              <hr class="sans-border" />
-              <section>
-                <ul class="vertical menu" role="navigation">
-                  <li><a href="#URL_SITE_SPIP" class="item retourHome" title="Retour à l'accueil"><span class="icon-home icon-fw"></span>Accueil</a></li>
-                  <BOUCLE_Rubriques(RUBRIQUES){racine}{id_rubrique !IN 1,273,280}{par num titre}>
-                  <li class="niveauA[ (#EXPOSE{actif-OffCanvas})]"><a href="#URL_RUBRIQUE" class="item"[ title="(#DESCRIPTIF|attribut_html)"]>#TITRE</a>
-                  <B_SsRubriques>
+[(#REM) barre de navigation qui reste masquée côté droite ]
+<div id="menu-ext-droite" data-toggler=".is-active">
+	<header>
+		<a class="texte-blanc float-left avec-padding" data-toggle="menu-ext-droite" title="Masquer le menu"><span class="icon-cross icon-lg icon-fw"></span></a>
+	</header>
+	<section>
+		<ul class="vertical menu" role="navigation">
+			<li><a href="#URL_SITE_SPIP" class="item retourHome" title="Retour à l'accueil"><span class="icon-home icon-fw"></span>Accueil</a></li>
+			<BOUCLE_Rubriques(RUBRIQUES){racine}{id_rubrique !IN 1,273,280}{par num titre}>
+				<li class="niveauA[ (#EXPOSE{actif-OffCanvas})]"><a href="#URL_RUBRIQUE" class="item"[ title="(#DESCRIPTIF|attribut_html)"]>#TITRE</a>
+				<B_SsRubriques>
                     <ul>
-                    <BOUCLE_SsRubriques(RUBRIQUES){id_parent}{par num titre}>
-                      <li class="niveauB[ (#EXPOSE{actif-OffCanvas})]"><a href="#URL_RUBRIQUE" class="item"[ title="(#DESCRIPTIF|attribut_html)"]>#TITRE</a><BOUCLE_RecursionRubriques(BOUCLE_SsRubriques)/></li>
-                    </BOUCLE_SsRubriques>
+						<BOUCLE_SsRubriques(RUBRIQUES){id_parent}{par num titre}>
+							<li class="niveauB[ (#EXPOSE{actif-OffCanvas})]"><a href="#URL_RUBRIQUE" class="item"[ title="(#DESCRIPTIF|attribut_html)"]>#TITRE</a><BOUCLE_RecursionRubriques(BOUCLE_SsRubriques)/></li>
+						</BOUCLE_SsRubriques>
                     </ul>
-                  </B_SsRubriques>
-                  </li>
-                  </BOUCLE_Rubriques>
-                </ul>
-              </section>
-            </div>
+				</B_SsRubriques>
+				</li>
+			</BOUCLE_Rubriques>
+		</ul>
+	</section>
+</div>
