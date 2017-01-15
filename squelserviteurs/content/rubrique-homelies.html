@@ -63,7 +63,7 @@
 						<h2>Homélies (#GRAND_TOTAL)</h2>
 						<ul class="text-left">
 							<BOUCLE_ListeHomelies(ARTICLES){branche}{mots ?}{id_auteur ?}{recherche ?}{!par date}{pagination 10}>
-							<li class="avec-margin-top clearfix"><a class="h3 texte-colorComm" href="#URL_ARTICLE" title="Voir[ (#TITRE|attribut_html)]">#TITRE
+							<li class="avec-margin-top avec-padding-top avec-border-top clearfix"><a class="h3 texte-colorComm" href="#URL_ARTICLE" title="Voir[ (#TITRE|attribut_html)]">#TITRE
 								<B_MotsAssociés><BOUCLE_MotsAssociés(MOTS){id_article}{id_groupe IN 24,25,27,28,29,33,31,26,30,32}{" "}><small style="white-space: nowrap;" class="colorMari texte-blanc avec-padding-left avec-padding-right">#TITRE</small></BOUCLE_MotsAssociés></B_MotsAssociés>
 								<B_AuteursAssociés><p class="text-right"><small><BOUCLE_AuteursAssociés(AUTEURS){id_article}{", "}>#NOM</BOUCLE_AuteursAssociés></small><p></B_AuteursAssociés></a>
 							</li>
