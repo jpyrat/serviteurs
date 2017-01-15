@@ -2353,3 +2353,38 @@ aside .h1 a {
 	width: auto!important;
 	margin: 1em 1em 0 !important;
 }
+
+// exergues homélies
+.exergue::after,
+.exergue::before {
+    opacity: .5;
+    color: @triadeB;
+}
+@media screen and (min-width:64em) {
+	.article-homelie aside.exergue {
+		&.float-right {
+			margin-right: -25%;
+		}
+		&.float-left {
+			margin-left: -25%;
+		}
+	}
+}
+// exergue : style general
+@media screen and (max-width:30em) {
+	aside.exergue {
+		&.float-right,
+		&.float-left {
+			float: none;
+			width: auto;
+		}
+		&:before {
+			left: auto!important;
+			text-align: center!important;
+		}
+		&:after {
+			right: auto!important;
+			text-align: center!important;
+		}
+	}
+}
