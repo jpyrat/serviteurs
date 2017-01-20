@@ -53,30 +53,7 @@
 	</BOUCLE_r>
 	<//B_a>
 
-	<B_ap>
-	<div class="transitionArticles avec-margin-top avec-margin-bottom avec-padding-top">
-		<hr />
-		<a href="#ancre_autres-articles">
-			<span class="icon-chevron-thin-down icon-3x"></span>
-		</a>
-	</div>
-	[(#REM) 3 article en suivants sans images ]
-	<section class="autres-articles avec-margin-bottom avec-padding-bottom" id="ancre_autres-articles">
-		<div class="row avec-padding-bottom">
-		#ANCRE_PAGINATION
-		[(#REM) ne pas paginer sur les 3 articles focus déjà affichés au dessus ]
-		<BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{pagination 3}{doublons}>
-		<article class="medium-4 columns text-left">
-			<h2 class="#EDIT{titre}">
-				<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
-			</h2>
-			[<div class="sous-titre texte-colorGrisFonce font-style-italic sans-padding #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
-		</article>
-		</BOUCLE_ap>
-		</div>
-		#PAGINATION{suite_agenda}
-	</section>
-	</B_ap>
+	<INCLURE{fond=_bibliotheque/pave-pagination_articles_rubrique,env,ajax} />
 
 </div>
 </BOUCLE_>
