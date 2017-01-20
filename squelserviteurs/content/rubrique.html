@@ -1,82 +1,82 @@
 <BOUCLE_(RUBRIQUES){id_rubrique}>
 <div class="row column">
-  [(#REM) le breadcrumb ]
-  <nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
-    <ul class="breadcrumbs">
-      <li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
-      <BOUCLE_Breadcrumbs(HIERARCHIE){id_rubrique}>
-      <li><a href="#URL_RUBRIQUE" title="Voir la rubrique [(#TITRE|attribut_html)]">#TITRE</a></li>
-      </BOUCLE_Breadcrumbs>
-      <li title="En cours: [(#TITRE|attribut_html)]">
-        <span class="show-for-sr">En cours: </span>#TITRE
-      </li>
-    </ul>
-  </nav>
+	[(#REM) le breadcrumb ]
+	<nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
+		<ul class="breadcrumbs">
+			<li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
+			<BOUCLE_Breadcrumbs(HIERARCHIE){id_rubrique}>
+			<li><a href="#URL_RUBRIQUE" title="Voir la rubrique [(#TITRE|attribut_html)]">#TITRE</a></li>
+			</BOUCLE_Breadcrumbs>
+			<li title="En cours: [(#TITRE|attribut_html)]">
+				<span class="show-for-sr">En cours: </span>#TITRE
+			</li>
+		</ul>
+	</nav>
 </div>
 
 [(#REM) 3 article en focus ]
 <div class="contentRubrique row column text-center" id="ancre_rubrique">
-  <h1 class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> #EDIT{titre}">#TITRE</h1>
-  [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05 #EDIT{texte}">(#TEXTE|image_reduire{1170,0}|sinoncrayon{Vous pouvez mettre un texte})</div>]
-  <BOUCLE_a(ARTICLES){id_rubrique}{par num titre}{0,3}{doublons}>
-  <article class="focus row text-center">
-    <div class="large-4  columns avec-padding-bottom avec-margin-bottom">
-      [(#REM) img 400x270 ]
-      [<img src="(#LOGO_ARTICLE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
-    </div>
-    <div class="large-8  columns large-text-left">
-      <h2 class="position-relative z-index-999 #EDIT{titre}">
-        <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE
-        <span class="chevron icon-chevron-thin-right show-for-large"></span>
-        </a>
-      </h2>
-      [<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
-      [<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinon{#CHAPO}|sinoncrayon{Double-cliquer pour mettre ici un texte})</div>]
-    </div>
-  </article>
-  </BOUCLE_a>
-  <BOUCLE_r(RUBRIQUES){id_parent}{par num titre}>
-  <article class="focus row text-center">
-    <div class="large-4  columns avec-padding-bottom avec-margin-bottom">
-      [(#REM) img 400x270 ]
-      [<img src="(#LOGO_RUBRIQUE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
-    </div>
-    <div class="large-8  columns large-text-left">
-      <h2 class="position-relative z-index-999 #EDIT{titre}">
-        <a href="#URL_RUBRIQUE" title="Consulter [(#TITRE|attribut_html)]">#TITRE
-        <span class="chevron icon-chevron-thin-right show-for-large"></span>
-        </a>
-      </h2>
-      [<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinoncrayon{Double-cliquer pour mettre ici un texte})</div>]
-    </div>
-  </article>
-  </BOUCLE_r>
-  <//B_a>
+	<h1 class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> #EDIT{titre}">#TITRE</h1>
+	[<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05 #EDIT{texte}">(#TEXTE|image_reduire{1170,0}|sinoncrayon{Vous pouvez mettre un texte})</div>]
+	<BOUCLE_a(ARTICLES){id_rubrique}{par num titre}{0,3}{doublons}>
+	<article class="focus row text-center">
+		<div class="large-4	   columns avec-padding-bottom avec-margin-bottom">
+			[(#REM) img 400x270 ]
+			[<img src="(#LOGO_ARTICLE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
+		</div>
+		<div class="large-8	   columns large-text-left">
+			<h2 class="position-relative z-index-999 #EDIT{titre}">
+				<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE
+				<span class="chevron icon-chevron-thin-right show-for-large"></span>
+				</a>
+			</h2>
+			[<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
+			[<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinon{#CHAPO}|sinoncrayon{Double-cliquer pour mettre ici un texte})</div>]
+		</div>
+	</article>
+	</BOUCLE_a>
+	<BOUCLE_r(RUBRIQUES){id_parent}{par num titre}>
+	<article class="focus row text-center">
+		<div class="large-4	   columns avec-padding-bottom avec-margin-bottom">
+			[(#REM) img 400x270 ]
+			[<img src="(#LOGO_RUBRIQUE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
+		</div>
+		<div class="large-8	   columns large-text-left">
+			<h2 class="position-relative z-index-999 #EDIT{titre}">
+				<a href="#URL_RUBRIQUE" title="Consulter [(#TITRE|attribut_html)]">#TITRE
+				<span class="chevron icon-chevron-thin-right show-for-large"></span>
+				</a>
+			</h2>
+			[<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinoncrayon{Double-cliquer pour mettre ici un texte})</div>]
+		</div>
+	</article>
+	</BOUCLE_r>
+	<//B_a>
 
-  <B_ap>
-  <div class="transitionArticles avec-margin-top avec-margin-bottom avec-padding-top">
-    <hr />
-    <a href="#ancre_autres-articles">
-      <span class="icon-chevron-thin-down icon-3x"></span>
-    </a>
-  </div>
-  [(#REM) 3 article en suivants sans images ]
-  <section class="autres-articles avec-margin-bottom avec-padding-bottom" id="ancre_autres-articles">
-    <div class="row avec-padding-bottom">
-    #ANCRE_PAGINATION
-    [(#REM) ne pas paginer sur les 3 articles focus déjà affichés au dessus ]
-    <BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{pagination 3}{doublons}>
-    <article class="medium-4 columns text-left">
-      <h2 class="#EDIT{titre}">
-        <a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
-      </h2>
-      [<div class="sous-titre texte-colorGrisFonce font-style-italic sans-padding #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
-    </article>
-    </BOUCLE_ap>
-    </div>
-    #PAGINATION{suite_agenda}
-  </section>
-  </B_ap>
+	<B_ap>
+	<div class="transitionArticles avec-margin-top avec-margin-bottom avec-padding-top">
+		<hr />
+		<a href="#ancre_autres-articles">
+			<span class="icon-chevron-thin-down icon-3x"></span>
+		</a>
+	</div>
+	[(#REM) 3 article en suivants sans images ]
+	<section class="autres-articles avec-margin-bottom avec-padding-bottom" id="ancre_autres-articles">
+		<div class="row avec-padding-bottom">
+		#ANCRE_PAGINATION
+		[(#REM) ne pas paginer sur les 3 articles focus déjà affichés au dessus ]
+		<BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{pagination 3}{doublons}>
+		<article class="medium-4 columns text-left">
+			<h2 class="#EDIT{titre}">
+				<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
+			</h2>
+			[<div class="sous-titre texte-colorGrisFonce font-style-italic sans-padding #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
+		</article>
+		</BOUCLE_ap>
+		</div>
+		#PAGINATION{suite_agenda}
+	</section>
+	</B_ap>
 
 </div>
 </BOUCLE_>
