@@ -14,9 +14,9 @@
 					[<span class="dateNombre">(#DATE_DEBUT|jour)</span>]
 					[<span class="dateMois">(#DATE_DEBUT|nom_mois)</span>]
 					,
-					[<span class="dateJour">du (#DATE_DEBUT|nom_jour)</span>]
+					[<span class="dateJour">(#DATE_DEBUT|nom_jour)</span>]
 					[<span class="dateNombre">(#DATE_DEBUT|jour)</span>]
-					[<span class="dateMois">(#DATE_DEBUT|nom_mois)</span>]
+					[<span class="dateMois">(#DATE_DEBUT|nom_mois|!={#DATE_FIN|nom_mois}|?{#DATE_DEBUT|nom_mois})</span>]
 
 					[<span class="dateJour">au (#DATE_FIN|nom_jour)</span>]
 					[<span class="dateNombre">(#DATE_FIN|jour)</span>]
