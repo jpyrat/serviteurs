@@ -38,7 +38,7 @@
    <section class="text-center hide-for-large">
 	  <h1>Pour aller plus loin</h1>
 	  #ANCRE_PAGINATION
-      <BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{doublons mobiles}{pagination 4}>
+      <BOUCLE_ap(ARTICLES){branche}{par hasard}{doublons mobiles}{pagination 4}>
       <article class="triadeC avec-padding avec-margin-bottom015">
         <h2 class="#EDIT{titre}">
           <a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
@@ -55,7 +55,7 @@
 	<section class="text-center show-for-large">
       <h1>Pour aller plus loin</h1>
 	  #ANCRE_PAGINATION
-      <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{doublons desktop}{pagination 4}>
+      <BOUCLE_apa(ARTICLES){branche}{par hasard}{doublons desktop}{pagination 4}>
       <article class="triadeC avec-padding avec-margin-bottom015">
         <h2 class="#EDIT{titre}">
           <a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>

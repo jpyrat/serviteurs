@@ -10,24 +10,29 @@
 		[(#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
 	    ][(#ENV{page_courante}|<={1}|non)<li class="pagination-previous"><a href="[(#ENV{url}
 		|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
-		|ancre_url{#ENV{ancre}})]" aria-label="Page précédente"></a></li>]
+		|ancre_url{#ENV{ancre}})]" aria-label="Page précédente" rel="nofollow"></a></li>]
 		[(#GET{premiere}|>{1}|oui)<li title="Première page"><a href="[(#ENV{url}
 		|parametre_url{#ENV{debut},''}
-	    |ancre_url{#ENV{ancre}})]" aria-label="Première page">…</a></li>]
+	    |ancre_url{#ENV{ancre}})]" aria-label="Première page" rel="nofollow">…</a></li>]
         <BOUCLE_pages(POUR){tableau #GET{pages}}>[(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
 		]
 		<li[(#VALEUR|=={#ENV{page_courante}}|oui) class="current"]>
 		[(#VALEUR|=={#ENV{page_courante}}|oui)<span class="show-for-sr">Vous êtes sur la page</span> ][(#VALEUR|=={#ENV{page_courante}}|non)<a href="[(#ENV{url}
-		|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}})]##ENV{ancre}" aria-label="Page #VALEUR">]#VALEUR[(#VALEUR|=={#ENV{page_courante}}|?{'','</a>'})]</li>		
+		|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}})]##ENV{ancre}" aria-label="Page #VALEUR" rel="nofollow">]#VALEUR[(#VALEUR|=={#ENV{page_courante}}|?{'','</a>'})]</li>		
 		</BOUCLE_pages>
 		[(#SET{item, #ENV{nombre_pages}|moins{1}|mult{#ENV{pas}} })]
 		[(#GET{derniere}|<{#ENV{nombre_pages}}|oui)<li title="Dernière page \(#ENV{nombre_pages}\)"><a href="[(#ENV{url}
 	    |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
-	    |ancre_url{#ENV{ancre}})]" aria-label="Dernière page">…</a></li>]
+	    |ancre_url{#ENV{ancre}})]" aria-label="Dernière page" rel="nofollow">…</a></li>]
         [(#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })
 	    ][(#ENV{page_courante}|>={#ENV{nombre_pages}}|non)<li class="pagination-next"><a href="[(#ENV{url}
 	    |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
-	    |ancre_url{#ENV{ancre}})]" aria-label="Page suivante"></a></li>]
+	    |ancre_url{#ENV{ancre}})]" aria-label="Page suivante" rel="nofollow"></a></li>]
+		[<li
+		class="all[(#ENV{page_courante}|=={0}|oui)disabled]">(#ENV{url}
+		|parametre_url{#ENV{debut},-1}
+		|ancre_url{#ENV{ancre}}
+		|lien_ou_expose{<:lien_tout_afficher:>,#ENV{page_courante}|=={0},lien_pagination,'',nofollow})</li>]
       </ul>
     </div>
   </div>
