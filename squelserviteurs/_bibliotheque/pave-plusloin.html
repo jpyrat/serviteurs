@@ -1,15 +1,15 @@
-   <B_ap>
-   <section class="text-center [(#ENV{mobile}|oui|?{hide,show})]-for-large">
-	  <h1>Pour aller plus loin</h1>
-	  #ANCRE_PAGINATION
-      <BOUCLE_ap(ARTICLES){branche}{id_rubrique!=#ID_RUBRIQUE}{par hasard}{pagination 4}><BOUCLE_SansEvenementp(EVENEMENTS){id_article}{0,1}></BOUCLE_SansEvenementp>
-      <article class="triadeC avec-padding avec-margin-bottom015">
-        <h2 class="#EDIT{titre}">
-          <a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
-        </h2>
-        [<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05 #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
-      </article>
-      <//B_SansEvenementp></BOUCLE_ap>
-	  #PAGINATION{suite_agenda}
-    </section>
+	 <B_ap>
+	 <section class="text-center [(#ENV{mobile}|oui|?{hide,show})]-for-large">
+		<h1>Pour aller plus loin</h1>
+		#ANCRE_PAGINATION
+			<BOUCLE_ap(ARTICLES){branche}{id_rubrique!=#ID_RUBRIQUE}{par hasard}{pagination 4}><BOUCLE_SansEvenementp(EVENEMENTS){id_article}{0,1}></BOUCLE_SansEvenementp>
+			<article class="triadeC avec-padding avec-margin-bottom015">
+				<h2 class="#EDIT{titre}">
+					<a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
+				</h2>
+				[<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05 #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
+			</article>
+			<//B_SansEvenementp></BOUCLE_ap>
+		#PAGINATION{suite_agenda}
+		</section>
 	</B_ap>
