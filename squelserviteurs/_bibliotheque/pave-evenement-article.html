@@ -8,18 +8,18 @@
   <div class="dateEvenementCarre large-3 columns colorComm">
     <p class="texte-filaire">
       <time itemprop="startDate" title="#DATE_DEBUT" datetime="#DATE_DEBUT">
-      [(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
-      [<span class="dateJour">(#DATE_DEBUT|nom_jour)</span>]
-      [<span class="dateNombre">(#DATE_DEBUT|jour)</span>]
-      [<span class="dateMois">(#DATE_DEBUT|nom_mois)</span>]
-      ,
-      [<span class="dateJour">du (#DATE_DEBUT|nom_jour)</span>]
-      [<span class="dateNombre">(#DATE_DEBUT|jour)</span>]
-      [<span class="dateMois">(#DATE_DEBUT|nom_mois)</span>]
+		[(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
+		[<span class="dateJour">(#DATE_DEBUT|nom_jour)</span>]
+		[<span class="dateNombre">(#DATE_DEBUT|jour)</span>]
+		[<span class="dateMois">(#DATE_DEBUT|nom_mois)</span>]
+		,
+		[<span class="dateJour">(#DATE_DEBUT|nom_jour)</span>]
+		[<span class="dateNombre">(#DATE_DEBUT|jour)</span>]
+		[<span class="dateMois">(#DATE_DEBUT|nom_mois|!={#DATE_FIN|nom_mois}|?{#DATE_DEBUT|nom_mois})</span>]
 
-      [<span class="dateJour">au (#DATE_FIN|nom_jour)</span>]
-      [<span class="dateNombre">(#DATE_FIN|jour)</span>]
-      [<span class="dateMois">(#DATE_FIN|nom_mois)</span>]
+		[<span class="dateJour">au (#DATE_FIN|nom_jour)</span>]
+		[<span class="dateNombre">(#DATE_FIN|jour)</span>]
+		[<span class="dateMois">(#DATE_FIN|nom_mois)</span>]
       })]
       </time>
     </p>
