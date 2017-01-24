@@ -1,6 +1,6 @@
 [(#REM) on affiche les 9 derniers événements avec id_article ]
 <B_agenda>
-<h1 class="text-center avec-margin-bottom">Agenda</h1>
+<h1 class="text-center avec-margin-bottom" id="listeEvenements">Agenda</h1>
 #ANCRE_PAGINATION
 <BOUCLE_agenda(EVENEMENTS){id_article}{age_fin<0}{par date}{statut=publie}{pagination 5}>
 <div class="row collapse text-center large-text-left" itemscope itemtype="http://schema.org/Event">
