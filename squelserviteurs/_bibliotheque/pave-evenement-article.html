@@ -3,9 +3,10 @@
 <h1 class="text-center avec-margin-bottom" id="listeEvenements">Agenda</h1>
 #ANCRE_PAGINATION
 <BOUCLE_agenda(EVENEMENTS){id_article}{age_fin<0}{par date}{statut=publie}{pagination 5}>
+	[(#SET{CouleurEvenement,colorComm})]<BOUCLE_CouleurEvenement(MOTS){id_evenement}{id_groupe=35}{0,1}>[(#SET{CouleurEvenement,[(#DESCRIPTIF|attribut_html)]})]</BOUCLE_CouleurEvenement>
 <div class="row collapse text-center large-text-left" itemscope itemtype="http://schema.org/Event">
   [(#REM) on passe la couleur de l'espace colorComm / colorForm / colorMari ]
-  <div class="dateEvenementCarre large-3 columns colorComm">
+  <div class="dateEvenementCarre large-3 columns [(#GET{CouleurEvenement})]">
     <p class="texte-filaire">
       <time itemprop="startDate" title="#DATE_DEBUT" datetime="#DATE_DEBUT">
 		[(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
@@ -60,7 +61,7 @@
     </p>]
     [<p itemprop="location"><span class="icon-location avec-padding-right05"></span>(#LIEU)</p>]
     [(#ADRESSE|inserer_attribut{itemprop,location})]
-	[(#ID_HOTELLERIE|>{0}|oui)<p><a href="http://test.serviteurs.org/admin/events/retraite/#ID_HOTELLERIE" class="inscription" title="S'inscrire à [(#TITRE|attribut_html)]">S'inscrire</a></p>]
+	[(#ID_HOTELLERIE|>{0}|oui)<p><a href="http://hotellerie.serviteurs.org/?form=#ID_HOTELLERIE" class="inscription button [(#GET{CouleurEvenement})] float-right" title="S'inscrire à [(#TITRE|attribut_html)]">S'inscrire</a></p>]
   </div>
 
 </div>
