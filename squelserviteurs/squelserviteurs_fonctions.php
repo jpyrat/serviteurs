@@ -46,3 +46,7 @@ function plagemois($start, $end) {
 
 	return $ret;
 }
+
+function sjm_enlien($t) {
+	return extraire_attribut(expanser_liens('[->'.$t.']'), 'href');
+}
