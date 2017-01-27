@@ -424,6 +424,9 @@ h1,h2,h3,h4,h5,h6,
 .avec-padding-left {
   padding-left: 1em!important;
 }
+.avec-padding-left05 {
+  padding-left: .5em!important;
+}
 .avec-padding-leftright {
   display: block;
   padding-right: 1em!important;
@@ -705,7 +708,7 @@ nav.tab-bar.title-bar h1 {
 #navPictosRaccourcis {
   position: fixed;
   right: 0;
-  z-index: 999;
+  z-index: 9999;
 }
 #navPictosRaccourcis li {
   padding: 0;
@@ -724,20 +727,25 @@ nav.tab-bar.title-bar h1 {
 #navPictosRaccourcis a:focus {
   background-color: @triadeA!important;
 }
-@media screen and (max-width:39.9375em) {
+@media screen and (max-width: 1280px) {
   #navPictosRaccourcis {
     position: fixed;
     left: 0;
     bottom: 0;
   }
-  #navPictosRaccourcis li {
-    border-bottom: none;
+  & .menu {
+  	max-width: 640px;
+  	margin: 0 auto;
   }
-  #navPictosRaccourcis.triadeA.opacity-50 {
+  & li {
+  	display: table-cell!important;
+    border-bottom: none!important;
+  }
+  &.triadeA.opacity-50 {
     background-color: @triadeA!important;
   }
 }
-@media screen and (min-width:40em) {
+@media screen and (min-width: 1281px) {
   #navPictosRaccourcis .expanded {
     width: auto;
   }
@@ -1343,14 +1351,19 @@ a.fc-event {
 // footer
 footer .pied {
   display: inline-block;
-  margin-bottom: 3.5em;
+  margin-bottom: 51px;
   border-bottom: 1px dotted white;
 }
 footer .pied a:hover,
 footer .pied a:focus {
   background-color: @triadeC;
 }
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 1024px) {
+  footer .pied {
+    margin-bottom: 55px;
+  }
+}
+@media screen and (min-width: 1281px) {
   footer .pied {
     display: inherit;
     margin-bottom: inherit;
