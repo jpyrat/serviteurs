@@ -35,9 +35,9 @@
 						<a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_AUTEUR" onclick="if (jQuery.modalbox) {
 					jQuery.modalbox('[(#URL_AUTEUR|parametre_url{var_zajax,content})]');
 					return false;
-				}" title="Envoyer un message à l'auteur">
+				}" title="Écrire à l'auteur : [(#NOM|attribut_html)]">
 							<span class="icon-envelope icon-2x"></span>
-							Écrire à l'auteur
+							#NOM
 						</a>
 					</div>
 				</BOUCLE_EcrireAuteur>
