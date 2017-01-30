@@ -82,7 +82,7 @@
 		</div>
 
 		[(#REM) les contacts ]
-		<div class="contact large-4 columns avec-padding avec-margin-top avec-margin-bottom" id="ancre_contact">
+		<div class="contact large-4 columns avec-padding avec-margin-top" id="ancre_contact">
 			<INCLURE{fond=_bibliotheque/pave-pastille-titre}
 				{titrepastille='Contacts'}
 				{pictopastille='icon-envelope'}
@@ -137,7 +137,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="newsletter large-4 columns avec-padding avec-margin-bottom" id="ancre_newsletter">
+		<div class="newsletter large-4 columns avec-padding avec-margin-bottom text-center" id="ancre_newsletter">
 			<INCLURE{fond=_bibliotheque/pave-pastille-titre}
 				{titrepastille='Newsletter'}
 				{pictopastille='icon-paper-plane'}
@@ -145,10 +145,13 @@
 				/>
 				#FORMULAIRE_NEWSLETTER_SUBSCRIBE{newsletterdesserviteurs}
 			<BOUCLE_VoirDerniereNewsletter(NEWSLETTERS){!par id_newsletter}>
-			<p class="avec-padding"><a href="#URL_NEWSLETTER" onclick="if (jQuery.modalbox) {
-						jQuery.modalbox('[(#URL_NEWSLETTER|parametre_url{var_zajax,content}|parametre_url{var_zajax,content})]', {minWidth: '750px', height: '95%', iframe: 'true'});
-						return false;
-					}" title="Dernière newsletter : [(#TITRE|attribut_html)]">Voir un exemplaire de la newsletter</a></p>
+			<p class="avec-padding">
+				<span class="icon-star icon-fw texte-colorJeun"></span>
+				<a class="texte-triadeA font-weight-700" href="#URL_NEWSLETTER" onclick="if (jQuery.modalbox) {
+					jQuery.modalbox('[(#URL_NEWSLETTER|parametre_url{var_zajax,content}|parametre_url{var_zajax,content})]', {minWidth: '750px', height: '95%', iframe: 'true'});
+					return false;
+				}" title="Dernière newsletter : [(#TITRE|attribut_html)]">Voir la newsletter</a>
+			</p>
 			</BOUCLE_VoirDerniereNewsletter>
 		</div>
 	</div>
