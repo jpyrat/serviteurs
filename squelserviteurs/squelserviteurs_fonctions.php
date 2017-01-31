@@ -20,11 +20,23 @@ function sinoncrayon($texte, $sinon = '') {
 }
 
 // Permet de recadrer une image en la centrant sur son focus (plugin Centre Image)
-function focusimage($img, $largeur, $hauteur, $position = 'center') {
+function focusimage($img, $largeur, $hauteur, $position = 'center', $max='') {
 	if (!$img) return('');
 	
 	include_spip('inc/filtres');
-	if ((largeur($img) < $largeur) OR (hauteur($img) < $hauteur)) {
+	$l = largeur($img);
+	$h = hauteur($img);
+	if ($max == 'l') {
+		if ($l < $largeur) {
+			$largeur = $l;
+		}
+	}
+	if ($max == 'h') {
+		if ($h < $hauteur) {
+			$hauteur = $h;
+		}
+	}
+	if (($l < $largeur) OR ($h < $hauteur)) {
 		$img = filtrer('image_recadre', $img, "$largeur:$hauteur", '+', $position, 'transparent');
 		$img = filtrer('image_recadre', $img, $largeur, $hauteur, $position, 'transparent');
 	} else  {
