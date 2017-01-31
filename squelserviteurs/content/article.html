@@ -41,8 +41,9 @@
 							</BOUCLE_mp3>
 						</div>
 					</B_mp3>
-					<BOUCLE_EcrireAuteur(AUTEURS){id_article}{0,1}>
 					<div class="auteur show-for-medium">
+						<span class="social-tags"></span>
+						<BOUCLE_EcrireAuteur(AUTEURS){id_article}{0,1}>
 						<a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_AUTEUR" onclick="if (jQuery.modalbox) {
 							jQuery.modalbox('[(#URL_AUTEUR|parametre_url{var_zajax,content})]');
 							return false;
@@ -50,8 +51,8 @@
 							<span class="icon-envelope icon-2x"></span>
 							#NOM
 						</a>
+						</BOUCLE_EcrireAuteur>
 					</div>
-					</BOUCLE_EcrireAuteur>
 
 					<hr />
 
@@ -59,8 +60,10 @@
 						[(#TEXTE|image_reduire{770,0})]
 					</div>
 
-					<BOUCLE_EcrireAuteurSmallOnly(AUTEURS){id_article}{0,1}>
-					<div class="auteur show-for-small-only text-center">
+					<hr class="show-for-small-only" />
+					<div class="auteur show-for-small-only flexbox-center-center">
+						<span class="social-tags"></span>
+						<BOUCLE_EcrireAuteurSmallOnly(AUTEURS){id_article}{0,1}>
 						<a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_AUTEUR" onclick="if (jQuery.modalbox) {
 							jQuery.modalbox('[(#URL_AUTEUR|parametre_url{var_zajax,content})]');
 							return false;
@@ -68,16 +71,14 @@
 							<span class="icon-envelope icon-2x"></span>
 							#NOM
 						</a>
+						</BOUCLE_EcrireAuteurSmallOnly>
 					</div>
-					</BOUCLE_EcrireAuteurSmallOnly>
 					<BOUCLE_Inscription(EVENEMENTS){id_article}{age_fin<0}{par date}{statut=publie}{0,1}>
 						[(#ID_HOTELLERIE|>{0}|oui)<p class="avec-padding-top"><a href="http://hotellerie.serviteurs.org/?form=#ID_HOTELLERIE" class="inscription button large warning" title="S'inscrire à [(#TITRE|attribut_html)]">S'inscrire</a></p>]
 					</BOUCLE_Inscription>
 					[<div id="carto">
 						(#PLUGIN{GIS}|oui)[(#INCLURE{fond=json/gis,id_article,limit=1}|oui)[(#INCLURE{fond=modeles/carte_gis,id_article,autocenterandzoom=oui,hauteur=400px,cluster=[(#PLUGIN{GISGEOM}|?{'non','oui'})],maxClusterRadius=40,clusterShowCoverageOnHover=oui,clusterSpiderfyOnMaxZoom=oui,fullscreen=oui,zoom_wheel=non})]]
 					</div>]
-					<hr />
-					<h3 class="show-for-medium avec-margin-bottom05" id="social-tags">Partager cette page</h3>
 				</div>
 				<aside class="large-4 columns">
 					[(#REM) on n'affiche que les logos supérieurs à 150px ]
