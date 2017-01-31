@@ -1823,12 +1823,15 @@ table tfoot {
 .fiche {
   background-color: #eee;
   padding-bottom: 1.5em!important;
-}
-.fiche li {
-  padding-bottom: 1em;
-}
-.fiche li:last-child {
-  padding-bottom: 0;
+	& .auteur {
+		display: block!important;
+	}
+	& li {
+	  padding-bottom: 1em;
+	}
+	& li:last-child {
+	  padding-bottom: 0;
+	}
 }
 .contentArticle h3 {
   color: @colorComm;
