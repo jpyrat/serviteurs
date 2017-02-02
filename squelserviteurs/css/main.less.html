@@ -121,16 +121,22 @@ select {
 }
 .button,
 button {
-  padding: .55rem 1.5rem .625rem;
-  font-size: 1rem;
-  border-radius: 4px;
+	padding: .55rem 1.5rem .625rem;
+	font-size: 1rem;
+	color: white !important;
+	font-weight: 400 !important;
+	border-radius: 4px;
 }
 .button:hover,
 .button:focus,
+a.button:hover,
+a.button:focus,
 button:hover,
 button:focus {
-  background-color:fade(@triadeA,50)!important
+	background-color: white!important;
+	border-color: @triadeA!important;
 }
+
 [type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"],
 textarea {
   box-shadow: none!important;
