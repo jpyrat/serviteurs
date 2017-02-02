@@ -1,4 +1,5 @@
 <BOUCLE_(ARTICLES){id_article}>
+#SET{larticle,#ID_ARTICLE}
 <div class="row column">
   [(#REM) le breadcrumb ]
   <nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
@@ -80,18 +81,22 @@
       <INCLURE{fond=inclure/telecharger,env} />
 
     </div>
+	<BOUCLE_Dimanche(MOTS){id_article}{id_groupe=25}>
+	<B_HomeliesMemeDimanche>
     <div class="large-4 columns avec-margin-top sans-padding-for-small">
       <section class="text-center avec-padding-top">
         <h1 class="text-center text-transform-none">Homélies du même dimanche</h1>
-        <BOUCLE_apa(ARTICLES){id_rubrique}{par num titre}{0,4}>
+        <BOUCLE_HomeliesMemeDimanche(ARTICLES){id_mot}{!par date}>
         <article class="avec-padding avec-border-bottom">
           <h2>
-            <a class="texte-triadeP" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
+            [(#ID_ARTICLE|=={#GET{larticle}}|non)<a class="texte-triadeP" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">]#TITRE ([(#DATE|annee)])[(#ID_ARTICLE|=={#GET{larticle}}|non)</a>]
           </h2>
         </article>
-        </BOUCLE_apa>
+        </BOUCLE_HomeliesMemeDimanche>
       </section>
     </div>
+	</B_HomeliesMemeDimanche>
+	</BOUCLE_Dimanche>
   </aside>
 
   <INCLURE{fond=inclure/documents,env} />
