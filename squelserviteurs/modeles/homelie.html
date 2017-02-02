@@ -3,7 +3,7 @@
 <div	class='spip_document_#ID_DOCUMENT spip_document_audio spip_documents[ spip_documents_(#ENV{align})]'
 	style='[(#ENV{align}|match{^(left|right)$}|oui)float:#ENV{align};][width:(#GET{largeur})px]'>
 	[(#LOGO_DOCUMENT{vignette}|image_reduire{#GET{largeur},0}|vider_attribut{class})]
-	<h2 class='spip'>Écoutez l'homélie</h2>
+	<h2 class='spip'>Écouter l’homélie</h2>
 <div class="audio-wrapper"[ style='width:(#GET{largeur})px;max-width:100%;']>
 	<audio class="mejs mejs-#ID_DOCUMENT [ mejs-(#ENV{skin})]"
 	       data-id="[(#VAL{mejs-#ID_DOCUMENT}|concat{#ENV{skin}}|md5)]"
