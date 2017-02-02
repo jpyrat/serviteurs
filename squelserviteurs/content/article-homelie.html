@@ -81,22 +81,24 @@
       <INCLURE{fond=inclure/telecharger,env} />
 
     </div>
-	<BOUCLE_Dimanche(MOTS){id_article}{id_groupe=25}>
+	#SET{DimancheAnnee, #ARRAY}
+	<BOUCLE_DimancheAnnee(MOTS){id_article}{id_groupe IN 24,25}>#SET{DimancheAnnee, #GET{DimancheAnnee}|push{#ID_MOT}}</BOUCLE_DimancheAnnee>
 	<B_HomeliesMemeDimanche>
     <div class="large-4 columns avec-margin-top sans-padding-for-small">
       <section class="text-center avec-padding-top">
         <h1 class="text-center text-transform-none">Homélies du même dimanche</h1>
-        <BOUCLE_HomeliesMemeDimanche(ARTICLES){id_mot}{!par date}>
+        <BOUCLE_HomeliesMemeDimanche(ARTICLES){mots 100% #GET{DimancheAnnee}}{!par date}>
         <article class="avec-padding avec-border-bottom">
           <h2>
-            [(#ID_ARTICLE|=={#GET{larticle}}|non)<a class="texte-triadeP" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">]#TITRE ([(#DATE|annee)])[(#ID_ARTICLE|=={#GET{larticle}}|non)</a>]
+            [(#ID_ARTICLE|=={#GET{larticle}}|non)<a class="texte-triadeP" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">]#TITRE [(#ID_ARTICLE|=={#GET{larticle}}|non)</a>]<br />
+			<small><i>[(#DATE|annee)]<BOUCLE_Annee(MOTS){id_article}{id_groupe=24}> – #TITRE</BOUCLE_Annee></i></small>
           </h2>
         </article>
         </BOUCLE_HomeliesMemeDimanche>
       </section>
     </div>
 	</B_HomeliesMemeDimanche>
-	</BOUCLE_Dimanche>
+	
   </aside>
 
   <INCLURE{fond=inclure/documents,env} />
