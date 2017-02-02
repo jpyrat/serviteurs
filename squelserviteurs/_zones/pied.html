@@ -144,7 +144,7 @@
 				{couleurpastille='texte-triadeA'}
 				/>
 				#FORMULAIRE_NEWSLETTER_SUBSCRIBE{newsletterdesserviteurs}
-			<BOUCLE_VoirDerniereNewsletter(NEWSLETTERS){!par id_newsletter}>
+			<BOUCLE_VoirDerniereNewsletter(NEWSLETTERS){!par id_newsletter}{0,1}>
 			<p class="avec-padding">
 				<span class="icon-star icon-fw texte-colorJeun"></span>
 				<a class="texte-triadeA font-weight-700" href="#URL_NEWSLETTER" onclick="if (jQuery.modalbox) {
