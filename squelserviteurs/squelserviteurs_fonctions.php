@@ -37,6 +37,7 @@ function focusimage($img, $largeur, $hauteur, $position = 'center', $max='') {
 		}
 	}
 	if (($l < $largeur) OR ($h < $hauteur)) {
+		$img = filtrer('image_aplatir', $img, "png", 'ffffff');
 		$img = filtrer('image_recadre', $img, "$largeur:$hauteur", '+', $position, 'transparent');
 		$img = filtrer('image_recadre', $img, $largeur, $hauteur, $position, 'transparent');
 	} else  {
