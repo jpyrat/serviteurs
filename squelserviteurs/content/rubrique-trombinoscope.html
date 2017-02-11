@@ -42,5 +42,21 @@
 		</article>
 	</BOUCLE_a>
 	</div>
+	<BOUCLE_sr(RUBRIQUES){id_parent}{0,1}>
+	<div class="bandeau-trombinoscope text-center avec-margin-bottom">
+		<h1 class="h2 font-weight-300 colorOurs texte-blanc avec-padding05">#TITRE</h1>
+	</div>
+	<div class="avec-margin-top avec-margin-bottom avec-padding-bottom flexbox-center-top">
+		<BOUCLE_asr(ARTICLES){id_rubrique}>
+		<article class="text-center flexbox-column-space-between colorComm">
+			<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">
+				[<img src="(#LOGO_ARTICLE|focusimage{150,150,center}|image_nb|extraire_attribut{src})" alt="picto">]
+				<h2 class="avec-padding-right avec-padding-left texte-blanc">#TITRE</h2>
+				[<h3 class="avec-padding-right avec-padding-left texte-blanc">(#SOUSTITRE|textebrut)</h3>]
+			</a>
+		</article>
+		</BOUCLE_asr>
+	</div>
+	</BOUCLE_sr>
 </section>
 </BOUCLE_>
