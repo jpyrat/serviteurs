@@ -20,6 +20,7 @@
 	</div>
 	<div class="avec-margin-top avec-margin-bottom avec-padding-bottom flexbox-center-top">
 		<BOUCLE_a(ARTICLES){id_rubrique}>
+			#SET{colorT,colorComm}
 			<BOUCLE_color(MOTS){id_groupe=35}{id_article}>#SET{colorT,(#DESCRIPTIF|textebrut)}#SET{lieuxT,#TITRE}</BOUCLE_color>
 		<article class="text-center flexbox-column-space-between #GET{colorT}">
 			<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]"
