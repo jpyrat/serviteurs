@@ -20,13 +20,14 @@
 	</div>
 	<div class="avec-margin-top avec-margin-bottom avec-padding-bottom flexbox-center-top">
 		<BOUCLE_a(ARTICLES){id_rubrique}>
-		<article class="text-center[ (#DESCRIPTIF|textebrut)] flexbox-column-space-between">
+			<BOUCLE_color(MOTS){id_groupe=35}{id_article}>#SET{colorT,(#DESCRIPTIF|textebrut)}#SET{lieuxT,#TITRE}</BOUCLE_color>
+		<article class="text-center flexbox-column-space-between #GET{colorT}">
 			<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]"
 				onmouseover="portrait#ID_ARTICLE.src = '[(#LOGO_ARTICLE|focusimage{150,150,center}|extraire_attribut{src})]';"
 				onmouseout="portrait#ID_ARTICLE.src = '[(#LOGO_ARTICLE|focusimage{150,150,center}|image_nb|extraire_attribut{src})]';">
 				[<img src="(#LOGO_ARTICLE|focusimage{150,150,center}|image_nb|extraire_attribut{src})" alt="picto" name="portrait#ID_ARTICLE">]
 				<h2 class="avec-padding-right avec-padding-left texte-blanc">#TITRE</h2>
-				[<h3 class="avec-padding-right avec-padding-left texte-blanc">(#SOUSTITRE)</h3>]
+				[<h3 class="avec-padding-right avec-padding-left texte-blanc">(#GET{lieuxT})</h3>]
 			</a>
 			<a href="#" class="texte-blanc" title="Écrire au frère"><span class="icon icon-envelope icon-fw icon-lg"></span></a>
 		</article>
