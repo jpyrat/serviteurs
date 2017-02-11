@@ -1,0 +1,36 @@
+<BOUCLE_(RUBRIQUES){id_rubrique}>
+<div class="row column">
+	[(#REM) le breadcrumb ]
+	<nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
+		<ul class="breadcrumbs">
+			<li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
+			<BOUCLE_Breadcrumbs(HIERARCHIE){id_rubrique}>
+			<li><a href="#URL_RUBRIQUE" title="Voir la rubrique [(#TITRE|attribut_html)]">#TITRE</a></li>
+			</BOUCLE_Breadcrumbs>
+			<li title="En cours: [(#TITRE|attribut_html)]">
+				<span class="show-for-sr">En cours: </span>#TITRE
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<section class="contentTrombinoscope row column sans-padding" id="ancre_trombinoscope">
+	<div class="bandeau-trombinoscope text-center avec-margin-bottom">
+		<h1 class="texte-colorComm text-uppercase">Les frères</h1>
+	</div>
+	<div class="avec-margin-top avec-margin-bottom avec-padding-bottom flexbox-center-top">
+		<BOUCLE_a(ARTICLES){id_rubrique}>
+		<article class="text-center[ (#DESCRIPTIF|textebrut)] flexbox-column-space-between">
+			<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]"
+				onmouseover="portrait#ID_ARTICLE.src = '[(#LOGO_ARTICLE|focusimage{150,150,center}|extraire_attribut{src})]';"
+				onmouseout="portrait#ID_ARTICLE.src = '[(#LOGO_ARTICLE|focusimage{150,150,center}|image_nb|extraire_attribut{src})]';">
+				[<img src="(#LOGO_ARTICLE|focusimage{150,150,center}|image_nb|extraire_attribut{src})" alt="picto" name="portrait#ID_ARTICLE">]
+				<h2 class="avec-padding-right avec-padding-left texte-blanc">#TITRE</h2>
+				[<h3 class="avec-padding-right avec-padding-left texte-blanc">(#SOUSTITRE)</h3>]
+			</a>
+			<a href="#" class="texte-blanc" title="Écrire au frère"><span class="icon icon-envelope icon-fw icon-lg"></span></a>
+		</article>
+		</BOUCLE_a>
+	</div>
+</section>
+</BOUCLE_>
