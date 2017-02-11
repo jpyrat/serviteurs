@@ -20,7 +20,7 @@
 	</div>
 	<div class="avec-margin-top avec-margin-bottom avec-padding-bottom flexbox-center-top">
 	<BOUCLE_a(ARTICLES){id_rubrique}>
-		<BOUCLE_color(MOTS){id_groupe=35}{id_article}>#SET{colorT,(#DESCRIPTIF|textebrut)}#SET{lieuxT,#TITRE}</BOUCLE_color>
+		#SET{colorT,colorComm}<BOUCLE_color(MOTS){id_groupe=35}{id_article}>#SET{colorT,(#DESCRIPTIF|textebrut)}#SET{lieuxT,#TITRE}</BOUCLE_color>
 		[(#SET{trombine,[(#LOGO_ARTICLE|focusimage{150,150,center})]})]
 		<article class="text-center flexbox-column-space-between #GET{colorT}">
 			<a href="#URL_ARTICLE" onclick="if (jQuery.modalbox) {
