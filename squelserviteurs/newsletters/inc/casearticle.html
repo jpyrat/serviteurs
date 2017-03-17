@@ -22,9 +22,9 @@
 															<//B_EstHomelie>
 															<tr>
 																<td class="padding-top-10" style="padding-top:10px;padding-bottom:0;padding-right:0;padding-left:0;" >
-																	<h1 class="titre-article" style="Margin:0;font-size:21px;font-weight:400;line-height:28px;Margin-bottom:14px;color:#5782BD;" >
-																		<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne">#TITRE[<br />(#GET{auteur})]</a>
-																	</h1>
+																	<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne" style="text-decoration: none;"><h1 class="titre-article" style="Margin:0;font-size:21px;font-weight:400;line-height:28px;Margin-bottom:14px;color:#5782BD;" >
+																		#TITRE[<br />(#GET{auteur})]
+																	</h1></a>
 																	<!-- RESUME -->
 																	[(#GET{esthomelie}|oui)
 																	[<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;color:#515152;" >(#TEXTE|couper{300})</p>]
