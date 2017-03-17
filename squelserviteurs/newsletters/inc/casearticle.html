@@ -9,21 +9,21 @@
 															[(#SET{esthomelie,''})][(#SET{auteur,''})]
 															[<tr>
 																<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-																	<img src="(#LOGO_AUTEUR|focusimage{265,175,center}|extraire_attribut{src}|url_absolue)" width="265" alt="" style="border-width:0;width:100%;height:auto;max-width:260px;" />
+																	<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne" ><img src="(#LOGO_AUTEUR|focusimage{265,175,center}|extraire_attribut{src}|url_absolue)" width="265" alt="" style="border-width:0;width:100%;height:auto;max-width:260px;" /></a>
 																</td>
 															</tr>][(#SET{esthomelie,oui})][(#SET{auteur,#NOM})]
 															</BOUCLE_Auteur>
 															</B_Auteur></BOUCLE_EstHomelie>
 															[<tr>
 																<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-																	<img src="(#LOGO_ARTICLE|focusimage{265,175,center}|extraire_attribut{src}|url_absolue)" width="265" alt="" style="border-width:0;width:100%;height:auto;max-width:260px;" />
+																	<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne" ><img src="(#LOGO_ARTICLE|focusimage{265,175,center}|extraire_attribut{src}|url_absolue)" width="265" alt="" style="border-width:0;width:100%;height:auto;max-width:260px;" /></a>
 																</td>
 															</tr>]
 															<//B_EstHomelie>
 															<tr>
 																<td class="padding-top-10" style="padding-top:10px;padding-bottom:0;padding-right:0;padding-left:0;" >
 																	<h1 class="titre-article" style="Margin:0;font-size:21px;font-weight:400;line-height:28px;Margin-bottom:14px;color:#5782BD;" >
-																		#TITRE[<br />(#GET{auteur})]
+																		<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne">#TITRE[<br />(#GET{auteur})]</a>
 																	</h1>
 																	<!-- RESUME -->
 																	[(#GET{esthomelie}|oui)
