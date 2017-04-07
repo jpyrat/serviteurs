@@ -86,9 +86,9 @@
 							this.form.submit();
 						}'>
 											<option title="Menu de sélection d'un prédicateur">Sélectionnez un prédicateur</option>
-											<BOUCLE_Predicateurs(AUTEURS){predicateurs=on}{par nom}>
-												<option value="#ID_AUTEUR"[(#ENV{id_auteur}|=={#ID_AUTEUR}|oui) selected="selected"]>#NOM (<BOUCLE_NbHomelies(ARTICLES){id_auteur}{branche}{pagination 1}>#GRAND_TOTAL</BOUCLE_NbHomelies>)</option>
-											</BOUCLE_Predicateurs>
+											<BOUCLE_Predicateurs(AUTEURS){predicateurs=on}{par nom}><B_NbHomelies>
+												<option value="#ID_AUTEUR"[(#ENV{id_auteur}|=={#_Predicateurs:ID_AUTEUR}|oui) selected="selected"]>#_Predicateurs:NOM (<BOUCLE_NbHomelies(ARTICLES){id_auteur}{branche}{pagination 1}>#GRAND_TOTAL</BOUCLE_NbHomelies>)</option>
+											</B_NbHomelies></BOUCLE_Predicateurs>
 										</select>
 									</div>
 								</form>
