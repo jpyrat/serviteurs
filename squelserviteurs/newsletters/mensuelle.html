@@ -670,7 +670,11 @@
 			</tr>
 			<!-- END HEADER -->
 
-
+			[(#REM) On récupère l'article qui peut avoir été sélectionné (1 seul)
+			et on ajoute un lien sur l'édito : logo + titre + bouton ]
+			<BOUCLE_lien-art(ARTICLES){id_newsletter}{0,1}>
+				#SET{lienart,href="(#URL_ARTICLE|url_absolue) "}
+			</BOUCLE_lien-art>
 			<!-- START éditorial -->
 			<tr>
 				<td class="one-column-article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
@@ -688,7 +692,9 @@
 								<tr>
 									<td class="full-width-image padding-toprightleft-35" style="padding-top:35px;padding-bottom:0;padding-right:20px;padding-left:20px;" >
 										<!-- LOGO NEWSLETTER -->
+										<a #GET{lienart}>
 										<img src="(#LOGO_NEWSLETTER|focusimage{600,350,center}|extraire_attribut{src}|url_absolue)" width="600" alt="" style="border-width:0;width:100%;height:auto;max-width:600px;" />
+										</a>
 									</td>
 								</tr>
 							</table>
@@ -713,9 +719,9 @@
 											<tr>
 												<td class="padding-20 contents2" style="padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;text-align:left;" >
 													<!-- TITRE éditorial -->
-													<h1 style="Margin:0;font-size:26px;line-height:34px;"><span style="font-size:22px;color:#5782BD;font-weight:300;text-transform:uppercase;padding-top:10px;padding-bottom:10px;padding-right:0px;padding-left:0px;" >
+													<h1 style="Margin:0;font-size:26px;line-height:34px;"><a #GET{lienart} style="font-size:22px;color:#5782BD;font-weight:400;text-transform:uppercase;padding-top:10px;padding-bottom:10px;padding-right:0px;padding-left:0px;text-decoration:none;" >
 															#TITRE
-														</span></h1>
+														</a></h1>
 													[(#CHAPO|replace{'<p>','<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<h2 class="spip">','<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-top:18px;Margin-bottom:18px;" >'})]
 													[(#TEXTE|replace{'<p>','<p style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<ul class="spip">','<ul style="Margin:0;font-size:16px;line-height:24px;Margin-top:16px;" >'}|replace{'<li>','<li style="list-style:disc inside; mso-special-format:bullet;" >'}|replace{'<h2 class="spip">','<h2 style="Margin:0;font-size:17px;line-height:26px;Margin-top:18px;Margin-bottom:18px;" >'})]
 												</td>
@@ -724,6 +730,30 @@
 									</td>
 								</tr>
 							</table>
+
+							<!-- START BUTTON -->
+							<BOUCLE_lien-art2(ARTICLES){id_newsletter}{0,1}>
+							<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, 'Roboto';" >
+								<tr>
+									<td class="padding-top-20" style="padding-top:20px;padding-bottom:0;padding-right:0;padding-left:0;" >
+										<table border="0" align="center" cellpadding="0" cellspacing="0" style="Margin-top:0;Margin-bottom:0;Margin-right:auto;Margin-left:auto;border-spacing:0;font-family:sans-serif, 'Roboto';" >
+											<tr>
+												<td align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+													<table border="0" cellpadding="0" cellspacing="0" style="Margin-top:0;Margin-bottom:0;Margin-right:auto;Margin-left:auto;border-spacing:0;font-family:sans-serif, 'Roboto';" >
+														<tr>
+															<td align="center" bgcolor="#EAF3FD" width="240" class="button-radius" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;-moz-border-radius:0px;-webkit-border-radius:0px;border-radius:0px;" >
+																<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne" class="button-link-2" style="display:block;text-decoration:none;text-align:center;font-size:15px;font-family:sans-serif, 'Roboto';-moz-border-radius:0px;-webkit-border-radius:0px;border-radius:0px;line-height:30px;color:#515152;background-color:#EAF3FD;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;" >Lire la suite</a>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+							</BOUCLE_lien-art2>
+							<!-- END BUTTON -->
 
 							<table border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;font-family:sans-serif, 'Roboto';" >
 								<tr>
