@@ -16,6 +16,7 @@
 @colorP: #222;
 @colorGris: #888;
 @colorGrisClair: #ccc;
+@colorGrisTresClair: #ececec;
 @colorGrisFonce: #666;
 
 // homélies temps
@@ -276,6 +277,9 @@ h1 {
 .texte-colorGrisClair {
   color: @colorGrisClair!important;
 }
+.colorGrisTresClair {
+  background-color: @colorGrisTresClair;
+}
 .texte-colorGrisFonce {
   color: @colorGrisFonce!important;
 }
@@ -444,6 +448,9 @@ h1 {
 .avec-padding-bottom {
   padding-bottom: 1em!important;
 }
+.avec-padding-bottom05 {
+  padding-bottom: .5em!important;
+}
 .avec-padding-left {
   padding-left: 1em!important;
 }
@@ -463,6 +470,9 @@ h1 {
 }
 .text-uppercase {
   text-transform: uppercase!important;
+}
+.font-family-oswald {
+  font-family: Oswald!important;
 }
 .font-family-roboto {
   font-family: Roboto!important;
@@ -1925,8 +1935,36 @@ blockquote p {
 .pagination-rubriques {
   background-color: white;
 }
+.listeRecherches {
+	& h2 {
+		font-size: 1.3rem;
+		text-align: left;
+	}
+	& .formCheck {
+		& label {
+			display: flex;
+			font-size: 1.4em;
+			align-items: center;
+		}
+		& div {
+			font-family: Oswald;
+			padding: 0 1em 0 2em;
+			border-bottom: 3px solid white;
+		}
+	}
+}
+.listeConferences {
+	& h2 {
+		font-size: 1.5em;
+	}
+	& header {
+		max-width: 400px;
+	}
+}
+
 .contentRubrique .pagination-rubriques,
-.contentHomelie .pagination-rubriques {
+.contentHomelie .pagination-rubriques,
+.contentConference .pagination-rubriques {
   background-color: #ddd;
 }
 

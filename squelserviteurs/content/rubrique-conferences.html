@@ -1,0 +1,152 @@
+<BOUCLE_(RUBRIQUES){id_rubrique}>
+	<div class="row column">
+		[(#REM) le breadcrumb ]
+		<nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
+			<ul class="breadcrumbs">
+				<li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
+				<BOUCLE_Breadcrumbs(HIERARCHIE){id_rubrique}>
+					<li><a href="#URL_RUBRIQUE" title="Voir la rubrique [(#TITRE|attribut_html)]">#TITRE</a></li>
+				</BOUCLE_Breadcrumbs>
+				<li title="En cours: [(#TITRE|attribut_html)]">
+					<span class="show-for-sr">En cours: </span>#TITRE
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="contentRubrique row column text-center" id="ancre_conferences">
+		<h1 class="texte-triadeA">#TITRE</h1>
+		[<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-right05 avec-padding-left05 avec-padding-top05 #EDIT{texte}">(#TEXTE|image_reduire{1170,0})</div>]
+	</div>
+
+	<div id="ancre_recherche-conferences" class="contentConference avec-padding-bottom avec-margin-bottom">
+		<section class="row column text-center avec-padding-top">
+			<h1 class="hide">Rechercher une conférence</h1>
+			<div class="row">
+				<div class="listeRecherches medium-4 columns avec-margin-bottom">
+					<article class="colorGrisTresClair">
+						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par thématique</h2>
+							<form class="formCheck" action="#SELF" method="get">
+								<div class="flexbox-flex">
+									<input name="motstheme[]" id="mot1" value="2" type="checkbox">
+									<label for="mot1" class="texte-triadeA">Vie spirituelle</label>
+								</div>
+								<div class="flexbox-flex">
+									<input name="motstheme[]" id="mot2" value="2" type="checkbox">
+									<label for="mot2" class="texte-triadeA">Vie de famille</label>
+								</div>
+								<div class="flexbox-flex">
+									<input name="motstheme[]" id="mot3" value="2" type="checkbox">
+									<label for="mot3" class="texte-triadeA">Vie dans le monde</label>
+								</div>
+							</form>
+						</label>
+					</article>
+
+					<article class="colorGrisTresClair">
+						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par sujet</h2>
+							<form action="#SELF" method="get">
+								<div class="avec-padding">
+									<select name="id_auteur" onchange='if (this.value > 0) {
+											this.form.submit();
+										}'>
+										<option title="Menu de sélection">Sélectionner</option>
+										<option>Sujet</option>
+									</select>
+								</div>
+							</form>
+						</label>
+					</article>
+
+					<article class="colorGrisTresClair">
+						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par prédicateur</h2>
+							<form action="#SELF" method="get">
+								<div class="avec-padding">
+									<select name="id_auteur" onchange='if (this.value > 0) {
+											this.form.submit();
+										}'>
+										<option title="Menu de sélection">Sélectionner</option>
+										<option>Prédicateur</option>
+									</select>
+								</div>
+							</form>
+						</label>
+					</article>
+
+					<article class="colorGrisTresClair">
+						<label><h2 class="triadeA avec-padding texte-blanc">Choisir par type de conférence</h2>
+							<form class="formCheck" action="#SELF" method="get">
+								<div class="flexbox-flex">
+									<input name="motstheme[]" id="mot4" value="2" type="checkbox">
+									<label for="mot4" class="texte-triadeA">Audio<span class="icon-sound icon-lg icon-fw avec-padding-left05"></span></label>
+								</div>
+								<div class="flexbox-flex">
+									<input name="motstheme[]" id="mot5" value="2" type="checkbox">
+									<label for="mot5" class="texte-triadeA">Texte<span class="icon-file-text-o icon-lg icon-fw avec-padding-left05"></span></label>
+								</div>
+							</form>
+						</label>
+					</article>
+
+					<article class="colorGrisTresClair">
+						<h2 class="triadeA avec-padding texte-blanc">Recherche libre</h2>
+						<section class="recherche-conferences">
+							<form action="?page=recherche-conferences" method="get" style="position: relative;">
+								<div class="avec-padding">
+									<label for="champRecherche" style="display:none">Rechercher :</label>
+									<input class="champRechercheConferences text"
+										   id="champRechercheConferences"
+										   name="recherche"
+										   title="Saisir de 3 à 30 caractères"
+										   required="required"
+										   pattern="[\D\d\s]{3,30}"
+										   maxlength="30"
+										   placeholder="recherche"
+										   type="search"
+										   style="padding-left: 5em;">
+									<button name="button" title="Lancer la recherche" type="submit">
+										<span class="icon-search texte-colorP" style="padding-top:.1em;"></span>
+									</button>
+								</div>
+							</form>
+						</section>
+					</article>
+
+				</div>
+
+				<div class="listeConferences medium-8 columns avec-margin-bottom">
+					<B_ListeConferences>
+					#ANCRE_PAGINATION
+					<h2 class="hide">Conférences (#GRAND_TOTAL)</h2>
+					<BOUCLE_ListeConferences(ARTICLES){id_rubrique=19}{!par date}{pagination 5}>
+					<article class="focus row avec-margin-bottom text-left">
+						<div class="large-4	columns avec-padding-bottom avec-margin-bottom">
+							<header class="text-right colorGrisTresClair texte-triadeA avec-padding-top avec-padding-right avec-padding-bottom05">
+								<span class="icon-sound icon-lg icon-fw" title="Disponible en audio"></span>
+								<span class="icon-file-text-o icon-lg icon-fw" title="Disponible en texte"></span>
+							</header>
+							[(#REM) img 400x290 ]
+							[<img src="(#LOGO_ARTICLE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
+						</div>
+						<div class="large-8	columns">
+							<h2 class="#EDIT{titre}">
+								<a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
+							</h2>
+							[<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
+							[<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinon{#CHAPO}|sinoncrayon{Double-cliquer pour mettre ici un texte})</div>]
+						</div>
+					</article>
+					</BOUCLE_ListeConferences>
+
+					[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
+					</B_ListeConferences>
+
+					<h2>Résultat</h2>
+					<p>Nous n'avons trouvé aucune conférence correspondant à vos critères.</p>
+					<//B_ListeConferences>
+				</div>
+			</div>
+		</section>
+
+	</div>
+</BOUCLE_>
