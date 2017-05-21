@@ -852,18 +852,21 @@ nav.tab-bar.title-bar h1 {
   }
 }
 .recherche #champRecherche,
-.recherche-homelies #champRechercheHomelies {
+.recherche-homelies #champRechercheHomelies,
+.recherche-conferences #champRechercheConferences {
   height: auto;
   padding: .75em;
   border: 1px solid @triadeA;
   border-radius: 0;
 }
-.recherche-homelies #champRechercheHomelies {
+.recherche-homelies #champRechercheHomelies,
+.recherche-conferences #champRechercheConferences {
   padding: .55em;
   border: 1px solid #aaa;
 }
 .recherche button,
-.recherche-homelies button {
+.recherche-homelies button,
+.recherche-conferences button {
   position: absolute;
   top: 0;
   left: 0;
@@ -872,9 +875,13 @@ nav.tab-bar.title-bar h1 {
   border-right: 1px solid @triadeA;
   border-radius: 0;
 }
-.recherche-homelies button {
-  padding: .45rem 1.5rem!important;
-  border-right: 0;
+.recherche-homelies button,
+.recherche-conferences button {
+  padding: .4rem 1.5rem!important;
+  border-right: none;
+  &:hover {
+	background-color: fade(@triadeA,50%)!important;
+  }
 }
 
 // annonce
