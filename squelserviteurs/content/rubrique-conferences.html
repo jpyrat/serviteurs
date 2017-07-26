@@ -1,4 +1,4 @@
-<BOUCLE_(RUBRIQUES){id_rubrique}>
+<BOUCLE_(RUBRIQUES){id_rubrique=363}>
 	<div class="row column">
 		[(#REM) le breadcrumb ]
 		<nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
@@ -27,22 +27,17 @@
 					<article class="colorGrisTresClair">
 						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par thématique</h2>
 							<form class="formCheck" action="#SELF" method="get">
+								<BOUCLE_Themes(MOTS){id_groupe=2}{par titre}>
 								<div class="flexbox-flex">
-									<input name="motstheme[]" id="mot1" value="2" type="checkbox">
-									<label for="mot1" class="texte-triadeA">Vie spirituelle</label>
+									<input name="mots[]" value="#ID_MOT" type="checkbox" onchange='this.form.submit();'>
+									<label for="mot1" class="texte-triadeA">#TITRE</label>
 								</div>
-								<div class="flexbox-flex">
-									<input name="motstheme[]" id="mot2" value="2" type="checkbox">
-									<label for="mot2" class="texte-triadeA">Vie de famille</label>
-								</div>
-								<div class="flexbox-flex">
-									<input name="motstheme[]" id="mot3" value="2" type="checkbox">
-									<label for="mot3" class="texte-triadeA">Vie dans le monde</label>
-								</div>
+								</BOUCLE_Themes>
 							</form>
 						</label>
 					</article>
 
+					<B_Sujets>
 					<article class="colorGrisTresClair">
 						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par sujet</h2>
 							<form action="#SELF" method="get">
@@ -51,13 +46,22 @@
 											this.form.submit();
 										}'>
 										<option title="Menu de sélection">Sélectionner</option>
-										<option>Sujet</option>
+										<BOUCLE_Sujets(MOTS){id_groupe=37}{par titre}>
+										<option value="#ID_MOT">#TITRE</option>
+										</BOUCLE_Sujets>
 									</select>
 								</div>
 							</form>
 						</label>
 					</article>
-
+					</B_Sujets>
+					
+					#SET{lesauteurs, #ARRAY}
+					<BOUCLE_ArticlesAuteurs(ARTICLES){branche}>
+					<BOUCLE_Auteurs(AUTEURS){id_article}{doublons}>
+					#SET{lesauteurs, #GET{lesauteurs}|push{#ID_AUTEUR}}
+					</BOUCLE_Auteurs>
+					</BOUCLE_ArticlesAuteurs>
 					<article class="colorGrisTresClair">
 						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par prédicateur</h2>
 							<form action="#SELF" method="get">
@@ -66,7 +70,9 @@
 											this.form.submit();
 										}'>
 										<option title="Menu de sélection">Sélectionner</option>
-										<option>Prédicateur</option>
+										<BOUCLE_ListeAuteurs(AUTEURS){id_auteur IN #GET{lesauteurs}}{par nom}>
+										<option value="#ID_AUTEUR">#NOM</option>
+										</BOUCLE_ListeAuteurs>
 									</select>
 								</div>
 							</form>
@@ -116,7 +122,7 @@
 					<B_ListeConferences>
 					#ANCRE_PAGINATION
 					<h2 class="hide">Conférences (#GRAND_TOTAL)</h2>
-					<BOUCLE_ListeConferences(ARTICLES){id_rubrique=19}{!par date}{pagination 5}>
+					<BOUCLE_ListeConferences(ARTICLES){branche}{mots?}{recherche?}{id_auteur?}{!par date}{pagination 5}>
 					<article class="focus row avec-margin-bottom text-left">
 						<div class="large-4	columns avec-padding-bottom avec-margin-bottom">
 							<header class="text-right colorGrisTresClair texte-triadeA avec-padding-top avec-padding-right avec-padding-bottom05">
