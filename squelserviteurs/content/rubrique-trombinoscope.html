@@ -22,15 +22,11 @@
 	<BOUCLE_a(ARTICLES){id_rubrique}{!par date}>
 		#SET{colorT,colorOurs}#SET{lieuxT,''}<BOUCLE_color(MOTS){id_groupe=35}{id_article}{0,1}>#SET{colorT,(#DESCRIPTIF|textebrut)}#SET{lieuxT,#TITRE}</BOUCLE_color>
 		<BOUCLES_FrereTrombine(AUTEURS){id_article}{0,1}>
-		[(#SET{trombine,[(#LOGO_ARTICLE|sinon{#LOGO_AUTEUR}|focusimage{150,150,center})]})]
-		[(#SET{trombinenb,[(#GET{trombine}|image_nb|extraire_attribut{src})]})]
-		[(#SET{trombine,[(#GET{trombine}|extraire_attribut{src})]})]
+		[(#SET{trombine,[(#LOGO_ARTICLE|sinon{#LOGO_AUTEUR}|focusimage{150,152,center}|extraire_attribut{src})]})]
+		[(#SET{trombinenb,[(#LOGO_ARTICLE|sinon{#LOGO_AUTEUR}|focusimage{150,152,center}|image_nb|extraire_attribut{src})]})]
 		</BOUCLES_FrereTrombine>
 		<article class="text-center flexbox-column-space-between #GET{colorT}">
-			<a href="#URL_ARTICLE" onclick="if (jQuery.modalbox) {
-											jQuery.modalbox('[(#URL_ARTICLE|parametre_url{var_zajax,content})]');
-											return false;
-										}" title="Lire [(#TITRE|attribut_html)]"[
+			<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]"[
 				onmouseover="portrait#ID_ARTICLE.src = '(#GET{trombine})';"][
 				onmouseout="portrait#ID_ARTICLE.src = '(#GET{trombinenb})';"]>
 				[<img src="(#GET{trombinenb})" alt="picto" name="portrait#ID_ARTICLE">]
@@ -38,10 +34,7 @@
 				[<h3 class="avec-padding-right avec-padding-left texte-blanc">(#GET{lieuxT})</h3>]
 			</a>
 			<BOUCLES_Frere(AUTEURS){id_article}{0,1}>
-			<a href="#URL_AUTEUR" class="texte-blanc" onclick="if (jQuery.modalbox) {
-											jQuery.modalbox('[(#URL_AUTEUR|parametre_url{var_zajax,content})]');
-											return false;
-										}" title="Contacter[ (#TITRE|attribut_html)]"><span class="icon icon-envelope icon-fw icon-lg"></span></a>
+			<a href="#URL_AUTEUR" class="texte-blanc" title="Contacter[ (#TITRE|attribut_html)]"><span class="icon icon-envelope icon-fw icon-lg"></span></a>
 			</BOUCLES_Frere>
 		</article>
 	</BOUCLE_a>
@@ -53,11 +46,8 @@
 	<div class="avec-margin-top avec-margin-bottom avec-padding-bottom flexbox-center-top">
 		<BOUCLE_asr(ARTICLES){id_rubrique}{!par date}>
 		<article class="text-center flexbox-column-space-between colorOurs">
-			<a href="#URL_ARTICLE" onclick="if (jQuery.modalbox) {
-											jQuery.modalbox('[(#URL_ARTICLE|parametre_url{var_zajax,content})]');
-											return false;
-										}" title="Lire [(#TITRE|attribut_html)]">
-				[<img src="(#LOGO_ARTICLE|focusimage{150,150,center}|image_nb|extraire_attribut{src})" alt="picto">]
+			<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">
+				[<img src="(#LOGO_ARTICLE|focusimage{150,152,center}|image_nb|extraire_attribut{src})" alt="picto">]
 				<h2 class="avec-padding-right avec-padding-left texte-blanc">#TITRE</h2>
 				[<h3 class="avec-padding-right avec-padding-left texte-blanc">(#SOUSTITRE|textebrut)</h3>]
 			</a>
