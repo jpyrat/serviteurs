@@ -27,7 +27,7 @@
 					<article class="colorGrisTresClair">
 						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par thématique</h2>
 							<form class="formCheck" action="#SELF" method="get">
-								<BOUCLE_Themes(MOTS){id_groupe=2}{par titre}>
+								<BOUCLE_Themes(MOTS){id_groupe=37}{par titre}{technique=oui}>
 								<div class="flexbox-flex">
 									<input name="mots[]" value="#ID_MOT" [(#ENV{mots}|find{#ID_MOT}|oui) checked="checked"] type="checkbox" onchange='this.form.submit();'>
 									<label for="mot1" class="texte-triadeA">#TITRE</label>
@@ -69,7 +69,7 @@
 									<select name="id_auteur" onchange='if (this.value > 0) {
 											this.form.submit();
 										}'>
-										<option title="Menu de sélection">Sélectionner</option>
+										<option title="Menu de sélection">Tous les prédicateurs</option>
 										<BOUCLE_ListeAuteurs(AUTEURS){id_auteur IN #GET{lesauteurs}}{par nom}>
 										<option value="#ID_AUTEUR"[(#ID_AUTEUR|=={#ENV{id_auteur}}|oui) selected="selected"]>#NOM</option>
 										</BOUCLE_ListeAuteurs>
