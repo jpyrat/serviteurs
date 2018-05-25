@@ -27,32 +27,31 @@
 			</div>
 
 			<div class="dateEvenementTexte large-9 columns">
-				<h1>#_agenda:TITRE</h1>
+				<h1>#TITRE</h1>
 				[(#DESCRIPTIF)]
-				[<p class="">
-					(#DATE_DEBUT|affdate{'Y-m-d'}|=={[(#DATE_FIN|affdate{'Y-m-d'})]}|?{
-					[(#HORAIRE|=={oui}|?{
+				<p class="">
+					[(#DATE_DEBUT|affdate{'Y-m-d'}|=={[(#DATE_FIN|affdate{'Y-m-d'})]}|oui)
+					[(#HORAIRE|=={oui}|oui)
 					[(#REM) memes heures ?]
 					[(#DATE_DEBUT|=={#DATE_FIN}|?{
 					[<span class="dateHeure">(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)</span>],''})
 					]
 					[(#REM) pas memes heures ?]
 					[(#DATE_DEBUT|!={#DATE_FIN}|?{
-					[<span class="dateHeure">
-						(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)] -
-						[(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})
-					</span>]
-					,''})]
-					,
-					[(#HORAIRE|=={oui}|?{
-					<span class="dateHeure">&agrave; partir de
-						[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)],''})]
-						[(#HORAIRE|=={oui}|?{
-						<br />jusqu'&agrave;
-						[(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})
-					</span>]
-					})
-				</p>]
+					<span class="dateHeure">
+						[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)] -
+						[(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})]
+					</span>
+					]
+					]
+					[(#DATE_DEBUT|affdate{'Y-m-d'}|=={[(#DATE_FIN|affdate{'Y-m-d'})]}|non)
+					[(#HORAIRE|=={oui}|oui)
+					<span class="dateHeure">
+						[(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})]
+					</span>
+					]
+					]
+				</p>
 				[<p itemprop="location"><span class="icon-location avec-padding-right05"></span>(#LIEU)</p>]
 				[(#ADRESSE|inserer_attribut{itemprop,location})]
 				[(#ID_HOTELLERIE|>{0}|oui)<p class="large-text-right"><a href="http://hotellerie.serviteurs.org/?form=#ID_HOTELLERIE" class="inscription button warning" title="S'inscrire à [(#TITRE|attribut_html)]">S'inscrire</a></p>]
