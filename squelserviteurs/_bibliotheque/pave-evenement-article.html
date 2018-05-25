@@ -9,7 +9,7 @@
 			<div class="dateEvenementCarre large-3 columns [(#GET{CouleurEvenement})]">
 				<p class="texte-filaire">
 					<time itemprop="startDate" title="#DATE_DEBUT" datetime="#DATE_DEBUT">
-						[(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
+						[(#DATE_DEBUT|affdate{'Y-m-d'}|=={[(#DATE_FIN|affdate{'Y-m-d'})]}|?{
 						[<span class="dateJour">(#DATE_DEBUT|nom_jour)</span>]
 						[<span class="dateNombre">(#DATE_DEBUT|jour)</span>]
 						[<span class="dateMois">(#DATE_DEBUT|nom_mois)</span>]
@@ -27,16 +27,10 @@
 			</div>
 
 			<div class="dateEvenementTexte large-9 columns">
-				<B_Articles>
-				<BOUCLE_Articles(ARTICLES) {id_evenement}>
-					<h1>#_agenda:TITRE</h1>
-				</BOUCLE_Articles>
-				</B_Articles>
 				<h1>#_agenda:TITRE</h1>
-				<//B_Articles>
 				[(#DESCRIPTIF)]
 				[<p class="">
-					(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
+					(#DATE_DEBUT|affdate{'Y-m-d'}|=={[(#DATE_FIN|affdate{'Y-m-d'})]}|?{
 					[(#HORAIRE|=={oui}|?{
 					[(#REM) memes heures ?]
 					[(#DATE_DEBUT|=={#DATE_FIN}|?{
