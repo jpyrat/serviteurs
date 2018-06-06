@@ -106,7 +106,7 @@
 											<option title="Menu de sélection d'une homélie par évangile">Sélectionner une homélie par évangile</option>
 											<BOUCLE_Evangiles(MOTS){id_groupe=27}{par num titre}>
 												<BOUCLE_ArticlesEvangiles(ARTICLES){id_mot}{branche}{pagination 1}>
-													<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_Evangiles:TITRE (#GRAND_TOTAL)</option>
+													<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>#_Evangiles:TITRE (#GRAND_TOTAL)</option>
 												</BOUCLE_ArticlesEvangiles>
 											</BOUCLE_Evangiles>
 										</select>
@@ -131,7 +131,7 @@
 													<option title="Menu de sélection d'un thème" value="-1">Sélectionner</option>
 													<BOUCLE_Themes(MOTS){id_groupe=28}{par titre}><B_ArticlesThemes>
 															<BOUCLE_ArticlesThemes(ARTICLES){id_mot}{pagination 1}>
-																<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_Themes:TITRE (#GRAND_TOTAL)</option>
+																<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>#_Themes:TITRE (#GRAND_TOTAL)</option>
 															</BOUCLE_ArticlesThemes>
 														</B_ArticlesThemes></BOUCLE_Themes>
 												</select>
@@ -186,11 +186,11 @@
 							this.form.submit();
 						}'>
 												<option title="Menu de sélection d'un dimanche de l'Année A" value="-1">Sélectionner</option>
-												<option title="Sélectionner tous les dimanches de l'année A" value="0"[(#VAL{0}|in_array{#ENV{mots}}|oui) selected="selected"]>Tous les dimanches #_AnneesLiturgiques:TITRE</option>
+												<option title="Sélectionner tous les dimanches de l'année A" value="0"[(#VAL{0}|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>Tous les dimanches #_AnneesLiturgiques:TITRE</option>
 												<B_Dimanches>
 													<BOUCLE_Dimanches(MOTS){id_groupe=25}{par num titre}><B_ArticlesDimanches>
 															<BOUCLE_ArticlesDimanches(ARTICLES){id_mot}{id_mot=#_AnneesLiturgiques:ID_MOT}{branche}{pagination 1}>
-																<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_Dimanches:TITRE (#GRAND_TOTAL)</option>
+																<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>#_Dimanches:TITRE (#GRAND_TOTAL)</option>
 															</BOUCLE_ArticlesDimanches>
 														</B_ArticlesDimanches></BOUCLE_Dimanches>
 												</B_Dimanches>
@@ -226,7 +226,7 @@
 											<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
 											<BOUCLE_TempsAvent(MOTS){id_groupe=26}{par titre}><B_ArticlesTempsAvent>
 													<BOUCLE_ArticlesTempsAvent(ARTICLES){id_mot}{pagination 1}>
-														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_TempsAvent:TITRE (#GRAND_TOTAL)</option>
+														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>#_TempsAvent:TITRE (#GRAND_TOTAL)</option>
 													</BOUCLE_ArticlesTempsAvent>
 												</B_ArticlesTempsAvent></BOUCLE_TempsAvent>
 										</select>
@@ -248,7 +248,7 @@
 											<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
 											<BOUCLE_TempsNoel(MOTS){id_groupe=30}{par titre}><B_ArticlesTempsNoel>
 													<BOUCLE_ArticlesTempsNoel(ARTICLES){id_mot}{pagination 1}>
-														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_TempsNoel:TITRE (#GRAND_TOTAL)</option>
+														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>#_TempsNoel:TITRE (#GRAND_TOTAL)</option>
 													</BOUCLE_ArticlesTempsNoel>
 												</B_ArticlesTempsNoel></BOUCLE_TempsNoel>
 										</select>
@@ -270,7 +270,7 @@
 											<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
 											<BOUCLE_TempsCareme(MOTS){id_groupe=31}{par titre}><B_ArticlesTempsCareme>
 													<BOUCLE_ArticlesTempsCareme(ARTICLES){id_mot}{pagination 1}>
-														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_TempsCareme:TITRE (#GRAND_TOTAL)</option>
+														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>#_TempsCareme:TITRE (#GRAND_TOTAL)</option>
 													</BOUCLE_ArticlesTempsCareme>
 												</B_ArticlesTempsCareme></BOUCLE_TempsCareme>
 										</select>
@@ -292,7 +292,7 @@
 											<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
 											<BOUCLE_TempsPascal(MOTS){id_groupe=32}{par titre}><B_ArticlesTempsPascal>
 													<BOUCLE_ArticlesTempsPascal(ARTICLES){id_mot}{pagination 1}>
-														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_TempsPascal:TITRE (#GRAND_TOTAL)</option>
+														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>#_TempsPascal:TITRE (#GRAND_TOTAL)</option>
 													</BOUCLE_ArticlesTempsPascal>
 												</B_ArticlesTempsPascal></BOUCLE_TempsPascal>
 										</select>
@@ -314,7 +314,7 @@
 											<option title="Menu de sélection d'une solennité" value="-1">Sélectionner</option>
 											<BOUCLE_Solennites(MOTS){id_groupe=33}{par titre}><B_ArticlesSolennites>
 													<BOUCLE_ArticlesSolennites(ARTICLES){id_mot}{pagination 1}>
-														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots}}|oui) selected="selected"]>#_Solennites:TITRE (#GRAND_TOTAL)</option>
+														<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>#_Solennites:TITRE (#GRAND_TOTAL)</option>
 													</BOUCLE_ArticlesSolennites>
 												</B_ArticlesSolennites></BOUCLE_Solennites>
 										</select>
