@@ -33,5 +33,7 @@
   <necessite nom="socialtags" compatibilite="[1.0.14;[" />
   <necessite nom="campagnes" compatibilite="[1.3.4;[" />
   <necessite nom="modelexergue" compatibilite="[1.0.1;[" />
+  
+  <pipeline nom="jqueryui_plugins" inclure="squelserviteurs_pipelines.php" />
 
 </paquet>

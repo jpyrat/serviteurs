@@ -1,8 +1,10 @@
-#HTTP_HEADER{Content-type:text/javascript;}[(#REM)
+#HTTP_HEADER{Content-Type: application/json; charset=#CHARSET}
+#SET{start,#ENV{start}|strtotime}
+#SET{end,#ENV{end}|strtotime}[(#REM)
 ][<BOUCLE_evenements(EVENEMENTS){branche ?}{mots ?}{', '}{par date_debut}
 {agendafull date_debut,date_fin, periode,
-	#VAL{Y}|date{#ENV{start}}, #VAL{m}|date{#ENV{start}}, #VAL{d}|date{#ENV{start}},
-	#VAL{Y}|date{#ENV{end}}, #VAL{m}|date{#ENV{end}}, #VAL{d}|date{#ENV{end}}}
+	#VAL{Y}|date{#GET{start}}, #VAL{m}|date{#GET{start}}, #VAL{d}|date{#GET{start}},
+	#VAL{Y}|date{#GET{end}}, #VAL{m}|date{#GET{end}}, #VAL{d}|date{#GET{end}}}
 >[(#REM)
 ]#SET{couleurThematique,'colorComm'}[(#REM)
 ]<BOUCLE_e(MOTS){id_evenement}{id_groupe=35}{0,1}>[(#SET{couleurThematique,[(#DESCRIPTIF|attribut_html)]})]</BOUCLE_e>[(#REM)
