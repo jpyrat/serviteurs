@@ -85,4 +85,4 @@ $GLOBALS['fin_italique'] = '</em>';
 // Pour pouvoir styler en appliquant : http://www.sovavsiti.cz/css/hr.html
 $GLOBALS['ligne_horizontale'] = "\n<div class='hrspip'><hr class='spip' /></div>\n";
 
-$GLOBALS['marqueur'] = (isset($GLOBALS['marqueur'])?$GLOBALS['marqueur']:'').':sjm'.md5($GLOBALS['visiteur_session']['statut']);
+$GLOBALS['marqueur'] = (isset($GLOBALS['marqueur'])?$GLOBALS['marqueur']:'').':sjm'.md5(isset($GLOBALS['visiteur_session']['statut'])?$GLOBALS['visiteur_session']['statut']:'');
