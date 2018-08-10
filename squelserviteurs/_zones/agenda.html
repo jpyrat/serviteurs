@@ -14,7 +14,7 @@
 					<div class="row align-center">
 						<BOUCLE_Lieux(MOTS){id_groupe=35}{par num titre}>
 						<div class="medium-4 columns text-center">
-							<a class="[(#DESCRIPTIF|attribut_html)]" href="[(#SELF|parametre_url{mots\[\],#ID_MOT})]#agenda-boutons-filtre" title="[(#TEXTE|ptobr|attribut_html)]">#TITRE</a>
+							<a class="[(#DESCRIPTIF|attribut_html)] ajax" href="[(#SELF|parametre_url{mots\[\],#ID_MOT})]#agenda-boutons-filtre" title="[(#TEXTE|ptobr|attribut_html)]">#TITRE</a>
 						</div>
 						</BOUCLE_Lieux>
 					</div>
@@ -39,7 +39,7 @@
 					</div>
 					</B_PourQui>
 					[(#REM) le calendrier ]
-					<INCLURE{fond=_bibliotheque/agenda,env,ajax} />
+					<INCLURE{fond=_bibliotheque/agenda,env} />
 					<div class="sans-padding avec-margin-bottom">
 						<ul class="dropdown menu" data-dropdown-menu role="navigation">
 							<li>
@@ -65,10 +65,10 @@
 	</div>
 </div>
 
-[<script type="text/javascript" src="(#CHEMIN{js/jquery.enllax.min.js})"></script>]
+[<script type="text/javascript" src="(#CHEMIN{js/jquery.enllax.min.js})"></script>
 <script type="text/javascript">
 	$(document).ready( function() {
 		// init parallax
 		$(window).enllax();
 	});
-</script>
+</script>]

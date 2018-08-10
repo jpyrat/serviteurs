@@ -47,7 +47,7 @@ if (!defined('_SAISIES_AFFICHAGE_COMPACT'))
 	define('_SAISIES_AFFICHAGE_COMPACT', 'oui');
 
 // Demander au compresseur CSS d'embarquer les images : cf https://core.spip.net/issues/3425
-$GLOBALS['compresseur_filtres_css'] = array('compresseur_embarquer_images_css');
+#$GLOBALS['compresseur_filtres_css'] = array('compresseur_embarquer_images_css');
 
 $GLOBALS['toujours_paragrapher'] = true;
 $GLOBALS['barre_typo_pas_de_fork_typo'] = false; // Pour tenir compte de http://zone.spip.org/trac/spip-zone/changeset/22723 et disposer des raccourcis typo supplémentaires !

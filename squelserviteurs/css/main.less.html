@@ -1106,7 +1106,7 @@ nav.tab-bar.title-bar h1 {
 #agenda-boutons-filtre a {
   display: inline-block;
   width: 100%;
-  padding: .5em;
+  padding: .1em;
   font-size: 1.1em;
   color: white;
 }
@@ -1603,7 +1603,7 @@ footer .pied a:focus {
   border-radius: 0!important;
   border: none!important;
 }
-.fc-event-inner {
+.fc-content {
   font-size: .7em;
   line-height: 1.0625em;
   text-align: left;
@@ -1622,48 +1622,52 @@ footer .pied a:focus {
   border-radius: 5px;
   border: 1px solid rgba(39, 123, 176, 0.7);
 }
-table thead,
-table tfoot {
+fc-head {
   background: @triadeA;
   color: white;
 }
 .fc-state-highlight {
   background: @triadeC!important;
 }
-.fc-header {
+.fc-head {
   margin: 0;
   font-size: .8em!important;
   vertical-align: middle!important;
 }
-.fc-header h2 {
+.fc-head h2 {
   margin: 0!important;
   font-size: 1.4em!important;
   color: @colorComm!important;
   font-family: Roboto;
 }
 @media only screen and (max-width: 40em) {
-  .fc-header h2 {
+  .fc-head h2 {
     font-size: 1.2em!important;
   }
-  .fc-header td {
+  .fc-head td {
     white-space: normal!important;
   }
   .fc-widget-header {
     font-size: .9em !important;
   }
 }
-.fc-header .fc-button {
+.fc-head .fc-button {
   margin: 0!important;
   height: 2.1em!important;
 }
-.fc-header td,
-.fc-header th {
-  padding: .5em!important;
+.fc-head td {
+  padding: 0!important;
+  vertical-align: middle!important;
+}
+.fc-head th {
+  padding: .3em!important;
   vertical-align: middle!important;
 }
 .fc-widget-header {
   font-weight: 400!important;
-  padding: .3em !important;
+  table {
+	margin-bottom:0;
+  }
 }
 .fc-border-separate {
   margin-bottom: 0!important;
