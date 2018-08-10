@@ -1,4 +1,4 @@
-#HTTP_HEADER{Content-type:text/javascript;}[(#SET{lannee,#DATE|annee})][(#SET{intervalle,[(#ENV{start}|plagemois{#ENV{end}})]})][(#REM)
+#HTTP_HEADER{Content-Type: application/json; charset=#CHARSET}[(#SET{lannee,#DATE|annee})][(#SET{intervalle,[(#ENV{start}|plagemois{#ENV{end}})]})][(#REM)
 ][<BOUCLE_Homelies(ARTICLES){branche ?}{mots ?}{id_auteur ?}{', '}{par date}
 {MONTH(date) IN #GET{intervalle}}
 >[(#REM)
