@@ -774,7 +774,7 @@
 				</td>
 			</tr>
 			<!-- END éditorial -->
-			<BOUCLE_selectionarticles(ARTICLES){id_grappe=2}{par rang}{1/2}>
+			<BOUCLE_selectionarticles(ARTICLES){id_grappe=choixnewsletter}{par rang}{1/2}>
 			<!-- START TWO COLUMN ARTICLE -->
 			<tr>
 				<td class="article-back" align="center" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#ffffff;" >
@@ -796,7 +796,7 @@
 										<tr>
 										<td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
 										<![endif]-->
-										<BOUCLE_DeuxArticles(ARTICLES){id_grappe=2}{par rang}{!par date}{0,2}{doublons}{""}>
+										<BOUCLE_DeuxArticles(ARTICLES){id_grappe=choixnewsletter}{par rang}{!par date}{0,2}{doublons}{""}>
 										<!-- START LEFT ARTICLE -->
 										<INCLURE{fond=newsletters/inc/casearticle,id_article}>
 										<!-- END LEFT ARTICLE -->
