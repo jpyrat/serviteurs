@@ -2563,7 +2563,7 @@ aside .h1 a {
 	}
 	& .boutons {
 		text-align: center;
-		& input {
+		& input, & button {
 			border: 1px solid white;
 			background-color: @triadeA;
 			color: white;
@@ -2574,8 +2574,21 @@ aside .h1 a {
 			}
 		}
 	}
+	& #formulaire_mode_paiement {
+		& .boutons {
+			text-align: right;
+			& button {
+				color: #000!important;
+			}
+		}
+	}
 }
 
+
+.formulaire_spip .boutons button {
+	border: 1px #000 solid;
+	background: #ccc;
+}
 // surchage enluminures
 .texteencadre-spip {
     position: relative!important;
