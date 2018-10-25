@@ -1,0 +1,17 @@
+					<B_apa>
+					<section class="text-center">
+						#ANCRE_PAGINATION
+						<h1 class="text-center text-transform-none">Sur le même thème</h1>
+						<BOUCLE_apa(ARTICLES){id_rubrique}{id_rubrique>0}{par num titre}{!par date_modif}{pagination 4}>
+						<article class="triadeC avec-padding avec-margin-bottom015">
+							<h2 class="#EDIT{titre}">
+								[(#URL_ARTICLE|lien_ou_expose{#TITRE, #ENV{id_article}|=={#ID_ARTICLE}, texte-colorGrisFonce, Lire [(#TITRE|attribut_html)]})]
+							</h2>
+							[<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-top05 #EDIT{soustitre}">
+								(#SOUSTITRE)
+							</div>]
+						</article>
+						</BOUCLE_apa>
+						#PAGINATION{suite_agenda}
+					</section>
+					</B_apa>
