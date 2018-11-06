@@ -42,3 +42,8 @@
 [<meta property="og:image" content="(#LOGO_SITE_SPIP_NORMAL|extraire_attribut{src}|url_absolue)" />]
 <//B_Article>
 <meta property="og:site_name" content="[(#NOM_SITE_SPIP|textebrut)]" />
+<link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:> [(#NOM_SITE_SPIP|attribut_html)]" href="[(#URL_PAGE{backend}|url_absolue)]" />
+<BOUCLE_SyndicationRubrique(RUBRIQUES){id_rubrique}>
+<link rel="alternate" type="application/rss+xml" title="<:syndiquer_rubrique:> : [(#TITRE|attribut_html)]" href="[(#URL_PAGE{backend,id_rubrique=#ID_RUBRIQUE}|url_absolue)]" />
+</BOUCLE_SyndicationRubrique>
+
