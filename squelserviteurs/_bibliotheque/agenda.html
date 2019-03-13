@@ -29,7 +29,8 @@
               else $('#calendrier-loading').hide();
             },
             minTime:"8",
-            axisFormat: "H'h'(mm)",
+            axisFormat: "H[h](mm)",
+			timeFormat: "H[h](mm)",
             allDayText:'<:organiseur:cal_jour_entier|attribut_html:>',
             dayClick: function(date, allDay, jsEvent, view) {
                 if(view.name=='month'){
