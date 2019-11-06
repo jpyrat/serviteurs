@@ -9,14 +9,14 @@
 															[(#SET{esthomelie,''})][(#SET{auteur,''})]
 															[<tr>
 																<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-																	<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne" ><img src="(#LOGO_AUTEUR|focusimage{265,175,center}|extraire_attribut{src}|url_absolue)" width="265" alt="" style="border-width:0;width:100%;height:auto;max-width:260px;" /></a>
+																	<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne" ><img src="(#LOGO_AUTEUR|focusimage{265,175,center}|extraire_attribut{src}|url_absolue)" width="265" alt="" style="background-color:#eee;border-width:0;width:100%;height:auto;max-width:260px;" /></a>
 																</td>
 															</tr>][(#SET{esthomelie,oui})][(#SET{auteur,#NOM})]
 															</BOUCLE_Auteur>
 															</B_Auteur></BOUCLE_EstHomelie>
 															[<tr>
 																<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-																	<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne" ><img src="(#LOGO_ARTICLE|focusimage{265,175,center}|extraire_attribut{src}|url_absolue)" width="265" alt="" style="border-width:0;width:100%;height:auto;max-width:260px;" /></a>
+																	<a href="[(#URL_ARTICLE|url_absolue)]" title="Lire l'article en ligne" ><img src="(#LOGO_ARTICLE|focusimage{265,175,center}|extraire_attribut{src}|url_absolue)" width="265" alt="" style="background-color:#eee;border-width:0;width:100%;height:auto;max-width:260px;" /></a>
 																</td>
 															</tr>]
 															<//B_EstHomelie>
