@@ -68,7 +68,9 @@
 [<script type="text/javascript" src="(#CHEMIN{js/jquery.enllax.min.js})"></script>
 <script type="text/javascript">
 	$(document).ready( function() {
-		// init parallax
-		$(window).enllax();
+		// init parallax avec un timeout, même de 0, pour éviter le conflit avec SlickSlider :-(((......
+		setTimeout(function() {
+			$(window).enllax();
+		}, 0);
 	});
 </script>]
