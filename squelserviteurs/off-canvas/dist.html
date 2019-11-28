@@ -21,17 +21,20 @@
 	</header>
 	<section>
 		<ul class="vertical menu" role="navigation">
+			<li class="recherche">
+				#FORMULAIRE_RECHERCHE
+			</li>
 			<li><a href="#URL_SITE_SPIP" class="item retourHome" title="Retour à l'accueil"><span class="icon-home icon-fw"></span>Accueil</a></li>
 			<BOUCLE_Rubriques(RUBRIQUES){racine}{id_rubrique !IN 1,273,280}{par num titre}>
-				<li class="niveauA[ (#EXPOSE{actif-OffCanvas})]"><a href="#URL_RUBRIQUE" class="item"[ title="(#DESCRIPTIF|attribut_html)"]>#TITRE</a>
-				<B_SsRubriques>
-                    <ul>
-						<BOUCLE_SsRubriques(RUBRIQUES){id_parent}{par num titre}>
-							<li class="niveauB[ (#EXPOSE{actif-OffCanvas})]"><a href="#URL_RUBRIQUE" class="item"[ title="(#DESCRIPTIF|attribut_html)"]>#TITRE</a><BOUCLE_RecursionRubriques(BOUCLE_SsRubriques)/></li>
-						</BOUCLE_SsRubriques>
-                    </ul>
-				</B_SsRubriques>
-				</li>
+			<li class="niveauA[ (#EXPOSE{actif-OffCanvas})]"><a href="#URL_RUBRIQUE" class="item"[ title="(#DESCRIPTIF|attribut_html)"]>#TITRE</a>
+			<B_SsRubriques>
+				<ul>
+					<BOUCLE_SsRubriques(RUBRIQUES){id_parent}{par num titre}>
+					<li class="niveauB[ (#EXPOSE{actif-OffCanvas})]"><a href="#URL_RUBRIQUE" class="item"[ title="(#DESCRIPTIF|attribut_html)"]>#TITRE</a><BOUCLE_RecursionRubriques(BOUCLE_SsRubriques)/></li>
+					</BOUCLE_SsRubriques>
+				</ul>
+			</B_SsRubriques>
+			</li>
 			</BOUCLE_Rubriques>
 		</ul>
 	</section>
