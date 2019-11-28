@@ -1321,43 +1321,45 @@ a.fc-event {
 }
 
 // liens raccourcis
-.liens-raccourcis {}
-.liens-raccourcis h2 {
-  padding-top: .5em;
-  font-family: Roboto;
-  font-size: 1.3em;
-  text-transform: none;
-  line-height: 1.25em;
-}
-.liens-raccourcis a {
-  display: inline-block;
-  height: 100%;
-  padding: 1em;
-}
-.liens-raccourcis a:hover,
-.liens-raccourcis a:focus {
-  background-color: @triadeA;
-  color: white!important;
-}
-.liens-raccourcis a:hover h2,
-.liens-raccourcis a:focus h2 {
-  color: white!important;
+.liens-raccourcis {
+	& h2 {
+	  padding-top: .5em;
+	  font-family: Roboto;
+	  font-size: 1.3em;
+	  text-transform: none;
+	  line-height: 1.25em;
+	}
+	& a {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		padding: 1em;
+		&:hover,
+		&:focus {
+			background-color: @triadeA;
+			color: white!important;
+		}
+		&:hover h2,
+		&:focus h2 {
+			color: white!important;
+		}
+	}
 }
 @media screen and (max-width: 40em) {
-  .liens-raccourcis {
-    padding: 0;
-  }
-  .liens-raccourcis .column {
-    padding: 1em;
-    border-bottom: 1px solid white;
-  }
-  .liens-raccourcis .column:last-child {
-    border-bottom: none;
-  }
+	.liens-raccourcis {
+		padding: 0;
+		& .column {
+			padding: 1em;
+			border-bottom: 1px solid white;
+		}
+		& .column:last-child {
+			border-bottom: none;
+		}
+	}
 }
 //// bug Safari
 .liens-raccourcis .column:first-of-type {
-  margin-left: -1px!important;
+	margin-left: -1px!important;
 }
 
 // coordonnées / contact
