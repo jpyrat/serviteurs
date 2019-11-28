@@ -1870,14 +1870,16 @@ fc-head {
   font-size: 1.25em;
 }
 .contentArticle {
-	& header .sous-titre {
-		font-size: 1.5em;
-	}
 	& .chapo {
 	  margin-top: 1em;
 	  font-size: 1.18em;
 	  font-style: italic;
 	  color: @colorComm;
+	}
+	& h2,
+	& .h2 {
+		font-size: 2rem;
+		color: @colorGrisFonce;
 	}
 }
 @media screen and (max-width:40em) {

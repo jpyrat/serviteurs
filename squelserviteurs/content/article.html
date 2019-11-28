@@ -17,8 +17,8 @@
 	<div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
 		<article>
 			<header>
-				<h1 class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> text-center #EDIT{titre}">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
-				[<div class="h2 sous-titre text-center texte-colorGrisFonce avec-padding-top05 #EDIT{soustitre}">(#SOUSTITRE)</div>]
+				<h1 class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> #EDIT{titre}">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
+				[<div class="h2 sous-titre texte-colorGrisFonce avec-padding-top05 #EDIT{soustitre}">(#SOUSTITRE)</div>]
 				[(#REM) on n'affiche que les logos supérieurs à 370px ]
 				[(#LOGO_ARTICLE|largeur|>{369}|oui)
 				[(#LOGO_ARTICLE|hauteur|>{199}|oui)
@@ -92,7 +92,7 @@
 					<INCLURE{fond=_bibliotheque/pave-evenement-article,env} />
 
 					<INCLURE{fond=inclure/telecharger,env} />
-					
+
 					<INCLURE{fond=inclure/article-memetheme,env,ajax} />
 
 				</aside>
