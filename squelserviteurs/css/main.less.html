@@ -1279,39 +1279,40 @@ a.fc-event {
   border-top:2px dotted rgba(255,255,255,0.3);
 }
 .dateEvenementTexte {
-  padding-left:.6em!important;
-  padding-bottom:.8em!important;
-}
-.dateEvenementTexte h1 {
-  background-color: inherit;
-  margin: 0;
-  padding: 0;
-  font-size: 1.185rem;
-  line-height: 1.4rem;
-  text-transform: uppercase;
-  font-family: @cgFontFamilyP;
-  font-weight: 400;
-  color: @colorP;
-}
-.dateEvenementTexte h1 a {
-  font-family: inherit;
-  font-weight: inherit;
-  color: inherit;
-}
-.dateEvenementTexte h2 {
-  font-weight:400;
-}
-.dateEvenementTexte p {
-  line-height: 1.35rem;
-}
-.dateEvenementTexte .dateHeure {
-  display: inline-block;
-  padding: .2em 0 .15em;
-  color: @colorP;
-  font-weight: 400;
-  border-bottom: 1px dashed @colorP;
-  margin: 0 0 .3em;
-  font-size: 1em;
+	padding-left:.6em!important;
+	padding-bottom:.8em!important;
+	& h1 {
+		background-color: inherit;
+		margin: 0;
+		padding: 0;
+		font-size: 1.185rem;
+		line-height: 1.4rem;
+		font-family: @cgFontFamilyP;
+		font-weight: 400;
+		color: @colorP;
+		& a {
+		  font-family: inherit;
+		  font-weight: inherit;
+		  color: inherit;
+		}
+	}
+	& h2 {
+	  font-weight:400;
+	}
+	& p {
+		padding-top: .5em;
+		line-height: 1.15rem;
+		font-size: .8em;
+	}
+	& .dateHeure {
+	  display: inline-block;
+	  padding: .2em 0 .15em;
+	  color: @colorP;
+	  font-weight: 400;
+	  border-bottom: 1px dashed @colorP;
+	  margin: 0 0 .3em;
+	  font-size: 1em;
+	}
 }
 
 // liens raccourcis
