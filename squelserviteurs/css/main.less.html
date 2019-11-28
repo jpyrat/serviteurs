@@ -672,23 +672,26 @@ nav.tab-bar.title-bar h1 {
 
 // nav secondaire
 .sous-bar {
-  width: 100%!important;
-  padding: 0!important;
-}
-.sous-bar ul.dropdown > li > a {
-  color: @triadeA !important;
-  font-size: 1.3rem;
-}
-.sous-bar ul.dropdown > li > a.hover,
-.sous-bar ul.dropdown > li > a.on {
-  color: saturate(darken(@triadeB,10%),20%) !important;
-}
-.sous-bar ul.dropdown > li > a strong {
-  font-weight: inherit;
-}
-.sous-bar ul.dropdown > li:hover,
-.sous-bar ul.dropdown > li:focus {
-  background-color: @triadeC!important;
+	width: 100%!important;
+	padding: 0!important;
+	border-bottom: 1px solid #ccc;
+	& ul.dropdown > li {
+		& > a {
+			color: @triadeA !important;
+			font-size: 1.3rem;
+		}
+		& > a.hover,
+		& > a.on {
+			color: saturate(darken(@triadeB,10%),20%) !important;
+		}
+		& > a strong {
+			font-weight: inherit;
+		}
+		&:hover,
+		&:focus {
+			background-color: @triadeC!important;
+		}
+	}
 }
 .menu-mega {
   display: inherit !important;
@@ -1847,18 +1850,17 @@ fc-head {
   margin-bottom: 2em;
 }
 .breadcrumbs {
-  padding-top: .3em;
-  border-top: 1px solid #ccc;
-}
-.breadcrumbs li {
-  color: #777;
-  font-size: .875rem;
-}
-.breadcrumbs li a {
-  color: #777;
-}
-.breadcrumbs li:not(:last-child)::after {
-  color: @triadeB;
+	padding-top: .75em;
+	& li {
+		color: #777;
+		font-size: .875rem;
+		&:not(:last-child)::after {
+			color: @triadeB;
+		}
+		& a {
+			color: #777;
+		}
+	}
 }
 .sous-titre {
   font-size: 1.25em;
