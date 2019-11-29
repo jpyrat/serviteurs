@@ -602,29 +602,36 @@ h1 {
     margin-left: .5em;
   }
 }
-.title-bar-center > ul {
-  display: inline-flex!important;
-}
 .title-bar-center {
-  width: 95%;
-  margin:0 auto;
-  padding: 0!important;
-  text-align: center;
-}
-.title-bar-center .menu {
-	display: inline-block;
-}
-.title-bar-center.smartphone {
-  float: none;
-  width: 170px;
-  padding: .5em 0 !important;
-}
-.title-bar-center .menu > li {
-  display: inline-block;
-  border-left: 1px dotted rgba(255, 255, 255, 0.75);
-}
-.title-bar-center .menu > li:first-child {
-  border: none;
+	width: 95%;
+	margin:0 auto;
+	padding: 0!important;
+	text-align: center;
+	&.sous-bar {
+		text-align: left;
+		& .dropdown {
+			width: 100%;
+		}
+	}
+	& > ul {
+		display: inline-flex!important;
+		justify-content: center;
+	}
+	& .menu {
+		display: inline-block;
+		& > li {
+			display: inline-block;
+			border-left: 1px dotted rgba(255, 255, 255, 0.75);
+		}
+		& > li:first-child {
+			border: none;
+		}
+	}
+	&.smartphone {
+	  float: none;
+	  width: 170px;
+	  padding: .5em 0 !important;
+	}
 }
 .title-bar-right {
 }
