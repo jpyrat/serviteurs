@@ -1002,11 +1002,13 @@ nav.tab-bar.title-bar h1 {
 .plan-sommaire .chevron,
 .contentRubrique .chevron,
 .contentHomelie .chevron {
-  display: block;
-  position: absolute;
-  top: 100px;
-  right: 25px;
-  font-size: 3.56rem;
+	display: block;
+	position: absolute;
+	top: 100px;
+	right: 25px;
+	font-size: 3.56rem;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
 }
 .contentHomelie header,
 .contentHomelie footer {
@@ -2008,25 +2010,34 @@ blockquote p {
 .contentRubrique .pagination-rubriques,
 .contentHomelie .pagination-rubriques,
 .contentConference .pagination-rubriques {
-  background-color: #ddd;
+	background-color: #ddd;
 }
-
+.contentRubrique a,
+.contentHomelie a {
+	color: #666;
+	&:hover p,
+	& p {
+		color: #666;
+	}
+	&:hover .chevron {
+		-webkit-transition: all .3s ease;
+		transition: all .3s ease;
+		-webkit-transform: translateX(5px);
+		transform: translateX(5px);
+	}
+}
 .contentRubrique h1,
 .contentHomelie h1 {
-  text-transform: uppercase;
-  letter-spacing: 2px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
 .contentRubrique h2,
 .contentHomelie h2 {
-  font-size: 1.45em;
-  font-weight: 700;
+	font-size: 1.45em;
+	font-weight: 700;
 }
 .contentRubrique h2 {
-  margin-top: -10px!important;
-}
-.contentRubrique h2 a,
-.contentHomelie h2 a {
-  color: #777;
+	margin-top: -10px!important;
 }
 .contentHomelie small {
   font-size: 14px;

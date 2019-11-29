@@ -20,35 +20,35 @@
 	[<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-right05 avec-padding-left05 avec-padding-top05 #EDIT{texte}">(#TEXTE|image_reduire{1170,0}|sinoncrayon{Vous pouvez mettre un texte})</div>]
 	<BOUCLE_a(ARTICLES){id_rubrique}{par num titre}{!par date_modif}{0,3}{doublons}>
 	<article class="focus row text-center">
-		<div class="large-4	   columns avec-padding-bottom avec-margin-bottom">
-			[(#REM) img 400x270 ]
-			[<img src="(#LOGO_ARTICLE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
-		</div>
-		<div class="large-8	   columns large-text-left">
-			<h2 class="position-relative z-index-999 #EDIT{titre}">
-				<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE
-				<span class="chevron icon-chevron-thin-right show-for-large"></span>
-				</a>
-			</h2>
-			[<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
-			[<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinon{#CHAPO}|sinoncrayon{Double-cliquer pour mettre ici un texte})</div>]
-		</div>
+		<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">
+			<div class="large-4	columns avec-padding-bottom avec-margin-bottom">
+				[(#REM) img 400x270 ]
+				[<img src="(#LOGO_ARTICLE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
+			</div>
+			<div class="large-8	columns large-text-left">
+				<h2 class="position-relative z-index-999 #EDIT{titre}">#TITRE
+					<span class="chevron icon-chevron-thin-right show-for-large"></span>
+				</h2>
+				[<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
+				[<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinon{#CHAPO}|sinoncrayon{Double-cliquer pour mettre ici un texte})</div>]
+			</div>
+		</a>
 	</article>
 	</BOUCLE_a>
 	<BOUCLE_r(RUBRIQUES){id_parent}{par num titre}>
 	<article class="focus row text-center">
-		<div class="large-4	   columns avec-padding-bottom avec-margin-bottom">
-			[(#REM) img 400x270 ]
-			[<img src="(#LOGO_RUBRIQUE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
-		</div>
-		<div class="large-8	   columns large-text-left">
-			<h2 class="position-relative z-index-999 #EDIT{titre}">
-				<a href="#URL_RUBRIQUE" title="Consulter [(#TITRE|attribut_html)]">#TITRE
-				<span class="chevron icon-chevron-thin-right show-for-large"></span>
-				</a>
-			</h2>
-			[<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinoncrayon{Double-cliquer pour mettre ici un texte})</div>]
-		</div>
+		<a href="#URL_RUBRIQUE" title="Consulter [(#TITRE|attribut_html)]">
+			<div class="large-4	columns avec-padding-bottom avec-margin-bottom">
+				[(#REM) img 400x270 ]
+				[<img src="(#LOGO_RUBRIQUE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
+			</div>
+			<div class="large-8	columns large-text-left">
+				<h2 class="position-relative z-index-999 #EDIT{titre}">#TITRE
+					<span class="chevron icon-chevron-thin-right show-for-large"></span>
+				</h2>
+				[<div class="#EDIT{descriptif}">(#DESCRIPTIF|sinoncrayon{Double-cliquer pour mettre ici un texte})</div>]
+			</div>
+		</a>
 	</article>
 	</BOUCLE_r>
 	<//B_a>
