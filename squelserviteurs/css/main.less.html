@@ -634,14 +634,15 @@ h1 {
 	}
 }
 .title-bar-right {
-}
-.title-bar-right a {
-  display: inline-block;
-  padding: .45em;
-  color: white;
-}
-.title-bar-right a .fa {
-  margin-left: .45em;
+	float: right;
+	& a {
+		display: inline-block;
+		padding: .45em;
+		color: white;
+		& .fa {
+		  margin-left: .45em;
+		}
+	}
 }
 .title-bar-left {
 }
