@@ -645,14 +645,14 @@ h1 {
 	}
 }
 .title-bar-left {
-}
-.title-bar-left a {
-  display: inline-block;
-  padding: .6em;
-  color: white;
-}
-.title-bar-left a .fa {
-  margin-right: .45em;
+	& a {
+		display: inline-block;
+		padding: .6em;
+		color: white;
+		& .fa {
+			margin-right: .45em;
+		}
+	}
 }
 nav.tab-bar.title-bar {
   position:fixed;
@@ -2086,7 +2086,7 @@ blockquote p {
 	font-weight: 700;
 }
 .contentRubrique h2 {
-	margin-top: -10px!important;
+	margin-top: -5px!important;
 }
 .contentHomelie small {
   font-size: 14px;
