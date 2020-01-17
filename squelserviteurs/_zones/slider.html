@@ -1,73 +1,33 @@
-<BOUCLE_Grappe(GRAPPES){identifiant=carrouselaccueil}><B_Articles>
-<div class="zone-arriere avec-margin-bottom avec-padding-bottom">
-	<div class="zone-slider row expanded column sans-padding">
-		<h1 class="hide">SLIDER</h1>
-			<article class="slider-imgwide-titre-right">
-				[(#REM) affichage smartphones ]
-				<BOUCLE_ArticlesSmartphones(ARTICLES){id_grappe}{par rang}{0,1}>
-				<div class="show-for-small-only" role="region" aria-label="Diaporama d'accueil">
-					<a href="#URL_ARTICLE">
-						<div class="slider-content desc-bas text-center">
-							<h2>#TITRE</h2>
-						</div>
-					</a>
+<BOUCLE_Grappe(GRAPPES){identifiant=carrouselaccueil}>
+<B_Articles>
+<div class="zone-arriere avec-margin-top" id="zone-actus">
+	<div class="slider-slick" role="region" aria-label="Diaporama d'accueil">
+		<BOUCLE_Articles(ARTICLES grappes){id_grappe}{par grappes_liens.rang, num titre}>
+		<div>
+			<a class="slider-lien" href="#URL_ARTICLE" title="Lire l'article [(#TITRE|attribut_html)]">
+				<div class="slider-content text-center">
+					<header>
+						<h3>#TITRE</h3>
+						[<h4>(#SOUSTITRE)</h4>]
+					</header>
+					[<img class="" src="(#LOGO_ARTICLE|image_recadre{400:500,-,focus}|image_reduire{400,500}|extraire_attribut{src}|supprimer_timestamp)" alt="" />]
 				</div>
-				</BOUCLE_ArticlesSmartphones>
-				[(#REM) affichage pour les autres ]
-				<div class="slider-slick show-for-medium" role="region" aria-label="Diaporama d'accueil">
-					<BOUCLE_Articles(ARTICLES){tous}{id_grappe}{par rang}>
-					[(#CARROUSELFORMAT|=={full}|oui)
-					[(#REM) Diapo avec une seule image full ]
-					<div class="slider-diapo-imgfull">
-						<a href="#URL_ARTICLE" title="Lire l'article [(#TITRE|attribut_html)]">
-							[<img src="(#LOGO_ARTICLE|focusimage{1920,525,center}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]" />]
-						</a>
-					</div>
-					]
-					[(#CARROUSELFORMAT|=={deux}|oui)
-					[(#REM) Diapo avec 2 images + #TITRE ]
-					<div class="slider-diapo-imgx2">
-						<div class="row sans-padding collapse">
-							<div class="medium-4 columns">
-								[<img src="(#LOGO_ARTICLE_SURVOL|focusimage{640,525,center}|extraire_attribut{src})" alt="" />]
-							</div>
-							<div class="medium-8 columns" style="outline: 1.5em solid white;">
-								<a href="#URL_ARTICLE" title="Lire l'article suivant">
-									[<img src="(#LOGO_ARTICLE_NORMAL|focusimage{1280,525,center}|extraire_attribut{src})" alt="" />]
-									<div class="slider-content desc-centre text-center">
-										<h2>#TITRE</h2>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-					]
-					[(#CARROUSELFORMAT|=={une}|oui)
-					[(#REM) Diapo avec 1 aplat de couleur + #DESCRIPTIF et 1 image + #TITRE ]
-					#SET{colorDiapo,#39557A}
-					<div class="slider-diapo-couleur-img" style="background-color:#GET{colorDiapo}">
-						<div class="row sans-padding collapse flexbox--center">
-							<div class="medium-4 columns">
-								<div class="slider-content">
-									#DESCRIPTIF
-								</div>
-							</div>
-							<div class="medium-8 columns" style="outline: 1.5em solid white;">
-								<a href="#URL_ARTICLE" title="Lire l'article suivant">
-									[<img src="(#LOGO_ARTICLE|focusimage{1280,525,center}|extraire_attribut{src})" alt="" />]
-									<div class="slider-content desc-centre text-center">
-										<h2>#TITRE</h2>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-					]
-					</BOUCLE_Articles>
-				</div>
-				[(#REM) chargement du script Slick ]
-				<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>
-			</article>
+				<footer class="show-for-medium">
+					<p class="slider-content-titre h3 show-for-large">#TITRE</p>
+					[<p class="slider-content-soustitre h4 show-for-large">(#SOUSTITRE)</p>]
+					[<p class="slider-content-descriptif sans-margin">
+						<span class="icon-minus show-for-large"></span>
+						(#DESCRIPTIF|ptobr|couper{150})</p>]
+					<p><span class="icon-chevron-thin-down avec-margin-top05"></span></p>
+				</footer>
+			</a>
+		</div>
+		</BOUCLE_Articles>
 	</div>
 </div>
-</B_Articles></BOUCLE_Grappe>
+</B_Articles>
+
+[(#REM) chargement du script Slick ]
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>
+
+</BOUCLE_Grappe>

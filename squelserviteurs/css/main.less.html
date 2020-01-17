@@ -42,6 +42,13 @@
 @contrastLight: white;
 @contrastDark: #222;
 
+.aTransition() {
+	-webkit-transition: all .3s ease!important;
+	-moz-transition: all .3s ease!important;
+	-ms-transition: all .3s ease!important;
+	transition: all .3s ease!important;
+}
+
 html {
   font-size: 100.01%;
   -ms-text-size-adjust: 100%;
@@ -993,7 +1000,9 @@ nav.tab-bar.title-bar h1 {
   padding-top: 1em;
 }
 .contentRubrique h2,
-.contentRubrique .sous-titre {
+.contentRubrique .sous-titre,
+.contentEspace h2,
+.contentEspace .sous-titre {
   line-height: 1.25em;
 }
 .plan-sommaire p,
@@ -1571,105 +1580,144 @@ footer .pied a:focus {
 
 
 
+
 // slider
+.js .slider-slick:not(:nth-child(2)) { display: none; } //permet de ne pas afficher tous les slides empilés avant chargement complet
+.js .slick-initialized.slider-slick:not(:nth-child(2)) { display: block; } //permet d'afficher les slides à l'initialisation
+#zone-actus {
+	display: block;
+	padding: 0 3.5vw;
+	& .slick-slider {
+		margin-bottom: 0!important;
+	}
+	& .slick-slide {
+		max-width: 400px!important;
+		height: 500px;
+		overflow: hidden;
+		margin: 0 1.25em 0 0;
+		@media only screen and (max-width: 75em) {
+			max-width: 300px!important;
+			height: 375px;
+		}
+		@media only screen and (max-width: 60em) {
+			max-width: 230px!important;
+			height: 287px;
+		}
+		& img {
+		  margin: 0 auto;
+		}
+	}
+	& .slider-lien {
+		position: relative;
+		display: block;
+		& .slider-content {
+			position: relative;
+			& header {
+				position: absolute;
+				background-color: rgba(0,0,0,.5);
+				bottom: 0;
+				left: 0;
+				right: 0;
+				min-height: 180px;
+				padding: 1em;
+				color: white;
+				& h3,
+				& h4 {
+					line-height: 1.2;
+				}		}
+		}
+		& footer {
+			position: absolute;
+			background-color: @triadeA;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			display: block;
+			padding: 1em;
+			color: white;
+			text-align: center;
+			.aTransition();
+			transform: translateY(100%);
+			& .slider-content-titre {
+				margin-top: 1em;
+				line-height: 1.2;
+			}
+			& .slider-content-soustitre {
+				line-height: 1.2;
+			}
+			& .icon-chevron-thin-down {
+				display: block;
+				margin-top: 1rem;
+				font-size: 3em;
+			}
+		}
+		&:hover footer {
+			transform: translateY(0);
+			.aTransition();
+		}
+	}
+	& .slick-dots {
+		bottom: inherit;
+		& li button::before {
+			font-size: 10px;
+		}
+		& button:hover {
+			background-color: #ccc !important;
+		}
+	}
+	& .slick-prev,
+	& .slick-next {
+		background-color: rgba(255,255,255,.5);
+		top: calc(~"50% - 35px");
+		width: 50px!important;
+		height: 70px!important;
+		text-shadow: none;
+		z-index: 90!important;
+		.aTransition();
+		&:hover {
+			background-color: @triadeA!important;
+			color: transparent!important;
+		}
+		&:before {
+			font-family: 'serviteurs-icones'!important;
+			font-size: 50px;
+			text-shadow: 0 0 3px black!important;
+		}
+	}
+	& .slick-prev {
+		left: 0;
+		transform: rotate(180deg);
+		&:before {
+		  content: '\e904'!important;
+		}
+	}
+	& .slick-next {
+		right: 0;
+		transform: rotate(0deg);
+		&:before {
+		  content: '\e904'!important;
+		}
+	}
+	@media screen and (max-width: 40em) {
+		padding: 0;
+		.slick-slide {
+			& .slider-content.desc-gauche {
+				left: 0;
+				width: 100%;
+				padding: 10px 50px !important;
+			}
+		}
+		.slick-prev,
+		.slick-next {
+			top: 0;
+			width: 50px!important;
+			height: 100%!important;
+		}
+	}
+}
 
-.js .slider-slick:not(:first-child) { display:none; }
-.js .slick-initialized.slider-slick:not(:first-child) { display:block; }
-
-.zone-slider {
-	max-width: 1920px!important;
-}
-.slick-slider {
-    margin-bottom: 0!important;
-}
-.slick-slide img {
-  margin: 0 auto;
-}
-.slick-slide .row {
-    max-width: none!important;
-}
-.slick-dots {
-  bottom: -40px;
-}
-.slick-dots li {
-  width: 30px;
-  height: 30px;
-}
-.slick-dots li button {
-  width: 30px;
-  height: 30px;
-}
-.slick-dots li button::before {
-  font-size: 20px;
-  line-height: 30px;
-  width: 30px;
-  height: 30px;
-}
-.slick-dots li.slick-active button::before {
-  color: @triadeB;
-}
-.slider-imgwide-titre-right .desc-centre h2 {
-  padding: 0;
-  line-height: initial;
-  color: inherit;
-  text-transform: none;
-  font-size: 30px;
-  font-weight: 300;
-}
-@media screen and (max-width: 75em) {
-  .slider-imgwide-titre-right .desc-centre h2 {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 63em) {
-  .slider-imgwide-titre-right .desc-centre h2 {
-    font-size: 26px;
-  }
-}
-@media screen and (max-width: 47.9375em) {
-  .slider-imgwide-titre-right .desc-centre h2 {
-    font-size: 22px;
-  }
-}
-.slider-content.desc-centre {
-  position: absolute;
-  background-color: fade( @triadeA,60% );
-  top: 50%;
-  right: 0;
-  padding: .5em 2.5em;
-  color: contrast( @triadeA,@contrastDark,@contrastLight )!important;
-}
-@media screen and (max-width: 63em) {
-  .slider-imgwide-titre-right .desc-centre {
-    width: 440px;
-    margin-left: -220px;
-  }
-}
-@media screen and (max-width: 40em) {
-  .slider-imgwide-titre-right img {
-    height: 150px;
-  }
-}
-@media screen and (max-width: 40em) {
-  .slider-content.desc-centre {
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    margin-left: 0;
-  }
-}
-.slider-diapo-couleur-img p {
-  display: block;
-  padding: 2em 3em;
-  text-align: right;
-  text-transform: uppercase;
-  font-size: 1.3em;
-  font-family: Oswald;
-  font-weight: 300;
-  color: white;
-  letter-spacing: 1.2px;
-}
 
 
 
@@ -2062,7 +2110,9 @@ blockquote p {
 	background-color: #ddd;
 }
 .contentRubrique a,
-.contentHomelie a {
+.contentHomelie a,
+.contentEspace a {
+	display: inline-block;
 	color: #666;
 	&:hover p,
 	& p {
@@ -2084,9 +2134,6 @@ blockquote p {
 .contentHomelie h2 {
 	font-size: 1.45em;
 	font-weight: 700;
-}
-.contentRubrique h2 {
-	margin-top: -5px!important;
 }
 .contentHomelie small {
   font-size: 14px;
@@ -2132,19 +2179,17 @@ article.focus:not(:last-of-type) {
   border-bottom: 1px solid #ddd;
 }
 .espace article.focus {
-  margin-bottom: 4em;
-  padding-bottom: 2em!important;
-}
-@media screen and (max-width:64em) {
-  .espace article.focus {
-    max-width: 400px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-.espace article.focus h2 {
-  font-size: 1.35em!important;
-  font-weight: 700;
+	margin-bottom: 3em;
+	padding-bottom: 2em!important;
+	@media screen and (max-width:64em) {
+		max-width: 400px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	& h2 {
+		font-size: 1.35em!important;
+		font-weight: 700;
+	}
 }
 .content-temps-liturgiques {}
 //// bug Safari
