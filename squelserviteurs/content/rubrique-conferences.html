@@ -27,33 +27,35 @@
 					<article class="colorGrisTresClair">
 						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par thématique</h2>
 							<form class="formCheck" action="#SELF" method="get">
-								<BOUCLE_Themes(MOTS){id_groupe=37}{par titre}{technique=oui}>
+								<BOUCLE_ArticlesMots(ARTICLES){branche}>
+								<BOUCLE_Themes(MOTS){id_groupe=37}{id_article}{par titre}{technique=oui}{doublons}>
 								<div class="flexbox-flex">
 									<input name="mots[]" value="#ID_MOT" [(#ENV{mots}|find{#ID_MOT}|oui) checked="checked"] type="checkbox" onchange='this.form.submit();'>
 									<label for="mot1" class="texte-triadeA">#TITRE</label>
 								</div>
 								</BOUCLE_Themes>
+								</BOUCLE_ArticlesMots>
 							</form>
 						</label>
 					</article>
 
 					<B_Sujets>
-					<article class="colorGrisTresClair">
+					<!--<article class="colorGrisTresClair">
 						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par sujet</h2>
 							<form action="#SELF" method="get">
 								<div class="avec-padding">
-									<select name="id_mot" onchange='if (this.value > 0) {
+									<select name="mots[]" onchange='if (this.value > 0) {
 											this.form.submit();
 										}'>
 										<option title="Menu de sélection">Sélectionner</option>
-										<BOUCLE_Sujets(MOTS){id_groupe=37}{par titre}>
-										<option value="#ID_MOT">#TITRE</option>
+										<BOUCLE_Sujets(MOTS){id_groupe=37}{par titre}{technique=oui}>
+										<option value="#ID_MOT" [(#ENV{mots}|find{#ID_MOT}|oui) selected="selected"]>#TITRE</option>
 										</BOUCLE_Sujets>
 									</select>
 								</div>
 							</form>
 						</label>
-					</article>
+					</article>-->
 					</B_Sujets>
 					
 					#SET{lesauteurs, #ARRAY}
