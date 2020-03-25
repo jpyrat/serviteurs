@@ -1,4 +1,4 @@
-<BOUCLE_(RUBRIQUES){id_rubrique=363}>
+<BOUCLE_(RUBRIQUES){id_rubrique}>
 	<div class="row column">
 		[(#REM) le breadcrumb ]
 		<nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
@@ -122,7 +122,7 @@
 					<B_ListeConferences>
 					#ANCRE_PAGINATION
 					<h2 class="hide">Conférences (#GRAND_TOTAL)</h2>
-					<BOUCLE_ListeConferences(ARTICLES){branche}{mots?}{recherche?}{id_auteur?}{!par date}{pagination 5}>
+					<BOUCLE_ListeConferences(ARTICLES){branche}{mots?}{recherche?}{id_auteur?}{!par date}{pagination 10}>
 					<article class="focus row avec-margin-bottom text-left">
 						<div class="large-4	columns avec-padding-bottom avec-margin-bottom">
 							<header class="text-right colorGrisTresClair texte-triadeA avec-padding-top avec-padding-right avec-padding-bottom05">
