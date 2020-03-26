@@ -27,14 +27,18 @@
 					<article class="colorGrisTresClair">
 						<label><h2 class="triadeA avec-padding texte-blanc">Choisir une conférence par thématique</h2>
 							<form class="formCheck" action="#SELF" method="get">
+								#SET{listethemes, #ARRAY}
 								<BOUCLE_ArticlesMots(ARTICLES){branche}>
-								<BOUCLE_Themes(MOTS){id_groupe=37}{id_article}{par titre}{technique=oui}{doublons}>
+								<BOUCLE_ListeThemes(MOTS){id_groupe=37}{id_article}{par titre}{technique=oui}{doublons}>
+								#SET{listethemes, #GET{listethemes}|push{#ID_MOT}}
+								</BOUCLE_ListeThemes>
+								</BOUCLE_ArticlesMots>
+								<BOUCLE_Themes(MOTS){id_mot IN #GET{listethemes}}{par titre}{technique=oui}>
 								<div class="flexbox-flex">
 									<input name="mots[]" value="#ID_MOT" [(#ENV{mots}|find{#ID_MOT}|oui) checked="checked"] type="checkbox" onchange='this.form.submit();'>
 									<label for="mot1" class="texte-triadeA">#TITRE</label>
 								</div>
 								</BOUCLE_Themes>
-								</BOUCLE_ArticlesMots>
 							</form>
 						</label>
 					</article>
