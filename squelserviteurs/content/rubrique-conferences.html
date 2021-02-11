@@ -127,7 +127,7 @@
 								</BOUCLE_DisponibilitesTypes>
 							</header>
 							[(#REM) img 400x290 ]
-							[<img src="(#LOGO_ARTICLE|focusimage{400,290,center}|extraire_attribut{src})" alt="">]
+							[<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]"><img src="(#LOGO_ARTICLE|focusimage{400,290,center}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]" /></a>]
 						</div>
 						<div class="large-8	columns">
 							<h3 class="h2 #EDIT{titre}">
