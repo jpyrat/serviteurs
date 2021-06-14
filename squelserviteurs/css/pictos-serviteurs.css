@@ -1,10 +1,9 @@
 @font-face {
   font-family: 'serviteurs-icones';
-  src:  url('../fonts/serviteurs-icones.eot?jnm775');
-  src:  url('../fonts/serviteurs-icones.eot?jnm775#iefix') format('embedded-opentype'),
-    url('../fonts/serviteurs-icones.ttf?jnm775') format('truetype'),
-    url('../fonts/serviteurs-icones.woff?jnm775') format('woff'),
-    url('../fonts/serviteurs-icones.svg?jnm775#serviteurs-icones') format('svg');
+  src:
+    url('fonts/serviteurs-icones.ttf?ucmnwm') format('truetype'),
+    url('fonts/serviteurs-icones.woff?ucmnwm') format('woff'),
+    url('fonts/serviteurs-icones.svg?ucmnwm#serviteurs-icones') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -12,7 +11,7 @@
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'serviteurs-icones' !important;
-  speak: none;
+  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -123,4 +122,6 @@
 .icon-rss2:before {
   content: "\ea9c";
 }
-
+.icon-instagram:before {
+  content: "\ea9d";
+}
