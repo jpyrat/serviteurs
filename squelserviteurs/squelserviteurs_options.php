@@ -21,6 +21,8 @@ $GLOBALS['agenda_affiche_inscription'] = 'non';
 
 if (!defined('_IMG_GD_QUALITE'))
 	define('_IMG_GD_QUALITE', 95); // Haute qualité pour les images réduites ; voir http://contrib.spip.net/Astuces-SPIP
+if (!defined('_MAX_MOTS_LISTE'))
+	define('_MAX_MOTS_LISTE', 500);
 
 if (!defined('_ACCESSIBILITE_CONSERVER_BULLE'))
 	define('_ACCESSIBILITE_CONSERVER_BULLE',true); // Pour conserver les bulles d'aide volontaire sur les liens vers les documents
