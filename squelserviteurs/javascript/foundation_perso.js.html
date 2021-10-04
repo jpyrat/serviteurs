@@ -36,7 +36,7 @@ function redimensionnement() {
 }
 // On lie l'événement resize et/ou load à la fonction
 window.addEventListener('resize', redimensionnement, false);
-$(window).load(function() {
+$(window).on('load', function() {
   redimensionnement();
 });
 

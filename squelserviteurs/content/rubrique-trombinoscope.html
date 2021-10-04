@@ -21,10 +21,10 @@
 	<div class="avec-margin-top avec-margin-bottom avec-padding-bottom flexbox-center-top">
 	<BOUCLE_a(ARTICLES){id_rubrique}{!par date}>
 		#SET{colorT,colorOurs}#SET{lieuxT,''}<BOUCLE_color(MOTS){id_groupe=35}{id_article}{0,1}>#SET{colorT,(#DESCRIPTIF|textebrut)}#SET{lieuxT,#TITRE}</BOUCLE_color>
-		<BOUCLES_FrereTrombine(AUTEURS){id_article}{0,1}>
+		<BOUCLE_FrereTrombine(AUTEURS){id_article}{0,1}>
 		[(#SET{trombine,[(#LOGO_ARTICLE|sinon{#LOGO_AUTEUR}|focusimage{150,152,center}|extraire_attribut{src})]})]
 		[(#SET{trombinenb,[(#LOGO_ARTICLE|sinon{#LOGO_AUTEUR}|focusimage{150,152,center}|image_nb|extraire_attribut{src})]})]
-		</BOUCLES_FrereTrombine>
+		</BOUCLE_FrereTrombine>
 		<article class="text-center flexbox-column-space-between #GET{colorT}">
 			<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]"[
 				onmouseover="portrait#ID_ARTICLE.src = '(#GET{trombine})';"][
@@ -33,9 +33,9 @@
 				<h2 class="avec-padding-right avec-padding-left texte-blanc">#TITRE</h2>
 				[<h3 class="avec-padding-right avec-padding-left texte-blanc">(#GET{lieuxT})</h3>]
 			</a>
-			<BOUCLES_Frere(AUTEURS){id_article}{0,1}>
+			<BOUCLE_Frere(AUTEURS){id_article}{0,1}>
 			<a href="#URL_AUTEUR" class="texte-blanc" title="Contacter[ (#TITRE|attribut_html)]"><span class="icon icon-envelope icon-fw icon-lg"></span></a>
-			</BOUCLES_Frere>
+			</BOUCLE_Frere>
 		</article>
 	</BOUCLE_a>
 	</div>
