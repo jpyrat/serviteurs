@@ -37,7 +37,7 @@
 						<div class="player-mp3 avec-padding-bottom">
 							<BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}{par num titre}>
 							#MODELE{emb,skin=ted,hauteur=85}
-							<Bautt><small><BOUCLEautt(AUTEURS){id_article}{", "}>[(#NOM)]</BOUCLEautt></small></Bautt>
+							<B_autt><small><BOUCLE_autt(AUTEURS){id_article}{", "}>[(#NOM)]</BOUCLE_autt></small></B_autt>
 							</BOUCLE_mp3>
 						</div>
 					</B_mp3>
