@@ -2,9 +2,7 @@
 #SET{start,#ENV{start}|strtotime}
 #SET{end,#ENV{end}|strtotime}[(#REM)
 ][<BOUCLE_evenements(EVENEMENTS){branche ?}{mots ?}{', '}{par date_debut}
-{agendafull date_debut,date_fin, periode,
-	#VAL{Y}|date{#GET{start}}, #VAL{m}|date{#GET{start}}, #VAL{d}|date{#GET{start}},
-	#VAL{Y}|date{#GET{end}}, #VAL{m}|date{#GET{end}}, #VAL{d}|date{#GET{end}}}
+{!evenement_passe #ENV{start}}{!evenement_a_venir #ENV{end}}
 >[(#REM)
 ]#SET{couleurThematique,'colorComm'}[(#REM)
 ]<BOUCLE_e(MOTS){id_evenement}{id_groupe=35}{0,1}>[(#SET{couleurThematique,[(#DESCRIPTIF|attribut_html)]})]</BOUCLE_e>[(#REM)
