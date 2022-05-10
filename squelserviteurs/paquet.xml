@@ -35,6 +35,9 @@
   <necessite nom="grappes" compatibilite="[1.1.6;[" />
   <necessite nom="critere_mots" compatibilite="[4.1.2;[" />
   
+  <utilise nom="spipmotion" />
+  <utilise nom="podcast" />
+  
   <pipeline nom="jqueryui_plugins" inclure="squelserviteurs_pipelines.php" />
 
 </paquet>

@@ -4,7 +4,7 @@
 		[<img src="(#LOGO_RUBRIQUE_NORMAL|focusimage{1200,320,center}|extraire_attribut{src}|sinon{https://placehold.it/1200x320})" alt="">]
 		<h1 class="<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> #EDIT{titre}">#TITRE</h1>
 	</div>
-	[<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-right05 avec-padding-left05 avec-padding-top05 #EDIT{texte}">(#TEXTE|image_reduire{1170,0}|sinoncrayon{Vous pouvez mettre un texte})</div>]
+	[<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-right05 avec-padding-left05 avec-padding-top05 #EDIT{texte}">(#TEXTE|image_reduire{1170,0})</div>]
 	<INCLURE{fond=_zones/annonce,env,ajax} />
 
 	<B_a>
@@ -18,7 +18,7 @@
 				</div>
 				<div class="large-6	columns large-text-left">
 					<h2 class="position-relative z-index-999 #EDIT{titre}">#TITRE</h2>
-					[<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
+					[<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{soustitre}">(#SOUSTITRE)</div>]
 				</div>
 			</a>
 		</article>
@@ -36,7 +36,7 @@
 				</div>
 				<div class="large-6	columns large-text-left">
 					<h2 class="position-relative z-index-999 #EDIT{titre}">#TITRE</h2>
-					[<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{soustitre}">(#SOUSTITRE|sinoncrayon{Vous pouvez mettre un sous-titre})</div>]
+					[<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{descriptif}">(#DESCRIPTIF)</div>]
 				</div>
 			</a>
 		</article>
