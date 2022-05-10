@@ -1,0 +1,28 @@
+[(#REM)
+/*
+ * Paiement Bancaire
+ * module de paiement bancaire multi prestataires
+ * stockage des transactions
+ *
+ * Auteurs :
+ * Cedric Morin, Nursit.com
+ * (c) 2012-2018 - Distribue sous licence GNU/GPL
+ *
+ */
+]
+	<div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
+		<article>
+			<header>
+<h1><:bank:titre_reglement_attente:></h1>
+			</header>
+			<div class="row container avec-padding-bottom">
+				<div class="texte large-8 columns">
+<BOUCLE_message(TRANSACTIONS){id_transaction}{transaction_hash}>[
+	(#MESSAGE|propre)
+][(#MODE|bank_afficher_attente_reglement{#ID_TRANSACTION,#TRANSACTION_HASH,#ENV{type}})]</BOUCLE_message>
+<p><:bank:confirme_reglement_attente:></p>
+<//B_message>
+				</div>
+			</div>
+		</article>
+	</div>
