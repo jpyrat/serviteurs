@@ -118,7 +118,7 @@
 					<B_ListeConferences>
 					#ANCRE_PAGINATION
 					<h2>Conférences (#GRAND_TOTAL)</h2>
-					<BOUCLE_ListeConferences(ARTICLES){branche}{mots?}{recherche?}{id_auteur?}{!par date}{pagination 10}>
+					<BOUCLE_ListeConferences(ARTICLES){branche}{mots?}{recherche?}{id_auteur?}{par num titre}{!par date}{pagination 10}>
 					<article class="focus row avec-margin-bottom text-left">
 						<div class="large-4	columns avec-padding-bottom avec-margin-bottom">
 							<header class="text-right colorGrisTresClair texte-triadeA avec-padding-top avec-padding-right avec-padding-bottom05">
@@ -134,7 +134,7 @@
 								<a class="texte-colorGrisFonce" href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>
 							</h3>
 							[<div class="sous-titre texte-colorGrisFonce font-style-italic #EDIT{soustitre}">(#SOUSTITRE)</div>]
-							[<div class="#EDIT{introduction}">(#CHAPO|sinon{#DESCRIPTIF})</div>]
+							[<div class="#EDIT{introduction}">(#DESCRIPTIF|sinon{#CHAPO})</div>]
 						</div>
 					</article>
 					</BOUCLE_ListeConferences>
