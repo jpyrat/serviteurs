@@ -1,9 +1,9 @@
 <paquet
   prefix="squelserviteurs"
   categorie="squelette"
-  version="0.2.1"
+  version="0.2.2"
   etat="stable"
-  compatibilite="[3.2.0;3.2.*]"
+  compatibilite="[3.2.0;4.1.*]"
   logo="prive/themes/spip/images/squelserviteurs-64.png"
   documentation=""
 >
