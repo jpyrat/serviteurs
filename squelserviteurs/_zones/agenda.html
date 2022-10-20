@@ -26,8 +26,8 @@
 							<li>
 								<form action="#SELF#agenda-boutons-filtre" method="get" class="ajax">
 									<div class="sans-padding">
-									<select name="mots\[\]" onchange='if(this.value >-1) { this.form.submit(); }'>
-										<option title="Choisir le public concerné" value="-1">Pour qui ?</option>
+									<select name="mots\[\]" onchange='this.form.submit();'>
+										<option title="Choisir le public concerné" value="">Pour qui ?</option>
 										<BOUCLE_PourQui(MOTS){id_groupe=34}{par num titre, titre}><B_EvenementsPourQui>
 										<BOUCLE_EvenementsPourQui(EVENEMENTS){id_mot}{pagination 1}>
 										<option value="#ID_MOT"[(#ID_MOT|in_array{#ENV{mots,#ARRAY}}|oui) selected="selected"]>#_PourQui:TITRE (#GRAND_TOTAL)</option>
