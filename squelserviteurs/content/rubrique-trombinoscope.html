@@ -22,14 +22,15 @@
 	<BOUCLE_a(ARTICLES){id_rubrique}{!par date}>
 		#SET{colorT,colorOurs}#SET{lieuxT,''}<BOUCLE_color(MOTS){id_groupe=35}{id_article}{0,1}>#SET{colorT,(#DESCRIPTIF|textebrut)}#SET{lieuxT,#TITRE}</BOUCLE_color>
 		<BOUCLE_FrereTrombine(AUTEURS){id_article}{0,1}>
-		[(#SET{trombine,[(#LOGO_ARTICLE|sinon{#LOGO_AUTEUR}|focusimage{150,152,center}|extraire_attribut{src})]})]
-		[(#SET{trombinenb,[(#LOGO_ARTICLE|sinon{#LOGO_AUTEUR}|focusimage{150,152,center}|image_nb|extraire_attribut{src})]})]
+		[(#SET{latrombine,[(#LOGO_ARTICLE|sinon{#LOGO_AUTEUR}|focusimage{150,152,center})]})]
+		[(#SET{trombine,[(#GET{latrombine}|extraire_attribut{src}|timestamp)]})]
+		[(#SET{trombinenb,[(#GET{latrombine}|timestamp|image_nb|extraire_attribut{src})]})]
 		</BOUCLE_FrereTrombine>
 		<article class="text-center flexbox-column-space-between #GET{colorT}">
 			<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]"[
 				onmouseover="portrait#ID_ARTICLE.src = '(#GET{trombine})';"][
 				onmouseout="portrait#ID_ARTICLE.src = '(#GET{trombinenb})';"]>
-				[<img src="(#GET{trombinenb})" alt="picto" name="portrait#ID_ARTICLE">]
+				[<img src="(#GET{trombinenb})" alt="" id="portrait#ID_ARTICLE">]
 				<h2 class="avec-padding-right avec-padding-left texte-blanc">#TITRE</h2>
 				[<h3 class="avec-padding-right avec-padding-left texte-blanc">(#GET{lieuxT})</h3>]
 			</a>
