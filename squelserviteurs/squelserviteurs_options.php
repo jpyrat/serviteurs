@@ -56,8 +56,8 @@ $GLOBALS['barre_typo_pas_de_fork_typo'] = false; // Pour tenir compte de http://
 if (!defined('_AUTOBR'))
 	define('_AUTOBR', ''); // cf http://www.spip.net/fr_article5427.html (TextWheel)
 
-if (!defined('_PREVIEW_TOKEN'))
-	define('_PREVIEW_TOKEN', true); // http://core.spip.org/projects/spip/repository/revisions/21077 et http://core.spip.org/projects/spip/repository/revisions/21084
+//if (!defined('_PREVIEW_TOKEN'))
+//	define('_PREVIEW_TOKEN', true); // http://core.spip.org/projects/spip/repository/revisions/21077 et http://core.spip.org/projects/spip/repository/revisions/21084
 
 /*
 	Le truc pour disposer dans #ENV{marker_icon_name} dans les squelettes.

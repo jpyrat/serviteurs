@@ -28,14 +28,19 @@ function focusimage($img, $largeur, $hauteur, $position = 'center', $max='') {
 			$hauteur = $h;
 		}
 	}
+	//$GLOBALS['Smush_Debraye'] = true;
 	if (($l < $largeur) OR ($h < $hauteur)) {
 		$img = filtrer('image_aplatir', $img, "png", 'ffffff');
+		$img = filtrer('image_graver', $img);
 		$img = filtrer('image_recadre', $img, "$largeur:$hauteur", '+', $position, 'transparent');
+		$img = filtrer('image_graver', $img);
 		$img = filtrer('image_recadre', $img, $largeur, $hauteur, $position, 'transparent');
 	} else  {
 		$img = filtrer('image_recadre', $img, "$largeur:$hauteur", '-', 'focus', 'transparent');
+		$img = filtrer('image_graver', $img);
 		$img = filtrer('image_reduire', $img, $largeur, $hauteur);
 	}
+	//$GLOBALS['Smush_Debraye'] = false;
 	return $img;
 }
 
