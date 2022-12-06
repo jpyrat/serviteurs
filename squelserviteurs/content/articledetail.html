@@ -1,0 +1,105 @@
+<BOUCLE_(ARTICLES){id_article}{statut?}>
+	<div class="row column">
+		[(#REM) le breadcrumb ]
+		<nav class="show-for-large" aria-label="Vous êtes ici :" role="navigation">
+			<ul class="breadcrumbs">
+				<li><a href="#URL_SITE_SPIP" title="Retour à l'accueil"><span class="icon-home texte-triadeB"></span></a></li>
+				<BOUCLE_Breadcrumbs(HIERARCHIE){id_article}>
+				<li><a href="#URL_RUBRIQUE" title="Voir la rubrique [(#TITRE|attribut_html)]">#TITRE</a></li>
+				</BOUCLE_Breadcrumbs>
+				<li title="En cours: [(#TITRE|attribut_html)]">
+					<span class="show-for-sr">En cours: </span>#TITRE
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="contentArticle row column avec-margin-bottom" id="ancre_article" role="main">
+		<article>
+			<header>
+				<h1 class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> #EDIT{titre}">#TITRE[(#STATUT|=={archive}|?{'<span class"archive"> (archivé)</span>',''})]</h1>
+				[<div class="h2 sous-titre texte-colorGrisFonce avec-padding-top05 #EDIT{soustitre}">(#SOUSTITRE)</div>]
+				[(#REM) on n'affiche que les logos supérieurs à 370px ]
+				[(#LOGO_ARTICLE|largeur|>{369}|oui)
+				[(#LOGO_ARTICLE|hauteur|>{199}|oui)
+				[<figure class="text-center sans-margin avec-margin-top avec-margin-bottom hide-for-large">
+					<img src="(#LOGO_ARTICLE|focusimage{800,600,center,h}|extraire_attribut{src})" alt="" />
+				</figure>]
+				]
+				]
+			</header>
+			<div class="row container avec-padding-bottom">
+				<div class="texte large-8 columns">
+					[<div class="#EDIT{chapo} chapo">
+						(#CHAPO|image_reduire{770,0})
+					</div>]
+					<B_mp3>
+						<div class="player-mp3 avec-padding-bottom">
+							<BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}{par num titre}>
+							#MODELE{emb,skin=ted,hauteur=85}
+							<B_autt><small><BOUCLE_autt(AUTEURS){id_article}{", "}>[(#NOM)]</BOUCLE_autt></small></B_autt>
+							</BOUCLE_mp3>
+						</div>
+					</B_mp3>
+					<div class="auteur show-for-medium">
+						<span class="social-tags"></span>
+						<BOUCLE_EcrireAuteur(AUTEURS){id_article}{0,1}>
+						<a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_AUTEUR" onclick="if (jQuery.modalbox) {
+							jQuery.modalbox('[(#URL_AUTEUR|parametre_url{var_zajax,content})]');
+							return false;
+						}" title="Écrire à l'auteur : [(#NOM|attribut_html)]">
+							<span class="icon-envelope icon-2x"></span>
+							#NOM
+						</a>
+						</BOUCLE_EcrireAuteur>
+					</div>
+
+					<hr />
+
+					<div class="#EDIT{texte}">
+						[(#TEXTE|image_reduire{770,0})]
+					</div>
+
+					<hr class="show-for-small-only" />
+					<div class="auteur show-for-small-only flexbox-center-center">
+						<span class="social-tags"></span>
+						<BOUCLE_EcrireAuteurSmallOnly(AUTEURS){id_article}{0,1}>
+						<a class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}>" href="#URL_AUTEUR" onclick="if (jQuery.modalbox) {
+							jQuery.modalbox('[(#URL_AUTEUR|parametre_url{var_zajax,content})]');
+							return false;
+						}" title="Écrire à l'auteur : [(#NOM|attribut_html)]">
+							<span class="icon-envelope icon-2x"></span>
+							#NOM
+						</a>
+						</BOUCLE_EcrireAuteurSmallOnly>
+					</div>
+					<BOUCLE_Inscription(EVENEMENTS){id_article}{age_fin<0}{par date}{statut=publie}{0,1}>
+						[(#ID_HOTELLERIE|>{0}|oui)<p class="avec-padding-top"><a href="http://hotellerie.serviteurs.org/?form=#ID_HOTELLERIE" class="inscription button large warning" title="S'inscrire à [(#TITRE|attribut_html)]">S'inscrire</a></p>]
+					</BOUCLE_Inscription>
+					[<div id="carto">
+						(#PLUGIN{GIS}|oui)[(#INCLURE{fond=json/gis,id_article,limit=1}|oui)[(#INCLURE{fond=modeles/carte_gis,id_article,autocenterandzoom=oui,hauteur=400px,cluster=[(#PLUGIN{GISGEOM}|?{'non','oui'})],maxClusterRadius=40,clusterShowCoverageOnHover=oui,clusterSpiderfyOnMaxZoom=oui,fullscreen=oui,zoom_wheel=non})]]
+					</div>]
+				</div>
+				<aside class="large-4 columns">
+					[(#REM) on n'affiche que les logos supérieurs à 150px ]
+					[(#LOGO_ARTICLE|largeur|>{369}|oui)
+					[(#LOGO_ARTICLE|hauteur|>{199}|oui)
+					[<figure class="text-center sans-margin avec-margin-top avec-margin-bottom show-for-large">
+						<img src="(#LOGO_ARTICLE|focusimage{370,450,center,h}|extraire_attribut{src})" alt="" />
+					</figure>]
+					]
+					]
+					<INCLURE{fond=_bibliotheque/pave-evenement-article,env} />
+
+					<INCLURE{fond=inclure/telecharger,env} />
+
+					<INCLURE{fond=inclure/article-memetheme,env,ajax} />
+
+				</aside>
+			</div>
+		</article>
+
+		<INCLURE{fond=inclure/documents,env} />
+
+	</div>
+</BOUCLE_>
