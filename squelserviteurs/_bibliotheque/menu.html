@@ -43,6 +43,10 @@
 									<BOUCLE_srA(ARTICLES){id_rubrique}>
 									<li class="item-list"><a[ class="(#EXPOSE)"] href="#URL_ARTICLE" title="Voir [(#TITRE|attribut_html)]">[<(#EXPOSE{strong})>]#TITRE[</(#EXPOSE{strong})>]</a></li>
 									</BOUCLE_srA>
+									<BOUCLE_srR(RUBRIQUES){id_parent}>
+									<li class="item-list"><a[ class="(#EXPOSE)"] href="#URL_RUBRIQUE" title="Voir [(#TITRE|attribut_html)]">[<(#EXPOSE{strong})>]#TITRE[</(#EXPOSE{strong})>]</a></li>
+									</BOUCLE_srR>
+									<//B_srA>
 								</ul>
 								</BOUCLE_srub>
 							</div>
