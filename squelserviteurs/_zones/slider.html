@@ -10,7 +10,7 @@
 						<h3>#TITRE</h3>
 						[<h4>(#SOUSTITRE)</h4>]
 					</header>
-					[<img class="" src="(#LOGO_ARTICLE|image_recadre{400:500,-,focus}|image_reduire{400,500}|extraire_attribut{src}|supprimer_timestamp)" alt="" />]
+					[<img class="" src="(#LOGO_ARTICLE|image_recadre{400:500,-,focus}|image_reduire{400,500}|extraire_attribut{src}|sinon{''}|supprimer_timestamp)" alt="" />]
 				</div>
 				<footer class="show-for-medium">
 					<p class="slider-content-titre h3 show-for-large">#TITRE</p>
@@ -28,6 +28,6 @@
 </B_Articles>
 
 [(#REM) chargement du script Slick ]
-<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>
+<script type="text/javascript" src="#CHEMIN{lib/slick/slick.min.js}"></script>
 
 </BOUCLE_Grappe>
