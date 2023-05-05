@@ -58,7 +58,7 @@
 																				<p style="Margin:0;padding-top:0px;font-size:14px;line-height:20px;" >
 																					<strong>#TITRE</strong><br />
 																					[(#HORAIRE|=={oui}|?{[(#DATE_DEBUT|!={#DATE_FIN}|?{de,à}) ][(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)]})]
-																					[(#HORAIRE|=={oui}|?{[(#DATE_DEBUT|!={#DATE_FIN}|?{[ à (#DATE_FIN|heures)]h[(#DATE_FIN|minutes)]})]})]
+																					[(#HORAIRE|=={oui}|?{[(#DATE_DEBUT|!={#DATE_FIN}|?{[<br /> au (#DATE_FIN|jour)] [(#DATE_DEBUT|nom_mois)] [(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)]})]})]
 																				</p>
 																			</td>
 																		</tr>
