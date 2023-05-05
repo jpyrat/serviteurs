@@ -1,7 +1,7 @@
 <paquet
   prefix="squelserviteurs"
   categorie="squelette"
-  version="0.2.2"
+  version="1.0.0"
   etat="stable"
   compatibilite="[3.2.0;4.1.*]"
   logo="prive/themes/spip/images/squelserviteurs-64.png"
@@ -34,10 +34,10 @@
   <necessite nom="modelexergue" compatibilite="[1.0.1;[" />
   <necessite nom="grappes" compatibilite="[1.1.6;[" />
   <necessite nom="critere_mots" compatibilite="[4.1.2;[" />
-  
+
   <utilise nom="spipmotion" />
   <utilise nom="podcast" />
-  
+
   <pipeline nom="jqueryui_plugins" inclure="squelserviteurs_pipelines.php" />
 
 </paquet>

@@ -1,8 +1,115 @@
 <div class="row column show-for-medium">
-    <link rel='stylesheet' type='text/css' href='#CHEMIN{lib/fullcalendar/fullcalendar.min.css}' />
-    <script type='text/javascript' src='#CHEMIN{lib/moment/moment-with-locales.min.js}'></script>
-    <script type='text/javascript' src='#CHEMIN{lib/fullcalendar/fullcalendar.min.js}'></script>
-    <script type='text/javascript' src='#CHEMIN{lib/fullcalendar/locale-all.js}'></script>
+    <div id="calendrier-loading" style="display:none;"><:organiseur:loading:></div>
+	<link rel='stylesheet' type='text/css' href='[(#CHEMIN{lib/fullcalendar/main.min.css}|timestamp)]' />
+	<script type='text/javascript' src='[(#CHEMIN{lib/fullcalendar/main.min.js}|timestamp)]'></script>
+	<script type='text/javascript' src='[(#CHEMIN{lib/fullcalendar/locales-all.js}|timestamp)]'></script>
+	<style>
+:root {
+	--fc-border-color: #ddd;
+	--fc-button-bg-color: #e9f2fc;
+    --fc-button-border-color: #e9f2fc;
+    --fc-button-text-color: #5782bd;
+  --fc-button-hover-bg-color: #1e2b37;
+  --fc-button-hover-border-color: #1a252f;
+  --fc-button-active-bg-color: #e9f2fc;
+  --fc-button-active-border-color: #151e27;
+  --fc-daygrid-event-dot-width: 0;
+  --fc-small-font-size: 0.77em;
+  --fc-list-event-dot-width: 10px;
+  --fc-list-event-hover-bg-color: #f5f5f5;
+}
+.fc-icon {
+    font-family: "Courier New",Courier,monospace !important;
+}
+.fc-icon-chevron-left:before {
+	content: "\2039";
+	font-weight: 700;
+	font-size: 1.3em;
+}
+
+.fc-icon-chevron-right:before {
+	content: "\203A";
+	font-weight: 700;
+	font-size: 1.3em;
+}
+
+.fc-icon-chevrons-left:before {
+	content: "\AB";
+}
+
+.fc-icon-chevrons-right:before {
+	content: "\BB";
+}
+
+.fc .fc-button-primary .fc-icon {
+	font-size: 2.0em;
+	line-height: 1em;
+	margin-top: -0.6em;
+    margin-bottom: -0.5em;
+}
+.fc-daygrid-block-event .fc-event-time,
+.fc-daygrid-block-event .fc-event-title {
+    padding: 0;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    font-size: .9rem;
+}
+.fc .fc-daygrid-day-number {
+    font-weight: 700;
+}
+.fc-event {
+	border-radius: 0;
+	border: none!important;
+}
+.fc-event-main,
+fc-daygrid-event-harness {
+}
+.fc-event-time {
+	font-weight: 400;
+}
+.fc-event-time {
+	display: inline;
+	padding: 0;
+	font-weight: 700;
+}
+.fc-h-event .fc-event-title {
+    display: inline;
+    vertical-align: top;
+    left: auto;
+    right: auto;
+    max-width: initial;
+    overflow: initial;
+}
+.fc-h-event .fc-event-title-container {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    display: inline;
+	white-space: normal;
+}
+.fc-h-event .fc-event-main-frame,
+.fc-daygrid-dot-event {
+    display: block;
+	margin: 0;
+	padding: 1px 2px;
+	white-space: normal;
+}
+.fc-event-title {
+	padding-right: 2px;
+	white-space: normal;
+}
+.fc-daygrid-dot-event .fc-event-title {
+    font-weight: 400;
+    display: inline;
+}
+a.fc-daygrid-event[href]:hover,
+a.fc-daygrid-event[href]:focus {
+	color: #fff !important;
+}
+
+
+	</style>
     <div id="agenda"></div>
 
 
@@ -12,62 +119,46 @@
             |parametre_url{mots,#ENV{mots}}
             |replace{&amp;,&})]";
     jQuery(document).ready(function() {
-        $('#agenda').fullCalendar({
+        // page is now ready, initialize the calendar...
+		var calendarEl = document.getElementById('agenda');
+		var is_ltr = [(#LANG_DIR|=={ltr}|?{true,false})];
+
+		calendar = new FullCalendar.Calendar(calendarEl, {
 			locale : '[(#LANG|strtolower)]',
             editable: false,
             eventSources: [agendaSource],
-			cache: true,
-            header: {
-                left: 'prevYear,prev,next,nextYear today',
+			dayMaxEventRows: false,
+			initialView: $(window).width() <= 1024 ? 'listMonth' : 'dayGridMonth',
+			headerToolbar: {
+				left: (is_ltr ? 'prevYear,prev,next,nextYear today' : ',dayGridMonth,timeGridWeek,timeGridDay'),
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay,listMonth'
-            },
+				right: (is_ltr ? 'dayGridMonth,timeGridWeek,timeGridDay,listMonth' : 'today nextYear,next,prev,prevYear')
+			},
             firstDay: 1,
-            weekMode : 'liquid',
             loading: function(bool) {
-              if (bool) $('#calendrier-loading').show();
-              else $('#calendrier-loading').hide();
+				if (bool) {
+					$('#agenda-loading').show();
+				} else {
+					$('#agenda-loading').hide();
+				}
             },
-            minTime:"8",
-            axisFormat: "H[h](mm)",
-			timeFormat: "H[h](mm)",
-            allDayText:'<:organiseur:cal_jour_entier|attribut_html:>',
-            dayClick: function(date, allDay, jsEvent, view) {
-                if(view.name=='month'){
-                  $('.fc-button-agendaWeek').click();
-                  $('#calendrier').fullCalendar( 'gotoDate', date );
-                }
-                else
-                  if(view.name=='agendaWeek'){
-                    $('.fc-button-agendaDay').click();
-                    $('#calendrier').fullCalendar( 'gotoDate', date );
-                  }
-            },
-            isRTL : [(#LANG_DIR|=={rtl}|?{true,false})],
-            eventMouseover: function(event, element) {
-                              var tooltipcontent = event.lieu + event.adresse;
-                              if (tooltipcontent) {
-                                var tooltip =
-                                  '<div class="infoBulle" style="position:absolute;z-index:10001;">'
-                                  + tooltipcontent +
-                                  '</div>';
-                                }
-                $("body").append(tooltip);
-                $(this).mouseover(function(e) {
-                  $(this).css('z-index', 10000);
-                  $('.infoBulle').fadeIn('500');
-                  $('.infoBulle').fadeTo('10', 1.9);
-                }).mousemove(function(e) {
-                  $('.infoBulle').css('top', e.pageY + 17);
-                  $('.infoBulle').css('left', e.pageX - 30);
-                });
-            },
-            eventMouseout: function(event, element) {
-              $(this).css('z-index', 8);
-              $('.infoBulle').remove();
-            }
-        })
-
+			displayEventEnd: true,
+			slotMinTime:"8:00:00",
+			eventTimeFormat: { // like '14:30'
+				hour: 'numeric',
+				minute: '2-digit',
+				omitZeroMinute: true,
+				meridiem: false,
+				hour12: false
+			},
+            allDayText:'Toute la journée',
+			windowResize: function(){
+				if ($(window).width() <= 1024) {
+					calendar.changeView('listMonth');
+				}
+			}
+		});
+		calendar.render();
     });
 	function majAgenda(source) {
           $('#agenda').fullCalendar('removeEventSource', agendaSource);

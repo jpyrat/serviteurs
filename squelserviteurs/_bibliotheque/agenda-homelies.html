@@ -1,8 +1,8 @@
 <div class="row column">
-    <link rel='stylesheet' type='text/css' href='#CHEMIN{lib/fullcalendar/fullcalendar.min.css}' />
-    <script type='text/javascript' src='#CHEMIN{lib/moment/moment-with-locales.min.js}'></script>
-    <script type='text/javascript' src='#CHEMIN{lib/fullcalendar/fullcalendar.min.js}'></script>
-    <script type='text/javascript' src='#CHEMIN{lib/fullcalendar/locale-all.js}'></script>
+    <div id="calendrier-loading" style="display:none;"><:organiseur:loading:></div>
+	<link rel='stylesheet' type='text/css' href='[(#CHEMIN{lib/fullcalendar/main.min.css}|timestamp)]' />
+	<script type='text/javascript' src='[(#CHEMIN{lib/fullcalendar/main.min.js}|timestamp)]'></script>
+	<script type='text/javascript' src='[(#CHEMIN{lib/fullcalendar/locales-all.js}|timestamp)]'></script>
     <div id="agenda"></div>
 
     <script type="text/javascript">
@@ -17,21 +17,29 @@
             |parametre_url{recherche,#ENV{recherche}}
             |replace{&amp;,&})]";
     jQuery(document).ready(function() {
-        $('#agenda').fullCalendar({
-			locale : '[(#LANG|strtolower)]',
+		// page is now ready, initialize the calendar...
+		var calendarEl = document.getElementById('agenda');
+		var is_ltr = [(#LANG_DIR|=={ltr}|?{true,false})];
+		
+		calendar = new FullCalendar.Calendar(calendarEl, {			locale : '[(#LANG|strtolower)]',
             editable: false,
             eventSources: [agendaSource],
 			cache: true,
-            header: {
-                left: 'prevYear,prev,next,nextYear today',
+			dayMaxEventRows: true,
+			initialView: $(window).width() <= 1024 ? 'listMonth' : 'dayGridMonth',
+			headerToolbar: {
+				left: (is_ltr ? 'prevYear,prev,next,nextYear today' : 'listMonth,dayGridMonth,dayGridWeek,dayGridDay'),
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay,listMonth'
-            },
+				right: (is_ltr ? 'dayGridDay,dayGridWeek,dayGridMonth,listMonth' : 'today nextYear,next,prev,prevYear')
+			},
             firstDay: 1,
             weekMode : 'liquid',
             loading: function(bool) {
-              if (bool) $('#calendrier-loading').show();
-              else $('#calendrier-loading').hide();
+				if (bool) {
+					$('#agenda-loading').show();
+				} else {
+					$('#agenda-loading').hide();
+				}
             },
             minTime:"8",
             axisFormat: "H'h'(mm)",
@@ -39,12 +47,12 @@
             dayClick: function(date, allDay, jsEvent, view) {
                 if(view.name=='month'){
                   $('.fc-button-agendaWeek').click();
-                  $('#calendrier').fullCalendar( 'gotoDate', date );
+                  $('#agenda').fullCalendar( 'gotoDate', date );
                 }
                 else
                   if(view.name=='agendaWeek'){
                     $('.fc-button-agendaDay').click();
-                    $('#calendrier').fullCalendar( 'gotoDate', date );
+                    $('#agenda').fullCalendar( 'gotoDate', date );
                   }
             },
             isRTL : [(#LANG_DIR|=={rtl}|?{true,false})],
@@ -69,9 +77,14 @@
             eventMouseout: function(event, element) {
               $(this).css('z-index', 8);
               $('.infoBulle').remove();
-            }
-        })
-
+            },
+			windowResize: function(){
+				if ($(window).width() <= 1024) {
+					calendar.changeView('listMonth');
+				}
+			}
+		});
+		calendar.render();
     });
 	function majAgenda(source) {
           $('#agenda').fullCalendar('removeEventSource', agendaSource);
