@@ -8,6 +8,7 @@
 @colorOurs: #39557a;
 @colorOttm: #9ea17b;
 @colorJeun: #d1971b;
+@colorCasa: #c4762f;
 
 @colorComm: #39557a;
 @colorForm: #5782bd;
@@ -29,9 +30,79 @@
 @evenementsVie: #D8D8D8;
 
 // fontes p et Hn
-@import url(https://fonts.googleapis.com/css?family=Oswald:300,400);
+/* oswald-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 300;
+  src: url('[(#CHEMIN{fonts/oswald-v49-latin-300.woff2}|url_absolue)]') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('[(#CHEMIN{fonts/oswald-v49-latin-300.woff}|url_absolue)]') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* oswald-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: url('[(#CHEMIN{fonts/oswald-v49-latin-regular.woff2}|url_absolue)]') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('[(#CHEMIN{fonts/oswald-v49-latin-regular.woff}|url_absolue)]') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 @cgFontFamilyHn: 'Oswald', sans-serif;
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic);
+/* roboto-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url('[(#CHEMIN{fonts/roboto-v30-latin-300.woff2}|url_absolue)]') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('[(#CHEMIN{fonts/roboto-v30-latin-300.woff}|url_absolue)]') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-300italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 300;
+  src: url('[(#CHEMIN{fonts/roboto-v30-latin-300italic.woff2}|url_absolue)]') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('[(#CHEMIN{fonts/roboto-v30-latin-300italic.woff}|url_absolue)]') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('[(#CHEMIN{fonts/roboto-v30-latin-regular.woff2}|url_absolue)]') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('[(#CHEMIN{fonts/roboto-v30-latin-regular.woff}|url_absolue)]') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: url('[(#CHEMIN{fonts/roboto-v30-latin-italic.woff2}|url_absolue)]') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('[(#CHEMIN{fonts/roboto-v30-latin-italic.woff}|url_absolue)]') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('[(#CHEMIN{fonts/roboto-v30-latin-700.woff2}|url_absolue)]') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('[(#CHEMIN{fonts/roboto-v30-latin-700.woff}|url_absolue)]') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-700italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: url('[(#CHEMIN{fonts/roboto-v30-latin-700italic.woff2}|url_absolue)]') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('[(#CHEMIN{fonts/roboto-v30-latin-700italic.woff}|url_absolue)]') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 @cgFontFamilyP: 'Roboto', sans-serif;
 @cgFontSizeP: 1.1875rem;
 @cgFontWeightP: 300;
@@ -131,7 +202,7 @@ select {
 button {
 	padding: .55rem 1.5rem .625rem;
 	font-size: 1rem;
-	color: white !important;
+	color: white;
 	font-weight: 400 !important;
 	border-radius: 4px;
 }
@@ -221,25 +292,41 @@ h1 {
 
 .colorOurs {
   background-color: @colorOurs!important;
+  color: white!important;
 }
 .texte-colorOurs {
   color: @colorOurs!important;
 }
 .colorOttm {
   background-color: @colorOttm!important;
+  color: white!important;
+}
+a.colorOttm[href]:hover, a.colorOttm[href]:focus,
+a.colorJeun[href]:hover, a.colorJeun[href]:focus,
+a.colorCasa[href]:hover, a.colorCasa[href]:focus {
+  color: @colorOurs!important;
 }
 .texte-colorOttm {
   color: @colorOttm!important;
 }
 .colorJeun {
   background-color: @colorJeun!important;
+  color: white!important;
 }
 .texte-colorJeun {
   color: @colorJeun!important;
 }
+.colorCasa {
+  background-color: @colorCasa!important;
+  color: white!important;
+}
+.texte-colorCasa {
+  color: @colorCasa!important;
+}
 
 .colorComm {
   background-color: @colorComm!important;
+  color: white!important;
 }
 .texte-colorComm {
   color: @colorComm!important;
@@ -1151,9 +1238,7 @@ nav.tab-bar.title-bar h1 {
   max-width: 100px;
   margin-bottom:1em;
 }
-#agenda .fc-day-grid-event .fc-content {
-    white-space: normal;
-}
+
 @media screen and (max-width: 64em) {
   .dateEvenementCarre {
     float: none;
@@ -1174,15 +1259,15 @@ nav.tab-bar.title-bar h1 {
 }
 
 //boutons filtres/dropdown
-#agenda-boutons-filtre a {
+#agenda-boutons-filtre .bouton-filtre a {
   display: inline-block;
   width: 100%;
   padding: .1em;
   font-size: 1.1em;
   color: white;
 }
-#agenda-boutons-filtre a:hover,
-#agenda-boutons-filtre a:focus {
+#agenda-boutons-filtre .bouton-filtre a:hover,
+#agenda-boutons-filtre .bouton-filtre a:focus {
   background-color: @triadeC;
 }
 #agenda-boutons-filtre .menu {
@@ -1294,17 +1379,6 @@ nav.tab-bar.title-bar h1 {
   right: -1px!important;
 }
 
-.fc-header-title h2 {
-  font-weight: 300;
-}
-.fc-event-time:after { content:" "; }
-.page.contentArticle .dateEvenementCarre .dateNombre {
-    font-size: 1.8em;
-}
-a.fc-event {
-	-webkit-transition: none!important;
-	transition: none!important;
-}
 .page.contentArticle .dateEvenementCarre span {
   display: inline;
   padding: 0 .2em;
@@ -1722,20 +1796,7 @@ footer .pied a:focus {
 
 
 // agenda
-.fc-event {
-  border-radius: 0!important;
-  border: none!important;
-}
-.fc-content {
-  font-size: .7em;
-  line-height: 1.0625em;
-  text-align: left;
-  color: white !important;
-  border-radius: 0 !important;
-}
-.fc-event-time {
-  font-weight: 400!important;
-}
+
 .infoBulle {
   padding: .3em .4em;
   background: white;
@@ -1745,74 +1806,16 @@ footer .pied a:focus {
   border-radius: 5px;
   border: 1px solid rgba(39, 123, 176, 0.7);
 }
-fc-head {
+thead .rowgroup {
   background: @triadeA;
-  color: white;
+  color: #0a0a0a;
 }
-.fc-state-highlight {
-  background: @triadeC!important;
+.fc .fc-daygrid-day-top {
+    border-bottom: 1px solid #ddd;
+    background: #f8f8f8;
 }
-.fc-head {
-  margin: 0;
-  font-size: .8em!important;
-  vertical-align: middle!important;
-}
-.fc-head h2 {
-  margin: 0!important;
-  font-size: 1.4em!important;
-  color: @colorComm!important;
-  font-family: Roboto;
-}
-@media only screen and (max-width: 40em) {
-  .fc-head h2 {
-    font-size: 1.2em!important;
-  }
-  .fc-head td {
-    white-space: normal!important;
-  }
-  .fc-widget-header {
-    font-size: .9em !important;
-  }
-}
-.fc-head .fc-button {
-  margin: 0!important;
-  height: 2.1em!important;
-}
-.fc-head td {
-  padding: 0!important;
-  vertical-align: middle!important;
-}
-.fc-head th {
-  padding: .3em!important;
-  vertical-align: middle!important;
-}
-.fc-widget-header {
-  font-weight: 400!important;
-  table {
-	margin-bottom:0;
-  }
-}
-.fc-border-separate {
-  margin-bottom: 0!important;
-}
-.fc-day-number {
-  color: @triadeA;
-}
-.fc-state-default.fc-corner-right,
-.fc-state-default.fc-corner-left {
-  border-radius: 0!important;
-}
-.fc-state-default {
-  background-color: @triadeC!important;
-  background-image: none!important;
-  border-color: @triadeC!important;
-  color: @triadeA!important;
-  text-shadow: none!important;
-  box-shadow: none!important;
-}
-.fc-header .fc-state-active,
-.fc-header .ui-state-active {
-  background-color: fade(@triadeB, 20%)!important;
+table tbody tr:nth-child(even) {
+    background-color: inherit;
 }
 
 
