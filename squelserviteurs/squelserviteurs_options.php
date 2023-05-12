@@ -28,6 +28,9 @@ if (!defined('_ACCESSIBILITE_CONSERVER_BULLE'))
 	define('_ACCESSIBILITE_CONSERVER_BULLE',true); // Pour conserver les bulles d'aide volontaire sur les liens vers les documents
 #if (!defined('_BONUX_STYLE'))
 #	define('_BONUX_STYLE',1); // http://zone.spip.org/trac/spip-zone/changeset/35480
+if (!defined('_COMPORTEMENT_HISTORIQUE_PORTFOLIO')) {
+	define ('_COMPORTEMENT_HISTORIQUE_PORTFOLIO', true); // Cf https://www.spip.net/fr_article6533.html
+}
 if (!defined('_LARGEUR_MODE_IMAGE'))
 	define('_LARGEUR_MODE_IMAGE', 799); //  Voir http://permalink.gmane.org/gmane.comp.web.spip.zone/16461
 if (!defined('_TITRER_DOCUMENTS'))

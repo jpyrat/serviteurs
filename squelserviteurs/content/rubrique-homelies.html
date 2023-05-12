@@ -22,7 +22,7 @@
 			#SET{couleur,colorJeun}
 			<article class="focus row text-center flexbox-stretch">
 				<div class="large-4 medium-6 columns">
-					<div class="logo-content #GET{couleur}"[ style="background-image: url((#LOGO_ARTICLE|focusimage{370,234,center,h}|extraire_attribut{src})); background-size: cover;"]>
+					<div class="logo-content #GET{couleur}"[ style="background-image: url((#LOGO_ARTICLE|focusimage{370,234,center}|extraire_attribut{src})); background-size: cover;"]>
 						<p class="font-size-130 texte-blanc avec-padding-leftright"><BOUCLE_MotsAssociésUne(MOTS){id_article}{id_groupe IN 25,27,28,29,33,31,26,30,32}{", "}>#TITRE</BOUCLE_MotsAssociésUne></p>
 						<div class="transitionHomelies avec-padding-top">
 							<hr aria-hidden="true" />
