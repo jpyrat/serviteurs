@@ -8,7 +8,7 @@
 ]<BOUCLE_e(MOTS){id_evenement}{id_groupe=35}{0,1}>[(#SET{couleurThematique,[(#DESCRIPTIF|attribut_html)]})]</BOUCLE_e>[(#REM)
 ][(#ARRAY{id,#ID_EVENEMENT,
 title,[(#TITRE|supprimer_tags|html2unicode|unicode2charset)],
-allDay,[(#HORAIRE|=={non}|?{#EVAL{true},#EVAL{false}})],
+allDay,[(#HORAIRE|=={non}|ou{[(#DATE_DEBUT|affdate{'Y-m-d'}|!={[(#DATE_FIN|affdate{'Y-m-d'})]})]}|?{#EVAL{true},#EVAL{false}})],
 lieu,#LIEU,
 adresse,#ADRESSE,
 start,#DATE_DEBUT,
