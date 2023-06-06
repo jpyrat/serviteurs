@@ -142,7 +142,25 @@ a.fc-daygrid-event[href]:focus {
 					$('#agenda-loading').hide();
 				}
             },
-			displayEventEnd: true,
+			  views: {
+				dayGrid: {
+				  // options apply to dayGridMonth, dayGridWeek, and dayGridDay views
+				  displayEventTime: false,
+				  displayEventEnd: false
+				},
+				timeGrid: {
+				  // options apply to timeGridWeek and timeGridDay views
+				},
+				week: {
+				  // options apply to dayGridWeek and timeGridWeek views
+				},
+				day: {
+				  // options apply to dayGridDay and timeGridDay views
+				}
+			  },
+
+
+
 			slotMinTime:"8:00:00",
 			eventTimeFormat: { // like '14:30'
 				hour: 'numeric',
