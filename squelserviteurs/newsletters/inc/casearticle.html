@@ -50,15 +50,16 @@
 																			<td class="padding-10" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;text-align:center;background-color:#39557a;" >
 																				<!-- DATE EVENEMENT -->
 																				<p style="Margin:0;font-size:14px;line-height:20px;color:#fff;" >
-																					[(#DATE_DEBUT|nom_jour)]<br /><strong>[(#DATE_DEBUT|jour)]</strong><br />[(#DATE_DEBUT|nom_mois)]
+																					[(#DATE_DEBUT|affdate_court|!={[(#DATE_FIN|affdate_court)]}|?{Du<br />})][(#DATE_DEBUT|nom_jour)]<br /><strong>[(#DATE_DEBUT|jour)]</strong><br />[(#DATE_DEBUT|nom_mois)]
 																				</p>
 																			</td>
 																			<td valign="top" style="padding-top:0px;padding-bottom:0px;padding-right:0px;padding-left:10px;text-align:left;vertical-align:top;" >
 																				<!-- TITRE EVENEMENT + HORAIRE -->
 																				<p style="Margin:0;padding-top:0px;font-size:14px;line-height:20px;" >
 																					<strong>#TITRE</strong><br />
-																					[(#HORAIRE|=={oui}|?{[(#DATE_DEBUT|!={#DATE_FIN}|?{de,à}) ][(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)]})]
-																					[(#HORAIRE|=={oui}|?{[(#DATE_DEBUT|!={#DATE_FIN}|?{[<br /> au <b>(#DATE_FIN|jour)] [(#DATE_DEBUT|nom_mois)] [(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)]</b>})]})]
+																					[(#HORAIRE|=={oui}|?{à [(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)]})]
+																					[(#HORAIRE|=={oui}|?{[(#DATE_DEBUT|affdate_court|!={[(#DATE_FIN|affdate_court)]}|?{[<br /> <b>au (#DATE_FIN|jour)] [(#DATE_DEBUT|nom_mois)]</b> [(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)]})]})]
+																					[(#HORAIRE|=={non}|?{[(#DATE_DEBUT|affdate_court|!={[(#DATE_FIN|affdate_court)]}|?{[<br /> <b>au (#DATE_FIN|jour)] [(#DATE_DEBUT|nom_mois)]</b>})]})]
 																				</p>
 																			</td>
 																		</tr>
