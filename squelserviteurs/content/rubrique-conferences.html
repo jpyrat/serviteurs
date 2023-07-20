@@ -60,7 +60,7 @@
 							</label>
 						</article>-->
 						</B_Sujets>
-					
+
 						#SET{lesauteurs, #ARRAY}
 						<BOUCLE_ArticlesAuteurs(ARTICLES){branche}{mots?}{recherche?}{id_auteur?}>
 						<BOUCLE_Auteurs(AUTEURS){id_article}{doublons}>
@@ -96,7 +96,7 @@
 						<article class="colorGrisTresClair">
 							<h2 class="triadeA avec-padding texte-blanc">Recherche libre</h2>
 							<section class="recherche-conferences avec-padding">
-								<div style="position: relative;">							
+								<div style="position: relative;">
 									<label for="champRecherche" style="display:none">Rechercher :</label>
 									<input class="champRechercheConferences text"
 										   id="champRechercheConferences"
@@ -139,7 +139,7 @@
 					</article>
 					</BOUCLE_ListeConferences>
 
-					[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
+					[<nav class="pagination">(#PAGINATION{suite_agenda})</nav>]
 					</B_ListeConferences>
 
 					<h2>Résultat</h2>

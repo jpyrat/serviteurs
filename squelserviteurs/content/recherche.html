@@ -26,7 +26,7 @@
 					<li><a href="#URL_ARTICLE">#TITRE</a></li>
 					</BOUCLE_articles>
 				</ul>
-				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
+				[<nav class="pagination">(#PAGINATION{suite_agenda})</nav>]
 			</div>
 			</B_articles>
 
@@ -40,7 +40,7 @@
 					<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
 					</BOUCLE_rubriques>
 				</ul>
-				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
+				[<nav class="pagination">(#PAGINATION{suite_agenda})</nav>]
 			</div>
 			</B_rubriques>
 
@@ -54,7 +54,7 @@
 					<li><a href="#URL_MOT">#TITRE</a></li>
 					</BOUCLE_mots>
 				</ul>
-				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
+				[<nav class="pagination">(#PAGINATION{suite_agenda})</nav>]
 			</div>
 			</B_mots>
 
@@ -68,7 +68,7 @@
 					<li><a href="#URL_BREVE">#TITRE</a></li>
 					</BOUCLE_breves>
 				</ul>
-				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
+				[<nav class="pagination">(#PAGINATION{suite_agenda})</nav>]
 			</div>
 			</B_breves>
 
@@ -82,7 +82,7 @@
 					[<li><a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>(#TEXTE|couper{80})</a></li>]
 					</BOUCLE_messages>
 				</ul>
-				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
+				[<nav class="pagination">(#PAGINATION{suite_agenda})</nav>]
 			</div>
 			</B_messages>
 
@@ -96,7 +96,7 @@
 					<li><a href="[(#ID_SYNDIC|generer_url_entite{site,'','',#CONNECT})]">#NOM_SITE</a></li>
 					</BOUCLE_sites>
 				</ul>
-				[<p class="pagination">(#PAGINATION{suite_agenda})</p>]
+				[<nav class="pagination">(#PAGINATION{suite_agenda})</nav>]
 			</div>
 			</B_sites>
 	</div>
