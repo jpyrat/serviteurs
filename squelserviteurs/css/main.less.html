@@ -2496,6 +2496,16 @@ aside .documents_joints li {
   border-bottom: 1px solid #ddd;
   overflow: hidden;
 }
+#documents_joints li {
+	display: flex;
+	align-items: flex-start;
+}
+#documents_joints li a:has(> img) {
+	display: contents;
+}
+#documents_joints img {
+  width: 4rem;
+}
 aside .spip_logo.float-left {
   margin: 0 10px 10px 0;
 }
