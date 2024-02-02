@@ -134,12 +134,32 @@
 	</div>
 </div>
 
+<BOUCLE_abus(ARTICLES){page=texte_footer}>
+<div class="zone-arriere triadeC">
+	<div class="row">
+		<div class="large-12 columns avec-padding-top avec-margin-top text-center">
+			<h2 class="texte-colorComm #EDIT{titre}">#TITRE</h2>
+		</div>
+		<div class="newsletter large-4 columns avec-padding avec-margin-bottom" id="ancre_newsletter">
+			<img
+			  srcset="[(#LOGO_ARTICLE|image_reduire{400,0}|extraire_attribut{src})], [(#LOGO_ARTICLE|image_reduire{800,0}|extraire_attribut{src})] 2x"
+			  src="[(#LOGO_ARTICLE|image_reduire{800,0}|extraire_attribut{src})]" />
+		</div>
+		<div class="large-8 columns avec-padding avec-margin-bottom">
+			<div class="#EDIT{texte}">#TEXTE</div>
+		</div>
+	</div>
+</div>
+</BOUCLE_abus>
+
+
+
 <div class="zone-arriere triadeA" id="ancre_pied">
 	<div class="pied row column menu-centered">
 		<ul class="menu texte-blanc">
 			<li><a class="texte-blanc" href="#URL_SITE_SPIP" title="Accueil [(#NOM_SITE_SPIP|attribut_HTML)]">© [(#ENV{date}|annee)] [(#NOM_SITE_SPIP)]</a></li>
 			<B_mentionslegales><li>|</li>
-			<BOUCLE_mentionslegales(ARTICLES){page=mentionslegales}><li><a class="texte-blanc" href="#URL_ARTICLE" title="Lire Mentions légales">Mentions légales</a></li></BOUCLE_mentionslegales>
+			<BOUCLE_mentionslegales(ARTICLES){page=mentionslegales}><li><a class="texte-blanc" href="#URL_ARTICLE">#TITRE</a></li></BOUCLE_mentionslegales>
 		</ul>
 	</div>
 </div>
