@@ -1,8 +1,7 @@
 <div class="row column">
     <div id="calendrier-loading" style="display:none;"><:organiseur:loading:></div>
-	<link rel='stylesheet' type='text/css' href='[(#CHEMIN{lib/fullcalendar/main.min.css}|timestamp)]' />
-	<script type='text/javascript' src='[(#CHEMIN{lib/fullcalendar/main.min.js}|timestamp)]'></script>
-	<script type='text/javascript' src='[(#CHEMIN{lib/fullcalendar/locales-all.js}|timestamp)]'></script>
+	<script type='text/javascript' src='[(#CHEMIN{lib/fullcalendar/index.global.js}|timestamp)]'></script>
+	<script type='text/javascript' src='[(#CHEMIN{lib/fullcalendar/locales-all.global.js}|timestamp)]'></script>
     <div id="agenda"></div>
 
     <script type="text/javascript">
@@ -20,7 +19,7 @@
 		// page is now ready, initialize the calendar...
 		var calendarEl = document.getElementById('agenda');
 		var is_ltr = [(#LANG_DIR|=={ltr}|?{true,false})];
-		
+
 		calendar = new FullCalendar.Calendar(calendarEl, {			locale : '[(#LANG|strtolower)]',
             editable: false,
             eventSources: [agendaSource],
