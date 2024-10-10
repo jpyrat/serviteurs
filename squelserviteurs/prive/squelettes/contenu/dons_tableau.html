@@ -1,0 +1,28 @@
+<h2>Année : [(#DATE|annee)][(#DATE|affdate{'Y-01-01'})]</h2>
+<table class="spip">
+<thead>
+	<th>Nom</th>
+	<th>Adresse</th>
+	<th>email</th>
+	<th>Motif</th>
+	<th>Montant</th>
+	<th>Réglé</th>
+	<th>Date</th>
+	<th>Statut</th>
+</thead>
+<BOUCLE_reponses(FORMULAIRES_REPONSES){id_formulaire=42}{date_envoi>=(#DATE|affdate{'Y-01-01'})}>
+<BOUCLE_formulaire(FORMULAIRES){tout}{id_formulaire}>
+<tr class="spip">
+<BOUCLE_saisies(DATA){liste ligne_2, texte_1, email_1, input_1}>
+<td>[(#VOIR_REPONSE{#VALEUR, brut})]</td>
+</BOUCLE_saisies>
+<BOUCLE_transactions(transactions){tracking_id=#ID_FORMULAIRES_REPONSE}{parrain=formidable:42}>
+<td class="montant">#MONTANT</td>
+<td class="regle">[(#MONTANT_REGLE|sinon{[(#STATUT|in_array{#LISTE{commande,attente}}|et{#AUTORISER{regler,transaction,#ID_TRANSACTION}})<a class="btn btn_mini btn_secondaire btn_pay" href="[(#URL_ECRIRE{payer,id_transaction=#ID_TRANSACTION}|parametre_url{transaction_hash,#TRANSACTION_HASH})]"><:bank:payer:></a>]})]</td>
+<td class="date">[(#DATE_PAIEMENT|intval|oui)<abbr title="Paid on #DATE_PAIEMENT">][(#DATE_TRANSACTION|replace{' ',' <small>'}|concat{'</small>'})][(#DATE_PAIEMENT|intval|oui)</abbr>]</td>
+<td class="tstatut">[(#STATUT|match{echec|ok|rembourse}|et{#MESSAGE|trim|strlen}|?{[<abbr title="[(#MESSAGE|attribut_html)[ - (#ERREUR|attribut_html)]]">(#STATUT|bank_traduire_statut_transaction)</abbr>],#STATUT|bank_traduire_statut_transaction})]</td>
+</BOUCLE_transactions>
+</tr>
+</BOUCLE_formulaire>
+</BOUCLE_reponses>
+</table>
