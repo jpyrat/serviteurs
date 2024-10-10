@@ -2,6 +2,7 @@
 <h2>Année : #GET{annee}</h2>
 <table class="spip">
 <thead>
+	<th>Détail</th>
 	<th>Nom</th>
 	<th>Adresse</th>
 	<th>email</th>
@@ -15,8 +16,9 @@
 <BOUCLE_reponses(FORMULAIRES_REPONSES){id_formulaire=42}{date_envoi>=#GET{annee}-01-01}{date_envoi<(#GET{annee}|plus{1})-01-01}>
 <BOUCLE_formulaire(FORMULAIRES){tout}{id_formulaire}>
 <tr class="spip">
+<td><a href="[(#URL_ECRIRE{formulaires_reponse,id_formulaires_reponse=#ID_FORMULAIRES_REPONSE})]">#ID_FORMULAIRES_REPONSE</a></td>
 <BOUCLE_saisies(DATA){liste ligne_2, texte_1, email_1, input_1}>
-<td>[(#VOIR_REPONSE{#VALEUR, brut})]</td>
+<td class="#VOIR_REPONSE{#VALEUR,edit}">[(#VOIR_REPONSE{#VALEUR, brut})]</td>
 </BOUCLE_saisies>
 <BOUCLE_transactions(transactions){tracking_id=#ID_FORMULAIRES_REPONSE}{parrain=formidable:42}>
 <td class="montant">#MONTANT</td>
