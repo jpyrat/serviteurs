@@ -43,7 +43,7 @@
 					<footer class="player-mp3 avec-padding-bottom">
 						<BOUCLE_mp3(DOCUMENTS){id_article}{extension==mp3}>
 							#MODELE{emb,skin=ted,hauteur=85}
-							<a class="show-for-medium" href="#URL_DOCUMENT" title="Télécharger le fichier audio" download="[(#FICHIER|basename)]"><small><BOUCLE_aa(ARTICLES){id_article}>#TITRE</BOUCLE_aa><BOUCLE_AnneeLiturgique2(MOTS){id_groupe=24}{id_article}> - #TITRE - </BOUCLE_AnneeLiturgique2><BOUCLE_autt(AUTEURS){id_article}>[ (#NOM)]</BOUCLE_autt></small></a>
+							[(#REM) <a class="show-for-medium" href="#URL_DOCUMENT" title="Télécharger le fichier audio" download="[(#FICHIER|basename)]"><small><BOUCLE_aa(ARTICLES){id_article}>#TITRE</BOUCLE_aa><BOUCLE_AnneeLiturgique2(MOTS){id_groupe=24}{id_article}> - #TITRE - </BOUCLE_AnneeLiturgique2><BOUCLE_autt(AUTEURS){id_article}>[ (#NOM)]</BOUCLE_autt></small></a>]
 						</BOUCLE_mp3>
 					</footer>
 				</div>
