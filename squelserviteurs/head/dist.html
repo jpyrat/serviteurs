@@ -22,7 +22,7 @@
 	de la page affiché tout en haut du navigateur ainsi que la description du site
 	(utile aux moteurs de recherche)
 ]
-<title>[(#NOM_SITE_SPIP|textebrut)]</title>
+<title><BOUCLE_ArticleTitle(ARTICLES){id_article}>[(#TITRE|couper{80}|textebrut) - ]</BOUCLE_ArticleTitle><BOUCLE_RubriqueTitle(RUBRIQUES){id_rubrique}>[(#TITRE|couper{80}|textebrut) - ]</BOUCLE_RubriqueTitle><//B_ArticleTitle>[(#NOM_SITE_SPIP|textebrut)]</title>
 [(#REM) FaceBook Open Graph : https://developers.facebook.com/docs/opengraphprotocol/ & https://developers.facebook.com/tools/lint pour vérifier ]
 <BOUCLE_Article(ARTICLES){id_article}>
 [<meta name="description" content="(#INTRODUCTION{150}|supprimer_tags|attribut_html)" />]
