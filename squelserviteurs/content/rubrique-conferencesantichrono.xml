@@ -1,5 +1,5 @@
 <composition>
-	<nom>Rubrique Conférences (classées par num titre)</nom>
+	<nom>Rubrique Conférences (classées par date de publication inverse)</nom>
 	<description>Composition pour les rubriques des conférences</description>
 	<icon>images/objet-liste-contenus-dates.png</icon>
 	<branche type="rubrique" composition="conferences" />
