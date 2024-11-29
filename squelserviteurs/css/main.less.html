@@ -2750,6 +2750,9 @@ aside .h1 a {
 
 // form
 .formulaire_spip {
+	background: #e9f2fc;
+	padding: 0 1rem;
+	border: 1px solid @triadeA;
 	& .editer {
 		margin: 0;
 	}
@@ -2773,7 +2776,8 @@ aside .h1 a {
 		margin: 0;
 	}
 	& .boutons {
-		text-align: center;
+		text-align: left;
+		margin: 1em 0;
 		& input, & button {
 			border: 1px solid white;
 			background-color: @triadeA;
@@ -2781,7 +2785,7 @@ aside .h1 a {
 			padding: .9em 1.25em 1em;
 			font-weight: 400;
 			&:hover {
-				background-color: @triadeB;
+				background-color: @triadeB !important;
 			}
 		}
 	}
@@ -2816,10 +2820,6 @@ aside .h1 a {
 }
 
 
-.formulaire_spip .boutons button {
-	border: 1px #000 solid;
-	background: #ccc;
-}
 // surchage enluminures
 .texteencadre-spip {
     position: relative!important;
