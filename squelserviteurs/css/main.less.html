@@ -2750,9 +2750,27 @@ aside .h1 a {
 
 // form
 .formulaire_spip {
+	& .editer {
+		margin: 0;
+	}
+	& fieldset {
+		margin: 1rem 0 0;
+		padding: 0 1em;
+		& div {
+			margin: 0 1em;
+		}
+	}
+	& .choix {
+		padding: 0;
+	}
 	& legend,
 	& label {
 		font-size: @cgFontSizeP;
+		color: #000;
+		background: transparent;
+		padding: 4px 0;
+		line-height: 1.8;
+		margin: 0;
 	}
 	& .boutons {
 		text-align: center;
@@ -2774,6 +2792,26 @@ aside .h1 a {
 				color: #000!important;
 			}
 		}
+	}
+	& [type='text'],
+	& [type='password'],
+	& [type='date'],
+	& [type='datetime'],
+	& [type='datetime-local'],
+	& [type='month'],
+	& [type='week'],
+	& [type='email'],
+	& [type='number'],
+	& [type='search'],
+	& [type='tel'],
+	& [type='time'],
+	& [type='url'],
+	& [type='color'],
+	& [type='file'],
+	& [type='checkbox'],
+	& [type='radio'],
+	& textarea {
+		margin: 0;
 	}
 }
 
