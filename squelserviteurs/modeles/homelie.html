@@ -11,7 +11,7 @@
   	       src="#URL_DOCUMENT"
 	       type="#MIME_TYPE"
   	       preload="none"
-  	       data-mejsoptions='{"alwaysShowControls": true[,"loop":(#ENV{loop}|?{true,false})],"audioWidth":"100%"[,"audioHeight":"(#ENV{hauteur})"][,"startVolume":"(#ENV{volume})"][,"duration":(#GET{duree})]}'
+  	       data-mejsoptions='{["iconSprite": "(#CHEMIN{lib/mejs/mejs-controls.svg})",]"alwaysShowControls": true[,"loop":(#ENV{loop}|?{true,false})],"audioWidth":"100%"[,"audioHeight":"(#ENV{hauteur})"][,"startVolume":"(#ENV{volume})"][,"duration":(#GET{duree})]}'
 	       controls="controls"
 				 [autoplay="autoplay"(#ENV{autoplay}|oui)]></audio>
 </div>
