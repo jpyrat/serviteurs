@@ -1,11 +1,13 @@
 @font-face {
   font-family: 'serviteurs-icones';
   src:
-    url('../fonts/serviteurs-icones.ttf?ucmnwm') format('truetype'),
-    url('../fonts/serviteurs-icones.woff?ucmnwm') format('woff'),
-    url('../fonts/serviteurs-icones.svg?ucmnwm#serviteurs-icones') format('svg');
+    url('../fonts/serviteurs-icones.woff2?ucmnwmz') format('woff'),
+    url('../fonts/serviteurs-icones.woff?ucmnwmz') format('woff'),
+    url('../fonts/serviteurs-icones.ttf?ucmnwmz') format('truetype'),
+    url('../fonts/serviteurs-icones.svg?ucmnwmz#serviteurs-icones') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -124,4 +126,7 @@
 }
 .icon-instagram:before {
   content: "\ea9d";
+}
+.icon-don:before {
+  content: "\e91b";
 }
