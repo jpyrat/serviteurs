@@ -1,3 +1,8 @@
-<BOUCLE_principale_rubrique(RUBRIQUES){id_rubrique}>
+<BOUCLE_principale_rubrique(RUBRIQUES){id_rubrique}>[(#LANG|=={es}|oui)
+<?php
+header('Location: https://es.serviteurs.org/#URL_RUBRIQUE', true, 301);
+exit;
+?>
+]
 <INCLURE{fond=structure,env,id_rubrique=#ENV{id_rubrique,#ID_RUBRIQUE},id_secteur=#ID_SECTEUR,type-page=rubrique,composition=#COMPOSITION} />
 </BOUCLE_principale_rubrique>
