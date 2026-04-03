@@ -1,0 +1,446 @@
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Return-Path: <r.r16hobegfuzofhoihyaishmhgpsshizeoep.502.58998.3.m@email.ailedelorraine.org>
+Delivered-To: aperroy@serviteurs.org
+Received: from unknown by mda-4-0301.mail.infomaniak.ch with LMTP
+	id GJYUKWBeUmnjfh4ADCZLGA
+	(envelope-from <r.r16hobegfuzofhoihyaishmhgpsshizeoep.502.58998.3.m@email.ailedelorraine.org>)
+	for <aperroy@serviteurs.org>; Mon, 29 Dec 2025 11:56:32 +0100
+Authentication-Results: mx.infomaniak.com; dmarc=pass (p=none dis=none) header.from=ailedelorraine.org
+Authentication-Results: mx.infomaniak.com;
+	dkim=pass (1024-bit key; unprotected) header.d=ailedelorraine.org header.i=@ailedelorraine.org header.a=rsa-sha256 header.s=mbdkim1 header.b=FwM8/9f7;
+	dkim-atps=neutral
+Received: from unknown by smtp-3-9002.mail.infomaniak.ch (Postfix) with ESMTPS id 4dftSc15n3zM5S
+	for <aperroy@serviteurs.org>; Mon, 29 Dec 2025 11:56:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; d=ailedelorraine.org; s=mbdkim1;
+	c=relaxed/simple; t=1767005791;
+	h=from:reply-to:to:subject:date:mime-version:list-unsubscribe;
+	bh=pjQOx7HJGXx6VbG6Kj69kIvgMZuyxDWoPOTmFcePKfg=;
+	b=FwM8/9f7d8u0tLkmvowQv1XbgCE8oHj27bsfky/CJ7E9fvWvVE0actrmVQKOn3bDvY1aEoVqWFp
+	3zUBTh7Nq7RTH831uC10qGAJWsW3uV1TJSAt+Y10GO7MBSB+FVoivNiyGoBoAOlJZqVmULdOxKPJs
+	FW/IYXV1jQVRWk+2R14=
+Precedence: bulk
+X-Sender: contact@ailedelorraine.org
+X-Campaign-ID: 58998-502-v2017-05-11.13-50
+Feedback-ID: 502:10471:final:mb-58998
+X-Report-Abuse: Please report abuse on
+ =?us-ascii?q?https=3A=2F=2Femail=2Eailedelorraine=2Eorg=2Fp=2Easpx=3Fu=3D=2Faccount=2F58998=2Frepo?=
+ =?us-ascii?q?rtabuse=2Fr16hobegfuzofhoihyaishmhgpsshizeoep=2Faccount=2Easpx=3Fmb=5Fc?=
+ =?us-ascii?q?ulture=3Dfr-fr&mb=5Fsource=3D502?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: 
+ =?us-ascii?q?=3Cmailto=3Ar=2Er16hobegfuzofhoihyaishmhgpsshizeoep=2E502=2E58998=2E3=2Em=40e?=
+ =?us-ascii?q?mail=2Eailedelorraine=2Eorg=3Fsubject=3Dunsubscribe=3E=2C?=
+ =?us-ascii?q?_=3Chttps=3A=2F=2Fpublic=2Emessage-business=2Ecom=2Faccount=2F58998=2Funsubscrib?=
+ =?us-ascii?q?e=2Fr16hobegfuzofhoihyaishmhgpsshizeoep=2Faccount=2Easpx=3Fmb=5Fculture?=
+ =?us-ascii?q?=3Dfr-fr&mb=5Fsource=3D502&status=3Dsubmit&formItem-mbsingle-emailopt?=
+ =?us-ascii?q?in=3Dno=3E?=
+X-MB-Type: Rep-2-C-3
+From: Abbaye d'Ourscamp <contact@ailedelorraine.org>
+To: aperroy@serviteurs.org
+Subject: Faites un don pour =?utf-8?b?bCdow7R0ZWxsZXJpZSAhIEotM+KAiw==?=
+MIME-Version: 1.0
+Reply-To: "contact@ailedelorraine"
+	<reply.associationpourlarestaurationdel.mail@ailedelorraine.org>
+Date: Mon, 29 Dec 2025 10:56:31 +0000
+Message-Id: <58998.502.10471.20251229105631.639026025918064063@email.ailedelorraine.org>
+Content-Type: multipart/alternative; boundary="=-KuwK3CG2o/OfywLLBM8X5A=="
+X-Virtual-MTA: b03.00.p2
+Authentication-Results: mx.infomaniak.com; spf=pass smtp.mailfrom=email.ailedelorraine.org
+X-Spam-Score: 17
+X-Spam-Detail: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdejieelhecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfkpffhqffotefpkfetmfenuceurghilhhouhhtmecupfdsteenucdnofetkffnkffpifculddujedmnecujfgurhepphigjffhvffugghrfffktgesrgdtreertddtjeenucfhrhhomheptegssggrhigvucgukdfquhhrshgtrghmphcuoegtohhnthgrtghtsegrihhlvgguvghlohhrrhgrihhnvgdrohhrgheqnecuggftrfgrthhtvghrnhepveffhffhfeeigfffheetvdelgedtjeetuefhveekhfdvhedtueehkeelgefgledvnecuffhomhgrihhnpegrihhlvgguvghlohhrrhgrihhnvgdrohhrghenucfkphepvddujedrudejgedrvddufedrgeeknecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddujedrudejgedrvddufedrgeekpdhhvghlohepmhgrihhlrdgstdefrddttddrphdvrdhmvghsshgrghgvqdgsuhhsihhnvghsshdrnhgvthdpmhgrihhlfhhrohhmpehrrdhrudeihhhosggvghhfuhiiohhfhhhoihhhhigrihhshhhmhhhgphhsshhhihiivghovghprdehtddvrdehkeelleekrdefrdhmsegvmhgrihhlrdgrihhlvgguvghlohhrrhgrihhnvgdrohhrghdpnhgspghrtghpthhtohepuddprhgtphhtthhopegrphgvrhhrohihsehsvghrvhhithgvuhhrshdrohhrghdpshhpfhepphgrshhsmgdpughkihhmpehprghssh
+X-Infomaniak-Type: mce
+X-Infomaniak-Spam: ham
+X-Infomaniak-Cause: gAAAAABpUl5gfPuhd3KtXn_6CGVzi55p2XGCD5hhjXdtcArc6CsA82rZwHKT7mUskDkoQT0GXN88iluVO8gyayE0DMPQt49PHg002_ABt-ZvbhEmBAKYVCXUlID26yIDemUVD2nwYfYW_A1dbvMBx3X8GTdL0fI7Beq60W_8o3sMClL23YEkmwKTUJUWwsgZ2WFetv13E3uf4P8IEUXtBtJCBaNSJxviiL162M4MumM0GOxdTs8iQpVuTM4gkAcEBegdLPkcd9ZQTRBxXemXTY1fRhNxH48F6UpvGSemdNY21pzq4eQVTVn6rx8BeC9e7hkhu5XLWOUnEPOxcTAUB32Ezc4R3LkZuJ5WxQtz_MQcHmPHJs-x1rls_Rddk8x1tmI9S4GDeePDESjbNunqhFih6cTIYbUm1w==
+
+--=-KuwK3CG2o/OfywLLBM8X5A==
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Content-Id: <1582e9e4-9dfc-47f8-b7af-0bf09f4b0bc6>
+
+( https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998/502/13063/r16h=
+obegfuzofhoihyaishmhgpsshizeoep/r.aspx )     =20
+
+Chers amis de l'abbaye d'Ourscamp,
+
+En cette fin d'ann=C3=A9e, pouvez-vous faire un don ( https://email.ai=
+ledelorraine.org/t.htm?u=3D/e/3/58998/502/13064/r16hobegfuzofhoihyaish=
+mhgpsshizeoep/r.aspx )  pour les travaux de l'h=C3=B4tellerie  ( https=
+://email.ailedelorraine.org/t.htm?u=3D/e/3/58998/502/13065/r16hobegfuz=
+ofhoihyaishmhgpsshizeoep/r.aspx ) ?
+
+Il ne vous reste plus que trois jours pour b=C3=A9n=C3=A9ficier d'une =
+r=C3=A9duction d'imp=C3=B4t ( https://email.ailedelorraine.org/t.htm?u=
+=3D/e/3/58998/502/13066/r16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx )  =
+et nous aider pour les travaux de r=C3=A9habilitation de l'Aile de Lor=
+raine :En faisant un don de 100=E2=82=AC ( https://email.ailedelorrain=
+e.org/t.htm?u=3D/e/3/58998/502/13067/r16hobegfuzofhoihyaishmhgpsshizeo=
+ep/r.aspx )  cela ne vous co=C3=BBte que 34=E2=82=AC apr=C3=A9s d=C3=A9=
+duction fiscale*.En faisant un don de 250=E2=82=AC  ( https://email.ai=
+ledelorraine.org/t.htm?u=3D/e/3/58998/502/13068/r16hobegfuzofhoihyaish=
+mhgpsshizeoep/r.aspx ) cela ne vous co=C3=BBte que 59=E2=82=AC apr=C3=A9=
+s d=C3=A9duction fiscale*.
+
+Merci de votre soutien g=C3=A9n=C3=A9reux, sans vous nous ne pourrons =
+rien faire !
+
+Congr=C3=A9gation des Serviteurs de J=C3=A9sus et Marie
+
+*NB : 66% du montant de votre don est d=C3=A9ductible de vos imp=C3=B4=
+ts dans la limite de 20% de votre revenu imposable.           =20
+
+Je fais un don ( https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998=
+/502/13069/r16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx )          =20
+
+Abbaye d'Ourscamp - 10 place Saint-=C3=89loi - 60138 Chiry-Ourscamp
+
+contact@ailedelorraine.org ( mailto:contact@ailedelorraine.org )=20
+
+Vous recevez cet email car vous avez suivi une retraite =C3=A0 l'Abbay=
+e d'Ourscamp ou que vous vous =C3=AAtes inscrit =C3=A0 la newsletter d=
+es Serviteurs de J=C3=A9sus et Marie. Pour ne plus recevoir d'emails c=
+oncernant le projet Aile de Lorraine, vous avez la possibilit=C3=A9 de=
+ vous d=C3=A9sabonner ci-dessous.    =20
+
+=20
+
+Ce message est adress=C3=A9 =C3=A0 aperroy@serviteurs.org, par Associa=
+tion pour la restauration de l'abbaye d'ourscamp
+
+----------------------------------------------------------------------=
+---------------------
+
+
+
+- Mettre =C3=A0 jour votre profil et abonnement
+https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998/502/13070/r16hob=
+egfuzofhoihyaishmhgpsshizeoep/r.aspx
+
+- Se d=C3=A9sabonner
+https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998/502/13071/r16hob=
+egfuzofhoihyaishmhgpsshizeoep/r.aspx
+
+----------------------------------------------------------------------=
+---------------------
+
+
+
+
+
+----------------------------------------------------------------------=
+---------------------
+
+- Engagements de confidentialit=C3=A9
+https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998/502/13072/r16hob=
+egfuzofhoihyaishmhgpsshizeoep/r.aspx
+
+Message rout=C3=A9 par Sendethic ( https://email.ailedelorraine.org/t.=
+htm?u=3D/e/3/58998/502/13073/r16hobegfuzofhoihyaishmhgpsshizeoep/r.asp=
+x )
+
+--=-KuwK3CG2o/OfywLLBM8X5A==
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Content-Id: <3bdfcd68-7125-4966-ae84-300489710a20>
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:o=3D=
+"urn:schemas-microsoft-com:office:office" xmlns:v=3D"urn:schemas-micro=
+soft-com:vml" prefix=3D"og: http://ogp.me/ns#"><head ><meta charset=3D=
+"UTF-8"><meta name=3D"format-detection" content=3D"telephone=3Dno"> <m=
+eta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"><meta name=3D=
+"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.0"><titl=
+e>Faites un don pour l'h=C3=B4tellerie ! J-3</title><style>td,td img{v=
+ertical-align:top}table,table td{mso-table-lspace:0;mso-table-rspace:0=
+;mso-line-height-rule:exactly; margin:0;padding:0;border:0;}td{border-=
+collapse:collapse;}p{margin:0}a img{border:0}img{max-width:100%}.bOutF=
+{line-height:1px;font-size:1px;}.bExtC *{line-height:100%}</style><!--=
+[if gte mso 9]><xml> <o:OfficeDocumentSettings> <o:AllowPNG/> <o:Pixel=
+sPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings></xml><![endi=
+f]--><meta name=3D"twitter:card" content=3D"summary_large_image"><meta=
+ property=3D"og:url" content=3D"https://email.ailedelorraine.org/email=
+ing/58998/502/emailing.aspx"><meta name=3D"twitter:url" content=3D"htt=
+ps://email.ailedelorraine.org/emailing/58998/502/emailing.aspx"><style=
+ id=3D"responsive_rules_compiled">@media screen and (max-width:480px) =
+{img{height:auto !important;}img.bMImg{width:100%!important;max-width:=
+100%!important;min-width:100%!important;height:auto !important;}table,=
+table td{-moz-box-sizing:border-box;box-sizing:border-box;}table.bMTab=
+ {width:90%!important;min-width:90%!important;}div.bMWit, table.bMWit,=
+table.bMWit > tbody,table.bMWit > tbody > tr,table.bMWit > tbody > tr =
+> td, table.bMWit > tbody > tr > th{display:block!important;width:100%=
+!important;min-width:100%!important;}.bMLef{text-align:left!important}=
+.bMRig{text-align:right!important}.bMCen{text-align:center!important}.=
+bMJus{text-align:justify!important}.bMHIm img{display:none!important;}=
+ .bMHid {display:none!important;}.bMSho {overflow:visible!important;fl=
+oat:none!important;display:block!important;line-height:100%!important;=
+max-height:100%!important;font-size:100%!important;opacity:1!important=
+;}td.bBOut{border:none!important;}.bMBLe{float:left;}.bMBRi{float:righ=
+t;}a.w_100_parent{min-width:0px !important;}table.resBW-p100{width:100=
+% !important;}}</style><style id=3D"mb-e-f-headCss">a.h_b_solid_1px_4d=
+5052:hover, input[type=3D"submit"].h_b_solid_1px_4d5052:hover{border:s=
+olid 1px #4d5052 !important;} a.h_bg_4d5052:hover, input[type=3D"submi=
+t"].h_bg_4d5052:hover{background:#4d5052 !important;} </style></head><=
+body style=3D"margin: 0px; padding: 0px; background-color: rgb(255, 25=
+5, 255);" yahoo=3D"fix" leftmargin=3D"0" topmargin=3D"0" marginheight=3D=
+"0" marginwidth=3D"0" width=3D"100%" bgcolor=3D"#ffffff"><style class=3D=
+"yahoo-styles-fix">td,td img{vertical-align:top}table,table td{mso-tab=
+le-lspace:0;mso-table-rspace:0;mso-line-height-rule:exactly; margin:0;=
+padding:0;border:0;}td{border-collapse:collapse;}p{margin:0}a img{bord=
+er:0}img{max-width:100%}.bOutF{line-height:1px;font-size:1px;}.bExtC *=
+{line-height:100%}@media screen and (max-width:480px) {img{height:auto=
+ !important;}img.bMImg{width:100%!important;max-width:100%!important;m=
+in-width:100%!important;height:auto !important;}table,table td{-moz-bo=
+x-sizing:border-box;box-sizing:border-box;}table.bMTab {width:90%!impo=
+rtant;min-width:90%!important;}div.bMWit, table.bMWit,table.bMWit > tb=
+ody,table.bMWit > tbody > tr,table.bMWit > tbody > tr > td, table.bMWi=
+t > tbody > tr > th{display:block!important;width:100%!important;min-w=
+idth:100%!important;}.bMLef{text-align:left!important}.bMRig{text-alig=
+n:right!important}.bMCen{text-align:center!important}.bMJus{text-align=
+:justify!important}.bMHIm img{display:none!important;} .bMHid {display=
+:none!important;}.bMSho {overflow:visible!important;float:none!importa=
+nt;display:block!important;line-height:100%!important;max-height:100%!=
+important;font-size:100%!important;opacity:1!important;}td.bBOut{borde=
+r:none!important;}.bMBLe{float:left;}.bMBRi{float:right;}a.w_100_paren=
+t{min-width:0px !important;}table.resBW-p100{width:100% !important;}}a=
+.h_b_solid_1px_4d5052:hover, input[type=3D"submit"].h_b_solid_1px_4d50=
+52:hover{border:solid 1px #4d5052 !important;} a.h_bg_4d5052:hover, in=
+put[type=3D"submit"].h_bg_4d5052:hover{background:#4d5052 !important;}=
+ </style><div style=3D"width:100%!important;"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"body" style=3D=
+"background-color: rgb(250, 250, 250); width: 100% !important;" bgcolo=
+r=3D"#fafafa"> <tbody><tr><td valign=3D"top" align=3D"center" style=3D=
+"padding: 25px 0px;"> <table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" class=3D"bMTab noMinWidth" width=3D"680" style=3D"width: 680px=
+; padding: 0; min-width: 320px;"> <tbody><tr><td align=3D"center" vali=
+gn=3D"top"><div></div><div><div><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%" style=3D"width: 100%;" class=3D"resBW=
+-p100"><tbody> <tr><td valign=3D"top" width=3D"100%" bgcolor=3D"#fffff=
+f" style=3D"background-color: rgb(255, 255, 255);border-top:none 0px #=
+000000;border-right:none 0px #000000;border-bottom:none 0px #000000;bo=
+rder-left:none 0px #000000;"> <table border=3D"0" cellpadding=3D"0" wi=
+dth=3D"100%" cellspacing=3D"0" height=3D"auto" style=3D"height: auto;"=
+><tbody height=3D"auto" style=3D"height: auto;"> <tr> <td border=3D"0"=
+ cellpadding=3D"0" width=3D"100%" cellspacing=3D"0"> <table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody> <tr><td =
+valign=3D"top" width=3D"100%" align=3D"center" style=3D"padding: 0px;"=
+> <div><div><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" style=3D"width: 100%;" class=3D"resBW-p100"> <tbody><tr> =
+<td valign=3D"top" bgcolor=3D"#ffffff" style=3D"background-color: rgb(=
+255, 255, 255); overflow: hidden; display: block; border: 0px none rgb=
+(0, 0, 0); border-radius: 0px;"> <table border=3D"0" cellpadding=3D"0"=
+ align=3D"center" cellspacing=3D"0" width=3D"100%" height=3D"auto" sty=
+le=3D"height: auto;"> <tbody height=3D"auto" style=3D"height: auto;"><=
+tr> <td valign=3D"top" style=3D"text-align: left; padding: 0px; font-s=
+ize: 14px; color: rgb(0, 0, 0); font-weight: normal; font-style: norma=
+l; text-decoration: none; line-height: 100%;"><div style=3D"font-famil=
+y: Arial, Helvetica, sans-serif;"><div aria-readonly=3D"false" ><a  id=
+=3D"mblink-13074" href=3D"https://email.ailedelorraine.org/t.htm?u=3D/=
+e/3/58998/502/13074/r16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx" style=3D=
+"color: rgb(0, 0, 0); font-weight: normal; font-style: normal; text-de=
+coration: underline;" target=3D"_blank"><img alt=3D"T=C3=A9l=C3=A9char=
+gez les images - 0" class=3D" bMImg" data-load=3D"200" height=3D"209" =
+src=3D"https://email.ailedelorraine.org/images/58998/Noel%202024.jpg" =
+style=3D"width: 680px; max-width: 100%; height: 209px;" width=3D"680">=
+</a></div></div></td> </tr> </tbody></table> </td> </tr> </tbody></tab=
+le></div><div><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"100%" style=3D"width: 100%;" class=3D"resBW-p100"> <tbody><tr=
+> <td valign=3D"top" bgcolor=3D"#ffffff" style=3D"background-color: rg=
+b(255, 255, 255); overflow: hidden; display: block; border: 0px none r=
+gb(0, 0, 0); border-radius: 0px;"> <table border=3D"0" cellpadding=3D"=
+0" align=3D"center" cellspacing=3D"0" width=3D"100%" height=3D"auto" s=
+tyle=3D"height: auto;"> <tbody height=3D"auto" style=3D"height: auto;"=
+><tr> <td valign=3D"top" style=3D"font-size: 15px; color: rgb(63, 63, =
+63); font-weight: normal; font-style: normal; text-decoration: none; l=
+ine-height: 170%; text-align: left; padding: 20px;"><div style=3D"font=
+-family: Tahoma, Geneva, sans-serif;"><div aria-readonly=3D"false" ><p=
+ style=3D"MarGin:0px auto !important;">Chers amis de l'abbaye d'Oursca=
+mp,</p><p style=3D"MarGin:0px auto !important;">&nbsp;</p><p style=3D"=
+MarGin:0px auto !important;">En cette fin d'ann=C3=A9e, <a  id=3D"mbli=
+nk-13075" href=3D"https://email.ailedelorraine.org/t.htm?u=3D/e/3/5899=
+8/502/13075/r16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx" style=3D"color=
+: rgb(14, 21, 69); font-weight: bold; font-style: normal; text-decorat=
+ion: underline;" target=3D"_blank">pouvez-vous faire un don</a>&nbsp;p=
+our&nbsp;<a  id=3D"mblink-13076" href=3D"https://email.ailedelorraine.=
+org/t.htm?u=3D/e/3/58998/502/13076/r16hobegfuzofhoihyaishmhgpsshizeoep=
+/r.aspx" style=3D"color: rgb(14, 21, 69); font-weight: bold; font-styl=
+e: normal; text-decoration: underline;" target=3D"_blank">les travaux =
+de l'h=C3=B4tellerie </a>?</p><p style=3D"MarGin:0px auto !important;"=
+>&nbsp;</p><p style=3D"MarGin:0px auto !important;">Il ne vous <strong=
+>reste plus que trois jours</strong> pour <a  id=3D"mblink-13077" href=
+=3D"https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998/502/13077/r1=
+6hobegfuzofhoihyaishmhgpsshizeoep/r.aspx" style=3D"color: rgb(14, 21, =
+69); font-weight: bold; font-style: normal; text-decoration: underline=
+;" target=3D"_blank">b=C3=A9n=C3=A9ficier d'une r=C3=A9duction d'imp=C3=
+=B4t</a> et nous aider pour les travaux de r=C3=A9habilitation de l'Ai=
+le de Lorraine :</p><ul style=3D"color:#000000; font-family:Helvetica;=
+ font-size:18px; font-style:normal; font-weight:400; text-align:start;=
+ white-space:normal; text-decoration:none"><li style=3D"text-align:lef=
+t"><span style=3D"font-variant-ligatures:normal"><span style=3D"backgr=
+ound-color:#fdfffc"><span style=3D"text-decoration-thickness:initial">=
+<span style=3D"overflow:hidden"><span style=3D"display:block"><span st=
+yle=3D"font-size:14px;"><span style=3D"font-family:Tahoma,Geneva,sans-=
+serif;"><span style=3D"font-style:normal"><strong><font ><font style=3D=
+"font-weight:normal"><a  id=3D"mblink-13078" href=3D"https://email.ail=
+edelorraine.org/t.htm?u=3D/e/3/58998/502/13078/r16hobegfuzofhoihyaishm=
+hgpsshizeoep/r.aspx" style=3D"color: rgb(14, 21, 69); font-weight: bol=
+d; font-style: normal; text-decoration: underline;" target=3D"_blank">=
+En faisant un don de 100=E2=82=AC</a> cela ne vous co=C3=BBte que&nbsp=
+;34=E2=82=AC apr=C3=A9s d=C3=A9duction fiscale*.</font></font></strong=
+></span></span></span></span></span></span></span></span></li><li styl=
+e=3D"text-align:left"><span style=3D"font-size:14px;"><span style=3D"f=
+ont-family:Tahoma,Geneva,sans-serif;"><span style=3D"font-style:normal=
+"><span style=3D"font-variant-ligatures:normal"><span style=3D"backgro=
+und-color:#fdfffc"><span style=3D"text-decoration-thickness:initial"><=
+span style=3D"overflow:hidden"><span style=3D"display:block"><strong><=
+font ><font style=3D"font-weight:normal"><a  id=3D"mblink-13079" href=3D=
+"https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998/502/13079/r16ho=
+begfuzofhoihyaishmhgpsshizeoep/r.aspx" style=3D"color: rgb(14, 21, 69)=
+; font-weight: bold; font-style: normal; text-decoration: underline;" =
+target=3D"_blank">En faisant un don de 250=E2=82=AC</a><a  id=3D"mblin=
+k-13080" href=3D"https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998=
+/502/13080/r16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx" style=3D"color:=
+ rgb(14, 21, 69); font-weight: bold; font-style: normal; text-decorati=
+on: underline;" target=3D"_blank"> </a>cela ne vous co=C3=BBte que&nbs=
+p;59=E2=82=AC&nbsp;apr=C3=A9s d=C3=A9duction fiscale*.</font></font></=
+strong></span></span></span></span></span></span></span></span></li></=
+ul><p style=3D"margin-bottom: 0px !important; margin-top: 0px !importa=
+nt; text-align: center;"><span style=3D"color:#2980b9;"><strong>Merci =
+de votre soutien g=C3=A9n=C3=A9reux, sans vous nous ne pourrons rien f=
+aire !</strong></span></p><p style=3D"MarGin-Bottom:0px !important;Mar=
+Gin-Top:0px !important;text-align:left">&nbsp;</p><p style=3D"margin-b=
+ottom: 0px !important; margin-top: 0px !important; text-align: right;"=
+><em><strong>Congr=C3=A9gation des Serviteurs de J=C3=A9sus et Marie</=
+strong></em></p><p style=3D"MarGin-Bottom:0px !important;MarGin-Top:0p=
+x !important;text-align:left">&nbsp;</p><p style=3D"margin-bottom: 0px=
+ !important; margin-top: 0px !important;"><em>*NB : 66% du montant de =
+votre don est d=C3=A9ductible de vos imp=C3=B4ts dans la limite de 20%=
+ de votre revenu imposable.</em></p></div></div></td> </tr> </tbody></=
+table> </td> </tr> </tbody></table></div></div> </td></tr> </tbody></t=
+able> </td> </tr> </tbody></table> </td></tr> </tbody></table></div><d=
+iv><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" style=3D"width: 100%;" class=3D"resBW-p100"> <tbody><tr> <td valig=
+n=3D"top" bgcolor=3D"#3e86b0" style=3D"background-color: rgb(62, 134, =
+176); overflow: hidden; display: block; border: 0px none rgb(0, 0, 0);=
+ border-radius: 0px;"> <table border=3D"0" cellpadding=3D"0" align=3D"=
+center" cellspacing=3D"0" width=3D"100%" height=3D"auto" style=3D"heig=
+ht: auto;"> <tbody height=3D"auto" style=3D"height: auto;"><tr> <td va=
+lign=3D"top" style=3D"font-size: 15px; color: rgb(255, 255, 255); font=
+-weight: normal; font-style: normal; text-decoration: none; line-heigh=
+t: 170%; text-align: left; padding: 20px;"><div style=3D"font-family: =
+Arial, Helvetica, sans-serif;"><div aria-readonly=3D"false" aria-multi=
+line=3D"true" ><p style=3D"MarGin-Bottom:0px !important;MarGin-Top:0px=
+ !important;text-align: center;">Une nouvelle page de l=E2=80=99Histoi=
+re de l=E2=80=99Abbaye d=E2=80=99Ourscamp est en train de s=E2=80=99=C3=
+=A9crire.</p><p style=3D"MarGin-Bottom:0px !important;MarGin-Top:0px !=
+important;text-align: center;"><strong>Votre soutien est essentiel. ME=
+RCI</strong></p></div></div></td> </tr> </tbody></table> </td> </tr> <=
+/tbody></table></div><div><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" width=3D"100%" style=3D"width: 100%;" class=3D"resBW-p100"=
+> <tbody><tr> <td valign=3D"top" width=3D"100%" bgcolor=3D"#3e86b0" st=
+yle=3D"background-color: rgb(62, 134, 176);"> <table border=3D"0" cell=
+padding=3D"0" align=3D"center" cellspacing=3D"0" width=3D"100%" height=
+=3D"auto" style=3D"height: auto;"> <tbody height=3D"auto" style=3D"hei=
+ght: auto;"><tr> <td valign=3D"top" width=3D"100%" align=3D"center" st=
+yle=3D"padding: 20px 15px;"> <table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"" style=3D"cursor: default; padding: 0px;"><tb=
+ody><tr> <td valign=3D"top" bgcolor=3D"#f20202" style=3D"background-co=
+lor: rgb(242, 2, 2); overflow: hidden; display: block; border-radius: =
+5px;"> <table border=3D"0" cellpadding=3D"0" align=3D"center" cellspac=
+ing=3D"0" width=3D"100%" style=3D"text-align:center;"> <tbody><tr> <td=
+ valign=3D"top" style=3D"font-size: 20px; color: rgb(255, 255, 255); f=
+ont-weight: normal; font-style: normal; text-decoration: none;"><div s=
+tyle=3D"font-family: Arial, Helvetica, sans-serif;"><div aria-readonly=
+=3D"false" aria-multiline=3D"true" ><a  id=3D"mblink-13081" class=3D"h=
+_bg_4d5052 w_100_parent h_b_solid_1px_4d5052" href=3D"https://email.ai=
+ledelorraine.org/t.htm?u=3D/e/3/58998/502/13081/r16hobegfuzofhoihyaish=
+mhgpsshizeoep/r.aspx" style=3D"color: rgb(255, 255, 255); font-weight:=
+ normal; font-style: normal; text-decoration: none; border-radius: 5px=
+; line-height: 150%; padding: 8px 30px; display: inline-block; min-wid=
+th: 124px; border: 1px solid rgb(117, 124, 128);" target=3D"_blank">Je=
+ fais un don</a></div></div></td> </tr> </tbody></table> </td> </tr></=
+tbody></table> </td> </tr> </tbody></table> </td> </tr> </tbody></tabl=
+e></div><div><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%" style=3D"width: 100%;" class=3D"resBW-p100"> <tbody><tr>=
+ <td valign=3D"top" bgcolor=3D"#ffffff" style=3D"background-color: rgb=
+(255, 255, 255); overflow: hidden; display: block; border: 0px none rg=
+b(0, 0, 0); border-radius: 0px;"> <table border=3D"0" cellpadding=3D"0=
+" align=3D"center" cellspacing=3D"0" width=3D"100%" height=3D"auto" st=
+yle=3D"height: auto;"> <tbody height=3D"auto" style=3D"height: auto;">=
+<tr> <td valign=3D"top" style=3D"font-size: 10px; color: rgb(0, 0, 0);=
+ font-weight: normal; font-style: normal; text-decoration: none; line-=
+height: 170%; text-align: left; padding: 20px;"><div style=3D"font-fam=
+ily: Arial, Helvetica, sans-serif;"><div aria-readonly=3D"false" ><p s=
+tyle=3D"MarGin-Bottom:0px !important;MarGin-Top:0px !important;text-al=
+ign: center;"><span style=3D"font-size:12px;">Abbaye d'Ourscamp - 10 p=
+lace Saint-=C3=89loi - 60138 Chiry-Ourscamp</span></p><p style=3D"MarG=
+in-Bottom:0px !important;MarGin-Top:0px !important;text-align: center;=
+"><a href=3D"mailto:contact@ailedelorraine.org" style=3D"color: rgb(18=
+, 18, 18); font-weight: normal; font-style: normal; text-decoration: u=
+nderline;" target=3D"_blank"><span style=3D"font-size:12px;">contact@a=
+iledelorraine.org</span></a></p><p style=3D"MarGin-Bottom:0px !importa=
+nt;MarGin-Top:0px !important;text-align: center;">&nbsp;</p><p style=3D=
+"MarGin-Bottom:0px !important;MarGin-Top:0px !important;text-align: ce=
+nter;">Vous recevez cet email car vous avez suivi une retraite =C3=A0 =
+l'Abbaye d'Ourscamp ou que vous vous =C3=AAtes inscrit =C3=A0 la newsl=
+etter des Serviteurs de J=C3=A9sus et Marie. Pour ne plus recevoir d'e=
+mails concernant le projet Aile de Lorraine, vous avez la possibilit=C3=
+=A9 de vous d=C3=A9sabonner ci-dessous.</p></div></div></td> </tr> </t=
+body></table> </td> </tr> </tbody></table></div></div><div></div></td>=
+</tr></tbody></table> </td></tr></tbody></table></div><img src=3D"http=
+s://email.ailedelorraine.org/t.aspx?u=3D/e/3/58998/502/f/r16hobegfuzof=
+hoihyaishmhgpsshizeoep/r.aspx" width=3D"290" height=3D"10" border=3D"0=
+" alt=3D"T=C3=A9l=C3=A9chargez les images" style=3D"height:10px !impor=
+tant;width:290px !important;" /><!-- https://email.ailedelorraine.org/=
+t.aspx?u=3D/e/3/58998/502/f/r16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx=
+ --><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" bgcolor=3D"#FFFFFF">              <tr>                <td bgcolor=3D=
+"#FFFFFF"><img alt=3D"T=C3=A9l=C3=A9chargez les images - 1" style=3D"d=
+isplay:block;" src=3D"https://email.ailedelorraine.org/contents/0/_com=
+mon/images/footer.new/spacer.gif" width=3D"1" height=3D"15" border=3D"=
+0" /></td>              </tr>              <tr>                <td bgc=
+olor=3D"#FFFFFF" align=3D"center"></td>              </tr>            =
+  <tr>                <td bgcolor=3D"#FFFFFF" style=3D"font-size:1px; =
+line-height:1px;"><img alt=3D"T=C3=A9l=C3=A9chargez les images - 2" st=
+yle=3D"display:block;" src=3D"https://email.ailedelorraine.org/content=
+s/0/_common/images/footer.new/spacer.gif" width=3D"1" height=3D"2" bor=
+der=3D"0" /></td>              </tr>              <tr>                =
+<td bgcolor=3D"#FFFFFF" align=3D"center" style=3D"line-height:110%;">&=
+nbsp;</td>              </tr>     <!-- FOOTER IDENTIFIED START -->    =
+          <tr>                <td bgcolor=3D"#FFFFFF" align=3D"center"=
+ style=3D"line-height:110%;"><font face=3D"Arial, Helvetica, sans-seri=
+f" color=3D"#6A6A6A" style=3D"font-size:10px;">Ce message est envoy&ea=
+cute; &agrave; aperroy@serviteurs.org par Association pour la restaura=
+tion de l'abbaye d'ourscamp</font></td>              </tr>            =
+  <tr>                <td bgcolor=3D"#FFFFFF"><img alt=3D"T=C3=A9l=C3=A9=
+chargez les images - 3" style=3D"display:block;" src=3D"https://email.=
+ailedelorraine.org/contents/0/_common/images/footer.new/spacer.gif" he=
+ight=3D"15" width=3D"1" border=3D"0" /></td>              </tr>       =
+       <tr>                <td bgcolor=3D"#FFFFFF" align=3D"center" st=
+yle=3D"line-height:110%;"><font face=3D"Arial, Helvetica, sans-serif" =
+style=3D"font-size:10px;"><a  id=3D"mblink-13082" style=3D"color:#6A6A=
+6A" href=3D"https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998/502/=
+13082/r16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx" target=3D"_blank">Me=
+ttre &agrave; jour votre profil</a> | <a  id=3D"mblink-13083" style=3D=
+"color:#6A6A6A" href=3D"https://email.ailedelorraine.org/t.htm?u=3D/e/=
+3/58998/502/13083/r16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx" target=3D=
+"_blank">Se d&eacute;sabonner</a> | <a  id=3D"mblink-13084" style=3D"c=
+olor:#6A6A6A" href=3D"https://email.ailedelorraine.org/t.htm?u=3D/e/3/=
+58998/502/13084/r16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx" target=3D"=
+_blank">Engagements de confidentialit&eacute;</a></font></td>         =
+     </tr>     <!-- FOOTER IDENTIFIED END -->              <tr>       =
+         <td bgcolor=3D"#FFFFFF" align=3D"center" style=3D"line-height=
+:110%;">&nbsp;</td>              </tr>              <tr>              =
+  <td bgcolor=3D"#FFFFFF" align=3D"center"><a  id=3D"mblink-13085" hre=
+f=3D"https://email.ailedelorraine.org/t.htm?u=3D/e/3/58998/502/13085/r=
+16hobegfuzofhoihyaishmhgpsshizeoep/r.aspx" target=3D"_blank"><img styl=
+e=3D"display:block; font-family:Arial, Helvetica, sans-serif; color:#6=
+66666; font-size:11px;" src=3D"https://email.ailedelorraine.org/conten=
+ts/0/fr-fr/Images/Footer/SE-logo-1-2025-03-21.png" alt=3D"Sendethic, l=
+e facilitateur du marketing en ligne." border=3D"0" /></a></td>       =
+       </tr>              <tr>                <td bgcolor=3D"#FFFFFF">=
+<img alt=3D"T=C3=A9l=C3=A9chargez les images - 4" style=3D"display:blo=
+ck;" src=3D"https://email.ailedelorraine.org/contents/0/_common/images=
+/footer.new/spacer.gif" width=3D"1" height=3D"15" border=3D"0" /></td>=
+              </tr>            </table>  </body></html><!-- MB EDITOR =
+EOF -->
+--=-KuwK3CG2o/OfywLLBM8X5A==--
+
