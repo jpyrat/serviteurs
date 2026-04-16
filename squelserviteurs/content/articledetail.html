@@ -23,7 +23,7 @@
 				[(#LOGO_ARTICLE|largeur|>{369}|oui)
 				[(#LOGO_ARTICLE|hauteur|>{199}|oui)
 				[<figure class="text-center sans-margin avec-margin-top avec-margin-bottom hide-for-large">
-					<img src="(#LOGO_ARTICLE|focusimage{800,600,center}|extraire_attribut{src})" alt="" />
+					<img src="(#LOGO_ARTICLE|image_reduire{800,0}|extraire_attribut{src})" alt="" />
 				</figure>]
 				]
 				]
@@ -85,7 +85,7 @@
 					[(#LOGO_ARTICLE|largeur|>{369}|oui)
 					[(#LOGO_ARTICLE|hauteur|>{199}|oui)
 					[<figure class="text-center sans-margin avec-margin-top avec-margin-bottom show-for-large">
-						<img src="(#LOGO_ARTICLE|focusimage{370,450,center}|extraire_attribut{src})" alt="" />
+						<img src="(#LOGO_ARTICLE|image_reduire{370,0}|extraire_attribut{src})" alt="" />
 					</figure>]
 					]
 					]
