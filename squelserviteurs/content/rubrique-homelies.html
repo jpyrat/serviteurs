@@ -23,12 +23,9 @@
 			<article class="focus row text-center flexbox-stretch">
 				<div class="large-4 medium-6 columns">
 					<div class="logo-content #GET{couleur}"[ style="background-image: url((#LOGO_ARTICLE|focusimage{370,234,center}|extraire_attribut{src})); background-size: cover;"]>
-						<p class="font-size-130 texte-blanc avec-padding-leftright"><BOUCLE_MotsAssociésUne(MOTS){id_article}{id_groupe IN 25,27,28,29,33,31,26,30,32}{", "}>#TITRE</BOUCLE_MotsAssociésUne></p>
-						<div class="transitionHomelies avec-padding-top">
-							<hr aria-hidden="true" />
-							<span class="icon-chevron-thin-up icon-lg #GET{couleur}"></span>
-						</div>
-						<p class="h2 texte-blanc text-uppercase avec-padding"><BOUCLE_AnneeLiturgique(MOTS){id_groupe=24}{id_article}>#TITRE</BOUCLE_AnneeLiturgique></p>
+						<p class="font-size-130 texte-blanc avec-padding">[(#CHAPO|ptobr)]</p>
+						
+						
 					</div>
 				</div>
 				<div class="large-8 medium-6 columns medium-text-left flexbox-wrap-space-between">
@@ -80,7 +77,7 @@
 					<B_Predicateurs>
 						<article>
 							<label><h2>Rechercher une homélie par prédicateur</h2>
-								<form action="#SELF" method="get">
+								<form action="#SELF#ancre_recherche-homelies" method="get">
 									<div class="sans-padding">
 										<select name="id_auteur" onchange='if (this.value > 0) {
 							this.form.submit();
@@ -98,7 +95,7 @@
 					<B_Evangiles>
 						<article>
 							<label><h2>Rechercher une homélie par évangile</h2>
-								<form action="#SELF" method="get">
+								<form action="#SELF#ancre_recherche-homelies" method="get">
 									<div class="sans-padding">
 										<select name="mots\[\]" onchange='if (this.value > 0) {
 							this.form.submit();
@@ -122,7 +119,7 @@
 								<ul class="dropdown menu" data-dropdown-menu role="navigation">
 									<li>
 										<a href="#" title="Menu de sélection d'une homélie par thème">Sélectionner une homélie par thème</a>
-										<form action="#SELF" method="get">
+										<form action="#SELF#ancre_recherche-homelies" method="get">
 											<div class="sans-padding">
 												<input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
 												<select name="mots\[\]" onchange='if (this.value > -1) {
@@ -179,7 +176,7 @@
 						<div class="column avec-margin-bottom">
 							<div class="pave-content tempsAnnee avec-padding menulisteRecherches">
 								<label><h2 class="texte-colorGrisFonce">#_AnneesLiturgiques:TITRE</h2>
-									<form action="#SELF" method="get" class="ajax">
+									<form action="#SELF#ancre_recherche-homelies" method="get" class="ajax">
 										<div class="sans-padding">
 											<input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
 											<select name="mots\[\]" onchange='if (this.value > -1) {
@@ -217,7 +214,7 @@
 						<div class="column avec-margin-bottom">
 							<div class="pave-content tempsAvent avec-padding menulisteRecherches">
 								<h2 class="texte-blanc text-transform-none font-family-roboto">Temps de l'avent</h2>
-								<form action="#SELF" method="get">
+								<form action="#SELF#ancre_recherche-homelies" method="get">
 									<div class="sans-padding">
 										<input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
 										<select name="mots\[\]" onchange='if (this.value > -1) {
@@ -239,7 +236,7 @@
 						<div class="column avec-margin-bottom">
 							<div class="pave-content tempsNoel avec-padding menulisteRecherches">
 								<h2 class="texte-blanc text-transform-none font-family-roboto">Temps de Noël</h2>
-								<form action="#SELF" method="get">
+								<form action="#SELF#ancre_recherche-homelies" method="get">
 									<div class="sans-padding">
 										<input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
 										<select name="mots\[\]" onchange='if (this.value > -1) {
@@ -261,7 +258,7 @@
 						<div class="column avec-margin-bottom">
 							<div class="pave-content tempsCareme avec-padding menulisteRecherches">
 								<h2 class="texte-blanc text-transform-none font-family-roboto">Temps de carême</h2>
-								<form action="#SELF" method="get">
+								<form action="#SELF#ancre_recherche-homelies" method="get">
 									<div class="sans-padding">
 										<input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
 										<select name="mots\[\]" onchange='if (this.value > -1) {
@@ -283,7 +280,7 @@
 						<div class="column avec-margin-bottom">
 							<div class="pave-content tempsPascal avec-padding menulisteRecherches">
 								<h2 class="texte-blanc text-transform-none font-family-roboto">Temps Pascal</h2>
-								<form action="#SELF" method="get">
+								<form action="#SELF#ancre_recherche-homelies" method="get">
 									<div class="sans-padding">
 										<input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
 										<select name="mots\[\]" onchange='if (this.value > -1) {
@@ -305,7 +302,7 @@
 						<div class="column avec-margin-bottom">
 							<div class="pave-content tempsSolennites avec-padding menulisteRecherches">
 								<h2 class="texte-blanc text-transform-none font-family-roboto">Solennités</h2>
-								<form action="#SELF" method="get">
+								<form action="#SELF#ancre_recherche-homelies" method="get">
 									<div class="sans-padding">
 										<input hidden="hidden" name="mots\[\]" value="#_AnneesLiturgiques:ID_MOT" />
 										<select name="mots\[\]" onchange='if (this.value > -1) {
