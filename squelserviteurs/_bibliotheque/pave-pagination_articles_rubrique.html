@@ -8,7 +8,7 @@
 		<div class="row avec-padding-bottom">
 		#ANCRE_PAGINATION
 		[(#REM) ne pas paginer sur les 3 articles focus déjà affichés au dessus ]
-		<BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{!par date_modif}{pagination 3}{doublons}>
+		<BOUCLE_ap(ARTICLES){id_rubrique}{par num titre}{!par date}{pagination 3}{doublons}>
 		<article class="medium-4 columns text-left">
 			<h2 class="#EDIT{titre}">
 				<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">#TITRE</a>

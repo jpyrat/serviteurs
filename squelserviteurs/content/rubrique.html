@@ -18,7 +18,7 @@
 <div class="contentRubrique row column text-center" id="ancre_rubrique">
 	<h1 class="texte-<INCLURE{fond=inclure/colorespace,id_secteur=#ID_SECTEUR}> #EDIT{titre}">#TITRE</h1>
 	[<div class="sous-titre texte-colorGrisFonce font-style-italic avec-padding-right05 avec-padding-left05 avec-padding-top05 #EDIT{texte}">(#TEXTE|image_reduire{1170,0})</div>]
-	<BOUCLE_a(ARTICLES){id_rubrique}{par num titre}{!par date_modif}{0,3}{doublons}>
+	<BOUCLE_a(ARTICLES){id_rubrique}{par num titre}{!par date}{0,3}{doublons}>
 	<article class="focus row text-center">
 		<a href="#URL_ARTICLE" title="Lire [(#TITRE|attribut_html)]">
 			<div class="large-4	columns avec-padding-bottom avec-margin-bottom">
